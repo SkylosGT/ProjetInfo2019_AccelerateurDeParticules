@@ -3,7 +3,17 @@
 
 ##Semaine 1 :
 
+Log Adrien:
+-Création de l'environnement de développement GIT et d'une ToDo List 
+pour un workflow amélioré. [AD]
 
+-Création d'un fichier JOURNAL.txt et mise à jour de son template dans 
+le dossier du projet [AD]
+
+Log Joséphine:
+
+
+Notes:
 
 --------------------------------------------------
 ## Semaine 2 :
