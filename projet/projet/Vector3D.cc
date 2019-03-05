@@ -171,5 +171,5 @@ double Vecteur3D::prod_mixte(Vecteur3D V1, Vecteur3D V2) const
 
 int main ()
 {
-	
+	// Est-ce qu'on met quelque chose dans le main ou pas?? A chaque fonction faite je l'ai testée 
 }
