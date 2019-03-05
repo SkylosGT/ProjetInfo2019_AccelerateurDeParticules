@@ -1,19 +1,23 @@
 #pragma once
 
+//En tête de la classe Vecteur3D, description des méthodes dans "Vecteur3D.cc"
 class Vecteur3D {
 	
 	private: 
 	
+	//Déscription du vecteur en coordonnées cartésiennes
 		double x;
 		double y;
 		double z;
 	
 	public:
 	
-		double getx() const;
-		double gety() const;
-		double getz() const;
-		
+	//Getter pour les coordonnées x,y,z
+		double getx() const {return x;};
+		double gety() const {return y;};
+		double getz() const {return z;};
+	
+	//Setter pour l'initialisation d'un vecteur !!!à remplacer par un Constructeur!!
 		void set(double, double, double);
 		
 		void affiche () const;

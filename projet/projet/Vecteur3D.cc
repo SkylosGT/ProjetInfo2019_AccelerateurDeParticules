@@ -1,47 +1,6 @@
 #include <iostream>
 #include <cmath>
-using namespace std;
-
-class Vecteur3D {
-	
-	private : 
-	
-		double x;
-		double y;
-		double z;
-	
-	public:
-	
-		double getx() const;
-		double gety() const;
-		double getz() const;
-		
-		void set(double xx, double yy, double zz);
-		
-		void affiche () const;
-		
-		bool compare ( Vecteur3D Acomparer) const;
-		
-		Vecteur3D addition (Vecteur3D autre) const;
-		
-		Vecteur3D soustraction (Vecteur3D autre) const;
-		
-		Vecteur3D oppose () const;
-	
-		Vecteur3D mult(double scalaire) const;
-		
-		double prod_scal(Vecteur3D autre) const;
-		
-		Vecteur3D prod_vect(Vecteur3D autre) const;
-		
-		double norme() const;
-		
-		double norme2() const;
-		
-		Vecteur3D unitaire() const;
-		
-		double prod_mixte(Vecteur3D V1, Vecteur3D V2) const;
-};
+namespace std;
 
 void Vecteur3D::affiche() const {
 		
@@ -60,25 +19,6 @@ bool Vecteur3D::compare(Vecteur3D Acomparer) const
 		return false;
 		
 	}
-}
-	
-double Vecteur3D::getx() const
-{
-	
-	return x;
-}
-
-double Vecteur3D::gety() const
-{
-	
-	return y;
-}
-
-double Vecteur3D::getz() const
-{
-	
-	return z ;
-	
 }
 
 void Vecteur3D::set(double xx, double yy, double zz) 
@@ -148,7 +88,7 @@ double Vecteur3D::norme() const
 double Vecteur3D::norme2() const
 { 
 	double norme_carre;
-	norme_carre = pow( norme(), 2); // c'est mieux d'utiliser la fonction norme ou juste de faire que c'est x*x + y*y + z*z ??
+	norme_carre = pow( norme(), 2);
 	
 	return norme_carre;
 }
