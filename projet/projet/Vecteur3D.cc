@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "Vecteur3D.h"
-namespace std;
+using namespace std;
 
 //affiche() : affiche les composantes x, y, z d'un vecteur sur la console
 void Vecteur3D::affiche() const {
