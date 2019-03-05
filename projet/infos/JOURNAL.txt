@@ -11,13 +11,19 @@ pour un workflow amÈliorÈ. [AD]
 le dossier du projet [AD]
 
 Log JosÈphine:
+-Remise à niveau des connaissances en programmation du premier semestre (aucun codage fait depuis 1 an à cause de la MAN)
+
+-Prise de connaissance du projet
+
+-Apprentissage du fonctionnement de l’environnement de dèveloppement GIT
 
 
 Notes:
 
 --------------------------------------------------
 ## Semaine 2 :
-
+Log Joséphine:
+-Création de la classe Vecteur3D sur Geany dans un seul fichier Vecteur.cc
 
 
 --------------------------------------------------
