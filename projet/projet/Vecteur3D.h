@@ -17,8 +17,9 @@ class Vecteur3D {
 		double gety() const {return y;};
 		double getz() const {return z;};
 	
-	//Setter pour l'initialisation d'un vecteur !!!à remplacer par un Constructeur!!
-		void set(double, double, double);
+		Vecteur3D(double _x=0.0, double _y=0.0, double _z=0.0)
+		: x(_x) , y(_y), z(_z) 
+		{}
 		
 		void affiche () const;
 		
