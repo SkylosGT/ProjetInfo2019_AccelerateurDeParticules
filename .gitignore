@@ -62,3 +62,6 @@
 *.out
 
 *.app
+
+#apple OS
+*.DS_Store
