@@ -16,7 +16,7 @@ double Particule::scalNormeVitesse(){
 }
 
 double Particule::scalEnergie(){
-    
+    return scalFacteurGamma()*scal_m*pow(c, 2); //!!c temporaire
 }
 
 double Particule::scalFacteurGamma(){
