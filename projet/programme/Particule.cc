@@ -11,11 +11,12 @@ Particule::~Particule()
 
 double Particule::scalNormeVitesse(){
     double scal_normeP= vec_p.norme();
+    //utilisation de pow() pour une meilleure compréhension
     return (scal_normeP)/(sqrt(pow(scal_m, 2)+pow((scal_normeP/ c),2))); //!!c temporaire
 }
 
 double Particule::scalEnergie(){
-
+    return 1/sqrt(1-pow(scalNormeVitesse()/c,2)); //!!c temporaire
 }
 
 double Particule::scalFacteurGamma(){
