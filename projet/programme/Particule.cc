@@ -1,5 +1,6 @@
 #include "Particule.h"
 #include <cmath>
+ 
 /*!!Changer de place */ 
 const double c(1);
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
