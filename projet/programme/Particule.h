@@ -16,9 +16,11 @@ public:
     Particule(/*Position*/Vecteur3D, /*Quantité de mouvement*/Vecteur3D, /*Masse*/double, /*Charge*/double);
     //Déstructeur
     ~Particule();
+    //Fonction norme de la vitesse
+    double scalNormeVitesse();
     //Fonction Energie
-    double scalEnergy();
+    double scalEnergie();
     //Fonction Facteur Gamma
-    double scalGammaFactor();
+    double scalFacteurGamma();
 };
 

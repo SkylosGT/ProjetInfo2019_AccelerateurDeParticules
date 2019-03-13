@@ -8,10 +8,14 @@ Particule::~Particule()
 {
 }
 
-double Particule::scalEnergy(){
+double Particule::scalNormeVitesse(){
+    
+}
+
+double Particule::scalEnergie(){
 
 }
 
-double Particule::scalGammaFactor(){
+double Particule::scalFacteurGamma(){
 
 }
