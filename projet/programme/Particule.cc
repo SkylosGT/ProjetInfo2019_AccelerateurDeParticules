@@ -17,5 +17,15 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _vitesseUnitaire, double _energie, 
     vec_v=_vitesseUnitaire.mult(scal_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
 }
 
+double Particule::Energie()
+{
+    return FacteurGamma()*scal_m*scal_c*scal_c;
+}
+
+double Particule::FacteurGamma()
+{
+    return 1/sqrt(1-(vec_v.norme()/scal_c)*(vec_v.norme()/scal_c));
+}
+
 Particule::~Particule(){}
 
