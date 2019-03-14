@@ -3,12 +3,20 @@
 #include <cmath>
  
 using  namespace ConstantesPhysiques;
-
+//Constructeur par vecteur quantité de mouvement en Gev
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
-:vec_r(_r), vec_p(_p), scal_m(_m), scal_q(_q) {}
+:vec_r(_r), scal_m(_m), scal_q(_q) 
+{
 
+}
+
+//Constructeur par energie en GeV et direction vectorielle
+Particule::Particule(Vecteur3D _r, Vecteur3D _vitesseUnitaire, double _energie, double _m, double _q)
+:vec_r(_r), scal_m(_m), scal_q(_q) {}
 
 Particule::~Particule(){}
+
+Vecteur3D Particule::
 
 //utilisation de pow() pour une meilleure compréhension
 double Particule::scalNormeVitesse(){

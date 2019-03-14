@@ -18,6 +18,13 @@ public:
     Particule(Vecteur3D/*Position*/, Vecteur3D /*Direction Vectorielle*/, double /*Energie*/, double/*Masse*/, double /*Charge*/ );
     //Déstructeur
     ~Particule();
+  
+    //Fonction transforme quantité de mouvement en GeV à quantité de mouvement SI
+    Vecteur3D toVec_pSI(Vecteur3D/*Quantité de mouvement*/);
+    
+    //Fonction transforme quantité de mouvement en GeV à quantité de mouvement SI
+    double toScalEnergieSI(double /*Energie*/);
+
     //Fonction norme de la vitesse
     double scalNormeVitesse();
     //Fonction Energie
