@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
     Vecteur3D r;
     r.set(0,0,0);
@@ -15,8 +15,7 @@ int main(int argc, char const *argv[])
     Vecteur3D p;
     p.set(3,3,3);
 
-    Particule p(r,p,m,q);
-    p.affiche();
+    Particule(r,p,m,q).affiche();
     return 0;
 }
 
