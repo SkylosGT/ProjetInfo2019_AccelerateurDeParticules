@@ -4,14 +4,11 @@
  
 using  namespace ConstantesPhysiques;
 
-/*!!Changer de place */ 
-const double c(1);
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
 :vec_r(_r), vec_p(_p), scal_m(_m), scal_q(_q) {}
 
-Particule::~Particule()
-{
-}
+
+Particule::~Particule(){}
 
 //utilisation de pow() pour une meilleure compréhension
 double Particule::scalNormeVitesse(){
