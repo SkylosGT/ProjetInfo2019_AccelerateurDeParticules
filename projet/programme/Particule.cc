@@ -1,7 +1,9 @@
 #include "Particule.h"
 #include "ConstantesPhysiques.h"
+#include <iostream>
 #include <cmath>
 using  namespace ConstantesPhysiques;
+using namespace std;
 
 //Constructeur par vecteur quantité de mouvement en Gev
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
@@ -36,6 +38,12 @@ void Particule::bouger(double _dt){
     vec_v=vec_v.addition(vec_f.mult(_dt/(FacteurGamma()*scal_m)));
     vec_r=vec_r.addition(vec_v.mult(_dt));
     vec_f.set(0,0,0);
+}
+
+void Particule::affiche(){
+    vec_r.affiche();
+    vec_v.affiche();
+    vec_f.affiche();
 }
 
 Particule::~Particule(){}

@@ -29,5 +29,7 @@ public:
     void ajouteForceMagnetique(Vecteur3D /*Champs magnétique*/, double /*Pas de temps*/);
 
     void bouger(double /*Pas de temps*/);
+
+    void affiche();
 };
 
