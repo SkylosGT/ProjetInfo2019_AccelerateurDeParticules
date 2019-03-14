@@ -5,10 +5,9 @@
 
 Log Adrien:
 -Création de l'environnement de développement GIT et d'une ToDo List 
-pour un workflow amélioré. [AD]
-
+pour un workflow amélioré.
 -Création d'un fichier JOURNAL.txt et mise à jour de son template dans 
-le dossier du projet [AD]
+le dossier du projet.
 
 Log Joséphine:
 -Remise ˆ niveau des connaissances en programmation du premier semestre (aucun codage fait depuis 1 an ˆ cause de la MAN)
@@ -26,15 +25,19 @@ Log JosŽphine:
 -CrŽation de la classe Vecteur3D sur Geany dans un seul fichier Vecteur.cc
 
 Log Adrien:
-//Test
+-Installation de l'IDE Qt Creator
+-Exercice P2 (OPTIONNEL) : prise en main du graphisme
 --------------------------------------------------
 ## Semaine 3 :
-
+Log Adrien:
+-Modularisation du progamme en trois fichiers distincts: vecteur3D.h, vecteur3D.cc, testVecteur.cc
+-Implémentation du makefile
 
 
 --------------------------------------------------
 ## Semaine 4 :
-
+Log Adrien:
+-Implémentation de la classe Particule
 
 
 --------------------------------------------------
