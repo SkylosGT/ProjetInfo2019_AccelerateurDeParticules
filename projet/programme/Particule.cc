@@ -16,7 +16,9 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _vitesseUnitaire, double _energie, 
 
 Particule::~Particule(){}
 
-Vecteur3D Particule::
+Vecteur3D Particule::toVec_pSI(Vecteur3D _p){
+    return _p.mult()
+}
 
 //utilisation de pow() pour une meilleure compréhension
 double Particule::scalNormeVitesse(){
