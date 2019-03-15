@@ -33,6 +33,9 @@ Log Adrien:
 -Modularisation du progamme en trois fichiers distincts: vecteur3D.h, vecteur3D.cc, testVecteur.cc
 -ImplÈmentation du makefile
 
+Log Joséphine:
+-Implémentation d’un constructeur et destruction du setter dans le programme vecteur3D.cc 
+
 
 --------------------------------------------------
 ## Semaine 4 :
