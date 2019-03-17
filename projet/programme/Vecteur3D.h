@@ -6,9 +6,9 @@ class Vecteur3D {
 	private: 
 	
 	//Description du vecteur en 3 coordonnées cartésiennes
-		double x;
-		double y;
-		double z;
+		double scal_x;	//Composante sur X
+		double scal_y;	//Composante sur Y
+		double scal_z; 	//Composante sur Z
 		
 	//Méthodes auxquels on accède via des opérateurs internes à la classe Vecteur3D (fonctions utilisées par les opérateurs internes)
 		
