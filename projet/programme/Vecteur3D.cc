@@ -78,8 +78,8 @@ Vecteur3D Vecteur3D::prod_vect(Vecteur3D const& autre) const
 	return Vecteur3D (scal_y*autre.getz() - scal_z*autre.gety(), scal_z*autre.getx() - scal_x*autre.getz(), scal_x*autre.gety() - scal_y*autre.getx());
 }
 
-//prod_miscal_xte() : Effectue un produit miscal_xte entre l'instance et deuscal_x vecteurs passés en paramètre
-double Vecteur3D::prod_miscal_xte(Vecteur3D V1, Vecteur3D V2) const 
+//prod_mixte() : Effectue un produit mixte entre l'instance et deux vecteurs passés en paramètre
+double Vecteur3D::prod_mixte(Vecteur3D V1, Vecteur3D V2) const 
 {	
 	return double (prod_scal(V1.prod_vect(V2)));
 }
