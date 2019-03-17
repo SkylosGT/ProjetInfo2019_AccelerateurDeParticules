@@ -2,7 +2,7 @@
 #include <cmath>
 #include "Vecteur3D.h"
 using namespace std;
-//DEFINITION (PROTOTYPE + CORPS) DES METHODES ET DES FONCTIONS DE LA CLASSE VECTEUR3D
+//DEFINITIONS (PROTOTYPE + CORPS) DES METHODES ET DES FONCTIONS DE LA CLASSE VECTEUR3D
 
 //METHODES PRIVEES DE LA CLASSE VECTEUR3D
 //compare() : compare les coordonnées de l'instance avec celles d'un autre vecteur
@@ -38,6 +38,22 @@ const Vecteur3D Vecteur3D::operator-() const {
 	
 const Vecteur3D Vecteur3D::operator ~() const {
 	return (*this).unitaire();}
+
+Vecteur3D& Vecteur3D::operator+=(Vecteur3D const& autre){
+	*this = *this + autre;
+	return *this; }
+
+Vecteur3D& Vecteur3D::operator-=(Vecteur3D const& autre){
+	*this = *this - autre;
+	return *this; }
+	
+Vecteur3D& Vecteur3D::operator*=(double const& scalaire){
+	*this = scalaire*(*this);
+	return *this; }
+	
+Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre){
+	*this = (*this)^autre;
+	return *this; }
 
 //METHODES PUBLIQUES DE LA CLASSE VECTEURS3D
 //affiche() : affiche les coordonnées de l'instance 

@@ -62,5 +62,16 @@ int main ()
 	cout << " Vecteur 2 - vecteur 1 = " << vect2 - vect1 << endl;
 	cout << endl;
 	
+	//Test des opérateurs += , -=, *= et ^=
+	vect1 += vect2;
+	vect2 -= vect3;
+	vect3 *= 4;
+	vect4 ^= vect1;
+	
+	cout << "Le vecteur 1 auquel on ajoute le vecteur 2 donne le nouveau vecteur 1: " << vect1 << endl;
+	cout << "Le vecteur 2 auquel on soustrait le vecteur 3 donne le nouveau vecteur 2: "<< vect2 << endl;
+	cout << "Le vecteur 3 multiplier par 4 donne le nouveau vecteur 3: " << vect3 << endl;
+	cout << "Le vecteur resultant du produit scalaire du vecteur 4 et du nouveau vecteur 1 est le nouveau vecteur 4: " << vect4 << endl;
+		
 	return 0;
 }
