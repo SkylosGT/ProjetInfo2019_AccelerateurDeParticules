@@ -33,11 +33,7 @@ class Vecteur3D {
 		bool operator!=(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre vecteur3D (retourne true si n'scal_y a pas égalité)
 		const Vecteur3D operator-() const; //Retourne l'opposé de l'instance courante
 		const Vecteur3D operator~() const; //Retourne le vecteur unitaire associé à l'instance courante
-		Vecteur3D& operator+=(Vecteur3D const&); //Retourne l'instance courante additionnée à un autre vecteur3D
-		Vecteur3D& operator-=(Vecteur3D const&); //Retourne l'instance courante à laquelle on a soustrait un autre vecteur3D
-		Vecteur3D& operator*=(double const&); //Retourne l'instance courante multipliée par un scalaire
-		Vecteur3D& operator^=(Vecteur3D const&); //Retourne dans l'instance courante le produit vectoriel de celle-ci avec un autre vecteur3D
-			
+	
 	//Fonctions utilisées pas les opérateurs externes à la classe Vecteur3D
 	
 		std::ostream& affiche(std::ostream&) const; //Fonction permettant l'affichage des 3 coordonnées du vecteur3D en instance courante
