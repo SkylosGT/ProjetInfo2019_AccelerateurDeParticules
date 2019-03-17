@@ -103,7 +103,7 @@ Vecteur3D Vecteur3D::rotation(Vecteur3D const& a, double t) const
 }
 	
 
-//OPERATEURS Escal_xTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE
+//OPERATEURS EXTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE
 ostream& operator<<(ostream& sortie, Vecteur3D const& V){
 	return V.affiche(sortie); }
 	
