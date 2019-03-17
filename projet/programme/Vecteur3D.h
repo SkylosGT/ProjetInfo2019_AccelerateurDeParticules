@@ -20,17 +20,17 @@ class Vecteur3D {
 	
 	public:
 	
-	//Getter pour les coordonnées x,y,z
-		double getx() const {return x;};
-		double gety() const {return y;};
-		double getz() const {return z;};
+	//Getter pour les coordonnées scal_x,scal_y,scal_z
+		double getx() const {return scal_x;};
+		double gety() const {return scal_y;};
+		double getz() const {return scal_z;};
 	
 	//Un constructeur pour initialiser les objets (avec initialisation par défaut au vecteur nul)
-		Vecteur3D (double x=0.0, double y=0.0, double z=0.0) : x(x), y(y), z(z) {}
+		Vecteur3D (double scal_x=0.0, double scal_y=0.0, double scal_z=0.0) : scal_x(scal_x), scal_y(scal_y), scal_z(scal_z) {}
 	
 	//OPERATEURS INTERNES (utilisant des fonctions prédéfinies à cet usage)
-		bool operator==(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre Veteur3D (retourne true si il y a égalité)
-		bool operator!=(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre vecteur3D (retourne true si n'y a pas égalité)
+		bool operator==(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre Veteur3D (retourne true si il scal_y a égalité)
+		bool operator!=(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre vecteur3D (retourne true si n'scal_y a pas égalité)
 		const Vecteur3D operator-() const; //Retourne l'opposé de l'instance courante
 		const Vecteur3D operator~() const; //Retourne le vecteur unitaire associé à l'instance courante
 		Vecteur3D& operator+=(Vecteur3D const&); //Retourne l'instance courante additionnée à un autre vecteur3D

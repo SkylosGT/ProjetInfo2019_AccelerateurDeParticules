@@ -3,6 +3,9 @@
 #include "Vecteur3D.h"
 using namespace std;
 
+//!!!!!!A changer, mais mon compilateur ne comprend pas sinon!!!!!!!!
+const double PI(3.14);
+
 /*Boucle principale
 pour le moment il ne s'agit que du test de la classe vecteur3D*/
 int main ()
@@ -52,7 +55,7 @@ int main ()
 	cout <<"L'opposé du vecteur 1 est : " << (-vect1) << endl;
 	cout << "Son vecteur unitaire associé est : " << (~vect1) << endl;
 	cout << "Le Multiplier à gauche par 4 donne le vecteur : " <<4*vect1<< " et à droite : "<<vect1*4 << endl;
-	cout << "Le vecteur résultant de la rotation du vecteur 1 d'un angle de 90° autour de l'axe du vecteur 2 est " << vect1.rotation(vect2, (M_PI/2)) << endl;
+	cout << "Le vecteur résultant de la rotation du vecteur 1 d'un angle de 90° autour de l'axe du vecteur 2 est " << vect1.rotation(vect2, (PI/2)) << endl;
 	cout <<endl;
 	
 	//Test de l'addition et de la sousctraction de deux vecteurs 

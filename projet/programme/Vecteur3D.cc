@@ -7,7 +7,7 @@ using namespace std;
 //METHODES PRIVEES DE LA CLASSE VECTEUR3D
 //compare() : compare les coordonnées de l'instance avec celles d'un autre vecteur
 bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
-	if ((scal_x == Acomparer.getscal_x()) and (scal_y ==  Acomparer.gety()) and (scal_z == Acomparer.getz())) {
+	if ((scal_x == Acomparer.getx()) and (scal_y ==  Acomparer.gety()) and (scal_z == Acomparer.getz())) {
 			return true;
 		} else {
 			return false;
@@ -67,13 +67,13 @@ std::ostream& Vecteur3D::affiche(std::ostream& sortie) const
 //addition() : Additionne l'instance avec un vecteur passé en paramètre
 Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
 {		
-	return Vecteur3D ( scal_x + autre.getscal_x(), scal_y + autre.gety(), scal_z + autre.getz());
+	return Vecteur3D ( scal_x + autre.getx(), scal_y + autre.gety(), scal_z + autre.getz());
 }
 
 //soustraction() : Soustrait l'instance avec un vecteur passé en paramètre
 Vecteur3D Vecteur3D::soustraction(Vecteur3D const& autre) const
 {
-	return Vecteur3D (scal_x - autre.getscal_x(), scal_y - autre.gety(), scal_z - autre.getz());
+	return Vecteur3D (scal_x - autre.getx(), scal_y - autre.gety(), scal_z - autre.getz());
 }
 
 //mult() : Multiplie l'instance par un scalaire
@@ -85,13 +85,13 @@ Vecteur3D Vecteur3D::mult (double const& scalaire) const
 //prod_scal() : Effectue un produit scalaire entre l'instance et un vecteur passé en paramètre
 double Vecteur3D::prod_scal(Vecteur3D const& autre) const
 {
-	return double (scal_x*autre.getscal_x() + scal_y*autre.gety() + scal_z*autre.getz());
+	return double (scal_x*autre.getx() + scal_y*autre.gety() + scal_z*autre.getz());
 }
 
 //prod_vect() : Effectue un produit vectoriel entre l'instance et un vecteur passé en paramètre
 Vecteur3D Vecteur3D::prod_vect(Vecteur3D const& autre) const
 { 	
-	return Vecteur3D (scal_y*autre.getz() - scal_z*autre.gety(), scal_z*autre.getscal_x() - scal_x*autre.getz(), scal_x*autre.gety() - scal_y*autre.getscal_x());
+	return Vecteur3D (scal_y*autre.getz() - scal_z*autre.gety(), scal_z*autre.getx() - scal_x*autre.getz(), scal_x*autre.gety() - scal_y*autre.getx());
 }
 
 //prod_miscal_xte() : Effectue un produit miscal_xte entre l'instance et deuscal_x vecteurs passés en paramètre
@@ -120,13 +120,13 @@ Vecteur3D Vecteur3D::rotation(Vecteur3D const& a, double t) const
 	
 
 //OPERATEURS Escal_xTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE
-ostream& operator<<(ostream& sortie, Vecteur3D const& V) {
+ostream& operator<<(ostream& sortie, Vecteur3D const& V){
 	return V.affiche(sortie); }
 	
-const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2) {
+const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 	return V1.addition(V2);}
 	
-const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2) {
+const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
 	return V1.soustraction(V2);}
 	
 const Vecteur3D operator*(double scalaire, Vecteur3D const& V){
