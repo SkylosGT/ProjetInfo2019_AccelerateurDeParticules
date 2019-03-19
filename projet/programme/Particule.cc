@@ -9,25 +9,25 @@ using namespace std;
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
 :vec_r(_r), scal_m(_m), scal_q(_q) 
 {
-    vec_v=_p*(scal_c/sqrt((_m*_m)+_p.norme2()));
+    vec_v=_p*(const_c/sqrt((_m*_m)+_p.norme2()));
 }
 
 //Constructeur par energie en GeV et direction vectorielle
 Particule::Particule(Vecteur3D _r, Vecteur3D _vitesseUnitaire, double _energie, double _m, double _q)
 :vec_r(_r), scal_m(_m), scal_q(_q) 
 {
-    vec_v=_vitesseUnitaire*(scal_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
+    vec_v=_vitesseUnitaire*(const_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
 }
 
 //
 double Particule::Energie()
 {
-    return FacteurGamma()*scal_m*scal_c*scal_c;
+    return FacteurGamma()*scal_m*const_c*const_c;
 }
 
 double Particule::FacteurGamma()
 {
-    return 1/sqrt(1-(vec_v.norme()/scal_c)*(vec_v.norme()/scal_c));
+    return 1/sqrt(1-(vec_v.norme()/const_c)*(vec_v.norme()/const_c));
 }
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
@@ -40,15 +40,19 @@ void Particule::bouger(double _dt){
     vec_f=*new Vecteur3D();
 }
 
-/*void Particule::affiche(){
-    vec_r.affiche();
-    vec_v.affiche();
-    vec_f.affiche();
-}*/
+ostream& Particule :: affiche(std::ostream& sortie){
+    sortie<<"Une particule:"<<endl<<
+    "   position:"<<vec_r<<endl<<
+    "   vitesse:"<<vec_v<<endl<<
+    "   gamma:"<<FacteurGamma()<<endl<<
+    "   enregie:"<<Energie()<<endl<<
+    "   masse:"<<scal_m<<endl<<
+    "   charge:"<<scal_q<<endl<<
+    "   force:"<<vec_f<<endl;
+}
 
 Particule::~Particule(){}
 
-//ostream& operator<<(std::ostream& sortie, Particule const& P){
-    //sortie=P.affiche();
-    //return sortie;
-//}
+ostream& operator<<(std::ostream& sortie, Particule const& P){
+   // return P.affiche(sortie);
+}
