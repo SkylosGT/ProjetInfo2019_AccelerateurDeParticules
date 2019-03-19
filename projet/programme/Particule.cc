@@ -48,3 +48,7 @@ void Particule::affiche(){
 
 Particule::~Particule(){}
 
+ostream& operator<<(std::ostream& sortie, Particule const& P){
+    //sortie=P.affiche();
+    //return sortie;
+}

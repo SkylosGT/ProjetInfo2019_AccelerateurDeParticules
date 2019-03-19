@@ -33,3 +33,4 @@ public:
     void affiche();
 };
 
+std::ostream& operator<<(std::ostream&, Particule const&);
