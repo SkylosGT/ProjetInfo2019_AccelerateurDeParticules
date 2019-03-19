@@ -2,122 +2,125 @@
 #include <cmath>
 #include "Vecteur3D.h"
 using namespace std;
+//DEFINITION (PROTOTYPE + CORPS) DES METHODES ET DES FONCTIONS DE LA CLASSE VECTEUR3D
 
-//affiche() : affiche les composantes x, y, z d'un vecteur sur la console
-void Vecteur3D::affiche() const {
-		
-		cout << x << " " << y << " " << z << endl;
+//METHODES PRIVEES DE LA CLASSE VECTEUR3D
+//compare() : compare les coordonnées de l'instance avec celles d'un autre vecteur
+bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
+	if ((scal_x == Acomparer.getx()) and (scal_y ==  Acomparer.gety()) and (scal_z == Acomparer.getz())) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-
-//compare() : Compare l'instance coordonnée par coordonnée avec un vecteur passé en paramètre 
-bool Vecteur3D::compare(Vecteur3D Acomparer) const
-	{
-		if ((x == Acomparer.getx()) and (y ==  Acomparer.gety()) and (z == Acomparer.getz()))
-		{
-		
-		return true;
-		
-	} else {
-		
-		return false;
-		
-	}
-}
-
-/*Setter !!A REMPLACER!!*/
-void Vecteur3D::set(double xx, double yy, double zz) 
-{
-	x = xx;
-	y = yy;
-	z = zz;
-}
-
-//addition() : Additionne l'instance avec un vecteur passé en paramètre
-Vecteur3D Vecteur3D::addition(Vecteur3D autre) const
-{	
-	Vecteur3D nouveau;
-	nouveau.set( x + autre.getx(), y + autre.gety(), z + autre.getz());
 	
-	return nouveau;
-}
-
-//soustraction() : Soustrait l'instance avec un vecteur passé en paramètre
-Vecteur3D Vecteur3D::soustraction(Vecteur3D autre) const
-{
-	Vecteur3D nouveau;
-	nouveau.set(x - autre.getx(), y - autre.gety(), z - autre.getz());
-	
-	return nouveau;
-}
-
 //oppose() : Multiplie l'instance par (-1)
 Vecteur3D Vecteur3D::oppose () const 
 { 	
-	Vecteur3D nouveau;
-	nouveau.set(-x,-y,-z);
+	return Vecteur3D (-scal_x,-scal_y,-scal_z);
+}
+
+//unitaire() : Retourne le vecteur unitaire de même direction et sens que l'instance
+Vecteur3D Vecteur3D::unitaire() const 
+{
+	return Vecteur3D (scal_x/norme(), scal_y/norme(), scal_z/norme());
+}
+
+//OPERATEURS INTERNES A LA CLASSE VECTEUR3D
+bool Vecteur3D::operator==(Vecteur3D const& Acomparer) const {
+	return (*this).compare(Acomparer);}
 	
-	return nouveau;
+bool Vecteur3D::operator!=(Vecteur3D const& Acomparer) const {
+	return !((*this).compare(Acomparer));}
+		
+const Vecteur3D Vecteur3D::operator-() const {
+	return (*this).oppose();}
+	
+const Vecteur3D Vecteur3D::operator ~() const {
+	return (*this).unitaire();}
+
+//METHODES PUBLIQUES DE LA CLASSE VECTEURS3D
+//affiche() : affiche les coordonnées de l'instance 
+std::ostream& Vecteur3D::affiche(std::ostream& sortie) const 
+{
+	sortie <<scal_x<<' '<<scal_y<<' '<<scal_z;
+	
+	return sortie;
+}
+
+//addition() : Additionne l'instance avec un vecteur passé en paramètre
+Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
+{		
+	return Vecteur3D ( scal_x + autre.getx(), scal_y + autre.gety(), scal_z + autre.getz());
+}
+
+//soustraction() : Soustrait l'instance avec un vecteur passé en paramètre
+Vecteur3D Vecteur3D::soustraction(Vecteur3D const& autre) const
+{
+	return Vecteur3D (scal_x - autre.getx(), scal_y - autre.gety(), scal_z - autre.getz());
 }
 
 //mult() : Multiplie l'instance par un scalaire
-Vecteur3D Vecteur3D::mult (double scalaire) const
-{
-	Vecteur3D nouveau;
-	nouveau.set(scalaire*x,scalaire*y,scalaire*z);
-	
-	return nouveau;
+Vecteur3D Vecteur3D::mult (double const& scalaire) const
+{	
+	return Vecteur3D (scalaire*scal_x,scalaire*scal_y,scalaire*scal_z);
 }
 
 //prod_scal() : Effectue un produit scalaire entre l'instance et un vecteur passé en paramètre
-double Vecteur3D::prod_scal(Vecteur3D autre) const
+double Vecteur3D::prod_scal(Vecteur3D const& autre) const
 {
-	double produit_scalaire;
-	produit_scalaire = x*autre.getx() + y*autre.gety() + z*autre.getz() ;
-	
-	return produit_scalaire;
+	return double (scal_x*autre.getx() + scal_y*autre.gety() + scal_z*autre.getz());
 }
 
 //prod_vect() : Effectue un produit vectoriel entre l'instance et un vecteur passé en paramètre
-Vecteur3D Vecteur3D::prod_vect(Vecteur3D autre) const
-{ 
-	Vecteur3D nouveau;
-	nouveau.set(y*autre.getz() - z*autre.gety(), z*autre.getx() - x*autre.getz(), x*autre.gety() - y*autre.getx());
-	
-	return nouveau;
+Vecteur3D Vecteur3D::prod_vect(Vecteur3D const& autre) const
+{ 	
+	return Vecteur3D (scal_y*autre.getz() - scal_z*autre.gety(), scal_z*autre.getx() - scal_x*autre.getz(), scal_x*autre.gety() - scal_y*autre.getx());
+}
+
+//prod_mixte() : Effectue un produit mixte entre l'instance et deux vecteurs passés en paramètre
+double Vecteur3D::prod_mixte(Vecteur3D V1, Vecteur3D V2) const 
+{	
+	return double (prod_scal(V1.prod_vect(V2)));
 }
 
 //norme() : Calcule la norme de l'instance
 double Vecteur3D::norme() const
 {
-	double norm;
-	norm = sqrt(x*x + y*y + z*z);
-	
-	return norm;
+	return double (sqrt(scal_x*scal_x + scal_y*scal_y + scal_z*scal_z));
 }
 
 //norme2() : Calcule le carré de la norme de l'instance
 double Vecteur3D::norme2() const
 { 
-	double norme_carre;
-	norme_carre = pow( norme(), 2);
-	
-	return norme_carre;
+	return double (pow( norme(), 2));
 }
 
-//unitaire() : Retourne le vecteur unitaire de même direction que l'instance
-Vecteur3D Vecteur3D::unitaire() const 
+//rotation(): Effetcue une rotation de l'instance d'un angle t en radiant autour d'un ascal_xe donné par un vecteur unitaire (angle et ascal_xe passés en paramètres)
+Vecteur3D Vecteur3D::rotation(Vecteur3D const& a, double t) const 
 {
-	Vecteur3D nouveau;
-	nouveau.set(x/norme(), y/norme(), z/norme());
-	
-	return nouveau;
+	return (cos(t)*(*this)+(1-cos(t))*((*this)*(~a))*(~a)+sin(t)*((~a)^(*this)));
 }
+	
 
-//prod_mixte() : Effectue un produit mixte entre l'instance et deux vecteurs passés en paramètre
-double Vecteur3D::prod_mixte(Vecteur3D V1, Vecteur3D V2) const 
-{
-	double produit_mixte;
-	produit_mixte = prod_scal(V1.prod_vect(V2));
+//OPERATEURS EXTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE
+ostream& operator<<(ostream& sortie, Vecteur3D const& V){
+	return V.affiche(sortie); }
 	
-	return produit_mixte;
-}
+const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
+	return V1.addition(V2);}
+	
+const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
+	return V1.soustraction(V2);}
+	
+const Vecteur3D operator*(double scalaire, Vecteur3D const& V){
+	return V.mult(scalaire);}
+	
+const Vecteur3D operator*(Vecteur3D const& V, double scalaire){
+	return V.mult(scalaire);}
+	
+double operator*(Vecteur3D V1, Vecteur3D const& V2){
+	return V1.prod_scal(V2);}
+	
+Vecteur3D operator^(Vecteur3D V1, Vecteur3D const& V2) {
+	return V1.prod_vect(V2);}
