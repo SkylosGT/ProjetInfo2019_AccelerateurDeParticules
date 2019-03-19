@@ -53,6 +53,7 @@ ostream& Particule :: affiche(std::ostream& sortie){
 
 Particule::~Particule(){}
 
-ostream& operator<<(std::ostream& sortie, Particule const& P){
-   // return P.affiche(sortie);
+//Attention passage d'un objet de manière non constante non constant à changer
+ostream& operator<<(std::ostream& sortie, Particule& P){
+   return P.affiche(sortie);
 }
