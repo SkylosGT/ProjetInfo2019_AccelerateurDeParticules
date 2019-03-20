@@ -16,10 +16,10 @@ private:
 
 public:
     //Constructeur par vecteur quantité de mouvement en Gev
-    Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse*/, double/*Charge*/);
+    Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse en GeV/c^2*/, double/*Charge*/);
 
     //Constructeur par energie en GeV et direction vectorielle
-    Particule(Vecteur3D/*Position*/, Vecteur3D /*Direction Vectorielle*/, double /*Energie*/, double/*Masse*/, double /*Charge*/);
+    Particule(Vecteur3D/*Position*/, Vecteur3D /*Direction Vectorielle*/, double /*Energie en GeV*/, double/*Masse en GeV/c^2*/, double /*Charge*/);
     
     //Déstructeur
     ~Particule();

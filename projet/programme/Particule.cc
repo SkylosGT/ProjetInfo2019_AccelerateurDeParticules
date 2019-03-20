@@ -24,7 +24,7 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie,
 //
 double Particule::Energie()
 {
-    return FacteurGamma()*scal_m*const_c*const_c;
+    return FacteurGamma()*scal_m;
 }
 
 double Particule::FacteurGamma()
