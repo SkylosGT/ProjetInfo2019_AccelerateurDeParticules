@@ -22,7 +22,6 @@ Particule.o: Particule.cc Particule.h Vecteur3D.h ConstantesPhysiques.h
 
 testParticule.o: testParticule.cc Particule.h Vecteur3D.h
 
-Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
 
 #testVecteur.o: testVecteur.cc Vecteur3D.h
 
