@@ -10,7 +10,8 @@ class Vecteur3D {
 		double scal_x;	//Composante sur X
 		double scal_y;	//Composante sur Y
 		double scal_z; 	//Composante sur Z
-		
+	
+	public:
 	//Méthodes auxquels on accède via des opérateurs internes à la classe Vecteur3D (fonctions utilisées par les opérateurs internes)
 		
 		bool compare(Vecteur3D const&) const; //Fonction qui compare deux vecteurs et return true si l'instance courante et l'autre vecteur3D sont égaux (même coordonnées)
@@ -18,8 +19,6 @@ class Vecteur3D {
 		Vecteur3D oppose () const; //Fonction qui renvoie l'opposé de l'instance courante (opposé de chaque coordonnée)
 	
 		Vecteur3D unitaire() const; //Fonction qui renvoie un vecteur unitaire (norme=1) de même direction et sens que l'instance courante
-	
-	public:
 	
 	//Getter pour les coordonnées scal_x,scal_y,scal_z
 		double getx() const {return scal_x;};

@@ -11,8 +11,6 @@ int main()
 {
     Vecteur3D _r1(3.00984, -0.391837, 0), _r2(2.99016, -0.391837, 0);
     Vecteur3D _v1(-1,-1,0), _v2(1,-1,0);
-    _v1=_v1*(1/_v1.norme());
-    _v2=_v2*(1/_v2.norme());
     double _E(2);
     double _m(0.938272);
     double _q(const_e);
@@ -26,5 +24,5 @@ int main()
 void afficheParticule(Particule& p){
     cout<<"Une particule :"<<endl;
     cout<<p<<endl;
-    
+
 }
