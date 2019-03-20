@@ -93,7 +93,7 @@ double Vecteur3D::norme() const
 //norme2() : Calcule le carré de la norme de l'instance
 double Vecteur3D::norme2() const
 { 
-	return double (pow( norme(), 2));
+	return norme()*norme();
 }
 
 //rotation(): Effetcue une rotation de l'instance d'un angle t en radiant autour d'un ascal_xe donné par un vecteur unitaire (angle et ascal_xe passés en paramètres)
