@@ -14,6 +14,9 @@ private:
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
 
+    double massGeVToKg();
+    double deviationAngle(double);
+
 public:
     //Constructeur par vecteur quantité de mouvement en Gev
     Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse en GeV/c^2*/, double/*Charge*/);

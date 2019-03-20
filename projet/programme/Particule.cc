@@ -30,7 +30,7 @@ double Particule::FacteurGamma()
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(scal_q*vec_v)^_B;
-    double scal_angle(asin((_dt*vec_f.norme())/(2*FacteurGamma()*((const_e*1e+9*scal_m)/(const_c*const_c))*vec_v.norme())));
+    double scal_angle(asin((_dt*vec_f.norme())/(2*FacteurGamma()*massGeVToKg()*vec_v.norme())));
     cout<<" F0 = "<<vec_f<<endl;
     vec_f.rotation((vec_v^vec_f), scal_angle);
     cout<<" F1 = "<<vec_f<<endl;
@@ -53,6 +53,14 @@ ostream& Particule::affiche(ostream& sortie){
     "   masse (Gev)/c^2 :"<<scal_m<<endl<<
     "   charge :"<<scal_q<<endl<<
     "   force :"<<vec_f<<endl;
+}
+
+double Particule::massGeVToKg(){
+    return (const_e*1e+9*scal_m)/(const_c*const_c);
+}
+
+double Particule::deviationAngle(double _dt){
+    return asin((_dt*vec_f.norme())/(2*FacteurGamma()*massGeVToKg()*vec_v.norme()));
 }
 
 Particule::~Particule(){}
