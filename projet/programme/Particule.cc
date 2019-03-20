@@ -32,7 +32,8 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(scal_q*vec_v)^_B;
     double scal_angle(asin((_dt*vec_f.norme())/(2*FacteurGamma()*((const_e*1e+9*scal_m)/(const_c*const_c))*vec_v.norme())));
     cout<<" F0 = "<<vec_f<<endl;
-    cout<<" F1 = "<<vec_f.rotation((vec_f^vec_v), scal_angle)<<endl;
+    vec_f.rotation((vec_v^vec_f), scal_angle);
+    cout<<" F1 = "<<vec_f<<endl;
     cout<<" Angle : "<<scal_angle<<endl;
 }
 
