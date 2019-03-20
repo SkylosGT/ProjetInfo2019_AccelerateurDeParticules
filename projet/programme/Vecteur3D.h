@@ -57,7 +57,7 @@ class Vecteur3D {
 		
 		double norme2() const; //Fonction qui retourne la norme au carré de l'instance courante
 				
-		Vecteur3D rotation(Vecteur3D const&, double) const; // Fonction qui fait la rotation de l'instance courante autour d'un axe (vecteur unitaire passé en argument)
+		void rotation(Vecteur3D const&, double); // Fonction qui fait la rotation de l'instance courante autour d'un axe (vecteur unitaire passé en argument)
 														//d'un angle en radiant passé aussi en argument
 
 };

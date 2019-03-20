@@ -97,9 +97,9 @@ double Vecteur3D::norme2() const
 }
 
 //rotation(): Effetcue une rotation de l'instance d'un angle t en radiant autour d'un ascal_xe donné par un vecteur unitaire (angle et ascal_xe passés en paramètres)
-Vecteur3D Vecteur3D::rotation(Vecteur3D const& a, double t) const 
+void Vecteur3D::rotation(Vecteur3D const& a, double t) 
 {
-	return (cos(t)*(*this)+(1-cos(t))*((*this)*(~a))*(~a)+sin(t)*((~a)^(*this)));
+	*this=((cos(t)*(*this))+(1-cos(t))*((*this)*(~a))*(~a)+sin(t)*((~a)^(*this)));
 }
 	
 

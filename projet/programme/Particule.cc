@@ -18,7 +18,7 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
 Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie, double _m, double _q)
 :vec_r(_r), scal_m(_m), scal_q(_q) 
 {
-    vec_v=_vitessedirective.unitaire()*(const_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
+    vec_v=(~_vitessedirective)*(const_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
     vec_f=*new Vecteur3D();
 }
 
@@ -26,7 +26,7 @@ double Particule::Energie()
 {return FacteurGamma()*scal_m;}
 
 double Particule::FacteurGamma()
-{return 1/sqrt(1-(vec_v.norme()/const_c)*(vec_v.norme()/const_c));}
+{return 1/sqrt(1-(vec_v.norme2()/(const_c*const_c)));}
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(scal_q*vec_v)^_B;
