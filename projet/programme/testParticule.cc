@@ -24,6 +24,8 @@ int main()
     cout<<" à P2 :"<<endl;
     p2.ajouteForceMagnetique(_B,_dt);
     cout<<"Les particules bougent 1 fois :"<<endl;
+    p1.bouger(_dt);
+    p2.bouger(_dt);
     cout<<p1<<endl<<p2<<endl;
     return 0;
 }

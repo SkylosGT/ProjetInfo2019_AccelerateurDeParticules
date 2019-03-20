@@ -30,16 +30,15 @@ double Particule::FacteurGamma()
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(scal_q*vec_v)^_B;
-    double scal_angle(asin((_dt*vec_f.norme())/(2*FacteurGamma()*massGeVToKg()*vec_v.norme())));
     cout<<" F0 = "<<vec_f<<endl;
-    vec_f.rotation((vec_v^vec_f), scal_angle);
+    vec_f.rotation((vec_v^vec_f), deviationAngle(_dt));
     cout<<" F1 = "<<vec_f<<endl;
-    cout<<" Angle : "<<scal_angle<<endl;
+    cout<<" Angle : "<<deviationAngle(_dt)<<endl;
 }
 
 
 void Particule::bouger(double _dt){
-    vec_v=vec_v+(vec_f*(_dt/(FacteurGamma()*scal_m)));
+    vec_v=vec_v+_dt*(1/(FacteurGamma()*massGeVToKg()))*vec_f;
     vec_r=vec_r+(vec_v*(_dt));
     vec_f=*new Vecteur3D();
 }
