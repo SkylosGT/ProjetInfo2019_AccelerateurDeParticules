@@ -30,7 +30,7 @@ public:
 
     void bouger(double /*Pas de temps*/);
 
-    ostream& affiche(ostream&);
+    std::ostream& affiche(std::ostream&);
 };
 
-//std::ostream& operator<<(std::ostream&, Particule const&);
+std::ostream& operator<<(std::ostream&, Particule&);

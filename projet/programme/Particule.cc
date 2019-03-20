@@ -57,5 +57,4 @@ Particule::~Particule(){}
 
 //Attention passage d'un objet de manière non constante non constant à changer
 ostream& operator<<(std::ostream& sortie, Particule& P){
-   return P.affiche(sortie);
-}
+   return P.affiche(sortie);}
