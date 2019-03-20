@@ -33,7 +33,8 @@ double Particule::FacteurGamma()
 }
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
-    vec_f=_B^(vec_v*scal_m); //Manque rotation
+    vec_f=(_B^(vec_v*scal_m));
+    vec_f=vec_f.rotation(vec_f^vec_v, asin(_dt*vec_f.norme()/(2*FacteurGamma()*scal_m*vec_v.norme())));
 }
 
 void Particule::bouger(double _dt){
@@ -43,14 +44,14 @@ void Particule::bouger(double _dt){
 }
 
 ostream& Particule :: affiche(ostream& sortie){
-    return sortie<<"Une particule:"<<endl<<
-    "   position:"<<vec_r<<endl<<
-    "   vitesse:"<<vec_v<<endl<<
-    "   gamma:"<<FacteurGamma()<<endl<<
-    "   enregie:"<<Energie()<<endl<<
-    "   masse:"<<scal_m<<endl<<
-    "   charge:"<<scal_q<<endl<<
-    "   force:"<<vec_f<<endl;
+    return sortie<<"Une particule :"<<endl<<
+    "   position :"<<vec_r<<endl<<
+    "   vitesse :"<<vec_v<<endl<<
+    "   gamma :"<<FacteurGamma()<<endl<<
+    "   enregie (GeV) :"<<Energie()<<endl<<
+    "   masse (Gev)/c^2 :"<<scal_m<<endl<<
+    "   charge :"<<scal_q<<endl<<
+    "   force :"<<vec_f<<endl;
 }
 
 Particule::~Particule(){}
