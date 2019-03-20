@@ -38,7 +38,7 @@ void Particule::bouger(double _dt){
     vec_f=*new Vecteur3D();
 }
 
-ostream& Particule :: affiche(ostream& sortie){
+ostream& Particule::affiche(ostream& sortie){
     return sortie<<"Une particule :"<<endl<<
     "   position :"<<vec_r<<endl<<
     "   vitesse :"<<vec_v<<endl<<
@@ -52,5 +52,5 @@ ostream& Particule :: affiche(ostream& sortie){
 Particule::~Particule(){}
 
 //Attention passage d'un objet de manière non constante non constant à changer
-ostream& operator<<(std::ostream& sortie, Particule& P){
+ostream& operator<<(ostream& sortie, Particule& P){
    return P.affiche(sortie);}

@@ -1,6 +1,6 @@
 #pragma once
 #include "Vecteur3D.h"
-#include <ostream>
+#include <iostream>
 
 /*Header de la classe particule
   unités GeV*/
