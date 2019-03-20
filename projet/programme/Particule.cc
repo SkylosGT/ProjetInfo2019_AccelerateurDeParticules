@@ -10,6 +10,7 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
 :vec_r(_r), scal_m(_m), scal_q(_q) 
 {
     vec_v=_p*(const_c/sqrt((_m*_m)+_p.norme2()));
+    vec_f=*new Vecteur3D();
 }
 
 //Constructeur par energie en GeV et direction vectorielle
@@ -17,6 +18,7 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _vitesseUnitaire, double _energie, 
 :vec_r(_r), scal_m(_m), scal_q(_q) 
 {
     vec_v=_vitesseUnitaire*(const_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
+    vec_f=*new Vecteur3D();
 }
 
 //
@@ -40,7 +42,7 @@ void Particule::bouger(double _dt){
     vec_f=*new Vecteur3D();
 }
 
-ostream& Particule :: affiche(std::ostream& sortie){
+ostream& Particule :: affiche(ostream& sortie){
     sortie<<"Une particule:"<<endl<<
     "   position:"<<vec_r<<endl<<
     "   vitesse:"<<vec_v<<endl<<

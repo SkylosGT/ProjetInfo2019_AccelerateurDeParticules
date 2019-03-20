@@ -35,8 +35,7 @@ int main ()
 		if (vect1 != vect3) {
 			cout << "différent du";
 		} else {
-			cout << "égal au";
-}
+			cout << "égal au";}
 	
 	cout << " vecteur 3." << endl;
 	cout << endl;
