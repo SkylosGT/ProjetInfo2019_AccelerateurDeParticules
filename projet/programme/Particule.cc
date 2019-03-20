@@ -2,6 +2,7 @@
 #include "ConstantesPhysiques.h"
 #include <iostream>
 #include <cmath>
+
 using  namespace ConstantesPhysiques;
 using namespace std;
 
@@ -21,21 +22,15 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie,
     vec_f=*new Vecteur3D();
 }
 
-//
 double Particule::Energie()
-{
-    return FacteurGamma()*scal_m;
-}
+{return FacteurGamma()*scal_m;}
 
 double Particule::FacteurGamma()
-{
-    return 1/sqrt(1-(vec_v.norme()/const_c)*(vec_v.norme()/const_c));
-}
+{return 1/sqrt(1-(vec_v.norme()/const_c)*(vec_v.norme()/const_c));}
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(_B^(vec_v*scal_m));
-    vec_f=vec_f.rotation(vec_f^vec_v, asin(_dt*vec_f.norme()/(2*FacteurGamma()*scal_m*vec_v.norme())));
-}
+    vec_f=vec_f.rotation(vec_f^vec_v, asin(_dt*vec_f.norme()/(2*FacteurGamma()*scal_m*vec_v.norme())));}
 
 void Particule::bouger(double _dt){
     vec_v=vec_v+(vec_f*(_dt/(FacteurGamma()*scal_m)));
