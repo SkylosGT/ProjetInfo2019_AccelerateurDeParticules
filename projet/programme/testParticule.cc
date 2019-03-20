@@ -23,6 +23,7 @@ int main()
     p1.ajouteForceMagnetique(_B, _dt);
     cout<<" à P2 :"<<endl;
     p2.ajouteForceMagnetique(_B,_dt);
+    cout<<endl;
     cout<<"Les particules bougent 1 fois :"<<endl;
     p1.bouger(_dt);
     p2.bouger(_dt);
