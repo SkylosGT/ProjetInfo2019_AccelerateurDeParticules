@@ -13,17 +13,22 @@ int main()
     double _E(2);
     double _m(0.938272);
     double _q(const_e);
+
     Particule p1(_r1,_v1,_E,_m,_q), p2(_r2,_v2,_E,_m,_q);
+
     cout<<"Création de deux particules :";
     cout<<p1<<endl<<p2<<endl;  
+   
     Vecteur3D _B(0,0,7);
     double _dt (1e-11);
+    
     cout<<"Ajout d'une force Magnetique B="<<_B<<"(dt="<<_dt<<") :"<<endl;
     cout<<" à P1 :"<<endl;
     p1.ajouteForceMagnetique(_B, _dt);
     cout<<" à P2 :"<<endl;
     p2.ajouteForceMagnetique(_B,_dt);
     cout<<endl;
+    
     cout<<"Les particules bougent 1 fois :"<<endl;
     p1.bouger(_dt);
     p2.bouger(_dt);
