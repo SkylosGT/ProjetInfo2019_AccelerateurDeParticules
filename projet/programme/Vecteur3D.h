@@ -34,6 +34,7 @@ class Vecteur3D {
 		bool operator!=(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre vecteur3D (retourne true si n'scal_y a pas égalité)
 		const Vecteur3D operator-() const; //Retourne l'opposé de l'instance courante
 		const Vecteur3D operator~() const; //Retourne le vecteur unitaire associé à l'instance courante
+		Vecteur3D& operator+=(Vecteur3D const&);
 	
 	//Fonctions utilisées pas les opérateurs externes à la classe Vecteur3D
 	

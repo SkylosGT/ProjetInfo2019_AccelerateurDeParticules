@@ -38,6 +38,10 @@ const Vecteur3D Vecteur3D::operator-() const {
 	
 const Vecteur3D Vecteur3D::operator ~() const {
 	return (*this).unitaire();}
+	
+Vecteur3D& Vecteur3D::operator+=(Vecteur3D const& autre){
+	*this = *this + autre;
+	return *this;}
 
 //METHODES PUBLIQUES DE LA CLASSE VECTEURS3D
 //affiche() : affiche les coordonnées de l'instance 
