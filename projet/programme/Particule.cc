@@ -22,10 +22,10 @@ Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie,
     vec_f=*new Vecteur3D();
 }
 
-double Particule::Energie()
+double Particule::Energie() const
 {return FacteurGamma()*scal_m;}
 
-double Particule::FacteurGamma()
+double Particule::FacteurGamma() const
 {return 1/sqrt(1-(vec_v.norme2()/(const_c*const_c)));}
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
@@ -43,7 +43,7 @@ void Particule::bouger(double _dt){
     vec_f=*new Vecteur3D();
 }
 
-ostream& Particule::affiche(ostream& sortie){
+ostream& Particule::affiche(ostream& sortie) const{
     return sortie<<"Une particule :"<<endl<<
     "   position :"<<vec_r<<endl<<
     "   vitesse :"<<vec_v<<endl<<
@@ -65,5 +65,5 @@ double Particule::deviationAngle(double _dt){
 Particule::~Particule(){}
 
 //Attention passage d'un objet de manière non constante non constant à changer
-ostream& operator<<(ostream& sortie, Particule& P){
+ostream& operator<<(ostream& sortie, Particule const& P){
    return P.affiche(sortie);}

@@ -54,7 +54,8 @@ int main ()
 	cout <<"L'opposé du vecteur 1 est : " << (-vect1) << endl;
 	cout << "Son vecteur unitaire associé est : " << (~vect1) << endl;
 	cout << "Le Multiplier à gauche par 4 donne le vecteur : " <<4*vect1<< " et à droite : "<<vect1*4 << endl;
-	cout << "Le vecteur résultant de la rotation du vecteur (1, 0, 0) d'un angle de 90° autour de l'axe du vecteur (0,0,1) est " << (*new Vecteur3D(1,0,0)).rotation((*new Vecteur3D(0,0,1)), (M_PI/2)) << endl;
+	vect1.rotation((*new Vecteur3D(0,0,1)), (M_PI/2));
+	cout << "Le vecteur résultant de la rotation du vecteur (1, 0, 0) d'un angle de 90° autour de l'axe du vecteur (0,0,1) est " << vect1 << endl;
 	cout <<endl;
 	
 	//Test de l'addition et de la sousctraction de deux vecteurs 
