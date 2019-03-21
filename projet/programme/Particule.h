@@ -1,4 +1,6 @@
+#pragma once
 #include "Vecteur3D.h"
+#include <iostream>
 
 /*Header de la classe particule
   unités GeV*/
@@ -12,12 +14,15 @@ private:
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
 
+    double massGeVToKg();
+    double deviationAngle(double);
+
 public:
     //Constructeur par vecteur quantité de mouvement en Gev
-    Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse*/, double/*Charge*/);
+    Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse en GeV/c^2*/, double/*Charge*/);
 
     //Constructeur par energie en GeV et direction vectorielle
-    Particule(Vecteur3D/*Position*/, Vecteur3D /*Direction Vectorielle*/, double /*Energie*/, double/*Masse*/, double /*Charge*/);
+    Particule(Vecteur3D/*Position*/, Vecteur3D /*Direction Vectorielle*/, double /*Energie en GeV*/, double/*Masse en GeV/c^2*/, double /*Charge*/);
     
     //Déstructeur
     ~Particule();
@@ -30,7 +35,7 @@ public:
 
     void bouger(double /*Pas de temps*/);
 
-    void affiche();
+    std::ostream& affiche(std::ostream&);
 };
 
-//std::ostream& operator<<(std::ostream&, Particule const&);
+std::ostream& operator<<(std::ostream&, Particule&);

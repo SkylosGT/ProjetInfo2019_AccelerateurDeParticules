@@ -64,4 +64,14 @@
 *.app
 
 #apple OS
+
 *.DS_Store
+
+#VSCode
+
+*.ipch
+
+*.bin
+
+*.json
+
