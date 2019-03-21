@@ -12,7 +12,7 @@ CXXFLAGS += -g                    # pour debugger
 # LDFLAGS  += -pg                 # pour profiler
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
-all:: testVecteur
+all:: testParticule
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 
