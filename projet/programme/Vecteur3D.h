@@ -47,7 +47,7 @@ class Vecteur3D {
 		
 		//Vecteur3D soustraction (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de la soustraction de l'instance courante avec un autre vecteur3D
 		
-		//Vecteur3D mult(double const&) const; //Fonction qui renvoie la mutliplication de l'instance courante par un scalaire réel
+		Vecteur3D mult(double const&) const; //Fonction qui renvoie la mutliplication de l'instance courante par un scalaire réel
 		
 		double prod_scal(Vecteur3D const&) const; //Fonction qui renvoie le produit scalaire de l'instance courante avec un autre vecteur3D
 		

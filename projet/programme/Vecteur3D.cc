@@ -53,9 +53,10 @@ Vecteur3D& Vecteur3D::operator-=(Vecteur3D const& autre) {
 	scal_z -= autre.scal_z;
 	return *this;}
 	
-/*Vecteur3D& Vecteur3D::operator*=(double const scalaire) {
+Vecteur3D& Vecteur3D::operator*=(double const scalaire) {
+	*this = (*this)*scalaire;
 	return *this;
-	}*/
+	}
 	
 Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre) {
 	scal_x = scal_y*autre.scal_z - scal_z*autre.scal_y;
@@ -85,13 +86,13 @@ Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
 Vecteur3D Vecteur3D::soustraction(Vecteur3D const& autre) const
 {
 	return Vecteur3D (scal_x - autre.scal_x, scal_y - autre.scal_y, scal_z - autre.scal_z);
-}
+}*/
 
 //mult() : Multiplie l'instance par un scalaire
 Vecteur3D Vecteur3D::mult (double const& scalaire) const
 {	
 	return Vecteur3D (scalaire*scal_x,scalaire*scal_y,scalaire*scal_z);
-}*/
+}
 
 //prod_scal() : Effectue un produit scalaire entre l'instance et un vecteur passé en paramètre
 double Vecteur3D::prod_scal(Vecteur3D const& autre) const
@@ -140,12 +141,12 @@ const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 	
 const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
 	return V1-=V2;}
-/*	
+	
 const Vecteur3D operator*(double scalaire, Vecteur3D const& V){
-	return V*=scalaire;}
+	return V.mult(scalaire);}
 	
 const Vecteur3D operator*(Vecteur3D const& V, double scalaire){
-	return V*=scalaire;} */
+	return V.mult(scalaire);} 
 	
 double operator*(Vecteur3D V1, Vecteur3D const& V2){
 	return V1.prod_scal(V2);}
