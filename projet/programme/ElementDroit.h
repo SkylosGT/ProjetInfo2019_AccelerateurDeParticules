@@ -1,4 +1,6 @@
-class ElementDroit
+#include "Element.h"
+
+class ElementDroit: public Element
 {
 private:
     /* data */
