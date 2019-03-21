@@ -8,9 +8,10 @@ private:
     Vecteur3D vec_rs;
     double scal_Re;
     Element const& elem_suivant;
+    Vecteur3D vect_B;
 
 public:
-    Element(Vecteur3D, Vecteur3D, double, Element const&);
+    Element(Vecteur3D, Vecteur3D, double, Element const&, Vecteur3D);
     ~Element();
     bool heurte_bord(Particule const&) const;
     bool passe_au_suivant(Particule const&) const;
