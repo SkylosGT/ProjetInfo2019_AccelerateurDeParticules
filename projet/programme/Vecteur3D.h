@@ -13,11 +13,11 @@ class Vecteur3D {
 	
 	//Méthodes auxquels on accède via des opérateurs internes à la classe Vecteur3D (fonctions utilisées par les opérateurs internes)
 		
-		bool compare(Vecteur3D const&) const; //Fonction qui compare deux vecteurs et return true si l'instance courante et l'autre vecteur3D sont égaux (même coordonnées)
+		//bool compare(Vecteur3D const&) const; //Fonction qui compare deux vecteurs et return true si l'instance courante et l'autre vecteur3D sont égaux (même coordonnées)
 		
-		Vecteur3D oppose () const; //Fonction qui renvoie l'opposé de l'instance courante (opposé de chaque coordonnée)
+		//Vecteur3D oppose () const; //Fonction qui renvoie l'opposé de l'instance courante (opposé de chaque coordonnée)
 	
-		Vecteur3D unitaire() const; //Fonction qui renvoie un vecteur unitaire (norme=1) de même direction et sens que l'instance courante
+		//Vecteur3D unitaire() const; //Fonction qui renvoie un vecteur unitaire (norme=1) de même direction et sens que l'instance courante
 	
 	public:
 
@@ -43,17 +43,17 @@ class Vecteur3D {
 	
 		std::ostream& affiche(std::ostream&) const; //Fonction permettant l'affichage des 3 coordonnées du vecteur3D en instance courante
 		
-		Vecteur3D addition (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de l'addition de l'instance courante avec un autre vecteur3D
+		//Vecteur3D addition (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de l'addition de l'instance courante avec un autre vecteur3D
 		
-		Vecteur3D soustraction (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de la soustraction de l'instance courante avec un autre vecteur3D
+		//Vecteur3D soustraction (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de la soustraction de l'instance courante avec un autre vecteur3D
 		
-		Vecteur3D mult(double const&) const; //Fonction qui renvoie la mutliplication de l'instance courante par un scalaire réel
+		//Vecteur3D mult(double const&) const; //Fonction qui renvoie la mutliplication de l'instance courante par un scalaire réel
 		
-		double prod_scal(Vecteur3D const&) const; //Fonction qui renvoie le produit scalaire de l'instance courante avec un autre vecteur3D
+		//double prod_scal(Vecteur3D const&) const; //Fonction qui renvoie le produit scalaire de l'instance courante avec un autre vecteur3D
 		
-		Vecteur3D prod_vect(Vecteur3D const&) const; //Fonction qui renvoie le produit vectoriel de l'instance courante avec un autre vecteur3D
+		//Vecteur3D prod_vect(Vecteur3D const&) const; //Fonction qui renvoie le produit vectoriel de l'instance courante avec un autre vecteur3D
 		
-		double prod_mixte(Vecteur3D, Vecteur3D) const; //Fonction qui renvoie le produit mixte de l'instance courante avec deux autres vecteurs3D 
+		//double prod_mixte(Vecteur3D, Vecteur3D) const; //Fonction qui renvoie le produit mixte de l'instance courante avec deux autres vecteurs3D 
 														//(produit scalaire entre l'instance courante et le produit vectoriel des deux autres vecteurs)
 	
 	//Autres fonctions utiles à l'utilisation de la classe Vecteur3D

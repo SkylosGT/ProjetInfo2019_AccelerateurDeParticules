@@ -6,13 +6,13 @@ using namespace std;
 
 //METHODES PRIVEES DE LA CLASSE VECTEUR3D
 //compare() : compare les coordonnées de l'instance avec celles d'un autre vecteur
-bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
+/*bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
 	if ((scal_x == Acomparer.scal_x) and (scal_y ==  Acomparer.scal_y) and (scal_z == Acomparer.scal_z)) {
 			return true;
 		} else {
 			return false;
 		}
-	}
+	} */
 	
 //oppose() : Multiplie l'instance par (-1)
 Vecteur3D Vecteur3D::oppose () const 
@@ -28,7 +28,12 @@ Vecteur3D Vecteur3D::unitaire() const
 
 //OPERATEURS INTERNES A LA CLASSE VECTEUR3D
 bool Vecteur3D::operator==(Vecteur3D const& Acomparer) const {
-	return (*this).compare(Acomparer);}
+	if ((scal_x == Acomparer.scal_x) and (scal_y ==  Acomparer.scal_y) and (scal_z == Acomparer.scal_z)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 bool Vecteur3D::operator!=(Vecteur3D const& Acomparer) const {
 	return !((*this).compare(Acomparer));}
