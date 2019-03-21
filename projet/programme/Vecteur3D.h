@@ -27,7 +27,7 @@ class Vecteur3D {
 		double getz() const {return scal_z;};
 	
 	//Un constructeur pour initialiser les objets (avec initialisation par défaut au vecteur nul)
-		Vecteur3D (double scal_x=0.0, double scal_y=0.0, double scal_z=0.0) : scal_x(scal_x), scal_y(scal_y), scal_z(scal_z) {}
+		Vecteur3D (double scal_x=0.0, double scal_y=0.0, double scal_z=0.0);
 	
 	//OPERATEURS INTERNES (utilisant des fonctions prédéfinies à cet usage)
 		bool operator==(Vecteur3D const&) const; //Teste l'égalité de l'instance courante avec un autre Veteur3D (retourne true si il scal_y a égalité)
@@ -35,7 +35,10 @@ class Vecteur3D {
 		const Vecteur3D operator-() const; //Retourne l'opposé de l'instance courante
 		const Vecteur3D operator~() const; //Retourne le vecteur unitaire associé à l'instance courante
 		Vecteur3D& operator+=(Vecteur3D const&);
-	
+		Vecteur3D& operator-=(Vecteur3D const&);
+		Vecteur3D& operator*=(double const&);
+		Vecteur3D& operator^=(Vecteur3D const&);
+		
 	//Fonctions utilisées pas les opérateurs externes à la classe Vecteur3D
 	
 		std::ostream& affiche(std::ostream&) const; //Fonction permettant l'affichage des 3 coordonnées du vecteur3D en instance courante
@@ -59,7 +62,7 @@ class Vecteur3D {
 		
 		double norme2() const; //Fonction qui retourne la norme au carré de l'instance courante
 				
-		void rotation(Vecteur3D const&, double); // Fonction qui fait la rotation de l'instance courante autour d'un axe (vecteur unitaire passé en argument)
+		Vecteur3D& rotation(Vecteur3D const&, double); // Fonction qui fait la rotation de l'instance courante autour d'un axe (vecteur unitaire passé en argument)
 														//d'un angle en radiant passé aussi en argument
 
 };

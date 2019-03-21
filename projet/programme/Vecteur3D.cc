@@ -39,11 +39,26 @@ const Vecteur3D Vecteur3D::operator-() const {
 const Vecteur3D Vecteur3D::operator ~() const {
 	return (*this).unitaire();}
 	
-Vecteur3D& Vecteur3D::operator+=(Vecteur3D const& autre){
+Vecteur3D& Vecteur3D::operator+=(Vecteur3D const& autre) {
 	*this = *this + autre;
 	return *this;}
 
+Vecteur3D& Vecteur3D::operator-=(Vecteur3D const& autre) {
+	*this = *this - autre;
+	return *this;}
+	
+Vecteur3D& Vecteur3D::operator*=(double const& scalaire) {
+	*this = scalaire*(*this);
+	return *this;}
+	
+Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre) {
+	*this = (*this)^autre;
+	return *this;}
+
 //METHODES PUBLIQUES DE LA CLASSE VECTEURS3D
+//Le constrcteur qui initialise le nouvel objet vecteur3D
+Vecteur3D::Vecteur3D(double scal_x, double scal_y, double scal_z) : scal_x(scal_x), scal_y(scal_y), scal_z(scal_z) {}
+
 //affiche() : affiche les coordonnées de l'instance 
 std::ostream& Vecteur3D::affiche(std::ostream& sortie) const 
 {
@@ -101,9 +116,10 @@ double Vecteur3D::norme2() const
 }
 
 //rotation(): Effetcue une rotation de l'instance d'un angle t en radiant autour d'un ascal_xe donné par un vecteur unitaire (angle et ascal_xe passés en paramètres)
-void Vecteur3D::rotation(Vecteur3D const& a, double t) 
+Vecteur3D& Vecteur3D::rotation(Vecteur3D const& a, double t) 
 {
 	*this=((cos(t)*(*this))+(1-cos(t))*((*this)*(~a))*(~a)+sin(t)*((~a)^(*this)));
+	return *this;
 }
 	
 
