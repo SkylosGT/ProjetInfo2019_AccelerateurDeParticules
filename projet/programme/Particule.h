@@ -27,15 +27,15 @@ public:
     //Déstructeur
     ~Particule();
 
-    double Energie();
+    double Energie() const;
 
-    double FacteurGamma();
+    double FacteurGamma() const;
 
     void ajouteForceMagnetique(Vecteur3D /*Champs magnétique*/, double /*Pas de temps*/);
 
     void bouger(double /*Pas de temps*/);
 
-    std::ostream& affiche(std::ostream&);
+    std::ostream& affiche(std::ostream&) const;
 };
 
-std::ostream& operator<<(std::ostream&, Particule&);
+std::ostream& operator<<(std::ostream&, Particule const&);
