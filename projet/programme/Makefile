@@ -18,10 +18,6 @@ testParticule: testParticule.o Vecteur3D.o Particule.o
 
 Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
 
-Particule.o: Particule.cc Particule.h Vecteur3D.h ConstantesPhysiques.h
+testVecteur.o: testVecteur.cc Vecteur3D.h
 
-testParticule.o: testParticule.cc Particule.h Vecteur3D.h
-
-#testVecteur: testVecteur.o Vecteur3D.o
-
-#testVecteur.o: testVecteur.cc Vecteur3D.h
+testVecteur: testVecteur.o Vecteur3D.o
