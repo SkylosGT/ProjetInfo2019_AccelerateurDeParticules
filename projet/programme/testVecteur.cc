@@ -74,5 +74,6 @@ int main ()
 	cout <<"La soustraction du vecteur 2 avec le vecteur 3 est le nouveau vecteur 2 : " << vect2<< endl;
 	cout <<"La multiplication du vecteur 3 avec un scalaire = 4 est le nouveau vecteur 3 : " << vect3 << endl;
 	cout <<"Le produit scalaire du vecteur 4 avec le nouveau vecteur 3 est le nouveau vecteur 4 : " << vect4 << endl;
+
 	return 0;
 }

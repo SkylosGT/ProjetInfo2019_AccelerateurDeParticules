@@ -13,7 +13,7 @@ class Vecteur3D {
 	
 	//Méthodes auxquels on accède via des opérateurs internes à la classe Vecteur3D (fonctions utilisées par les opérateurs internes)
 		
-		//bool compare(Vecteur3D const&) const; //Fonction qui compare deux vecteurs et return true si l'instance courante et l'autre vecteur3D sont égaux (même coordonnées)
+		bool compare(Vecteur3D const&) const; //Fonction qui compare deux vecteurs et return true si l'instance courante et l'autre vecteur3D sont égaux (même coordonnées)
 		
 		//Vecteur3D oppose () const; //Fonction qui renvoie l'opposé de l'instance courante (opposé de chaque coordonnée)
 	
@@ -36,7 +36,7 @@ class Vecteur3D {
 		const Vecteur3D operator~() const; //Retourne le vecteur unitaire associé à l'instance courante
 		Vecteur3D& operator+=(Vecteur3D const&); //Retourne dans l'instance courante l'addition de celle-ci avec un autre Vecteur3D
 		Vecteur3D& operator-=(Vecteur3D const&); //Retourne dans l'instance courante la soustraction de celle-ci avec un autre Vecteur3D
-		Vecteur3D& operator*=(double const&); //Retourne dans l'instance courante la multiplication de celle-ci avec un scalaire
+		Vecteur3D& operator*=(double const) ; //Retourne dans l'instance courante la multiplication de celle-ci avec un scalaire
 		Vecteur3D& operator^=(Vecteur3D const&); //Retourne dans l'instance courante le produit vectoriel de celle-ci avec un autre Vecteur3D
 		
 	//Fonctions utilisées pas les opérateurs externes à la classe Vecteur3D
@@ -49,7 +49,7 @@ class Vecteur3D {
 		
 		//Vecteur3D mult(double const&) const; //Fonction qui renvoie la mutliplication de l'instance courante par un scalaire réel
 		
-		//double prod_scal(Vecteur3D const&) const; //Fonction qui renvoie le produit scalaire de l'instance courante avec un autre vecteur3D
+		double prod_scal(Vecteur3D const&) const; //Fonction qui renvoie le produit scalaire de l'instance courante avec un autre vecteur3D
 		
 		//Vecteur3D prod_vect(Vecteur3D const&) const; //Fonction qui renvoie le produit vectoriel de l'instance courante avec un autre vecteur3D
 		
