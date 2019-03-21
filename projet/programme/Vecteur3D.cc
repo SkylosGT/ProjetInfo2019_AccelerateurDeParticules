@@ -7,7 +7,7 @@ using namespace std;
 //METHODES PRIVEES DE LA CLASSE VECTEUR3D
 //compare() : compare les coordonnées de l'instance avec celles d'un autre vecteur
 bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
-	if ((scal_x == Acomparer.getx()) and (scal_y ==  Acomparer.gety()) and (scal_z == Acomparer.getz())) {
+	if ((scal_x == Acomparer.scal_x) and (scal_y ==  Acomparer.scal_y) and (scal_z == Acomparer.scal_z)) {
 			return true;
 		} else {
 			return false;
@@ -51,13 +51,13 @@ std::ostream& Vecteur3D::affiche(std::ostream& sortie) const
 //addition() : Additionne l'instance avec un vecteur passé en paramètre
 Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
 {		
-	return Vecteur3D ( scal_x + autre.getx(), scal_y + autre.gety(), scal_z + autre.getz());
+	return Vecteur3D ( scal_x + autre.scal_x, scal_y + autre.scal_y, scal_z + autre.scal_z);
 }
 
 //soustraction() : Soustrait l'instance avec un vecteur passé en paramètre
 Vecteur3D Vecteur3D::soustraction(Vecteur3D const& autre) const
 {
-	return Vecteur3D (scal_x - autre.getx(), scal_y - autre.gety(), scal_z - autre.getz());
+	return Vecteur3D (scal_x - autre.scal_x, scal_y - autre.scal_y, scal_z - autre.scal_z);
 }
 
 //mult() : Multiplie l'instance par un scalaire
@@ -69,13 +69,13 @@ Vecteur3D Vecteur3D::mult (double const& scalaire) const
 //prod_scal() : Effectue un produit scalaire entre l'instance et un vecteur passé en paramètre
 double Vecteur3D::prod_scal(Vecteur3D const& autre) const
 {
-	return double (scal_x*autre.getx() + scal_y*autre.gety() + scal_z*autre.getz());
+	return double (scal_x*autre.scal_x + scal_y*autre.scal_y + scal_z*autre.scal_z);
 }
 
 //prod_vect() : Effectue un produit vectoriel entre l'instance et un vecteur passé en paramètre
 Vecteur3D Vecteur3D::prod_vect(Vecteur3D const& autre) const
 { 	
-	return Vecteur3D (scal_y*autre.getz() - scal_z*autre.gety(), scal_z*autre.getx() - scal_x*autre.getz(), scal_x*autre.gety() - scal_y*autre.getx());
+	return Vecteur3D (scal_y*autre.scal_z - scal_z*autre.scal_y, scal_z*autre.scal_x - scal_x*autre.scal_z, scal_x*autre.scal_y - scal_y*autre.scal_x);
 }
 
 //prod_mixte() : Effectue un produit mixte entre l'instance et deux vecteurs passés en paramètre
