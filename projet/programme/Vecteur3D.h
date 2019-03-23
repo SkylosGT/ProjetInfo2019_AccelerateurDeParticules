@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 //En tête de la classe Vecteur3D avec descriptions de ses méthodes. Corps dans "Vecteur3D.cc"
 class Vecteur3D {
 	
