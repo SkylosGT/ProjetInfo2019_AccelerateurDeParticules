@@ -42,11 +42,10 @@ Vecteur3D& Vecteur3D::operator-=(Vecteur3D const& autre) {
 	return *this;}
 	
 Vecteur3D& Vecteur3D::operator*=(double const scalaire) {
-	scal_x*=scalaire;
-	scal_y*=scalaire;
-	scal_z*=scalaire;
-	return *this;
-	}
+	scal_x *= scalaire;
+	scal_y *= scalaire;
+	scal_z *= scalaire;
+	return *this;}
 	
 Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre) {
 	scal_x = scal_y*autre.scal_z - scal_z*autre.scal_y;
@@ -55,14 +54,15 @@ Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre) {
 	return *this;}
 
 //METHODES PUBLIQUES DE LA CLASSE VECTEURS3D
+
 //Le constrcteur qui initialise le nouvel objet vecteur3D
-Vecteur3D::Vecteur3D(double scal_x, double scal_y, double scal_z) : scal_x(scal_x), scal_y(scal_y), scal_z(scal_z) {}
+Vecteur3D::Vecteur3D(double scal_x, double scal_y, double scal_z) 
+: scal_x(scal_x), scal_y(scal_y), scal_z(scal_z) {}
 
 //affiche() : affiche les coordonnées de l'instance 
 std::ostream& Vecteur3D::affiche(std::ostream& sortie) const 
 {
 	sortie <<scal_x<<' '<<scal_y<<' '<<scal_z;
-	
 	return sortie;
 }
 
@@ -75,13 +75,13 @@ double Vecteur3D::prod_scal(Vecteur3D const& autre) const
 //norme() : Calcule la norme de l'instance
 double Vecteur3D::norme() const
 {
-	return double (sqrt(scal_x*scal_x + scal_y*scal_y + scal_z*scal_z));
+	return sqrt(scal_x*scal_x + scal_y*scal_y + scal_z*scal_z);
 }
 
 //norme2() : Calcule le carré de la norme de l'instance
 double Vecteur3D::norme2() const
 { 
-	return norme()*norme();
+	return scal_x*scal_x + scal_y*scal_y + scal_z*scal_z;
 }
 
 //rotation(): Effetcue une rotation de l'instance d'un angle t en radiant autour d'un ascal_xe donné par un vecteur unitaire (angle et ascal_xe passés en paramètres)
@@ -101,9 +101,6 @@ const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 	
 const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
 	return V1-=V2;}
-	
-const Vecteur3D operator*(double scalaire, Vecteur3D V){
-	return V *= scalaire;}
 	
 const Vecteur3D operator*(Vecteur3D V, double scalaire){
 	return V *= scalaire;} 

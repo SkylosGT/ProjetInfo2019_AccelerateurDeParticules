@@ -1,3 +1,19 @@
+//Vecteur3D addition (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de l'addition de l'instance courante avec un autre vecteur3D
+		
+//Vecteur3D soustraction (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de la soustraction de l'instance courante avec un autre vecteur3D
+
+//Vecteur3D prod_vect(Vecteur3D const&) const; //Fonction qui renvoie le produit vectoriel de l'instance courante avec un autre vecteur3D
+		
+//double prod_mixte(Vecteur3D, Vecteur3D) const; //Fonction qui renvoie le produit mixte de l'instance courante avec deux autres vecteurs3D 
+												//(produit scalaire entre l'instance courante et le produit vectoriel des deux autres vecteurs)
+
+const Vecteur3D operator*(double, Vecteur3D const&); //Multiplie un vecteur3D par un scalaire
+
+//Vecteur3D oppose () const; //Fonction qui renvoie l'opposé de l'instance courante (opposé de chaque coordonnée)
+	
+//Vecteur3D unitaire() const; //Fonction qui renvoie un vecteur unitaire (norme=1) de même direction et sens que l'instance courante
+
+
 //addition() : Additionne l'instance avec un vecteur pass� en param�tre
 Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
 {		
