@@ -48,9 +48,10 @@ Vecteur3D& Vecteur3D::operator*=(double const scalaire) {
 	return *this;}
 	
 Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre) {
-	scal_x = scal_y*autre.scal_z - scal_z*autre.scal_y;
-	scal_y = scal_z*autre.scal_x - scal_x*autre.scal_z;
-	scal_z = scal_x*autre.scal_y - scal_y*autre.scal_x;
+	Vecteur3D tmp(*this);
+	scal_x = tmp.scal_y*autre.scal_z - tmp.scal_z*autre.scal_y;
+	scal_y = tmp.scal_z*autre.scal_x - tmp.scal_x*autre.scal_z;
+	scal_z = tmp.scal_x*autre.scal_y - tmp.scal_y*autre.scal_x;
 	return *this;}
 
 //METHODES PUBLIQUES DE LA CLASSE VECTEURS3D
@@ -102,11 +103,11 @@ const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
 	return V1-=V2;}
 	
-const Vecteur3D operator*(Vecteur3D V, double scalaire){
+Vecteur3D operator*(Vecteur3D V, double scalaire){
 	return V *= scalaire;} 
 	
 double operator*(Vecteur3D V1, Vecteur3D const& V2){
 	return V1.prod_scal(V2);}
 	
-Vecteur3D operator^(Vecteur3D V1, Vecteur3D const& V2) {
+const Vecteur3D operator^(Vecteur3D V1, Vecteur3D const& V2) {
 	return V1^=V2;}

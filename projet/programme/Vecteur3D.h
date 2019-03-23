@@ -41,7 +41,6 @@ class Vecteur3D {
 		Vecteur3D mult(double const&) const; //Fonction qui renvoie la mutliplication de l'instance courante par un scalaire réel
 		
 		double prod_scal(Vecteur3D const&) const; //Fonction qui renvoie le produit scalaire de l'instance courante avec un autre vecteur3D
-		
 	
 	//Autres fonctions utiles à l'utilisation de la classe Vecteur3D
 	
@@ -62,10 +61,10 @@ const Vecteur3D operator+(Vecteur3D, Vecteur3D const&); //Additionne deux vecteu
 
 const Vecteur3D operator-(Vecteur3D, Vecteur3D const&); //Soustrait deux vecteurs 3D
 
-const Vecteur3D operator*(Vecteur3D const&, double); //Multiplie un vecteur3D par un scalaire
+Vecteur3D operator*(Vecteur3D const&, double); //Multiplie un vecteur3D par un scalaire
 
 double operator*(Vecteur3D, Vecteur3D const&); //Fait le produit scalaire de deux vecteurs3D
 
-Vecteur3D operator^(Vecteur3D, Vecteur3D const&); //Fait le produit vectoriel de deux vecteurs 3D
+const Vecteur3D operator^(Vecteur3D, Vecteur3D const&); //Fait le produit vectoriel de deux vecteurs 3D
 
 
