@@ -36,7 +36,7 @@ class Vecteur3D {
 		const Vecteur3D operator~() const; //Retourne le vecteur unitaire associé à l'instance courante
 		Vecteur3D& operator+=(Vecteur3D const&); //Retourne dans l'instance courante l'addition de celle-ci avec un autre Vecteur3D
 		Vecteur3D& operator-=(Vecteur3D const&); //Retourne dans l'instance courante la soustraction de celle-ci avec un autre Vecteur3D
-		Vecteur3D& operator*=(double const) ; //Retourne dans l'instance courante la multiplication de celle-ci avec un scalaire
+		Vecteur3D& operator*=(double const); //Retourne dans l'instance courante la multiplication de celle-ci avec un scalaire
 		Vecteur3D& operator^=(Vecteur3D const&); //Retourne dans l'instance courante le produit vectoriel de celle-ci avec un autre Vecteur3D
 		
 	//Fonctions utilisées pas les opérateurs externes à la classe Vecteur3D

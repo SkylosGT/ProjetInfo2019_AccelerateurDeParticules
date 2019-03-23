@@ -13,18 +13,6 @@ bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
 			return false;
 		}
 	} 
-/*	
-//oppose() : Multiplie l'instance par (-1)
-Vecteur3D Vecteur3D::oppose () const 
-{ 	
-	return Vecteur3D (-scal_x,-scal_y,-scal_z);
-}
-
-//unitaire() : Retourne le vecteur unitaire de même direction et sens que l'instance
-Vecteur3D Vecteur3D::unitaire() const 
-{
-	return Vecteur3D (scal_x/norme(), scal_y/norme(), scal_z/norme());
-} */
 
 //OPERATEURS INTERNES A LA CLASSE VECTEUR3D
 bool Vecteur3D::operator==(Vecteur3D const& Acomparer) const {
@@ -54,7 +42,9 @@ Vecteur3D& Vecteur3D::operator-=(Vecteur3D const& autre) {
 	return *this;}
 	
 Vecteur3D& Vecteur3D::operator*=(double const scalaire) {
-	*this = (*this)*scalaire;
+	scal_x*=scalaire;
+	scal_y*=scalaire;
+	scal_z*=scalaire;
 	return *this;
 	}
 	
@@ -75,42 +65,12 @@ std::ostream& Vecteur3D::affiche(std::ostream& sortie) const
 	
 	return sortie;
 }
-/*
-//addition() : Additionne l'instance avec un vecteur passé en paramètre
-Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
-{		
-	return Vecteur3D ( scal_x + autre.scal_x, scal_y + autre.scal_y, scal_z + autre.scal_z);
-} 
-
-//soustraction() : Soustrait l'instance avec un vecteur passé en paramètre
-Vecteur3D Vecteur3D::soustraction(Vecteur3D const& autre) const
-{
-	return Vecteur3D (scal_x - autre.scal_x, scal_y - autre.scal_y, scal_z - autre.scal_z);
-}*/
-
-//mult() : Multiplie l'instance par un scalaire
-Vecteur3D Vecteur3D::mult (double const& scalaire) const
-{	
-	return Vecteur3D (scalaire*scal_x,scalaire*scal_y,scalaire*scal_z);
-}
 
 //prod_scal() : Effectue un produit scalaire entre l'instance et un vecteur passé en paramètre
 double Vecteur3D::prod_scal(Vecteur3D const& autre) const
 {
 	return double (scal_x*autre.scal_x + scal_y*autre.scal_y + scal_z*autre.scal_z);
 }
-/*
-//prod_vect() : Effectue un produit vectoriel entre l'instance et un vecteur passé en paramètre
-Vecteur3D Vecteur3D::prod_vect(Vecteur3D const& autre) const
-{ 	
-	return Vecteur3D (scal_y*autre.scal_z - scal_z*autre.scal_y, scal_z*autre.scal_x - scal_x*autre.scal_z, scal_x*autre.scal_y - scal_y*autre.scal_x);
-}
-
-//prod_mixte() : Effectue un produit mixte entre l'instance et deux vecteurs passés en paramètre
-double Vecteur3D::prod_mixte(Vecteur3D V1, Vecteur3D V2) const 
-{	
-	return double (prod_scal(V1.prod_vect(V2)));
-}*/
 
 //norme() : Calcule la norme de l'instance
 double Vecteur3D::norme() const
@@ -142,11 +102,11 @@ const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
 	return V1-=V2;}
 	
-const Vecteur3D operator*(double scalaire, Vecteur3D const& V){
-	return V.mult(scalaire);}
+const Vecteur3D operator*(double scalaire, Vecteur3D V){
+	return V *= scalaire;}
 	
-const Vecteur3D operator*(Vecteur3D const& V, double scalaire){
-	return V.mult(scalaire);} 
+const Vecteur3D operator*(Vecteur3D V, double scalaire){
+	return V *= scalaire;} 
 	
 double operator*(Vecteur3D V1, Vecteur3D const& V2){
 	return V1.prod_scal(V2);}
