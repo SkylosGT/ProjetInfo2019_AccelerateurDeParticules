@@ -14,7 +14,7 @@ double Particule::transformMassGeVToKg(){
     return (const_e*1e+9*scal_m)/(const_c*const_c);}
 
 double Particule::calculateDeviationAngle(double _dt){
-    return asin((_dt*vec_f.norme())/(2*FacteurGamma()*massGeVToKg()*vec_v.norme()));}
+    return asin((_dt*vec_f.norme())/(2*FacteurGamma()*transformMassGeVToKg()*vec_v.norme()));}
 
 //METHODES PUBLIQUES DE LA CLASSE PARTICULE
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
@@ -36,12 +36,12 @@ double Particule::FacteurGamma() const
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(scal_q*vec_v)^_B;
     cout<<" F0 = "<<vec_f<<endl;
-    vec_f.rotation((vec_v^vec_f), deviationAngle(_dt));
+    vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
     cout<<" F1 = "<<vec_f<<endl;
-    cout<<" Angle : "<<deviationAngle(_dt)<<endl;}
+    cout<<" Angle : "<<calculateDeviationAngle(_dt)<<endl;}
 
 void Particule::bouger(double _dt){
-    vec_v=vec_v+_dt*(1/(FacteurGamma()*massGeVToKg()))*vec_f;
+    vec_v=vec_v+_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
     vec_r=vec_r+(vec_v*(_dt));
     vec_f=*new Vecteur3D();}
 
