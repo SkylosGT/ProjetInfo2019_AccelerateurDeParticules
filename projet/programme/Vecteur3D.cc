@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cmath>
 #include "Vecteur3D.h"
+
 using namespace std;
+
 //DEFINITION (PROTOTYPE + CORPS) DES METHODES ET DES FONCTIONS DE LA CLASSE VECTEUR3D
 
 //METHODES PRIVEES DE LA CLASSE VECTEUR3D
@@ -103,7 +105,10 @@ const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 const Vecteur3D operator-(Vecteur3D V1, Vecteur3D const& V2){
 	return V1-=V2;}
 	
-Vecteur3D operator*(Vecteur3D V, double scalaire){
+const Vecteur3D operator*(Vecteur3D V, double scalaire){
+	return V *= scalaire;} 
+
+const Vecteur3D operator*(double scalaire, Vecteur3D V){
 	return V *= scalaire;} 
 	
 double operator*(Vecteur3D V1, Vecteur3D const& V2){

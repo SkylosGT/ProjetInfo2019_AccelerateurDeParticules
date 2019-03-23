@@ -54,8 +54,8 @@ int main ()
 	//Test des opérateurs opposé, unitaire, multiplication par un scalaire
 	cout <<"L'opposé du vecteur 1 est : " << (-vect1) << endl;
 	cout << "Son vecteur unitaire associé est : " << (~vect1) << endl;
-	cout << "Le Multiplier à gauche par 4 donne le vecteur : " <<vect1*4.0<< " et à droite : "<<vect1*4 << endl;
-	/*
+	cout << "Le Multiplier à gauche par 4 donne le vecteur : " <<4*vect1<< " et à droite : "<<vect1*4 << endl;
+
 	//Test de la fonction rotation
 	cout << "Le vecteur résultant de la rotation du vecteur (1, 0, 0) d'un angle de 90° autour de l'axe du vecteur (0,0,1) est " << Vecteur3D(1,0,0).rotation(Vecteur3D(0,0,1), (M_PI/2)) << endl;
 	cout <<endl;
@@ -71,12 +71,12 @@ int main ()
 	vect1+=vect2;
 	vect2-=vect3;
 	vect3*=4;
-	vect4^=vect1;
+	vect4^=vect3;
 	
-	cout <<"L'addition du vecteur 1 avec le vecteur 2 est le nouveau vecteur 1 : " << vect1<< endl;
+	cout <<"L'addition du vecteur 1 avec le vecteur 2 est le nouveau vecteur 1 : " <<vect1<< endl;
 	cout <<"La soustraction du vecteur 2 avec le vecteur 3 est le nouveau vecteur 2 : " << vect2<< endl;
 	cout <<"La multiplication du vecteur 3 avec un scalaire = 4 est le nouveau vecteur 3 : " << vect3 << endl;
 	cout <<"Le produit scalaire du vecteur 4 avec le nouveau vecteur 3 est le nouveau vecteur 4 : " << vect4 << endl;
-*/
+
 	return 0;
 }

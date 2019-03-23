@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 //En tête de la classe Vecteur3D, description des méthodes dans "Vecteur3D.cc"
 class Vecteur3D {
@@ -61,7 +60,9 @@ const Vecteur3D operator+(Vecteur3D, Vecteur3D const&); //Additionne deux vecteu
 
 const Vecteur3D operator-(Vecteur3D, Vecteur3D const&); //Soustrait deux vecteurs 3D
 
-Vecteur3D operator*(Vecteur3D const&, double); //Multiplie un vecteur3D par un scalaire
+const Vecteur3D operator*(Vecteur3D, double);//Multiplie un vecteur3D par un scalaire
+
+const Vecteur3D operator*(double, Vecteur3D); //Multiplie un vecteur3D par un scalaire
 
 double operator*(Vecteur3D, Vecteur3D const&); //Fait le produit scalaire de deux vecteurs3D
 
