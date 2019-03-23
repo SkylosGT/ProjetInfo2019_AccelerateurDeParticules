@@ -1,13 +1,15 @@
+//Pour l'utilisation des constantes mathématiques de la classe math.h
 #define _USE_MATH_DEFINES
 
 #include <iostream>
 #include <cmath>
 #include <math.h>
+
 #include "Vecteur3D.h"
+
 using namespace std;
 
-/*Boucle principale
-pour le moment il ne s'agit que du test de la classe vecteur3D*/
+//TEST de la classe Vecteur3D, de ses méthode et de la surcharge des opérateurs pour les vecteurs
 int main ()
 {
 	// un vecteur en 3D :
@@ -19,13 +21,13 @@ int main ()
 	Vecteur3D vect3(vect1);  // copie de V1
 	Vecteur3D vect4(1);      // le vecteur nul initialisé avec la première valeure
 
-	//Affichage des vecteurs à l'aide d'opérateurs
+	//Test de l'affichage des vecteurs à l'aide d'opérateurs
 	cout << "Vecteur 1 puis 3 : " << vect1 <<" , "<< vect3<< endl;
 	cout << "Vecteur 2 : " << vect2 << endl;
 	cout << "Vecteur 4 : " << vect4 << endl;
 	cout << endl;
 	
-	//Comparaison de vecteurs à l'aide d'opérateurs
+	//Test de la comparaison de vecteurs à l'aide d'opérateurs
 	cout << "Le vecteur 1 est ";
 		if (vect1 == vect2) {
 			cout << "égal au";
