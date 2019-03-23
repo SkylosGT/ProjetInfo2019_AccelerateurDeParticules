@@ -47,8 +47,8 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     cout<<" Angle : "<<calculateDeviationAngle(_dt)<<endl;}
 
 void Particule::bouger(double _dt){
-    vec_v=vec_v+_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
-    vec_r=vec_r+(vec_v*(_dt));
+    vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
+    vec_r+=vec_v*(_dt);
     vec_f=*new Vecteur3D();}
 
 ostream& Particule::affiche(ostream& sortie) const{
