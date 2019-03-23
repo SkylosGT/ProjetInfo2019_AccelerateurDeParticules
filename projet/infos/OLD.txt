@@ -39,3 +39,6 @@ Vecteur3D Vecteur3D::unitaire() const
 {
 	return Vecteur3D (scal_x/norme(), scal_y/norme(), scal_z/norme());
 }
+
+const Vecteur3D operator*(double scalaire, Vecteur3D V){
+	return V *= scalaire;}
