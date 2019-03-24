@@ -2,9 +2,8 @@
 
 class ElementCourbe : public Element
 {
-private:
+protected:
     double scal_k;
-
     Vecteur3D centreDeCourbure() const;
 public:
     ElementCourbe(Vecteur3D, Vecteur3D, double, Element const&, double);
