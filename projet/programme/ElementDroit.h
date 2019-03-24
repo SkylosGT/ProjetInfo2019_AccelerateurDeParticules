@@ -5,8 +5,9 @@ class ElementDroit: public Element
 private:
     /* data */
 public:
-    ElementDroit(/* args */);
+    ElementDroit(Vecteur3D, Vecteur3D, double, Element const&);
     ~ElementDroit();
+    bool heurte_bord(Particule const&) const;
 };
 
 
