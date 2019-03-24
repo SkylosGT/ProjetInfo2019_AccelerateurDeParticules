@@ -18,6 +18,9 @@ private:
     double deviationAngle(double);
 
 public:
+    //Getter
+    Vecteur3D getr() const {return vec_r;};
+
     //Constructeur par vecteur quantité de mouvement en Gev
     Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse en GeV/c^2*/, double/*Charge*/);
 
