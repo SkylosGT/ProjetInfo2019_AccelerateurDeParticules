@@ -1,6 +1,8 @@
 #include "Element.h"
+#include "ConstantesPhysiques.h"
 #include <iostream>
 
+using namespace ConstantesPhysiques;
 using namespace std;
 
 Element::Element(Vecteur3D _re, Vecteur3D _rs, double _Re, Element const& _suivant)
@@ -16,6 +18,5 @@ bool Element::heurte_bord(Particule const& _p) const{
 }
 
 bool Element::passe_au_suivant(Particule const& _p) const{
-    cout<<"Heurte_bord"<<endl;
-    return false;
-}
+    if (vec_e3*(_p.position()^vec_rs)>0) {return true;}
+    else{return false;}}
