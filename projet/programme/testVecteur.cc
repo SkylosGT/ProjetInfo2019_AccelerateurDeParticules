@@ -4,6 +4,7 @@
 #include <cmath>
 #include <math.h>
 #include "Vecteur3D.h"
+
 using namespace std;
 
 /*Boucle principale

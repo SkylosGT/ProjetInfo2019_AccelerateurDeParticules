@@ -6,7 +6,7 @@ ElementDroit::ElementDroit(Vecteur3D _re, Vecteur3D _rs, double _Re, Element con
 ElementDroit::~ElementDroit()
 {}
 
-bool Element::heurte_bord(Particule const& _particule) const{
+bool ElementDroit::heurte_bord(Particule const& _particule) const{
     Vecteur3D vec_X(_particule.position()-vec_re);
     Vecteur3D vec_d(~(vec_rs-vec_re));
     if ((vec_X-(vec_X*vec_d)*vec_d).norme()>scal_Re) {return true;}

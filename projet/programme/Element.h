@@ -6,9 +6,9 @@ class Element
 protected:
     Vecteur3D vec_re;
     Vecteur3D vec_rs;
+    double scal_Re;
 
 private:
-    double scal_Re;
     Element const& elem_suivant;
 
 public:
