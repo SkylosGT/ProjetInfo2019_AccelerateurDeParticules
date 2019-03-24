@@ -20,3 +20,7 @@ bool Element::heurte_bord(Particule const& _p) const{
 bool Element::passe_au_suivant(Particule const& _p) const{
     if (vec_e3*(_p.position()^vec_rs)>0) {return true;}
     else{return false;}}
+
+Vecteur3D Element::champsMagnetique(Vecteur3D const&) const{
+    return vec_e1;
+}
