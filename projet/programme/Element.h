@@ -3,9 +3,11 @@
 
 class Element
 {
-private:
+protected:
     Vecteur3D vec_re;
     Vecteur3D vec_rs;
+
+private:
     double scal_Re;
     Element const& elem_suivant;
 
