@@ -10,6 +10,5 @@ Dipole::Dipole(Vecteur3D _re, Vecteur3D _rs, double _Re, Element const& _suivant
 Dipole::~Dipole()
 {}
 
-Vecteur3D Dipole::champMagnetique(Vecteur3D const& _r) const {
-    return scal_Bz*_r;
-}
+Vecteur3D Dipole::champMagnetique() const {
+    return scal_Bz*vec_e3;}
