@@ -1,41 +1,58 @@
 #pragma once
-#include "Vecteur3D.h"
+
 #include <iostream>
 
-/*Header de la classe particule
-  unités GeV*/
+#include "Vecteur3D.h"
+
+//En tête de la classe Particule avec descriptions de ses méthodes. Corps dans "Particule.cc"
 
 class Particule
 {
-private:
-    Vecteur3D vec_r; //Position de la particule dans R3 
-    Vecteur3D vec_v; //Quantité de mouvement de la particule dans R3
+  
+  private:
+  
+  //Attributs physiques d'une particule
+    Vecteur3D vec_r; //Position de la particule 
+    Vecteur3D vec_v; //Vitesse de la particule
     double scal_m; //Masse de la particule
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
 
-    double massGeVToKg();
-    double deviationAngle(double);
+  /*Méthodes pour faciliter les calculs des attributs de l'instance*/
+
+    //Transforme une masse donnée en GeV/c^2 en kg
+    double transformMassGeVToKg();
+
+    //Calcule l'angle de déviation de la force 
+    double calculateDeviationAngle(double);
 
 public:
-    //Constructeur par vecteur quantité de mouvement en Gev
-    Particule(Vecteur3D /*Position*/, Vecteur3D /*Quantité de mouvement*/, double/*Masse en GeV/c^2*/, double/*Charge*/);
 
-    //Constructeur par energie en GeV et direction vectorielle
-    Particule(Vecteur3D/*Position*/, Vecteur3D /*Direction Vectorielle*/, double /*Energie en GeV*/, double/*Masse en GeV/c^2*/, double /*Charge*/);
-    
-    //Déstructeur
-    ~Particule();
+  //Constructeur par vecteur quantité de mouvement en GeV
+    Particule(Vecteur3D, Vecteur3D, double, double);
 
+  //Constructeur par energie en GeV et direction vectorielle
+    Particule(Vecteur3D, Vecteur3D, double, double, double);
+
+  /*Méthodes de l'interface de la classe particule*/
+
+    //Calcule l'énergie de la particule en tout temps en fonction de sa vitesse et de sa masse
     double Energie() const;
 
+    //Calcule le facteur gamma de la particule en fonciton de sa vitesse
     double FacteurGamma() const;
 
-    void ajouteForceMagnetique(Vecteur3D /*Champs magnétique*/, double /*Pas de temps*/);
+    //Ajoute une force s'appliquant sur la particule et effectue une rotation sur celle la
+    void ajouteForceMagnetique(Vecteur3D, double);
 
-    void bouger(double /*Pas de temps*/);
+    //Déplace la particule et modifie sa vitesse en fonction des attributs de l'instance courante et du pas de temps définit
+    void bouger(double);
 
+    //Affiche les attributs de l'instance sur la console de manière ergonomique
     std::ostream& affiche(std::ostream&) const;
 };
 
+/*OPERATEURS EXTERNES*/
+
+//Permet l'affichage d'une Particule par surcharge
 std::ostream& operator<<(std::ostream&, Particule const&);
