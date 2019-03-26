@@ -1,0 +1,65 @@
+ANCIENNES METHODES DE CLASSE
+
+VECTEUR3D
+
+EN TETE
+//Vecteur3D addition (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de l'addition de l'instance courante avec un autre vecteur3D
+		
+//Vecteur3D soustraction (Vecteur3D const&) const; //Fonction qui retourne un vecteur3D résultant de la soustraction de l'instance courante avec un autre vecteur3D
+
+//Vecteur3D prod_vect(Vecteur3D const&) const; //Fonction qui renvoie le produit vectoriel de l'instance courante avec un autre vecteur3D
+		
+//double prod_mixte(Vecteur3D, Vecteur3D) const; //Fonction qui renvoie le produit mixte de l'instance courante avec deux autres vecteurs3D 
+												//(produit scalaire entre l'instance courante et le produit vectoriel des deux autres vecteurs)
+
+const Vecteur3D operator*(double, Vecteur3D const&); //Multiplie un vecteur3D par un scalaire
+
+//Vecteur3D oppose () const; //Fonction qui renvoie l'opposé de l'instance courante (opposé de chaque coordonnée)
+	
+//Vecteur3D unitaire() const; //Fonction qui renvoie un vecteur unitaire (norme=1) de même direction et sens que l'instance courante
+
+CORPS
+//addition() : Additionne l'instance avec un vecteur pass� en param�tre
+Vecteur3D Vecteur3D::addition(Vecteur3D const& autre) const
+{		
+	return Vecteur3D ( scal_x + autre.scal_x, scal_y + autre.scal_y, scal_z + autre.scal_z);
+} 
+
+//soustraction() : Soustrait l'instance avec un vecteur pass� en param�tre
+Vecteur3D Vecteur3D::soustraction(Vecteur3D const& autre) const
+{
+	return Vecteur3D (scal_x - autre.scal_x, scal_y - autre.scal_y, scal_z - autre.scal_z);
+}
+
+//mult() : Multiplie l'instance par un scalaire
+Vecteur3D Vecteur3D::mult (double const& scalaire) const
+{	
+	return Vecteur3D (scalaire*scal_x,scalaire*scal_y,scalaire*scal_z);
+}
+
+//prod_vect() : Effectue un produit vectoriel entre l'instance et un vecteur pass� en param�tre
+Vecteur3D Vecteur3D::prod_vect(Vecteur3D const& autre) const
+{ 	
+	return Vecteur3D (scal_y*autre.scal_z - scal_z*autre.scal_y, scal_z*autre.scal_x - scal_x*autre.scal_z, scal_x*autre.scal_y - scal_y*autre.scal_x);
+}
+
+//prod_mixte() : Effectue un produit mixte entre l'instance et deux vecteurs pass�s en param�tre
+double Vecteur3D::prod_mixte(Vecteur3D V1, Vecteur3D V2) const 
+{	
+	return double (prod_scal(V1.prod_vect(V2)));
+}
+	
+//oppose() : Multiplie l'instance par (-1)
+Vecteur3D Vecteur3D::oppose () const 
+{ 	
+	return Vecteur3D (-scal_x,-scal_y,-scal_z);
+}
+
+//unitaire() : Retourne le vecteur unitaire de m�me direction et sens que l'instance
+Vecteur3D Vecteur3D::unitaire() const 
+{
+	return Vecteur3D (scal_x/norme(), scal_y/norme(), scal_z/norme());
+}
+
+const Vecteur3D operator*(double scalaire, Vecteur3D V){
+	return V *= scalaire;}

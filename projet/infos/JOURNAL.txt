@@ -42,6 +42,16 @@ Log Joséphine:
 Log Adrien:
 -ImplÈmentation de la classe Particule
 
+Log Joséphine : 
+Sur la classe Vecteur3D : 
+-Rajout des commentaires et organisation du code (quelques fonctions sont passées en privés etc..)
+-Rajout de const et de passages par référence dans les fonctions pour éviter les copies
+-Optimisation des anciennes fonctions en ayant des définitions à une seule ligne (un return)
+-Création de constructeurs
+-Création des opérateurs internes de comparaison == et !=, opposé -, unitaire ~, +=, -=,*= (problème), ^=
+-Création d’opérateurs externes d’affichage <<, d’addition +, de soustraction -, de multiplication par un scalaire à droite et à gauche *, de produit scalaire * et de produit vectoriel ^
+-Création d'un main qui test chaque opérateur (et qui fonctionne) 
+
 
 --------------------------------------------------
 ## Semaine 5 :
