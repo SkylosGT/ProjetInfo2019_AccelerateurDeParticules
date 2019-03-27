@@ -27,6 +27,8 @@ class Particule
     double calculateDeviationAngle(double);
 
 public:
+    //Getter
+    Vecteur3D position() const {return vec_r;};
 
   //Constructeur par vecteur quantité de mouvement en GeV
     Particule(Vecteur3D, Vecteur3D, double, double);
