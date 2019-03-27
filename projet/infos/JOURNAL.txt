@@ -55,6 +55,9 @@ Sur la classe Vecteur3D :
 
 --------------------------------------------------
 ## Semaine 5 :
+Log Joséphine:
+-Lecture du complément mathématiques et meilleure prise de connaissance du projet dans sa globalité
+-Relecture et compréhension de la classe Particule faite par Adrien
 
 
 
