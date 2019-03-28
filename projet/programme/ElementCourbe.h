@@ -8,6 +8,6 @@ protected:
 public:
     ElementCourbe(Vecteur3D, Vecteur3D, double, Element const&, double);
     ~ElementCourbe();
-    bool heurte_bord(Particule const&) const;
+    virtual bool heurte_bord(Particule const&) const override;
 };
 

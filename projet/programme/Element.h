@@ -14,8 +14,8 @@ private:
 public:
     Element(Vecteur3D, Vecteur3D, double, Element const&);
     ~Element();
-    Vecteur3D champMagnetique(Vecteur3D const&) const;
-    bool heurte_bord(Particule const&) const;
-    bool passe_au_suivant(Particule const&) const;
+    virtual Vecteur3D champMagnetique(Vecteur3D const&) const=0;
+    virtual bool heurte_bord(Particule const&) const=0;
+    virtual bool passe_au_suivant(Particule const&) const;
 };
 
