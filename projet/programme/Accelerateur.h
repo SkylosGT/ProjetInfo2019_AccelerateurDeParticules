@@ -7,14 +7,18 @@
 class Accelerateur {
 	
 	private : 
-	//Une structure contenant tout les éléments d'un accélérateur de particule sous forme de tableaux (Elements droits, courbes et les dipôles)
+	//Un tableau d'éléments
 		std::vector <Element> CollectionElement;
-	//Un tableau de particules (pas besoin de structure car les particules n'ont pas de sous-classes, de spécificationss)
+	//Un tableau de particules 
 		std::vector <Particule> CollectionParticule;
 		
 	
 	public :
 		Accelerateur();
+		
+		Accelerateur(Accelerateur const&) = delete;
+		
+		Accelerateur& operator=(Accelerateur const&) = delete;
 		
 		std::ostream& affiche(std::ostream&) const;
 	
