@@ -58,7 +58,8 @@ Sur la classe Vecteur3D :
 Log Joséphine:
 -Lecture du complément mathématiques et meilleure prise de connaissance du projet dans sa globalité
 -Relecture et compréhension des classes Particule, Element, ElementCourbe, ElementDroit et Dipole faites par Adrien
-
+-Implémentation de la classe Accélérateur (ses attributs, méthodes et opérateurs, sa description) en utilisant les classes Element et Particule
+-Il manque l’utilisation du polymorphisme afin que la collection d’élements utilisée puissent contenir non seulement des éléments mais aussi dipôle(sous-classe de Element)
 
 
 --------------------------------------------------
