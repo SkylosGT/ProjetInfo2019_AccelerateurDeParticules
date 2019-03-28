@@ -15,16 +15,21 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 				}else{
 					sortie << "L'accélérateur est constitué des " <<CollectionElement.size() <<" éléments suivantes :"<<endl;
 					for (auto element : CollectionElement) {
-						sortie << element<< endl; }}}
+						sortie << element<< endl; }}
+						sortie << endl; } else {
+							sortie << "L'accélérateur n'est constitué d'aucun élément."<<endl;
+						sortie << endl;}
 	
-	if (CollectionParticule.size() > 0) {
+	if (CollectionParticule.size() > 0) { 
 		if (CollectionParticule.size() == 1) {
 			sortie << "L'accélérateur contient la particule suivante : " << endl
 					<<CollectionParticule[0]<<endl;
 				}else{
 					sortie << "L'accélérateur contient les " <<CollectionParticule.size() <<" particules suivantes :"<<endl;
 					for (auto particule : CollectionParticule) {
-						sortie << particule << endl; }}}
+						sortie << particule << endl; }}
+						}else{
+							sortie << "L'accélérateur ne contient aucune particule."<< endl;}
 	
 	return sortie; }
 	

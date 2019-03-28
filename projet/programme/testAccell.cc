@@ -9,8 +9,7 @@ using namespace std;
 
 
 int main() {
-	cout<<"Test"<<endl;
-	//Un accélérateur
+	//Un accélérateur par défauts (vide : aucun élément, aucune particule)
 	Accelerateur _A;
 	
 	//Positions de P1 et P2
@@ -31,11 +30,14 @@ int main() {
     //Deux particules P1 et P2
     Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
     
+    //Ajout des deux particules dans l'accélérateur
     _A.ajoutParticule(p1);
     _A.ajoutParticule(p2);
     
+    //Affichage de tout les éléments et particules que contient l'accélérateur
     cout << _A << endl;
     
+    //Suppression des particules de l'accélérateur
     _A.supprCollectionParticule();
 	
 	return 0;
