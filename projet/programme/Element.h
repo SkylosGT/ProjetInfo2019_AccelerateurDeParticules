@@ -19,3 +19,4 @@ public:
     std::ostream& affiche(std::ostream& ) const;
 };
 
+std::ostream& operator<<(std::ostream&, Element const&);

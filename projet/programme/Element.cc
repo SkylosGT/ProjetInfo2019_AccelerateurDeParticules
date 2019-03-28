@@ -27,3 +27,10 @@ Vecteur3D Element::champMagnetique(Vecteur3D const&) const{
 
 ostream& Element::affiche(ostream& sortie) const {
 	return sortie<<"Test Element"<<endl;}
+
+ostream& operator<<(ostream& sortie, Element const& e){
+	return e.affiche(sortie);}
+	
+	
+	
+	

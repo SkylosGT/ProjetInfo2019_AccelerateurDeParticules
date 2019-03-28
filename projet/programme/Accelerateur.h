@@ -34,3 +34,5 @@ class Accelerateur {
 		void evolue() const;
 	
 };
+
+std::ostream& operator<<(std::ostream&, Accelerateur const&);

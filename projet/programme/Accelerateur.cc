@@ -8,14 +8,14 @@ Accelerateur::Accelerateur()
 	: CollectionElement(), CollectionParticule() {}
 	
 ostream& Accelerateur::affiche(ostream& sortie) const {
-	/*if (CollectionElement.size() > 0) {
+	if (CollectionElement.size() > 0) {
 		if (CollectionElement.size() == 1) {
 			sortie << "L'accélérateur est constitué de l'élément suivant : " << endl
-					<<CollectionElement[0].affiche(sortie)<< endl; 
+					<<CollectionElement[0]<< endl; 
 				}else{
 					sortie << "L'accélérateur est constitué des " <<CollectionElement.size() <<" éléments suivantes :"<<endl;
 					for (auto element : CollectionElement) {
-						sortie << element.affiche(sortie) << endl; }}}*/
+						sortie << element<< endl; }}}
 	
 	if (CollectionParticule.size() > 0) {
 		if (CollectionParticule.size() == 1) {
@@ -38,4 +38,7 @@ void Accelerateur::supprCollectionElement() {
 	
 void Accelerateur::evolue() const{
 	cout <<"Méthode évolue debbuging" << endl;}
+	
+ostream& operator<<(ostream& sortie, Accelerateur const& a){
+	return a.affiche(sortie);}
 	
