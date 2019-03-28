@@ -14,12 +14,23 @@ class Accelerateur {
 		
 	
 	public :
+	//Constructeur par défauts
 		Accelerateur();
-		
+	//Suppression du constructeur de copie 
 		Accelerateur(Accelerateur const&) = delete;
-		
+	//Suppression de l'opérateur d'affection =
 		Accelerateur& operator=(Accelerateur const&) = delete;
 		
 		std::ostream& affiche(std::ostream&) const;
+		
+		void ajoutParticule(Particule);
+		
+		void ajoutElement(Element);
+		
+		void supprCollectionElement();
+		
+		void supprCollectionParticule();
+		
+		void evolue() const;
 	
 };

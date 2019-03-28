@@ -27,5 +27,15 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 	
 	return sortie; }
 	
+void Accelerateur::ajoutParticule(Particule nouveau) {
+	CollectionParticule.push_back(nouveau); }
 	
+void Accelerateur::ajoutElement(Element nouveau) {
+	CollectionElement.push_back(nouveau);}
+	
+void Accelerateur::supprCollectionElement() {
+	CollectionElement.clear();}
+	
+void Accelerateur::evolue() const{
+	cout <<"Méthode évolue debbuging" << endl;}
 	
