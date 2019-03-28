@@ -3,6 +3,7 @@
 
 #include "Particule.h"
 #include "ConstantesPhysiques.h"
+#include "Element.h"
 
 using  namespace ConstantesPhysiques;
 using namespace std;
@@ -60,6 +61,10 @@ ostream& Particule::affiche(ostream& sortie) const{
     "   masse (Gev)/c^2 :"<<scal_m<<endl<<
     "   charge :"<<scal_q<<endl<<
     "   force :"<<vec_f<<endl;}
+
+void Particule::change_element(Element* _suivant){
+    elem_courant=_suivant;
+}
 
 //OPERATEURS EXTERNES A LA CLASSE PARTICULE UTILISANT LES METHODES DE LA CLASSE
 ostream& operator<<(ostream& sortie, Particule const& P){

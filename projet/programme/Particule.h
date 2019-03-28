@@ -17,6 +17,7 @@ class Particule
     double scal_m; //Masse de la particule
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
+    Element* elem_courant; //Elément courant ou la particule se trouve
 
   /*Méthodes pour faciliter les calculs des attributs de l'instance*/
 
@@ -52,6 +53,9 @@ public:
 
     //Affiche les attributs de l'instance sur la console de manière ergonomique
     std::ostream& affiche(std::ostream&) const;
+
+    //La particule change d'élément
+    void change_element(Element*);
 };
 
 /*OPERATEURS EXTERNES*/
