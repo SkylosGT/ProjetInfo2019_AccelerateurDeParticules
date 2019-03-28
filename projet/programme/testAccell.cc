@@ -12,6 +12,10 @@ int main() {
 	//Un accélérateur par défauts (vide : aucun élément, aucune particule)
 	Accelerateur _A;
 	
+	//Test du constructeur par défaut
+	cout << "Après initialisation par défauts de l'accélérateur : " << endl; cout << endl;
+	cout << _A << endl;
+	
 	//Positions de P1 et P2
     Vecteur3D _r1(3.00984, -0.391837, 0), _r2(2.99016, -0.391837, 0);
 
@@ -35,10 +39,15 @@ int main() {
     _A.ajoutParticule(p2);
     
     //Affichage de tout les éléments et particules que contient l'accélérateur
+    cout <<"Après ajout de deux particules dans l'accélérateur : " << endl; cout << endl;
     cout << _A << endl;
     
     //Suppression des particules de l'accélérateur
     _A.supprCollectionParticule();
+    
+    //Réaffichage de l'accélérateur pour tester que l'accélérateur ne contient aucune particule
+    cout << "On supprime toutes les particules de l'accélérateur:"<< endl; cout << endl;
+    cout << _A << endl;
 	
 	return 0;
 }
