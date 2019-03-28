@@ -12,3 +12,6 @@ Dipole::~Dipole()
 
 Vecteur3D Dipole::champMagnetique() const {
     return scal_Bz*vec_e3;}
+    
+void Dipole::affiche(){
+	cout<<"Test dipole"<<endl;}
