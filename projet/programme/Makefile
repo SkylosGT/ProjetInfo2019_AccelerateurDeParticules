@@ -27,6 +27,9 @@ testVecteur: testVecteur.o Vecteur3D.o
 
 testVecteur.o: testVecteur.cc Vecteur3D.h
 
+Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h \
+  Element.h Vecteur3D.h Particule.h
+
 Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h \
   Particule.h ConstantesPhysiques.h
 
@@ -39,6 +42,7 @@ ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h \
 ElementDroit.o: ElementDroit.cc ElementDroit.h Element.h Vecteur3D.h \
   Particule.h
 
-testAccell.o: testAccell.cc Accelerateur.h ElementCourbe.h Element.h \
-  Vecteur3D.h Particule.h ElementDroit.h Dipole.h
+testAccell.o: testAccell.cc Accelerateur.h Dipole.h ElementCourbe.h \
+  Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
+testAccell: testAccell.o Particule.o Vecteur3D.o Accelerateur.o Element.o

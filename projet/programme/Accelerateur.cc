@@ -21,6 +21,7 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 		if (CollectionParticule.size() == 1) {
 			sortie << "L'accélérateur contient la particule suivante : " << endl
 					<<CollectionParticule[0]<<endl;
+				}else{
 					sortie << "L'accélérateur contient les " <<CollectionParticule.size() <<" particules suivantes :"<<endl;
 					for (auto particule : CollectionParticule) {
 						sortie << particule << endl; }}}
@@ -35,6 +36,9 @@ void Accelerateur::ajoutElement(Element nouveau) {
 	
 void Accelerateur::supprCollectionElement() {
 	CollectionElement.clear();}
+	
+void Accelerateur::supprCollectionParticule() {
+	CollectionParticule.clear();}
 	
 void Accelerateur::evolue() const{
 	cout <<"Méthode évolue debbuging" << endl;}
