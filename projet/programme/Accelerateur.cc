@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur() 
 	: CollectionElement(), CollectionParticule() {}
 	
@@ -48,6 +49,8 @@ void Accelerateur::supprCollectionParticule() {
 void Accelerateur::evolue() const{
 	cout <<"Méthode évolue debbuging" << endl;}
 	
+	
+//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
 	return a.affiche(sortie);}
 	
