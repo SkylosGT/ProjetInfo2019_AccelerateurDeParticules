@@ -13,7 +13,7 @@ CXXFLAGS += -g                    # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 
-all:  testParticule testVecteur
+all:  testParticule testVecteur testAccell
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 
@@ -27,3 +27,22 @@ testVecteur: testVecteur.o Vecteur3D.o
 
 testVecteur.o: testVecteur.cc Vecteur3D.h
 
+Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h \
+  Element.h Vecteur3D.h Particule.h
+
+Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h \
+  Particule.h ConstantesPhysiques.h
+
+Element.o: Element.cc Element.h Vecteur3D.h Particule.h \
+  ConstantesPhysiques.h
+
+ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h \
+  Particule.h ConstantesPhysiques.h
+
+ElementDroit.o: ElementDroit.cc ElementDroit.h Element.h Vecteur3D.h \
+  Particule.h
+
+testAccell.o: testAccell.cc Accelerateur.h Dipole.h ElementCourbe.h \
+  Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
+
+testAccell: testAccell.o Particule.o Vecteur3D.o Accelerateur.o Element.o

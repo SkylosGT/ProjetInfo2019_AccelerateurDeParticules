@@ -10,5 +10,6 @@ public:
     Dipole(Vecteur3D, Vecteur3D, double, Element const&, double, double);
     ~Dipole();
     Vecteur3D champMagnetique() const;
+    void affiche() const;
 };
 

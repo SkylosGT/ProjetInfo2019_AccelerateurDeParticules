@@ -24,3 +24,13 @@ bool Element::passe_au_suivant(Particule const& _p) const{
 Vecteur3D Element::champMagnetique(Vecteur3D const&) const{
     return vec_e1;
 }
+
+ostream& Element::affiche(ostream& sortie) const {
+	return sortie<<"Test Element"<<endl;}
+
+ostream& operator<<(ostream& sortie, Element const& e){
+	return e.affiche(sortie);}
+	
+	
+	
+	
