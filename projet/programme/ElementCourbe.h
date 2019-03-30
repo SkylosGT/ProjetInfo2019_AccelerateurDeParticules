@@ -26,7 +26,7 @@ class ElementCourbe : public Element {
         //Destructeur d'un élément Courbe
         ~ElementCourbe();
 
-    /*Méthodes de l'interface Element Droit*/
+    /*Méthodes de l'interface Element Courbe*/
 
         //Définit si une particule heurte le bord de l'élément
         virtual bool heurte_bord(Particule const&) const override;

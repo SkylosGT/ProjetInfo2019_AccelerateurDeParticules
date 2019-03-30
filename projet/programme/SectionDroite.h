@@ -1,4 +1,4 @@
-/*Hérite : ElementCourbe.h*/
+/*Hérite : ElementDroit.h*/
 
 #pragma once
 
@@ -15,7 +15,12 @@ class SectionDroite : public ElementDroit {
         //Destructeur de la section droite
         ~SectionDroite();
 
+    /*Méthodes de l'interface de la classe SectionDroite*/
+
         //Calcule le champ magnétique de l'élément
         virtual Vecteur3D champMagnetique(Vecteur3D const&) const override;
+
+        //Affiche une Section Droite
+        virtual std::ostream& affiche(std::ostream&) const override;
 };
 
