@@ -10,7 +10,7 @@ class SectionDroite : public ElementDroit {
     public:
         
         //Constructeur de la section droite qui ne peut pas avoir d'élément suivant attaché à lui
-        SectionDroite(Vecteur3D, Vecteur3D, double, double, double);
+        SectionDroite(Vecteur3D, Vecteur3D, double);
 
         //Destructeur de la section droite
         ~SectionDroite();
