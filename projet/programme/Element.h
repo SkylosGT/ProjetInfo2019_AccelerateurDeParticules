@@ -12,10 +12,12 @@ private:
     Element* elem_suivant;
 
 public:
-    Element(Vecteur3D, Vecteur3D, double, Element* _suivant = nullptr);
+    Element(Vecteur3D, Vecteur3D, double, Element* _suivant=nullptr);
     ~Element();
+
     virtual Vecteur3D champMagnetique(Vecteur3D const&) const=0;
     virtual bool heurte_bord(Particule const&) const=0;
-    Element* passe_au_suivant(Particule const&) const;
+   
+    bool passe_au_suivant(Particule const&) const;
 };
 

@@ -12,6 +12,6 @@ Element::Element(Vecteur3D _re, Vecteur3D _rs, double _Re, Element* _suivant)
 Element::~Element()
 {}
 
-Element* Element::passe_au_suivant(Particule const& _p) const{
-    if (vec_e3*(_p.position()^vec_rs)>0) {return elem_suivant;}
-    else{this;}}
+bool Element::passe_au_suivant(Particule const& _p) const{
+    if (vec_e3*(_p.position()^vec_rs)>0) {return true;}
+    else{false;}}
