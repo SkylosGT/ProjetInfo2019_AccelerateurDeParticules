@@ -1,10 +1,6 @@
-#include <iostream>
-
 #include "Dipole.h"
-#include "ConstantesPhysiques.h"
 
 using namespace std;
-using namespace ConstantesPhysiques;
 
 //DEFINITION DES METHODES DE LA CLASSE DIPOLE ET SURCHARGE DE SES OPERATEURS
 

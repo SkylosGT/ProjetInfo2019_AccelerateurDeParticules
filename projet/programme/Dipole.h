@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include <iostream>
-
 #include "ElementCourbe.h"
 
 //En tête de la classe Dipole avec descriptions de ses méthodes. Corps dans "Dipole.cc"

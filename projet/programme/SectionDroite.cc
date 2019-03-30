@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "SectionDroite.h"
 
 using namespace std;

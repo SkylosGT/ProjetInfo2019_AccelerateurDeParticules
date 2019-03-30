@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Quadrupole.h"
 #include "ConstantesPhysiques.h"
 

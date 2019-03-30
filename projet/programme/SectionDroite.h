@@ -3,6 +3,7 @@
 #pragma once
 
 #include "ElementDroit.h"
+#include "ConstantesPhysiques.h"
 
 //En tête de la classe SectionDroite avec descriptions de ses méthodes. Corps dans "SectionDroite.cc"
 class SectionDroite : public ElementDroit {
@@ -18,7 +19,7 @@ class SectionDroite : public ElementDroit {
     /*Méthodes de l'interface de la classe SectionDroite*/
 
         //Calcule le champ magnétique de l'élément
-        virtual Vecteur3D champMagnetique(Vecteur3D const&) const override;
+        virtual Vecteur3D champMagnetique(Vecteur3D const& _B=ConstantesPhysiques::vec_e3) const override;
 
         //Affiche une Section Droite
         virtual std::ostream& affiche(std::ostream&) const override;
