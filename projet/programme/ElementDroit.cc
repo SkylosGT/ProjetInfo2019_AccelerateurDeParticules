@@ -1,10 +1,12 @@
 #include "ElementDroit.h"
 
+//DEFINITION DES METHODES DE LA CLASSE PARTICULE ET SURCHARGE DE SES OPERATEURS
+
+//METHODES PUBLIQUES DE LA CLASSE PARTICULE
 ElementDroit::ElementDroit(Vecteur3D _re, Vecteur3D _rs, double _Re)
 :Element(_re,_rs,_Re) {}
 
-ElementDroit::~ElementDroit()
-{}
+ElementDroit::~ElementDroit() {}
 
 bool ElementDroit::heurte_bord(Particule const& _p) const{
     Vecteur3D vec_X(_p.position()-vec_re);
