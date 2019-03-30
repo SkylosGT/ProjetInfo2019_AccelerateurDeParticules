@@ -40,5 +40,8 @@ class Element {
 
         //Définit si une particule passe à l'élément suivant
         bool passe_au_suivant(Particule const&) const;
+
+        //Attache un élément suivant à l'instance courante
+        void attache_element_suivant(Element*);
 };
 
