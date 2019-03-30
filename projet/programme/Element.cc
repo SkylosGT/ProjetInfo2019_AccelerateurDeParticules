@@ -1,9 +1,12 @@
+#include <iostream>
+
 #include "Element.h"
 #include "ConstantesPhysiques.h"
-#include <iostream>
 
 using namespace ConstantesPhysiques;
 using namespace std;
+
+//DEFINITION DES METHODES DE LA CLASSE ELEMENT ET SURCHARGE DE SES OPERATEURS
 
 Element::Element(Vecteur3D _re, Vecteur3D _rs, double _Re, Element* _suivant)
 :vec_re(_re), vec_rs(_rs), scal_Re(_Re), elem_suivant(_suivant)

@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include <iostream>
-
 #include "Vecteur3D.h"
 #include "Particule.h"
 
@@ -45,3 +43,7 @@ class Element {
         void attache_element_suivant(Element*);
 };
 
+/*OPERATEURS EXTERNES*/
+
+//Permet l'affichage d'un Element par surcharge
+std::ostream& operator<<(std::ostream&, Element const&);
