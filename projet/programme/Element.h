@@ -9,13 +9,13 @@ protected:
     double scal_Re;
 
 private:
-    Element const& elem_suivant;
+    Element* elem_suivant;
 
 public:
-    Element(Vecteur3D, Vecteur3D, double, Element const&);
+    Element(Vecteur3D, Vecteur3D, double, Element* _suivant = nullptr);
     ~Element();
     virtual Vecteur3D champMagnetique(Vecteur3D const&) const=0;
     virtual bool heurte_bord(Particule const&) const=0;
-    bool passe_au_suivant(Particule const&) const;
+    Element* passe_au_suivant(Particule const&) const;
 };
 
