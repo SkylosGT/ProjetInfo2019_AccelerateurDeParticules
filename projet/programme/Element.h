@@ -27,13 +27,13 @@ class Element {
 
     /*Méthodes virtuelles pures de la classe Element*/
 
-        //Sera surchargée pour calculer le champs magnétique de l'élément
+        //Sera substituée pour calculer le champs magnétique de l'élément
         virtual Vecteur3D champMagnetique(Vecteur3D const&) const=0;
 
-        //Sera surchargée pour définir si une particule heurte le bord de l'élément
+        //Sera substituée pour définir si une particule heurte le bord de l'élément
         virtual bool heurte_bord(Particule const&) const=0;
 
-        //Sera surchargée pour afficher un élément
+        //Sera subsistuée pour afficher un élément
         virtual std::ostream& affiche(std::ostream&) const=0;
     
     /*Méthodes de l'interface de la classe Element*/
