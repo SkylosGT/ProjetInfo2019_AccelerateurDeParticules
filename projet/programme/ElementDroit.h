@@ -7,7 +7,7 @@ private:
 public:
     ElementDroit(Vecteur3D, Vecteur3D, double, Element const&);
     ~ElementDroit();
-    bool heurte_bord(Particule const&) const;
+    virtual bool heurte_bord(Particule const&) const override;
 };
 
 
