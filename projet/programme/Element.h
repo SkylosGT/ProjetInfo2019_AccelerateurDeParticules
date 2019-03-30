@@ -16,6 +16,6 @@ public:
     ~Element();
     virtual Vecteur3D champMagnetique(Vecteur3D const&) const=0;
     virtual bool heurte_bord(Particule const&) const=0;
-    virtual bool passe_au_suivant(Particule const&) const;
+    bool passe_au_suivant(Particule const&) const;
 };
 
