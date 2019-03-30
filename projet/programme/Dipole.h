@@ -24,7 +24,7 @@ class Dipole : public ElementCourbe {
 
         //Calcule le champ magnétique de l'élément
         virtual Vecteur3D champMagnetique(Vecteur3D const& _B=ConstantesPhysiques::vec_e3) const override;
-
+  
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;
 };

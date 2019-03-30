@@ -1,5 +1,6 @@
 #include "Dipole.h"
 
+
 using namespace std;
 
 //DEFINITION DES METHODES DE LA CLASSE DIPOLE ET SURCHARGE DE SES OPERATEURS
@@ -21,3 +22,4 @@ ostream& Dipole::affiche(ostream& sortie) const {
     "   rayon de courbure :"<<scal_k<<endl<<
     "   centre de courbure :"<<centreDeCourbure()<<endl<<
     "   champ magnetique :"<<scal_Bz<<endl;}
+
