@@ -8,7 +8,7 @@ using namespace std;
 
 //DEFINITION DES METHODES DE LA CLASSE ELEMENT ET SURCHARGE DE SES OPERATEURS
 
-//METHODES PUBLIQUES DE LA CLASSE PARTICULE
+//METHODES PUBLIQUES DE LA CLASSE ELEMENT
 Element::Element(Vecteur3D _re, Vecteur3D _rs, double _Re, Element* _suivant)
 :vec_re(_re), vec_rs(_rs), scal_Re(_Re), elem_suivant(_suivant) {}
 
