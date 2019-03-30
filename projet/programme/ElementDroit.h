@@ -10,7 +10,7 @@ class ElementDroit: public Element {
 
     public:
 
-        //Constructeur d'un élément droit qui ne peut pas avoir d'élément suivant attaché à lui
+        //Constructeur de l'élément droit qui ne peut pas avoir d'élément suivant attaché à lui
         ElementDroit(Vecteur3D, Vecteur3D, double);
 
         //Destructeur de l'élément droit
