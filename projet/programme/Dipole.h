@@ -1,12 +1,12 @@
-/*Hérite : ElementCourbe.h*/
+/*Hérite : ElementDroit.h*/
+
 #pragma once
 
 #include <iostream>
 
 #include "ElementCourbe.h"
-#include "Vecteur3D.h"
 
-//En tête de la classe ElementDroit avec descriptions de ses méthodes. Corps dans "ElementDroit.cc"
+//En tête de la classe Dipole avec descriptions de ses méthodes. Corps dans "Dipole.cc"
 class Dipole : public ElementCourbe {
     
     private:
