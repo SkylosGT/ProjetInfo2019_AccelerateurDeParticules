@@ -6,8 +6,7 @@
 
 //En tête de la classe Particule avec descriptions de ses méthodes. Corps dans "Particule.cc"
 
-class Particule
-{
+class Particule {
   
   private:
   
@@ -17,7 +16,7 @@ class Particule
     double scal_m; //Masse de la particule
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
-    Element* elem_courant; //Elément courant ou la particule se trouve
+    Element* elem_courant; //Elément courant dans lequel se trouve la particule
 
   /*Méthodes pour faciliter les calculs des attributs de l'instance*/
 
@@ -27,14 +26,15 @@ class Particule
     //Calcule l'angle de déviation de la force 
     double calculateDeviationAngle(double);
 
-public:
+  public:
+
     //Getter
     Vecteur3D position() const {return vec_r;};
 
-  //Constructeur par vecteur quantité de mouvement en GeV
+    //Constructeur par vecteur quantité de mouvement en GeV
     Particule(Vecteur3D, Vecteur3D, double, double);
 
-  //Constructeur par energie en GeV et direction vectorielle
+    //Constructeur par energie en GeV et direction vectorielle
     Particule(Vecteur3D, Vecteur3D, double, double, double);
 
   /*Méthodes de l'interface de la classe particule*/

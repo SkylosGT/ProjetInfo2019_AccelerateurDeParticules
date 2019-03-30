@@ -1,6 +1,9 @@
+#pragma once
+
 #include "Vecteur3D.h"
 #include "Particule.h"
 
+//En tête de la classe Element avec descriptions de ses méthodes. Corps dans "Element.cc"
 class Element
 {
 protected:
