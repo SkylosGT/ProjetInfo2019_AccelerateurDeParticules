@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Element.h"
 #include "ConstantesPhysiques.h"
 

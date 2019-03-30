@@ -1,9 +1,5 @@
-#include <iostream>
-#include <cmath>
-
 #include "Particule.h"
 #include "ConstantesPhysiques.h"
-#include "Element.h"
 
 using  namespace ConstantesPhysiques;
 using namespace std;
@@ -18,8 +14,8 @@ double Particule::calculateDeviationAngle(double _dt){
     return asin((_dt*vec_f.norme())/(2*FacteurGamma()*transformMassGeVToKg()*vec_v.norme()));}
 
 //METHODES PUBLIQUES DE LA CLASSE PARTICULE
-Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q)
-:vec_r(_r), scal_m(_m), scal_q(_q) {
+Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q, Element* _courant)
+:vec_r(_r), scal_m(_m), scal_q(_q), elem_courant(_courant) {
     vec_v=_p*(const_c/sqrt((_m*_m)+_p.norme2()));
     vec_f=*new Vecteur3D();}
 
@@ -36,10 +32,10 @@ double Particule::FacteurGamma() const
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
     vec_f=(scal_q*vec_v)^_B;
-    cout<<"avant rotation corrective :"<<vec_f<<endl;
+    cout<<"     avant rotation corrective :"<<vec_f<<endl;
     vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
-    cout<<" Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
-    cout<<"après rotation corrective :"<<vec_f<<endl;}  
+    cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
+    cout<<"     après rotation corrective :"<<vec_f<<endl;}  
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
@@ -57,7 +53,7 @@ ostream& Particule::affiche(ostream& sortie) const{
     "   force :"<<vec_f<<endl;}
 
 void Particule::change_element(Element* _suivant){
-    elem_courant=_suivant;
+   elem_courant=_suivant;
 }
 
 //OPERATEURS EXTERNES A LA CLASSE PARTICULE UTILISANT LES METHODES DE LA CLASSE

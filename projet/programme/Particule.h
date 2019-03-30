@@ -1,8 +1,9 @@
 #pragma once
 
-#include <iostream>
-
 #include "Vecteur3D.h"
+#include "Element.h"
+
+class Element;
 
 //En tête de la classe Particule avec descriptions de ses méthodes. Corps dans "Particule.cc"
 
@@ -32,7 +33,7 @@ class Particule {
     Vecteur3D position() const {return vec_r;};
 
     //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double);
+    Particule(Vecteur3D, Vecteur3D, double, double, Element* _courant=nullptr);
 
     //Constructeur par energie en GeV et direction vectorielle
     Particule(Vecteur3D, Vecteur3D, double, double, double);
