@@ -28,7 +28,7 @@ class Particule {
 
   public:
 
-    //Getter
+    //Getter, retourne la position de la particule
     Vecteur3D position() const {return vec_r;};
 
     //Constructeur par vecteur quantité de mouvement en GeV
