@@ -1,8 +1,6 @@
 //Pour l'utilisation des constantes mathématiques de la classe math.h
 #define _USE_MATH_DEFINES
 
-#include <iostream>
-#include <cmath>
 #include <math.h>
 
 #include "Vecteur3D.h"

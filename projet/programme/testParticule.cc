@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Particule.h"
 #include "Vecteur3D.h"
 #include "ConstantesPhysiques.h"
@@ -29,7 +27,7 @@ int main()
     Particule p1(_r1,_v1,_E,_m,_q), p2(_r2,_v2,_E,_m,_q);
 
     //Test de l'affichage des deux particules
-    cout<<"Création de deux particules :";
+    cout<<"Création de deux particules :"<<endl;
     cout<<p1<<endl<<p2<<endl;  
     
     //Champs magnétique et pas de temps
@@ -45,7 +43,7 @@ int main()
     cout<<endl;
     
     //Test du changement de position de P1 et P2
-    cout<<"Les particules bougent 1 fois :"<<endl;
+    cout<<"Les particules bougent 1 fois (dt="<<_dt<<") :"<<endl;
     p1.bouger(_dt);
     p2.bouger(_dt);
     cout<<p1<<endl<<p2<<endl;

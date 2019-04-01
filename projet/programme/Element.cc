@@ -1,36 +1,23 @@
 #include "Element.h"
 #include "ConstantesPhysiques.h"
-#include <iostream>
 
 using namespace ConstantesPhysiques;
 using namespace std;
 
-Element::Element(Vecteur3D _re, Vecteur3D _rs, double _Re, Element const& _suivant)
-:vec_re(_re), vec_rs(_rs), scal_Re(_Re), elem_suivant(_suivant)
-{}
+//DEFINITION DES METHODES DE LA CLASSE ELEMENT ET SURCHARGE DE SES OPERATEURS
 
-Element::~Element()
-{}
+//METHODES PUBLIQUES DE LA CLASSE ELEMENT
+Element::Element(Vecteur3D _re, Vecteur3D _rs, double _Re, Element* _suivant)
+:vec_re(_re), vec_rs(_rs), scal_Re(_Re), elem_suivant(_suivant) {}
 
-bool Element::heurte_bord(Particule const& _p) const{
-    cout<<"Heurte_bord"<<endl;
-    return false;
-}
+Element::~Element() {}
 
 bool Element::passe_au_suivant(Particule const& _p) const{
     if (vec_e3*(_p.position()^vec_rs)>0) {return true;}
-    else{return false;}}
+    else{false;}}
 
-Vecteur3D Element::champMagnetique(Vecteur3D const&) const{
-    return vec_e1;
-}
+void Element::attache_element_suivant(Element* _suivant){
+    elem_suivant=_suivant;}
 
-ostream& Element::affiche(ostream& sortie) const {
-	return sortie<<"Test Element"<<endl;}
-
-ostream& operator<<(ostream& sortie, Element const& e){
-	return e.affiche(sortie);}
-	
-	
-	
-	
+std::ostream& operator<<(std::ostream& sortie, Element const& E){
+    return E.affiche(sortie);}

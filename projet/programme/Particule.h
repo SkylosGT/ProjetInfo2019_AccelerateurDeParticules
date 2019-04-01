@@ -1,13 +1,13 @@
 #pragma once
 
-#include <iostream>
-
 #include "Vecteur3D.h"
+#include "Element.h"
+
+class Element;
 
 //En tête de la classe Particule avec descriptions de ses méthodes. Corps dans "Particule.cc"
 
-class Particule
-{
+class Particule {
   
   private:
   
@@ -17,6 +17,7 @@ class Particule
     double scal_m; //Masse de la particule
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
+    Element* elem_courant; //Elément courant dans lequel se trouve la particule
 
   /*Méthodes pour faciliter les calculs des attributs de l'instance*/
 
@@ -26,14 +27,15 @@ class Particule
     //Calcule l'angle de déviation de la force 
     double calculateDeviationAngle(double);
 
-public:
-    //Getter
+  public:
+
+    //Getter, retourne la position de la particule
     Vecteur3D position() const {return vec_r;};
 
-  //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double);
+    //Constructeur par vecteur quantité de mouvement en GeV
+    Particule(Vecteur3D, Vecteur3D, double, double, Element* _courant=nullptr);
 
-  //Constructeur par energie en GeV et direction vectorielle
+    //Constructeur par energie en GeV et direction vectorielle
     Particule(Vecteur3D, Vecteur3D, double, double, double);
 
   /*Méthodes de l'interface de la classe particule*/
@@ -52,6 +54,9 @@ public:
 
     //Affiche les attributs de l'instance sur la console de manière ergonomique
     std::ostream& affiche(std::ostream&) const;
+
+    //La particule change d'élément
+    void change_element(Element*);
 };
 
 /*OPERATEURS EXTERNES*/

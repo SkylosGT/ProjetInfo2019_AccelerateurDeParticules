@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cmath>
 
 #include "Vecteur3D.h"
@@ -59,7 +58,7 @@ Vecteur3D& Vecteur3D::operator^=(Vecteur3D const& autre) {
 Vecteur3D::Vecteur3D(double scal_x, double scal_y, double scal_z) 
 : scal_x(scal_x), scal_y(scal_y), scal_z(scal_z) {}
  
-std::ostream& Vecteur3D::affiche(std::ostream& sortie) const {
+ostream& Vecteur3D::affiche(ostream& sortie) const {
 	sortie <<scal_x<<' '<<scal_y<<' '<<scal_z;
 	return sortie;}
 

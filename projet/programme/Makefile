@@ -17,15 +17,20 @@ all:  testParticule testVecteur testAccell
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 
-Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
-
-Particule.o: Particule.cc Particule.h Vecteur3D.h ConstantesPhysiques.h
-
-testParticule.o: testParticule.cc Particule.h Vecteur3D.h 
-
 testVecteur: testVecteur.o Vecteur3D.o
 
+Element.o: Element.cc Element.h Vecteur3D.h Particule.h \
+ ConstantesPhysiques.h
+
+Particule.o: Particule.cc Particule.h Vecteur3D.h Element.h \
+ ConstantesPhysiques.h
+
+testParticule.o: testParticule.cc Particule.h Vecteur3D.h Element.h \
+ ConstantesPhysiques.h
+
 testVecteur.o: testVecteur.cc Vecteur3D.h
+
+Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
 
 Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h \
   Element.h Vecteur3D.h Particule.h
@@ -33,14 +38,8 @@ Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h \
 Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h \
   Particule.h ConstantesPhysiques.h
 
-Element.o: Element.cc Element.h Vecteur3D.h Particule.h \
-  ConstantesPhysiques.h
-
 ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h \
   Particule.h ConstantesPhysiques.h
-
-ElementDroit.o: ElementDroit.cc ElementDroit.h Element.h Vecteur3D.h \
-  Particule.h
 
 testAccell.o: testAccell.cc Accelerateur.h Dipole.h ElementCourbe.h \
   Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
