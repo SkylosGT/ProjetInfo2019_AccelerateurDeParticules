@@ -19,3 +19,6 @@ De plus d'un point de vu physique est représentatif (pour l'ergonomie du code e
 QUESTION P6.1 [A.D]
 Je propose une implémentation des éléments sous forme d'héritage avec la superclasse abstraite Element puis deux sous classes abstraites ElementCourbe et ElementDroit héritant de Element. Les véritable éléments pouvants être instanciés dans la simulation hériterons de ces deux classes.
 
+QUESTION P6.2 [A.D]
+Le champs magnétique est représenté comme une méthode de la classe Element renvoyant un Vecteur3D. En effet d'un point de vu physique le champ est modélisé comme une fonction de la position dans l'espace. Ainsi la méthode retournera en fonction de la position d'une particule un vecteur de champ magnétique.
+
