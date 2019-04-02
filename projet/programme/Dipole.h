@@ -3,6 +3,7 @@
 #pragma once
 
 #include "ElementCourbe.h"
+#include "ConstantesPhysiques.h"
 
 //En tête de la classe Dipole avec descriptions de ses méthodes. Corps dans "Dipole.cc"
 class Dipole : public ElementCourbe {

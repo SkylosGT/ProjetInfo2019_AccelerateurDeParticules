@@ -16,6 +16,7 @@ int main() {
 	cout << "Après initialisation par défauts de l'accélérateur : " << endl; cout << endl;
 	cout << _A << endl;
 	
+	//Constructions des attributs de deux particules P1 et P2
 	//Positions de P1 et P2
     Vecteur3D _r1(3.00984, -0.391837, 0), _r2(2.99016, -0.391837, 0);
 

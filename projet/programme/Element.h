@@ -8,7 +8,7 @@
 class Particule;
 
 //En tête de la classe Element avec descriptions de ses méthodes. Corps dans "Element.cc"
-class Element {
+class Element{
     protected:
     
     //Attributs d'un élément de l'accélérateur
@@ -23,7 +23,7 @@ class Element {
         Element(Vecteur3D, Vecteur3D, double, Element* _suivant=nullptr);
 
         //Déstructeur de l'élément
-        ~Element();
+        virtual ~Element();
 
     /*Méthodes virtuelles pures de la classe Element*/
 
