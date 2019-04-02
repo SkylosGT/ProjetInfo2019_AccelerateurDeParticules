@@ -1,13 +1,17 @@
-QUESTIONS P1.1
+﻿QUESTIONS P1.1 [J.P]
 J'ai représenté les vecteurs3D comme une classe ayant comme attributs privés ces trois coordonnées de types double. Les méthodes publiques utiles sont les getters (pour accéder aux coordonnes), les setters, pour initialiser un vecteur (mais pas très bien car risque d'oublie et mauvaise initialisation possible, que se passe t'il sans initialisation?). D'autres méthodes utiles sont l'affichage et la comparaison de deux vecteurs mise en publique afin de pouvoir y accéder.
 
-QUESTION P4.1
+QUESTION P4.1 [J.P]
 Le constructeur de copie par défaut offert par C++ fait une copie de surface : il recopie la valeur des attributs dans le nouvel objet. Dans notre classe Vecteur3D, ce constructeur de copie est donc nettement suffisant. On n'a en effet besoin que de la copie des coordonnées du vecteur. Il est donc (pour l'instant en tout cas) inutile de créer une version plus avancée qui implique notamment la redéfinition du destructeur et de l'opération d'affectation.
 
-QUESTION P4.2
+QUESTION P4.2 [J.P]
 Si on rajoutait un constructeur en coordonnée sphérique, il faudrait déjà différencier l'initialisation de celui-ci par rapport à une initialisation en coordonnées cartésiennes à l'aide par exemple un booléen passé en argument. Ce nouveau constructeur apporterait de l'ambiguïté dans notre classe puisque : 
 les attributs n'aurait plus de réel signification puisqu'ils pourraient porté la valeur d'un vecteur en coordonnées sphériques ou cartésien 
 un vecteur est lié dans sa représentation à une base de coordonnée dans lequel il est décrit et on l'on fait des opérations. Permettre l'ajout d'une nouvelle base dans notre classe serait très compliqué et rendrait l'implémentation des opérations.
 
-QUESTION P4.3
+QUESTION P4.3 [J.P]
 Nous avons introduit une surcharge de l'opérateur de sortie << afin de remplacer la fonction affichage ainsi qu'une surcharge de l'opérateur de comparaison == à la place de la fonction de comparaison.
+
+QUESTION P5.1 [A.D]
+J'ai implémenté le facteur gamma et l'énergie en tant que méthodes de la classe Particule. Les avantages de ce types d'implémentation sont multiple. Premièrement en tant que méthodes ils sont plus facilement accessible en dehors de la classe qu'en tant qu'attribut. Ce qui dans ce cas est souhaitable car utilisés souvent. Ensuite le facteur gamma, et l'énergie varient en fonction de la vitesse de la particule et devront donc être recalculé souvent lors de la simulation. Ainsi une méthode rend ce calcul plus simple et plus sécurisé, les méthodes retournerons toujours des valeurs de l'énergie et de gamma correctes.
+De plus d'un point de vu physique est représentatif (pour l'ergonomie du code et de sa représentation), il me parait plus logique de considérer l'Energie et le facteur gamma comme des "Fonctions d'état" de la particule étant ainsi parfaitement représentés en tant que méthodes. Le défault principal de ce type d'implémentation réside surment dans une brêche d'encapsulation. En effet, c'est éléments intrasèquement liés à la particule et à sa représentation au sein de la classe sont maintenant accessible en dehors de celle ci. Heureusement ils ne sont pas modifiables depuis l'exterieur.
