@@ -22,3 +22,7 @@ Je propose une implémentation des éléments sous forme d'héritage avec la sup
 QUESTION P6.2 [A.D]
 Le champs magnétique est représenté comme une méthode de la classe Element renvoyant un Vecteur3D. En effet d'un point de vu physique le champ est modélisé comme une fonction de la position dans l'espace. Ainsi la méthode retournera en fonction de la position d'une particule un vecteur de champ magnétique.
 
+QUESTION P6.3 [A.D]
+Représenté en méthode !!!! A changer ????
+
+QUESTION P6.4 [A.D]
