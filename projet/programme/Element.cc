@@ -14,7 +14,7 @@ Element::~Element() {}
 
 bool Element::passe_au_suivant(Particule const& _p) const{
     if (vec_e3*(_p.position()^vec_rs)>0) {return true;}
-    else{false;}}
+    else{return false;}}
 
 void Element::attache_element_suivant(Element* _suivant){
     elem_suivant=_suivant;}

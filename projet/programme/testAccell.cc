@@ -2,10 +2,9 @@
 #include "Accelerateur.h"
 #include "Particule.h"
 #include "Vecteur3D.h"
-#include "ConstantesPhysiques.h"
 
-using namespace ConstantesPhysiques;
 using namespace std;
+using namespace ConstantesPhysiques;
 
 
 int main() {
