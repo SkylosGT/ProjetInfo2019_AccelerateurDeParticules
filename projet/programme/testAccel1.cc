@@ -6,6 +6,7 @@
 #include "Dipole.h"
 #include "Quadrupole.h"
 #include "SectionDroite.h"
+#include "ConstantesPhysiques.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;

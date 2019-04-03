@@ -23,7 +23,7 @@ class Dipole : public ElementCourbe {
     /*Méthodes de l'interface de la classe Dipole*/
 
         //Calcule le champ magnétique de l'élément
-        virtual Vecteur3D champMagnetique(Vecteur3D const& _B) const override;
+        virtual Vecteur3D champMagnetique(Vecteur3D const&) const override;
   
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;
