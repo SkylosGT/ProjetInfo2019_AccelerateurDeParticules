@@ -15,7 +15,7 @@ Quadrupole::~Quadrupole() {}
  Vecteur3D Quadrupole::champMagnetique(Vecteur3D const& _x) const {
     Vecteur3D vec_X(_x-vec_re), vec_d(~(vec_rs-vec_re));
     Vecteur3D vec_y(vec_X-(vec_X*vec_d)*vec_d), vec_u(vec_e3^vec_d);
-    return scal_b*((vec_y*vec_u)*vec_e3+_x.getz*vec_u);
+    return scal_b*((vec_y*vec_u)*vec_e3+(_x.getz()*vec_u));
  }
 
 ostream& Quadrupole::affiche(ostream& sortie) const {

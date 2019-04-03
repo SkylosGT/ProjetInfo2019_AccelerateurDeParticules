@@ -1,6 +1,7 @@
 #include <iostream>
-#include "Accelerateur.h"
 #include <vector>
+
+#include "Accelerateur.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ void Accelerateur::ajoutParticule(Particule nouveau) {
 	CollectionParticule.push_back(nouveau); }
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
+	
 	CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionParticule() {
@@ -45,8 +47,7 @@ void Accelerateur::supprCollectionParticule() {
 	
 void Accelerateur::supprCollectionElement() {
 	for(auto element : CollectionElement){ 
-		delete element;
-		element = nullptr;}
+		delete element;}
 	CollectionElement.clear();}
 	
 void Accelerateur::evolue() const{

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "ElementCourbe.h"
-#include "ConstantesPhysiques.h"
 
 //En tête de la classe Dipole avec descriptions de ses méthodes. Corps dans "Dipole.cc"
 class Dipole : public ElementCourbe {
@@ -24,7 +23,7 @@ class Dipole : public ElementCourbe {
     /*Méthodes de l'interface de la classe Dipole*/
 
         //Calcule le champ magnétique de l'élément
-        virtual Vecteur3D champMagnetique(Vecteur3D const& _B=ConstantesPhysiques::vec_e3) const override;
+        virtual Vecteur3D champMagnetique(Vecteur3D const& _B) const override;
   
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;

@@ -1,6 +1,5 @@
 #include "Dipole.h"
 
-
 using namespace std;
 
 //DEFINITION DES METHODES DE LA CLASSE DIPOLE ET SURCHARGE DE SES OPERATEURS
