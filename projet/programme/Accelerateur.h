@@ -1,22 +1,20 @@
 #include <iostream>
-#include "Element.h"
-#include "Particule.h"
 #include <vector>
 
-//En tête de la classe Accelerateur avec descriptions de ses méthodes. Corps dans "Particule.h"
+#include "Element.h"
+#include "Particule.h"
+
+//En tête de la classe Accelerateur avec descriptions de ses méthodes. Corps dans "Accelerateur.h"
 class Accelerateur {
 	
-	private : 
- /*Attributs privés de l'accélérateur*/
+	private: 
  
-	//Un tableau d'éléments (contenant la collection d'éléments)
-		std::vector <Element*> CollectionElement;
+ 	/*Attributs privés de l'accélérateur*/
+ 		std::vector <Element*> CollectionElement;//Un tableau d'éléments (contenant la collection d'éléments)
+		std::vector <Particule> CollectionParticule;//Un tableau de particules (contenant la collection de particules)
 		
-	//Un tableau de particules (contenant la collection de particules)
-		std::vector <Particule> CollectionParticule;
-		
-	
-	public :
+	public:
+
 	//Constructeur par défauts qui initialise l'accélérateur vide (aucun élément, aucune particule)
 		Accelerateur();
 		

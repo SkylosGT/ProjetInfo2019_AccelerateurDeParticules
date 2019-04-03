@@ -1,7 +1,8 @@
 #include <iostream>
+
+#include "Vecteur3D.h"
 #include "Accelerateur.h"
 #include "Particule.h"
-#include "Vecteur3D.h"
 #include "Dipole.h"
 #include "Quadrupole.h"
 #include "SectionDroite.h"
@@ -9,8 +10,9 @@
 using namespace std;
 using namespace ConstantesPhysiques;
 
-
+//TEST de la classe Accelerateur, de ses méthode et de la surcharge des opérateurs pour les particules
 int main() {
+
 	//Un accélérateur par défauts (vide : aucun élément, aucune particule)
 	Accelerateur _accelerateur;
 	
@@ -62,12 +64,12 @@ int main() {
     //Section droite S
     SectionDroite S(_re3, _rs3, _Re3);
 
-    //Ajout des éléments dans l'accélérateur
+    //Test de l'ajout des éléments dans l'accélérateur
     _accelerateur.ajoutElement(&D);
     _accelerateur.ajoutElement(&Q);
     _accelerateur.ajoutElement(&S);
 
-    //Ajout des deux particules dans l'accélérateur
+    //Test de l'ajout des deux particules dans l'accélérateur
     _accelerateur.ajoutParticule(p1);
     _accelerateur.ajoutParticule(p2);
 
@@ -76,10 +78,10 @@ int main() {
     cout <<"Après ajout d'un dipole, d'un quadrupole, d'une section droite et de deux particules dans l'accélérateur : " << endl;
     cout << _accelerateur << endl;
     
-    //Suppression des éléments et particules de l'accélérateur
+    //Test de la suppression des éléments et particules de l'accélérateur
     _accelerateur.supprCollectionParticule();
     _accelerateur.supprCollectionElement();
-    
+
     //Réaffichage de l'accélérateur pour tester que l'accélérateur ne contient aucun élément ni aucune particule
     cout << "On supprime tous les éléments et toutes les particules de l'accélérateur:"<< endl; cout << endl;
     cout << _accelerateur << endl;
