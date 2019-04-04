@@ -13,24 +13,13 @@ CXXFLAGS += -g                    # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 
-all:  testParticule testVecteur testAccell
+all:  testParticule testVecteur testAccel1
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 
 testVecteur: testVecteur.o Vecteur3D.o
 
-Element.o: Element.cc Element.h Vecteur3D.h Particule.h \
- ConstantesPhysiques.h
-
-Particule.o: Particule.cc Particule.h Vecteur3D.h Element.h \
- ConstantesPhysiques.h
-
-testParticule.o: testParticule.cc Particule.h Vecteur3D.h Element.h \
- ConstantesPhysiques.h
-
-testVecteur.o: testVecteur.cc Vecteur3D.h
-
-Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
+testAccel1: testAccel1.o Particule.o Vecteur3D.o Accelerateur.o Dipole.o Element.o ElementCourbe.o ElementDroit.o Quadrupole.o SectionDroite.o
 
 Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h \
   Element.h Vecteur3D.h Particule.h
@@ -41,7 +30,40 @@ Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h \
 ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h \
   Particule.h ConstantesPhysiques.h
 
-testAccell.o: testAccell.cc Accelerateur.h Dipole.h ElementCourbe.h \
+testAccel1.o: testAccel1.cc Accelerateur.h Dipole.h ElementCourbe.h \
   Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
-testAccell: testAccell.o Particule.o Vecteur3D.o Accelerateur.o Element.o
+Accelerateur.o: Accelerateur.cc Accelerateur.h Element.h Vecteur3D.h \
+ Particule.h
+
+Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h \
+ Particule.h
+
+Element.o: Element.cc Element.h Vecteur3D.h Particule.h \
+ ConstantesPhysiques.h
+
+ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h \
+ Particule.h ConstantesPhysiques.h
+
+ElementDroit.o: ElementDroit.cc ElementDroit.h Element.h Vecteur3D.h \
+ Particule.h
+
+Particule.o: Particule.cc Particule.h Vecteur3D.h Element.h \
+ ConstantesPhysiques.h
+
+Quadrupole.o: Quadrupole.cc Quadrupole.h ElementDroit.h Element.h \
+ Vecteur3D.h Particule.h ConstantesPhysiques.h
+
+SectionDroite.o: SectionDroite.cc SectionDroite.h ElementDroit.h \
+ Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
+
+testAccel1.o: testAccel1.cc Accelerateur.h Element.h Vecteur3D.h \
+ Particule.h Dipole.h ElementCourbe.h Quadrupole.h ElementDroit.h \
+ SectionDroite.h ConstantesPhysiques.h
+
+testParticule.o: testParticule.cc Particule.h Vecteur3D.h Element.h \
+ ConstantesPhysiques.h
+
+testVecteur.o: testVecteur.cc Vecteur3D.h
+
+Vecteur3D.o: Vecteur3D.cc Vecteur3D.h

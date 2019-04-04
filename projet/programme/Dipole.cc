@@ -1,7 +1,8 @@
 #include "Dipole.h"
-
+#include "ConstantesPhysiques.h"
 
 using namespace std;
+using namespace ConstantesPhysiques;
 
 //DEFINITION DES METHODES DE LA CLASSE DIPOLE ET SURCHARGE DE SES OPERATEURS
 
@@ -11,7 +12,7 @@ Dipole::Dipole(Vecteur3D _re, Vecteur3D _rs, double _Re, double _k, double _Bz)
 
 Dipole::~Dipole() {}
 
-Vecteur3D Dipole::champMagnetique(Vecteur3D const& _B) const {
+Vecteur3D Dipole::champMagnetique(Vecteur3D const& _B=vec_e3) const {
     return scal_Bz*_B;}
 
 ostream& Dipole::affiche(ostream& sortie) const {

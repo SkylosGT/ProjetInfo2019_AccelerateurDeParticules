@@ -1,6 +1,8 @@
 #include "SectionDroite.h"
+#include "ConstantesPhysiques.h"
 
 using namespace std;
+using namespace ConstantesPhysiques;
 
 //DEFINITION DES METHODES DE LA CLASSE SECTION DROITE ET SURCHARGE DE SES OPERATEURS
 
@@ -10,7 +12,7 @@ SectionDroite::SectionDroite(Vecteur3D _re, Vecteur3D _rs, double _Re)
 
 SectionDroite::~SectionDroite() {}
 
-Vecteur3D SectionDroite::champMagnetique(Vecteur3D const& _B) const{
+Vecteur3D SectionDroite::champMagnetique(Vecteur3D const& _B=vec_e3) const{
     return 0*_B;}
 
 ostream& SectionDroite::affiche(ostream& sortie) const {

@@ -1,6 +1,9 @@
 #include <iostream>
-#include "Accelerateur.h"
 #include <vector>
+
+#include "Accelerateur.h"
+
+//DEFINITION DES METHODES DE LA CLASSE ACCELERATEUR ET SURCHARGE DE SES OPERATEUR
 
 using namespace std;
 
@@ -38,6 +41,9 @@ void Accelerateur::ajoutParticule(Particule nouveau) {
 	CollectionParticule.push_back(nouveau); }
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
+	if(CollectionElement.size()>0){
+		(*nouveau).attache_element_suivant(CollectionElement[0]);
+		(*CollectionElement.back()).attache_element_suivant(nouveau);}
 	CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionParticule() {
@@ -45,8 +51,7 @@ void Accelerateur::supprCollectionParticule() {
 	
 void Accelerateur::supprCollectionElement() {
 	for(auto element : CollectionElement){ 
-		delete element;
-		element = nullptr;}
+		delete element;}
 	CollectionElement.clear();}
 	
 void Accelerateur::evolue() const{
