@@ -2,6 +2,7 @@
 #define SUPPORTADESSIN_H
 
 class Contenu;
+class Particule;
 
 class SupportADessin
 {
@@ -9,6 +10,7 @@ class SupportADessin
   virtual ~SupportADessin() {}
 
   virtual void dessine(Contenu const& a_dessiner) = 0;
+  virtual void dessine(Particule const& a_dessiner)=0;
 
   /* Mettre ici toutes les méthodes nécessaires pour dessiner tous les
    * objets que l'on veut dessiner. Par exemple :
