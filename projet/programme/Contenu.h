@@ -1,8 +1,8 @@
 #ifndef CONTENU_H
 #define CONTENU_H
 
-#include "dessinable.h"
-#include "support_a_dessin.h"
+#include "Dessinable.h"
+#include "SupportADessin.h"
 
 class Contenu : public Dessinable {
 public:
