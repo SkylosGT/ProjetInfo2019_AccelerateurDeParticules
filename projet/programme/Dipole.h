@@ -27,5 +27,8 @@ class Dipole : public ElementCourbe {
   
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;
+
+        virtual void dessine() override
+        { support->dessine(*this); }
 };
 

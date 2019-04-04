@@ -2,6 +2,7 @@
 #include "SupportConsole.h"
 #include "Contenu.h"
 #include "Particule.h"
+#include "Dipole.h"
 
 void SupportConsole::dessine(Contenu const&)
 {
@@ -12,3 +13,5 @@ void SupportConsole::dessine(Contenu const&)
 }
 
 void SupportConsole::dessine(Particule const& _p){_p.affiche(flot);}
+
+void SupportConsole::dessine(Dipole const& _d){_d.affiche(flot);}
