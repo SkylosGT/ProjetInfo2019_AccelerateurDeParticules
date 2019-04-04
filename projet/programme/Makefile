@@ -13,11 +13,11 @@ CXXFLAGS += -g                    # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 
-all:  testParticule testVecteur testAccel1 testDessinable
+all:  testParticule testVecteur testAccel1 exerciceP9
 
-testDessinable: testDessinable.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o
+exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o
 
-testDessinable.o: testDessinable.cc SupportConsole.h SupportADessin.h Dessinable.h
+exerciceP9.o: exerciceP9.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Dessinable.h
 
