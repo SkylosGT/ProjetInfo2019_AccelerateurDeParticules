@@ -31,6 +31,8 @@ int main()
 
   Particule p(_r1, _v1, _E, _m, _q, &ecran);
 
+  
+
   // Nous dessinons notre contenu
   c.dessine();
   p.dessine();

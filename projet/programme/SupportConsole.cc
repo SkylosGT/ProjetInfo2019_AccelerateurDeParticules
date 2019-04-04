@@ -1,6 +1,7 @@
 #include <iostream> // pour endl
 #include "SupportConsole.h"
-#include "contenu.h"
+#include "Contenu.h"
+#include "Particule.h"
 
 void SupportConsole::dessine(Contenu const&)
 {
@@ -10,10 +11,4 @@ void SupportConsole::dessine(Contenu const&)
   flot << "un cube" << std::endl;
 }
 
-void SupportConsole::dessine(Particule const&)
-{
-  /* Dans ce premier exemple très simple, on n'utilise       *
-   * pas l'argument Contenu. Nous ne l'avons donc pas nommé. */
-
-  flot << "une particule" << std::endl;
-}
+void SupportConsole::dessine(Particule const& _p){_p.affiche(flot);}

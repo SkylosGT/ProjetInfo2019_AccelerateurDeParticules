@@ -3,8 +3,8 @@
 //DEFINITION DES METHODES DE LA CLASSE ELEMENT DROIT ET SURCHARGE DE SES OPERATEURS
 
 //METHODES PUBLIQUES DE LA CLASSE ELEMENT DROIT
-ElementDroit::ElementDroit(Vecteur3D _re, Vecteur3D _rs, double _Re)
-:Element(_re,_rs,_Re) {}
+ElementDroit::ElementDroit(Vecteur3D _re, Vecteur3D _rs, double _Re, SupportADessin* _support)
+:Element(_re,_rs,_Re, _support) {}
 
 ElementDroit::~ElementDroit() {}
 

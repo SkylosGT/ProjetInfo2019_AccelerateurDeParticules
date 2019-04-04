@@ -5,10 +5,13 @@
 #include "Vecteur3D.h"
 #include "Particule.h"
 
+#include "Dessinable.h"
+#include "SupportADessin.h"
+
 class Particule;
 
 //En tête de la classe Element avec descriptions de ses méthodes. Corps dans "Element.cc"
-class Element{
+class Element : public Dessinable{
     protected:
     
     //Attributs d'un élément de l'accélérateur
@@ -20,7 +23,7 @@ class Element{
     public:
     
         //Constructeur d'un élément qui ne pointe par défault vers aucun élément suivant
-        Element(Vecteur3D, Vecteur3D, double, Element* _suivant=nullptr);
+        Element(Vecteur3D, Vecteur3D, double, SupportADessin*, Element* _suivant=nullptr);
 
         //Déstructeur de l'élément
         virtual ~Element();

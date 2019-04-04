@@ -11,7 +11,7 @@ class ElementDroit: public Element {
     public:
 
         //Constructeur de l'élément droit qui ne peut pas avoir d'élément suivant attaché à lui
-        ElementDroit(Vecteur3D, Vecteur3D, double);
+        ElementDroit(Vecteur3D, Vecteur3D, double, SupportADessin*);
 
         //Destructeur de l'élément droit
         ~ElementDroit();

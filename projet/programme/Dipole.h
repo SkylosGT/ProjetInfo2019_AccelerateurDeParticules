@@ -15,7 +15,7 @@ class Dipole : public ElementCourbe {
     public:
 
         //Constructeur du Dipole qui ne peut pas avoir d'élément suivant attaché à lui
-        Dipole(Vecteur3D, Vecteur3D, double, double, double);
+        Dipole(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr);
 
         //Destructeur du Dipole
         ~Dipole();
