@@ -7,8 +7,8 @@ using namespace ConstantesPhysiques;
 //DEFINITION DES METHODES DE LA CLASSE QUADRUPOLE ET SURCHARGE DE SES OPERATEURS
 
 //METHODES PUBLIQUES DE LA CLASSE QUADRUPOLE
-Quadrupole::Quadrupole(Vecteur3D _re, Vecteur3D _rs, double _Re, double _b)
-:ElementDroit(_re, _rs, _Re), scal_b(_b) {}
+Quadrupole::Quadrupole(Vecteur3D _re, Vecteur3D _rs, double _Re, double _b, SupportADessin* _support)
+:ElementDroit(_re, _rs, _Re, _support), scal_b(_b) {}
 
 Quadrupole::~Quadrupole() {}
 

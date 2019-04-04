@@ -14,6 +14,8 @@ class SupportConsole : public SupportADessin {
   virtual void dessine(Contenu const& a_dessiner) override;
   virtual void dessine(Particule const& a_dessiner) override;
   virtual void dessine(Dipole const& a_dessiner) override;
+  virtual void dessine(Quadrupole const& a_dessiner) override;
+  virtual void dessine(SectionDroite const& a_dessiner) override;
 
  private:
   std::ostream& flot;

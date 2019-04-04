@@ -15,7 +15,7 @@ class Quadrupole : public ElementDroit {
     public:
 
         //Constructeur du Quadrupole qui ne peut pas avoir d'élément suivant attaché à lui
-        Quadrupole(Vecteur3D, Vecteur3D, double, double);
+        Quadrupole(Vecteur3D, Vecteur3D, double, double, SupportADessin* _support=nullptr);
 
         //Destructeur du quadrupole
         ~Quadrupole();
@@ -27,6 +27,9 @@ class Quadrupole : public ElementDroit {
 
         //Affiche un Quadrupole
         virtual std::ostream& affiche(std::ostream&) const override;
+
+        virtual void dessine() override
+        { support->dessine(*this); }
 };
 
 
