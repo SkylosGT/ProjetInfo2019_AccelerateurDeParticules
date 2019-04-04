@@ -6,6 +6,8 @@
 #include "SectionDroite.h"
 #include "Accelerateur.h"
 
+using namespace std;
+
 void SupportConsole::dessine(Particule const& _p){_p.affiche(flot);}
 
 void SupportConsole::dessine(Dipole const& _d){_d.affiche(flot);}
