@@ -17,9 +17,9 @@ all:  testParticule testVecteur testAccel1 testDessinable
 
 testDessinable: testDessinable.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o
 
-testDessinable.o: testDessinable.cc SupportConsole.h SupportADessin.h Contenu.h Dessinable.h
+testDessinable.o: testDessinable.cc SupportConsole.h SupportADessin.h Dessinable.h
 
-SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Contenu.h Dessinable.h
+SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Dessinable.h
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 

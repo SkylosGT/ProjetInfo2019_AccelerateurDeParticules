@@ -1,7 +1,6 @@
 #ifndef SUPPORTADESSIN_H
 #define SUPPORTADESSIN_H
 
-class Contenu;
 class Particule;
 class Dipole;
 class Quadrupole;
@@ -12,7 +11,6 @@ class SupportADessin
  public:
   virtual ~SupportADessin() {}
 
-  virtual void dessine(Contenu const& a_dessiner) = 0;
   virtual void dessine(Particule const& a_dessiner)=0;
   virtual void dessine(Dipole const& a_dessiner)=0;
   virtual void dessine(Quadrupole const& a_dessiner)=0;

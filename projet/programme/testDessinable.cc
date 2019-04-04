@@ -1,6 +1,5 @@
 #include <iostream>
 #include "SupportConsole.h"
-#include "Contenu.h"
 #include "Particule.h"
 #include "Dipole.h"
 using namespace std;
@@ -13,7 +12,6 @@ int main()
   
   /* Nous voulons un contenu à dessiner, et que ce contenu       *
    * se dessine sur notre support à dessin précédent             */
-  Contenu c(&ecran);
 
   //Positions de p
   Vecteur3D _r1(3.00984, -0.391837, 0);
@@ -51,7 +49,6 @@ int main()
   Dipole d(_re1, _rs1, _Re1, _k,_Bz, &ecran);
 
   // Nous dessinons notre contenu
-  c.dessine();
   p.dessine();
   d.dessine();
 
