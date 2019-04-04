@@ -15,7 +15,7 @@ CXXFLAGS += -g                    # pour debugger
 
 all:  testParticule testVecteur testAccel1 exerciceP9
 
-exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o
+exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o
 
 exerciceP9.o: exerciceP9.cc SupportConsole.h SupportADessin.h Dessinable.h
 

@@ -1,4 +1,4 @@
-#include <iostream> // pour endl
+#include <iostream>
 #include "SupportConsole.h"
 #include "Particule.h"
 #include "Dipole.h"

@@ -22,5 +22,5 @@ ostream& Dipole::affiche(ostream& sortie) const {
     "   rayon de chambre :"<<scal_Re<<endl<<
     "   rayon de courbure :"<<scal_k<<endl<<
     "   centre de courbure :"<<centreDeCourbure()<<endl<<
-    "   champ magnetique :"<<scal_Bz<<endl;}
+    "   champ magnetique :"<<champMagnetique()<<endl;}
 
