@@ -3,11 +3,14 @@
 #include "Vecteur3D.h"
 #include "Element.h"
 
+#include "Dessinable.h"
+#include "SupportADessin.h"
+
 class Element;
 
 //En tête de la classe Particule avec descriptions de ses méthodes. Corps dans "Particule.cc"
 
-class Particule {
+class Particule : public Dessinable {
   
   private:
   
@@ -33,10 +36,10 @@ class Particule {
     Vecteur3D position() const {return vec_r;};
 
     //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double, Element* _courant=nullptr);
+    Particule(Vecteur3D, Vecteur3D, double, double, SupportADessin* _support=nullptr ,Element* _courant=nullptr);
 
     //Constructeur par energie en GeV et direction vectorielle
-    Particule(Vecteur3D, Vecteur3D, double, double, double);
+    Particule(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr ,Element* _courant=nullptr);
 
   /*Méthodes de l'interface de la classe particule*/
 
@@ -57,6 +60,9 @@ class Particule {
 
     //La particule change d'élément
     void change_element(Element*);
+
+    virtual void dessine() override
+    { support->dessine(*this); }
 };
 
 /*OPERATEURS EXTERNES*/

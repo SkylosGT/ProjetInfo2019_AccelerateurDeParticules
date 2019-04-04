@@ -15,9 +15,9 @@ CXXFLAGS += -g                    # pour debugger
 
 all:  testParticule testVecteur testAccel1 testDessinable
 
-testDessinable: testDessinable.o SupportConsole.o
+testDessinable: testDessinable.o SupportConsole.o Particule.o Vecteur3D.o
 
-testDessinable.o: testDessinable.cc SupportConsole.h SupportADessin.h Contenu.h Dessinable.h
+testDessinable.o: testDessinable.cc SupportConsole.h SupportADessin.h Contenu.h Dessinable.h Particule.o Vecteur3D.o
 
 SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Contenu.h Dessinable.h
 
