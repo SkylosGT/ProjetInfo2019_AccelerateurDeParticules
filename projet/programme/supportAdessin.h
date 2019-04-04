@@ -1,5 +1,5 @@
-#ifndef SUPPORT_A_DESSIN_H
-#define SUPPORT_A_DESSIN_H
+#ifndef SUPPORTADESSIN_H
+#define SUPPORTADESSIN_H
 
 class Contenu;
 
