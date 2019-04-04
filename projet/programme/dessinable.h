@@ -1,5 +1,4 @@
-#ifndef DESSINABLE_H
-#define DESSINABLE_H
+#pragma once
 
 class SupportADessin;
 
@@ -14,5 +13,3 @@ class Dessinable {
  protected:
   SupportADessin* support;
 };
-
-#endif

@@ -50,8 +50,6 @@ void Accelerateur::supprCollectionParticule() {
 	CollectionParticule.clear();}
 	
 void Accelerateur::supprCollectionElement() {
-	for(auto element : CollectionElement){ 
-		delete element;}
 	CollectionElement.clear();}
 	
 void Accelerateur::evolue() const{

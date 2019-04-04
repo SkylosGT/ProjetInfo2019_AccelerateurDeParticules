@@ -1,6 +1,3 @@
-#ifndef TEXT_VIEWER_H
-#define TEXT_VIEWER_H
-
 #include <iostream>
 #include "SupportADessin.h"
 
@@ -20,5 +17,3 @@ class SupportConsole : public SupportADessin {
  private:
   std::ostream& flot;
 };
-
-#endif

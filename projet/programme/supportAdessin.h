@@ -1,5 +1,4 @@
-#ifndef SUPPORTADESSIN_H
-#define SUPPORTADESSIN_H
+#pragma once
 
 class Particule;
 class Dipole;
@@ -20,4 +19,4 @@ class SupportADessin
 
 };
 
-#endif
+
