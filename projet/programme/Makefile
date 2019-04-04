@@ -12,10 +12,10 @@ CXXFLAGS += -g                    # pour debugger
 # LDFLAGS  += -pg                 # pour profiler
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
-all: main_text
+all: testDessinable
 
-main_text: main_text.o text_viewer.o
+testDessinable: testDessinable.o SupportConsole.o
 
-main_text.o: main_text.cc text_viewer.h support_a_dessin.h contenu.h dessinable.h
+testDessinable.o: testDessinable.cc SupportConsole.h SupportADessin.h Contenu.h Dessinable.h
 
-text_viewer.o: text_viewer.cc text_viewer.h support_a_dessin.h contenu.h dessinable.h
+SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Contenu.h Dessinable.h
