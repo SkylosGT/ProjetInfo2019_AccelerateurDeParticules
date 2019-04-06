@@ -7,8 +7,8 @@ using namespace ConstantesPhysiques;
 //DEFINITION DES METHODES DE LA CLASSE DIPOLE ET SURCHARGE DE SES OPERATEURS
 
 //METHODES PUBLIQUES DE LA CLASSE DIPOLE
-Dipole::Dipole(Vecteur3D _re, Vecteur3D _rs, double _Re, double _k, double _Bz)
-:ElementCourbe(_re, _rs, _Re, _k), scal_Bz(_Bz) {}
+Dipole::Dipole(Vecteur3D _re, Vecteur3D _rs, double _Re, double _k, double _Bz, SupportADessin* _support)
+:ElementCourbe(_re, _rs, _Re, _k, _support), scal_Bz(_Bz) {}
 
 Dipole::~Dipole() {}
 
@@ -22,5 +22,5 @@ ostream& Dipole::affiche(ostream& sortie) const {
     "   rayon de chambre :"<<scal_Re<<endl<<
     "   rayon de courbure :"<<scal_k<<endl<<
     "   centre de courbure :"<<centreDeCourbure()<<endl<<
-    "   champ magnetique :"<<scal_Bz<<endl;}
+    "   champ magnetique :"<<champMagnetique()<<endl;}
 

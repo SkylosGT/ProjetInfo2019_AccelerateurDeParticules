@@ -5,9 +5,10 @@
 
 #include "Element.h"
 #include "Particule.h"
+#include "Dessinable.h"
 
 //En tête de la classe Accelerateur avec descriptions de ses méthodes. Corps dans "Accelerateur.h"
-class Accelerateur {
+class Accelerateur: public Dessinable {
 	
 	private: 
  
@@ -18,7 +19,7 @@ class Accelerateur {
 	public:
 
 	//Constructeur par défauts qui initialise l'accélérateur vide (aucun élément, aucune particule)
-		Accelerateur();
+		Accelerateur(SupportADessin* _support=nullptr);
 		
 	//Suppression du constructeur de copie 
 		Accelerateur(Accelerateur const&) = delete;
@@ -46,6 +47,8 @@ class Accelerateur {
 	//Méthode qui fait évoluer le système
 		void evolue() const;
 	
+	virtual void dessine() override
+    { support->dessine(*this); }
 };
 
 //Permet l'affichage d'un accélérateur par surcharge

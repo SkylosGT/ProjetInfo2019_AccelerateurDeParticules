@@ -7,8 +7,8 @@ using namespace ConstantesPhysiques;
 //DEFINITION DES METHODES DE LA CLASSE SECTION DROITE ET SURCHARGE DE SES OPERATEURS
 
 //METHODES PUBLIQUES DE LA CLASSE SECTION DROITE
-SectionDroite::SectionDroite(Vecteur3D _re, Vecteur3D _rs, double _Re)
-:ElementDroit(_re, _rs, _Re) {}
+SectionDroite::SectionDroite(Vecteur3D _re, Vecteur3D _rs, double _Re, SupportADessin* _support)
+:ElementDroit(_re, _rs, _Re, _support) {}
 
 SectionDroite::~SectionDroite() {}
 

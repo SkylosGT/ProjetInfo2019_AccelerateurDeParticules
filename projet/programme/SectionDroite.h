@@ -10,7 +10,7 @@ class SectionDroite : public ElementDroit {
     public:
         
         //Constructeur de la section droite qui ne peut pas avoir d'élément suivant attaché à lui
-        SectionDroite(Vecteur3D, Vecteur3D, double);
+        SectionDroite(Vecteur3D, Vecteur3D, double, SupportADessin* _support=nullptr);
 
         //Destructeur de la section droite
         ~SectionDroite();
@@ -22,5 +22,8 @@ class SectionDroite : public ElementDroit {
 
         //Affiche une Section Droite
         virtual std::ostream& affiche(std::ostream&) const override;
+
+        virtual void dessine() override
+        { support->dessine(*this); }
 };
 

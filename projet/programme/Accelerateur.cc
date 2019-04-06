@@ -8,8 +8,8 @@
 using namespace std;
 
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
-Accelerateur::Accelerateur() 
-	: CollectionElement(), CollectionParticule() {}
+Accelerateur::Accelerateur(SupportADessin* _support) 
+	: Dessinable(_support), CollectionElement(), CollectionParticule() {}
 	
 ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionElement.size() > 0) {
@@ -50,8 +50,6 @@ void Accelerateur::supprCollectionParticule() {
 	CollectionParticule.clear();}
 	
 void Accelerateur::supprCollectionElement() {
-	for(auto element : CollectionElement){ 
-		delete element;}
 	CollectionElement.clear();}
 	
 void Accelerateur::evolue() const{
