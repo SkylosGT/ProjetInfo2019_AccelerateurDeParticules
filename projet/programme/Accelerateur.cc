@@ -38,7 +38,10 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 	return sortie; }
 	
 void Accelerateur::ajoutParticule(Particule nouveau) {
-	CollectionParticule.push_back(nouveau); }
+	//Solution temporaire pour ajout de particule
+	if(CollectionElement[0]!=nullptr){
+		nouveau.change_element(CollectionElement[0]);}
+	CollectionParticule.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
 	if(CollectionElement.size()>0){
