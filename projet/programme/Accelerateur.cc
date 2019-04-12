@@ -63,7 +63,6 @@ void Accelerateur::evolue(double _dt) const{
 			particule.change_element(particule.elemCourant()->elemSuivant());}}
 	cout <<"Méthode évolue debbuging" << endl;}
 	
-	
 //OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
 	return a.affiche(sortie);}
