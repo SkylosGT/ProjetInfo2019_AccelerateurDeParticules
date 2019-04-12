@@ -38,6 +38,9 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 	return sortie; }
 	
 void Accelerateur::ajoutParticule(Particule nouveau) {
+	for(auto element : CollectionElement) {
+		if (!element->passe_au_suivant(nouveau)) {
+			nouveau.change_element(element);}}
 	CollectionParticule.push_back(nouveau); }
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
