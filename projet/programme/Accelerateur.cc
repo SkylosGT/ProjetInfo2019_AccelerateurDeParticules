@@ -27,20 +27,20 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionParticule.size() > 0) { 
 		if (CollectionParticule.size() == 1) {
 			sortie << "L'accélérateur contient la particule suivante : " << endl
-					<<CollectionParticule[0]<<endl;
+					<<*CollectionParticule[0]<<endl;
 				}else{
 					sortie << "L'accélérateur contient les " <<CollectionParticule.size() <<" particules suivantes :"<<endl;
 					for (auto particule : CollectionParticule) {
-						sortie << particule << endl; }}
+						sortie << *particule << endl; }}
 						}else{
 							sortie << "L'accélérateur ne contient aucune particule."<< endl;}
 	
 	return sortie; }
 	
-void Accelerateur::ajoutParticule(Particule nouveau) {
+void Accelerateur::ajoutParticule(Particule* nouveau) {
 	//Solution temporaire pour ajout de particule
 	if(CollectionElement[0]!=nullptr){
-		nouveau.change_element(CollectionElement[0]);}
+		(*nouveau).change_element(CollectionElement[0]);}
 	CollectionParticule.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
@@ -56,11 +56,12 @@ void Accelerateur::supprCollectionElement() {
 	CollectionElement.clear();}
 	
 void Accelerateur::evolue(double _dt) const{
-	for(auto particule : CollectionParticule) {
-		particule.ajouteForceMagnetique(particule.elemCourant()->champMagnetique(particule.position()), _dt);
-		particule.bouger(_dt);
-		if(particule.elemCourant()->passe_au_suivant(particule)){
-			particule.change_element(particule.elemCourant()->elemSuivant());}}
+	for(auto particule : CollectionParticule)
+	 {
+		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
+		(*particule).bouger(_dt);
+		if((*particule).elemCourant()->passe_au_suivant((*particule))){
+			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}
 	cout <<"Méthode évolue debbuging" << endl;}
 	
 //OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE

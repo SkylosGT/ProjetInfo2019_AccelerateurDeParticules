@@ -77,11 +77,12 @@ int main()
     _accelerateur.ajoutElement(&S8);
 
     //Test de l'ajout des deux particules dans l'accélérateur
-    _accelerateur.ajoutParticule(p1);
-    _accelerateur.ajoutParticule(p2);
+    _accelerateur.ajoutParticule(&p1);
+    //_accelerateur.ajoutParticule(p2);
 
-    //Affichage de tout les éléments et particules que contient l'accélérateur
-    cout <<"Après ajout d'un dipole, d'un quadrupole, d'une section droite et de deux particules dans l'accélérateur : " << endl;
+    _accelerateur.evolue(1e-11);
+    
+    
     _accelerateur.dessine();
 
     return 0;

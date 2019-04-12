@@ -71,8 +71,8 @@ int main() {
     _accelerateur.ajoutElement(&S);
 
     //Test de l'ajout des deux particules dans l'accélérateur
-    _accelerateur.ajoutParticule(p1);
-    _accelerateur.ajoutParticule(p2);
+    _accelerateur.ajoutParticule(&p1);
+    _accelerateur.ajoutParticule(&p2);
 
     
     //Affichage de tout les éléments et particules que contient l'accélérateur
