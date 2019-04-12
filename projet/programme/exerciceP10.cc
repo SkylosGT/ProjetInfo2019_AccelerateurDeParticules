@@ -79,8 +79,12 @@ int main()
     //Test de l'ajout des deux particules dans l'accélérateur
     _accelerateur.ajoutParticule(&p1);
     //_accelerateur.ajoutParticule(p2);
+for(size_t i = 0; i < 20; i++)
+{
 
     _accelerateur.evolue(1e-11);
+}
+
     
     
     _accelerateur.dessine();
