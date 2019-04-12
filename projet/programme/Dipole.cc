@@ -13,7 +13,7 @@ Dipole::Dipole(Vecteur3D _re, Vecteur3D _rs, double _Re, double _k, double _Bz, 
 Dipole::~Dipole() {}
 
 Vecteur3D Dipole::champMagnetique(Vecteur3D const& _B=vec_e3) const {
-    return scal_Bz*_B;}
+    return scal_Bz*vec_e3;}
 
 ostream& Dipole::affiche(ostream& sortie) const {
     return sortie<<"Dipole :"<<endl<<
