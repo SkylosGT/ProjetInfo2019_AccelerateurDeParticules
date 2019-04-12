@@ -49,14 +49,32 @@ int main()
     SectionDroite S1((*new Vecteur3D(3,-1,0)), (*new Vecteur3D(3,-2,0)), Re), S2((*new Vecteur3D(1,-3,0)), (*new Vecteur3D(0,-3,0)), Re),
                 S3((*new Vecteur3D(-1,-3,0)), (*new Vecteur3D(-2,-3,0)), Re), S4((*new Vecteur3D(-3,-1,0)), (*new Vecteur3D(-3,0,0)), Re),
                 S5((*new Vecteur3D(-3,1,0)), (*new Vecteur3D(-3,2,0)), Re), S6((*new Vecteur3D(-1,3,0)), (*new Vecteur3D(0,3,0)), Re),
-                S7((*new Vecteur3D(1,3,0)), (*new Vecteur3D(2,3,0)), Re), S1((*new Vecteur3D(3,1,0)), (*new Vecteur3D(3,0,0)), Re);
+                S7((*new Vecteur3D(1,3,0)), (*new Vecteur3D(2,3,0)), Re), S8((*new Vecteur3D(3,1,0)), (*new Vecteur3D(3,0,0)), Re);
 
     Dipole D1((*new Vecteur3D(3,-2,0)), (*new Vecteur3D(2,-3,0)), Re, Rc, Bz),  D2((*new Vecteur3D(-2,-3,0)), (*new Vecteur3D(-3,-2,0)), Re, Rc, Bz),
-             D3((*new Vecteur3D(-3,2,0)), (*new Vecteur3D(-2,3,0)), Re, Rc, Bz),  D1((*new Vecteur3D(2,3,0)), (*new Vecteur3D(3,2,0)), Re, Rc, Bz);
+             D3((*new Vecteur3D(-3,2,0)), (*new Vecteur3D(-2,3,0)), Re, Rc, Bz),  D4((*new Vecteur3D(2,3,0)), (*new Vecteur3D(3,2,0)), Re, Rc, Bz);
+    
     //Test de l'ajout des éléments dans l'accélérateur
-    _accelerateur.ajoutElement(&D);
-    _accelerateur.ajoutElement(&S);
-    _accelerateur.ajoutElement(&Q);
+    _accelerateur.ajoutElement(&Q1);
+    _accelerateur.ajoutElement(&S1);
+    _accelerateur.ajoutElement(&D1);
+    _accelerateur.ajoutElement(&Q2);
+    _accelerateur.ajoutElement(&S2);
+    _accelerateur.ajoutElement(&Q3);
+    _accelerateur.ajoutElement(&S3);
+    _accelerateur.ajoutElement(&D2);
+    _accelerateur.ajoutElement(&Q4);
+    _accelerateur.ajoutElement(&S4);
+    _accelerateur.ajoutElement(&Q5);
+    _accelerateur.ajoutElement(&S5);
+    _accelerateur.ajoutElement(&D3);
+    _accelerateur.ajoutElement(&Q6);
+    _accelerateur.ajoutElement(&S6);
+    _accelerateur.ajoutElement(&Q7);
+    _accelerateur.ajoutElement(&S7);
+    _accelerateur.ajoutElement(&D4);
+    _accelerateur.ajoutElement(&Q8);
+    _accelerateur.ajoutElement(&S8);
 
     //Test de l'ajout des deux particules dans l'accélérateur
     _accelerateur.ajoutParticule(p1);
@@ -65,15 +83,6 @@ int main()
     //Affichage de tout les éléments et particules que contient l'accélérateur
     cout <<"Après ajout d'un dipole, d'un quadrupole, d'une section droite et de deux particules dans l'accélérateur : " << endl;
     _accelerateur.dessine();
-    
-    //Test de la suppression des éléments et particules de l'accélérateur
-    _accelerateur.supprCollectionParticule();
-    _accelerateur.supprCollectionElement();
-
-    //Réaffichage de l'accélérateur pour tester que l'accélérateur ne contient aucun élément ni aucune particule
-    cout << "On supprime tous les éléments et toutes les particules de l'accélérateur:"<< endl; cout << endl;
-    _accelerateur.dessine();
-
 
     return 0;
 }
