@@ -46,7 +46,7 @@ int main()
     Vecteur3D _re1(1,0,0), _re2(0,-1,0), _re3(-1,-1,0);
 
     //Position de sortie de D, S et Q
-    Vecteur3D _rs1(0,-1,0), _rs2(-1, -1, 0), _rs3(-1,-2,0);
+    Vecteur3D _rs1(0,-1,0), _rs2(-1, -1, 0), _rs3(-2,-1,0);
     
     //Rayon de la chambre à vide de D, S et Q
     double _Re1(0.1), _Re2(0.1), _Re3(0.1);
@@ -75,7 +75,6 @@ int main()
     _accelerateur.ajoutParticule(p1);
     _accelerateur.ajoutParticule(p2);
 
-    
     //Affichage de tout les éléments et particules que contient l'accélérateur
     cout <<"Après ajout d'un dipole, d'un quadrupole, d'une section droite et de deux particules dans l'accélérateur : " << endl;
     _accelerateur.dessine();
