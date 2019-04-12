@@ -55,7 +55,12 @@ void Accelerateur::supprCollectionParticule() {
 void Accelerateur::supprCollectionElement() {
 	CollectionElement.clear();}
 	
-void Accelerateur::evolue() const{
+void Accelerateur::evolue(double _dt) const{
+	for(auto particule : CollectionParticule) {
+		particule.ajouteForceMagnetique(particule.elemCourant()->champMagnetique(particule.position()), _dt);
+		particule.bouger(_dt);
+		if(particule.elemCourant()->passe_au_suivant(particule)){
+			particule.change_element(particule.elemCourant()->elemSuivant());}}
 	cout <<"Méthode évolue debbuging" << endl;}
 	
 	

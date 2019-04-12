@@ -21,6 +21,9 @@ class Element : public Dessinable{
         Element* elem_suivant;//Pointeur vers l'élément suivant celui-ci dans l'accélérateur
 
     public:
+
+        //Getter, retourne l'élément suivant l'élément courant
+        Element* elemSuivant() {return elem_suivant;}
     
         //Constructeur d'un élément qui ne pointe par défault vers aucun élément suivant
         Element(Vecteur3D, Vecteur3D, double, SupportADessin*, Element* _suivant=nullptr);

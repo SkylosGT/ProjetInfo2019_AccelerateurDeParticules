@@ -44,8 +44,8 @@ class Accelerateur: public Dessinable {
 	//Supprime toutes les particules de l'accélérateur
 		void supprCollectionParticule();
 	
-	//Méthode qui fait évoluer le système
-		void evolue() const;
+	//Méthode qui fait évoluer le système avec un pas de temps
+		void evolue(double _dt) const;
 	
 	virtual void dessine() override
     { support->dessine(*this); }
