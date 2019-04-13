@@ -12,7 +12,7 @@ using namespace ConstantesPhysiques;
 
 int main()
 {
-
+  //Support à dessin type console
   SupportConsole ecran(cout);
 
 	//Un accélérateur par défauts (vide : aucun élément, aucune particule)
