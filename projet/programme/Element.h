@@ -49,6 +49,8 @@ class Element : public Dessinable{
 
         //Attache un élément suivant à l'instance courante
         void attache_element_suivant(Element*);
+
+        double distance_particule(Particule const&) const;
 };
 
 /*OPERATEURS EXTERNES*/

@@ -2,10 +2,12 @@
 #include <vector>
 
 #include "Accelerateur.h"
+#include "ConstantesPhysiques.h"
 
 //DEFINITION DES METHODES DE LA CLASSE ACCELERATEUR ET SURCHARGE DE SES OPERATEUR
 
 using namespace std;
+using namespace ConstantesPhysiques;
 
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur(SupportADessin* _support) 
@@ -38,15 +40,20 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 	return sortie; }
 	
 void Accelerateur::ajoutParticule(Particule* nouveau) {
-	//Solution temporaire pour ajout de particule
-	if(CollectionElement[0]!=nullptr){
-		(*nouveau).change_element(CollectionElement[0]);}
+	double distanceMinimum(const_c);
+	Element* elementAvecDistanceMinimum(nullptr);
+	if(CollectionElement.size()>0){
+		for(auto element:CollectionElement){
+			if(element->distance_particule(*nouveau)<distanceMinimum){
+				distanceMinimum=element->distance_particule(*nouveau);
+				elementAvecDistanceMinimum=element;}}}
+	nouveau->change_element(elementAvecDistanceMinimum);
 	CollectionParticule.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
 	if(CollectionElement.size()>0){
 		for(auto element : CollectionElement){
-		element->attache_element_suivant(nouveau);}
+			element->attache_element_suivant(nouveau);}
 		for(auto element : CollectionElement){
 			nouveau->attache_element_suivant(element);}}
 	CollectionElement.push_back(nouveau);}
@@ -59,7 +66,7 @@ void Accelerateur::supprCollectionElement() {
 	
 void Accelerateur::evolue(double _dt) const{
 	for(auto particule : CollectionParticule)
-	 {
+{
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
 		(*particule).bouger(_dt);
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){

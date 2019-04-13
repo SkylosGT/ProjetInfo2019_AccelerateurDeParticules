@@ -20,5 +20,9 @@ void Element::attache_element_suivant(Element* _suivant){
     if(_suivant->vec_re==vec_rs){
         elem_suivant=_suivant;};}
 
+double Element::distance_particule(Particule const& particule) const{
+    return (vec_rs-particule.position()).norme()+(particule.position()-vec_re).norme()-(vec_rs-vec_re).norme();
+}
+
 std::ostream& operator<<(std::ostream& sortie, Element const& E){
     return E.affiche(sortie);}
