@@ -39,7 +39,7 @@ int main()
     double _q(const_e);
 
     /*Deux particules P1 et P2*/
-    Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
+    Particule p1(_r1, _v1, _E, _m, _q, &ecran), p2(_r2,_v2,_E,_m,_q, &ecran);
     
     /*Attributs physiques des elements D, S, Q*/
     //Position d'entrée de D, S et Q
@@ -58,13 +58,13 @@ int main()
     double _Bz1(7), _Bz3(1.2);
 
     //Dipole D
-    Dipole D(_re1, _rs1, _Re1, _k, _Bz1);
+    Dipole D(_re1, _rs1, _Re1, _k, _Bz1, &ecran);
 
     //Section droite S
-    SectionDroite S(_re2, _rs2, _Re2);
+    SectionDroite S(_re2, _rs2, _Re2, &ecran);
 
     //Quadrupole Q
-    Quadrupole Q(_re3, _rs3, _Re3, _Bz3);
+    Quadrupole Q(_re3, _rs3, _Re3, _Bz3, &ecran);
 
     //Test de l'ajout des éléments dans l'accélérateur
     _accelerateur.ajoutElement(&D);
