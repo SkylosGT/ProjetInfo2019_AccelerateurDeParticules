@@ -45,8 +45,10 @@ void Accelerateur::ajoutParticule(Particule* nouveau) {
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
 	if(CollectionElement.size()>0){
-		(*nouveau).attache_element_suivant(CollectionElement[0]);
-		(*CollectionElement.back()).attache_element_suivant(nouveau);}
+		for(auto element : CollectionElement){
+		element->attache_element_suivant(nouveau);}
+		for(auto element : CollectionElement){
+			nouveau->attache_element_suivant(element);}}
 	CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionParticule() {

@@ -17,7 +17,8 @@ bool Element::passe_au_suivant(Particule const& _p) const{
     else{return false;}}
 
 void Element::attache_element_suivant(Element* _suivant){
-    elem_suivant=_suivant;}
+    if(_suivant->vec_re==vec_rs){
+        elem_suivant=_suivant;};}
 
 std::ostream& operator<<(std::ostream& sortie, Element const& E){
     return E.affiche(sortie);}

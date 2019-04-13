@@ -55,26 +55,26 @@ int main()
              D3((*new Vecteur3D(-3,2,0)), (*new Vecteur3D(-2,3,0)), Re, Rc, Bz),  D4((*new Vecteur3D(2,3,0)), (*new Vecteur3D(3,2,0)), Re, Rc, Bz);
     
     //Test de l'ajout des éléments dans l'accélérateur
-    _accelerateur.ajoutElement(&Q1);
-    _accelerateur.ajoutElement(&S1);
     _accelerateur.ajoutElement(&D1);
     _accelerateur.ajoutElement(&Q2);
     _accelerateur.ajoutElement(&S2);
     _accelerateur.ajoutElement(&Q3);
+    _accelerateur.ajoutElement(&Q1);
+    _accelerateur.ajoutElement(&S1);
     _accelerateur.ajoutElement(&S3);
     _accelerateur.ajoutElement(&D2);
-    _accelerateur.ajoutElement(&Q4);
-    _accelerateur.ajoutElement(&S4);
-    _accelerateur.ajoutElement(&Q5);
-    _accelerateur.ajoutElement(&S5);
-    _accelerateur.ajoutElement(&D3);
-    _accelerateur.ajoutElement(&Q6);
     _accelerateur.ajoutElement(&S6);
     _accelerateur.ajoutElement(&Q7);
     _accelerateur.ajoutElement(&S7);
     _accelerateur.ajoutElement(&D4);
+    _accelerateur.ajoutElement(&S4);
     _accelerateur.ajoutElement(&Q8);
     _accelerateur.ajoutElement(&S8);
+    _accelerateur.ajoutElement(&Q5);
+    _accelerateur.ajoutElement(&Q4);
+    _accelerateur.ajoutElement(&S5);
+    _accelerateur.ajoutElement(&D3);
+    _accelerateur.ajoutElement(&Q6);
 
     //Test de l'ajout des deux particules dans l'accélérateur
     _accelerateur.ajoutParticule(&p1);
