@@ -33,12 +33,12 @@ void SupportConsole::dessine(Accelerateur const& _a){
 	if (_a.getCollectionParticule().size() > 0) { 
 		if (_a.getCollectionParticule().size() == 1) {
 			cout << "L'accélérateur contient la particule suivante : " << endl;
-					(_a.getCollectionParticule()[0]).dessine();
+					(*(_a.getCollectionParticule()[0])).dessine();
 					cout << endl;
 				}else{
 					cout << "L'accélérateur contient les " <<_a.getCollectionParticule().size() <<" particules suivantes :"<<endl;
 					for (auto particule : _a.getCollectionParticule()) {
-						particule.dessine();
+						(*particule).dessine();
 						cout << endl;}}
 						}else{
 							cout << "L'accélérateur ne contient aucune particule."<< endl;
