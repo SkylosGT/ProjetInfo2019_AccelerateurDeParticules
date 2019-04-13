@@ -18,10 +18,10 @@ class Accelerateur: public Dessinable {
 		
 	public:
 	//Un accesseur de la collection d'élément pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
-		std::vector<Element*> getCollectionEl() const {return CollectionElement;}
+		std::vector<Element*> getCollectionElement() const {return CollectionElement;}
 		
 	//Un accesseur de la collection de particule pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
-		std::vector<Particule> getCollectionPa() const {return CollectionParticule;}
+		std::vector<Particule> getCollectionParticule() const {return CollectionParticule;}
 
 	//Constructeur par défauts qui initialise l'accélérateur vide (aucun élément, aucune particule)
 		Accelerateur(SupportADessin* _support=nullptr);
