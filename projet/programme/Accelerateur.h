@@ -14,7 +14,7 @@ class Accelerateur: public Dessinable {
  
  	/*Attributs privés de l'accélérateur*/
  		std::vector <Element*> CollectionElement;//Un tableau d'éléments (contenant la collection d'éléments)
-		std::vector <Particule> CollectionParticule;//Un tableau de particules (contenant la collection de particules)
+		std::vector <Particule*> CollectionParticule;//Un tableau de particules (contenant la collection de particules)
 		
 	public:
 	//Un accesseur de la collection d'élément pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
@@ -38,7 +38,7 @@ class Accelerateur: public Dessinable {
 		std::ostream& affiche(std::ostream&) const;
 		
 	//Ajoute une particule dans l'accélérateur (dans sa collection de particules)
-		void ajoutParticule(Particule);
+		void ajoutParticule(Particule*);
 	
 	//Ajoute un élément dans l'accélérateur (dans sa collection d'éléments)
 		void ajoutElement(Element*);
@@ -49,8 +49,8 @@ class Accelerateur: public Dessinable {
 	//Supprime toutes les particules de l'accélérateur
 		void supprCollectionParticule();
 	
-	//Méthode qui fait évoluer le système
-		void evolue() const;
+	//Méthode qui fait évoluer le système avec un pas de temps
+		void evolue(double _dt) const;
 	
 	virtual void dessine() override
     { support->dessine(*this); }
