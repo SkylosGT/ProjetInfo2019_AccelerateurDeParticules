@@ -35,7 +35,7 @@ class Particule : public Dessinable {
     //Getter, retourne la position de la particule
     Vecteur3D position() const {return vec_r;};
 
-    //Getter, retourn l'élément courant de la particule
+    //Getter, retourne l'élément courant de la particule
     Element* elemCourant() const {return elem_courant;}
 
     //Constructeur par vecteur quantité de mouvement en GeV
