@@ -14,13 +14,13 @@ double Particule::calculateDeviationAngle(double _dt){
     return asin((_dt*vec_f.norme())/(2*FacteurGamma()*transformMassGeVToKg()*vec_v.norme()));}
 
 //METHODES PUBLIQUES DE LA CLASSE PARTICULE
-Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q, SupportADessin* _support ,Element* _courant)
+Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q,Element* _courant, SupportADessin* _support)
 :Dessinable(_support), vec_r(_r), scal_m(_m), scal_q(_q), elem_courant(_courant) {
     vec_v=_p*(const_c/sqrt((_m*_m)+_p.norme2()));
     vec_f=*new Vecteur3D();}
 
-Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie, double _m, double _q, SupportADessin* _support ,Element* _courant)
-:Dessinable(_support), vec_r(_r), scal_m(_m), scal_q(_q) {
+Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie, double _m, double _q,Element* _courant, SupportADessin* _support )
+:Dessinable(_support), vec_r(_r), scal_m(_m), scal_q(_q), elem_courant(_courant) {
     vec_v=(~_vitessedirective)*(const_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
     vec_f=*new Vecteur3D();}
 

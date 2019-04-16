@@ -39,10 +39,10 @@ class Particule : public Dessinable {
     Element* elemCourant() const {return elem_courant;}
 
     //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double, SupportADessin* _support=nullptr ,Element* _courant=nullptr);
+    Particule(Vecteur3D, Vecteur3D, double, double,Element* _courant=nullptr,SupportADessin* _support=nullptr);
 
     //Constructeur par energie en GeV et direction vectorielle
-    Particule(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr ,Element* _courant=nullptr);
+    Particule(Vecteur3D, Vecteur3D, double, double, double,Element* _courant=nullptr, SupportADessin* _support=nullptr);
 
   /*Méthodes de l'interface de la classe particule*/
 
