@@ -66,9 +66,13 @@ class Particule : public Dessinable {
 
     virtual void dessine() override
     { support->dessine(*this); }
+    
+    Particule& operator*=(double const);
 };
 
 /*OPERATEURS EXTERNES*/
 
 //Permet l'affichage d'une Particule par surcharge
 std::ostream& operator<<(std::ostream&, Particule const&);
+
+const Particule operator*(double, Particule const&);

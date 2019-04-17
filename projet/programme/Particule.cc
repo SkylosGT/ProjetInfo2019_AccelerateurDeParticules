@@ -54,8 +54,17 @@ ostream& Particule::affiche(ostream& sortie) const{
 
 void Particule::change_element(Element* _suivant){
    elem_courant=_suivant;
+   
+Particule& Particule::operator*=(double const coef) {
+	scal_m*=coef;
+	scal_q*=coef;
+	return *this;}
 }
 
 //OPERATEURS EXTERNES A LA CLASSE PARTICULE UTILISANT LES METHODES DE LA CLASSE
 ostream& operator<<(ostream& sortie, Particule const& P){
    return P.affiche(sortie);}
+   
+const Particule Particule::operator*(double coef, Particule const& p) {
+	return (p*=coef);}
+
