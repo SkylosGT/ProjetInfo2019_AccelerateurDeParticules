@@ -14,7 +14,7 @@ class Accelerateur: public Dessinable {
  
  	/*Attributs privés de l'accélérateur*/
  		std::vector <Element*> CollectionElement;//Un tableau d'éléments (contenant la collection d'éléments)
-		std::vector <Particule*> CollectionParticule;//Un tableau de particules (contenant la collection de particules)
+		std::vector <Particule*> CollectionParticule;//Un tableau de particule (contenant collection de particule)
 		
 	public:
 	//Un accesseur de la collection d'élément pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur

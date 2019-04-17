@@ -19,6 +19,7 @@ class Faisceau : public Dessinable {
 	std::vector<Particule> CollectionParticule;
 	
 	double energie_moyenne;//QUE FAIRE? ELLES ONT TOUTES MEME ENERGIE DONC JUSTE PRENDRE L'ENERGIE DE LA PARTICULE DE REF? OU ALORS IL FAUT PRENDRE ENERGIE DE LA PARTICULE AUGMENTÉE? OU FAIRE DES MOYENNES???
+	
 	//APRES LES EMITENCES (EN FAIRE 2?) + LES COEF D'ELLIPSE POUR CHACUNE D'ELLES (EN FAIRE 2?, FAIRE EN VECTOR?)
 	//CES DERNIERES + ENERGIE A CALCULER DANS LE {} DU CONSTRUCTEUR
 	
@@ -32,6 +33,8 @@ class Faisceau : public Dessinable {
 
 	virtual void dessine() override
     { support->dessine(*this); }
+    
+    void bouger(double); // PAREIL QUE POUR ENERGIE? FAIRE BOUGER LA REF OU LA REF AUGMENTEE??
 	
 	
 };
