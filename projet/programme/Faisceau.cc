@@ -1,13 +1,14 @@
 #include "Faisceau.h"
 #inlcude "ConstantesPhysiques.h"
+#include <vector>
 
 using namespace std;
 using namespace ConstantesPhysiques;
 
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
-: Dessinable(_support), CollectionParticule((_nb/_coef), (_coef*_ref)), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) 
+: Dessinable(_support), CollectionParticule(_nb/_coef), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) 
 {	
-	//LA CA INJECTE TOUTE LES PARTICULES VOULUES DANS LE FAISCEAU AU MEME MOMENT ET MEME VITESSE DONC BOUGE COMME UNE SEULE? COMMENT FAIRE ? FAUT-IL LES INJECTER UNE PAR UNE ??
+
 
 	
 }
