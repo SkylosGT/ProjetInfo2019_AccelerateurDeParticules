@@ -16,24 +16,20 @@ class Faisceau : public Dessinable {
 	Particule reference;
 	long int nombre_particule;
 	double coef_simulation;
-	std::vector<Particule> CollectionParticule; //A INJECTER UNE PAR UNE ? COMMENT ?????
-	
-	//APRES LES EMITENCES (EN FAIRE 2?) + LES COEF D'ELLIPSE POUR CHACUNE D'ELLES (EN FAIRE 2?, FAIRE EN VECTOR?)
-	//CES DERNIERES A CALCULER DANS LE {} DU CONSTRUCTEUR
-	
-	
+	std::vector<Particule> CollectionParticule;
+	double energie_moy;
 	
 	
 	public :
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
 	
-	double energie_moyenne() const;//CHANGE EN FONCTION DU TEMPS?? OU UNE CARACTÉRISTIQUE CALCULABLE A L'INITIALISATION D'UN FAISCEAU?
+	void energie_moyenne();//CHANGE EN FONCTION DU TEMPS?? OU UNE CARACTÉRISTIQUE CALCULABLE A L'INITIALISATION D'UN FAISCEAU?
 	
     std::ostream& affiche(std::ostream&) const;
 
 	virtual void dessine() override
     { support->dessine(*this); }
     
-    void bouger(double); //MAIS ELLES VONT TOUTE ALLER AU MEME ENDROIT?
+    void bouger(double);
 	
 };
