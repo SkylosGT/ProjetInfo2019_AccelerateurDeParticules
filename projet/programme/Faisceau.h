@@ -19,6 +19,12 @@ class Faisceau : public Dessinable {
 	std::vector<Particule> CollectionParticule;
 	double energie_moy;
 	
+	double emit_vert;
+	std::vector<double> coef_elipse_vert;
+	
+	double emit_horizontale;
+	std::vector<double> coef_elipse_hori;
+	
 	
 	public :
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);

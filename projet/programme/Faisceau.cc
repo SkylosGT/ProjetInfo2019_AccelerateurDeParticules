@@ -8,8 +8,7 @@ using namespace ConstantesPhysiques;
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
 : Dessinable(_support), CollectionParticule(), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {	
 	CollectionParticule.push_back(coef_simulation*reference);
-
-	
+	energie_moy = (coef_simulation*reference).Energie();
 }
 
 void Faisceau::energie_moyenne(){
@@ -29,6 +28,6 @@ void Faisceau::bouger(double dt) {
 		_particule.bouger(dt);}
 	if((CollectionParticule.size()) < (nombre_particule/coef_simulation)) {
 		CollectionParticule.push_back(coef_simulation*reference);}
-		(*this).energie()}
+	(*this).energie_moyenne();}
 		
 	
