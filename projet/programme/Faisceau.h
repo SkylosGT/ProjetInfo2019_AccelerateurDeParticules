@@ -13,13 +13,13 @@ class Faisceau : public Dessinable {
 	
 	private : 
 	
-	Particule reference;//LA POSITION DU VECTEUR DE REF INDIQUE LE POINT D'INJECTION 
+	Particule reference;
 	long int nombre_particule;
 	double coef_simulation;
-	std::vector<Particule> CollectionParticule;
+	std::vector<Particule> CollectionParticule; //A INJECTER UNE PAR UNE ? COMMENT ?????
 	
 	//APRES LES EMITENCES (EN FAIRE 2?) + LES COEF D'ELLIPSE POUR CHACUNE D'ELLES (EN FAIRE 2?, FAIRE EN VECTOR?)
-	//CES DERNIERES + ENERGIE A CALCULER DANS LE {} DU CONSTRUCTEUR
+	//CES DERNIERES A CALCULER DANS LE {} DU CONSTRUCTEUR
 	
 	
 	

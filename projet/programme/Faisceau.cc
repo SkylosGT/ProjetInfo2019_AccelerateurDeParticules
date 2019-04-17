@@ -17,13 +17,12 @@ double Faisceau::energie_moyenne() const {
 	for(auto _particule : CollectionParticule) {
 		_energie += _particule.Energie();}
 	return (_energie/CollectionParticule.size());}
-		
-	
-}
-
 
 ostream& Faisceau::affiche(ostream& sortie) const{
-	}
+	sortie << "Un Faisceau contenant les " << CollectionParticule.size() << " particules suivantes:"<< endl;
+	for(auto _particule : CollectionParticule){
+		_particule.affiche(sortie);}
+	return sortie;}
 	
 void Faisceau::bouger(double dt) {
 	for (auto _particule : CollectionParticule) {
