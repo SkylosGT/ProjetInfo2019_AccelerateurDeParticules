@@ -67,4 +67,7 @@ ostream& operator<<(ostream& sortie, Particule const& P){
    
 const Particule Particule::operator*(double coef, Particule const& p) {
 	return (p*=coef);}
+	
+const Particule::operator*(Particule const& p, double coef) {
+	return (p*=coef); }
 

@@ -76,3 +76,5 @@ class Particule : public Dessinable {
 std::ostream& operator<<(std::ostream&, Particule const&);
 
 const Particule operator*(double, Particule const&);
+
+const Particule operator*(Particule const&, double):
