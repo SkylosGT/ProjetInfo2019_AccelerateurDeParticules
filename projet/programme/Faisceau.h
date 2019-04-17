@@ -28,5 +28,10 @@ class Faisceau : public Dessinable {
 	public :
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
 	
+    std::ostream& affiche(std::ostream&) const;
+
+	virtual void dessine() override
+    { support->dessine(*this); }
+	
 	
 };

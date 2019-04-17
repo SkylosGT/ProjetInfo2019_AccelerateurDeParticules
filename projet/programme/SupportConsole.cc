@@ -16,6 +16,8 @@ void SupportConsole::dessine(Quadrupole const& _q){_q.affiche(flot);}
 
 void SupportConsole::dessine(SectionDroite const& _s){_s.affiche(flot);}
 
+void SupportConsole::dessine(Faisceau const& _f) {(_f.affiche(flot);}
+
 void SupportConsole::dessine(Accelerateur const& _a){
 	if (_a.getCollectionElement().size() > 0) {
 		if (_a.getCollectionElement().size() == 1) {

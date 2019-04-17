@@ -1,5 +1,6 @@
 #pragma once
 
+class Faisceau;
 class Particule;
 class Dipole;
 class Quadrupole;
