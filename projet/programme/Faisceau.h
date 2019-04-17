@@ -29,7 +29,7 @@ class Faisceau : public Dessinable {
 	public :
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
 	
-	void energie_moyenne();//CHANGE EN FONCTION DU TEMPS?? OU UNE CARACTÉRISTIQUE CALCULABLE A L'INITIALISATION D'UN FAISCEAU?
+	void energie_moyenne();
 	
     std::ostream& affiche(std::ostream&) const;
 
@@ -37,5 +37,10 @@ class Faisceau : public Dessinable {
     { support->dessine(*this); }
     
     void bouger(double);
+    
+    void calcul_ell_vert(); //VA CALCULER AUSSI LES COEF
+    
+    void calcul_ell_hori();
+    
 	
 };

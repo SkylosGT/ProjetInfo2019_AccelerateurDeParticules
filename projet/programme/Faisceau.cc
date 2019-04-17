@@ -9,6 +9,8 @@ Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _
 : Dessinable(_support), CollectionParticule(), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {	
 	CollectionParticule.push_back(coef_simulation*reference);
 	energie_moy = (coef_simulation*reference).Energie();
+	(*this).calcul_ell_vert();
+	(*this).calcul_ell_hori();
 }
 
 void Faisceau::energie_moyenne(){
@@ -28,6 +30,14 @@ void Faisceau::bouger(double dt) {
 		_particule.bouger(dt);}
 	if((CollectionParticule.size()) < (nombre_particule/coef_simulation)) {
 		CollectionParticule.push_back(coef_simulation*reference);}
-	(*this).energie_moyenne();}
+	(*this).energie_moyenne();
+	(*this).calcul_ell_vert();
+	(*this).calcul_ell_vert();}
+	
+void Faisceau::calcul_ell_vert() {
+}
+
+void Faisceau::calcul_ell_hori(){
+}
 		
 	
