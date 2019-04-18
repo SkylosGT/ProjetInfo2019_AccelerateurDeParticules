@@ -68,7 +68,7 @@ void Accelerateur::supprCollectionElement() {
 	CollectionElement.clear();}
 	
 void Accelerateur::supprCollectionFaisceau() {
-	CollectionFaisceau.clear;}
+	CollectionFaisceau.clear();}
 	
 void Accelerateur::evolue(double _dt) const{
 	for(Faisceau* faisceau: CollectionFaisceau){

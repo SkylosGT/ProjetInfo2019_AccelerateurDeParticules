@@ -39,10 +39,10 @@ class Particule : public Dessinable {
     Element* elemCourant() const {return elem_courant;}
 
     //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double,Element* _courant=nullptr,SupportADessin* _support=nullptr);
+    Particule(Vecteur3D, Vecteur3D, double, double,SupportADessin* _support=nullptr,Element* _courant=nullptr);
 
     //Constructeur par energie en GeV et direction vectorielle
-    Particule(Vecteur3D, Vecteur3D, double, double, double,Element* _courant=nullptr, SupportADessin* _support=nullptr);
+    Particule(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr,Element* _courant=nullptr);
 
   /*Méthodes de l'interface de la classe particule*/
 
@@ -67,7 +67,7 @@ class Particule : public Dessinable {
     virtual void dessine() override
     { support->dessine(*this); }
     
-    Particule& operator*=(double const);
+    Particule& operator*=(double);
 };
 
 /*OPERATEURS EXTERNES*/
@@ -75,6 +75,6 @@ class Particule : public Dessinable {
 //Permet l'affichage d'une Particule par surcharge
 std::ostream& operator<<(std::ostream&, Particule const&);
 
-const Particule operator*(double, Particule const&);
+//const Particule operator*(double, Particule const&);
 
-const Particule operator*(Particule const&, double);
+//const Particule operator*(Particule const&, double);

@@ -20,6 +20,6 @@ ElementCourbe::~ElementCourbe() {}
 bool ElementCourbe::heurte_bord(Particule const& _particule) const{
     Vecteur3D vec_X(_particule.position()-centreDeCourbure());
     Vecteur3D vec_u(~(vec_X-(vec_X.getz()*vec_e3)));
-    if ((vec_X-(1/abs(scal_k))*vec_u).norme()>scal_Re) {return true;}
+    if ((vec_X-(1/std::abs(scal_k))*vec_u).norme()>scal_Re) {return true;}
     else{return false;}}
 

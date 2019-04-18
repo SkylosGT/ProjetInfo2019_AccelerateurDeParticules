@@ -17,7 +17,7 @@ class Faisceau : public Dessinable {
 	Particule reference;
 	long int nombre_particule;
 	double coef_simulation;
-	std::vector<Particule> CollectionParticule;
+	std::vector<Particule*> CollectionParticule;
 	double energie_moy;
 	
 	double emit_vert;
