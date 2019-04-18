@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "Dessinable.h"
-#include "SupportADesssin.h"
+#include "SupportADessin.h"
 
 #include "Vecteur3D.h"
 
