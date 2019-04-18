@@ -35,9 +35,11 @@ void Faisceau::bouger(double dt) {
 	(*this).calcul_ell_vert();}
 	
 void Faisceau::calcul_ell_vert() {
+	return 0;
 }
 
 void Faisceau::calcul_ell_hori(){
+	return 0;
 }
 		
 	

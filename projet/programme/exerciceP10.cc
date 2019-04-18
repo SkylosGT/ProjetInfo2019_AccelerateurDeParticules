@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Faisceau.h"
 #include "SupportConsole.h"
 #include "Particule.h"
 #include "Dipole.h"

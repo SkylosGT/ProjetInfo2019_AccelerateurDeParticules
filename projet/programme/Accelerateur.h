@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "Element.h"
-#include "Particule.h"
+#include "Faisceau.h"
 #include "Dessinable.h"
 
 //En tête de la classe Accelerateur avec descriptions de ses méthodes. Corps dans "Accelerateur.h"

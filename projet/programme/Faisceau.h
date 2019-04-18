@@ -1,9 +1,10 @@
 #pragma once
 
 #include <vector>
-#include <vector>
 #include "Dessinable.h"
 #include "SupportADesssin.h"
+
+#include "Vecteur3D.h"
 
 #include "Particule.h"
 
