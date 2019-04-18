@@ -13,7 +13,11 @@ CXXFLAGS += -g                    # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 
-all:  testParticule testVecteur testAccel1 exerciceP9 exerciceP10
+all:  testParticule testVecteur testAccel1 exerciceP9 exerciceP10 exerciceP11
+
+exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+
+exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 exerciceP10: exerciceP10.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o
 
@@ -39,7 +43,7 @@ ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h Particul
 
 testAccel1.o: testAccel1.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
-Accelerateur.o: Accelerateur.cc Accelerateur.h Element.h Vecteur3D.h Particule.h
+Accelerateur.o: Accelerateur.cc Accelerateur.h Element.h Vecteur3D.h Particule.h Faisceau.h
 
 Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h
 
@@ -62,3 +66,6 @@ testParticule.o: testParticule.cc Particule.h Vecteur3D.h Element.h ConstantesPh
 testVecteur.o: testVecteur.cc Vecteur3D.h
 
 Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
+
+Faisceau.o: Faisceau.cc Faisceau.h Dessinable.h SupportADessin.h \
+  Vecteur3D.h Particule.h Element.h ConstantesPhysiques.h
