@@ -13,6 +13,7 @@ class SupportADessin
   virtual ~SupportADessin() {}
 
   virtual void dessine(Accelerateur const& a_dessiner)=0;
+  virtual void dessine(Faisceau const& a_dessiner)=0;
   virtual void dessine(Particule const& a_dessiner)=0;
   virtual void dessine(Dipole const& a_dessiner)=0;
   virtual void dessine(Quadrupole const& a_dessiner)=0;
