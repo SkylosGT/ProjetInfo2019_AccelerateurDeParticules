@@ -11,9 +11,9 @@ using namespace ConstantesPhysiques;
 
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur(SupportADessin* _support) 
-	: Dessinable(_support), CollectionElement(), CollectionParticule() {}
+	: Dessinable(_support), CollectionElement(), CollectionFaisceau() {}
 	
-ostream& Accelerateur::affiche(ostream& sortie) const {
+/*ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionElement.size() > 0) {
 		if (CollectionElement.size() == 1) {
 			sortie << "L'accélérateur est constitué de l'élément suivant : " << endl
@@ -37,7 +37,10 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 						}else{
 							sortie << "L'accélérateur ne contient aucune particule."<< endl;}
 	
-	return sortie; }
+	return sortie; }*/
+	
+void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
+	CollectionFaisceau.push_back(nouveau);}
 	
 void Accelerateur::ajoutParticule(Particule* nouveau) {
 	double distanceMinimum(const_c);
@@ -64,7 +67,12 @@ void Accelerateur::supprCollectionParticule() {
 void Accelerateur::supprCollectionElement() {
 	CollectionElement.clear();}
 	
+void Accelerateur::supprCollectionFaisceau() {
+	CollectionFaisceau.clear;}
+	
 void Accelerateur::evolue(double _dt) const{
+	for(Faisceau* faisceau: CollectionFaisceau){
+		faisceau->bouger(_dt);}
 	for(auto particule : CollectionParticule)
 {
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
@@ -72,7 +80,7 @@ void Accelerateur::evolue(double _dt) const{
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){
 			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
 	
-//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
+/*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
-	return a.affiche(sortie);}
+	return a.dessine();}*/
 	

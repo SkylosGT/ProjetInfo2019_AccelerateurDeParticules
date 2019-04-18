@@ -27,6 +27,7 @@ ostream& Faisceau::affiche(ostream& sortie) const{
 	
 void Faisceau::bouger(double dt) {
 	for (auto _particule : CollectionParticule) {
+		_particule.ajouteForceMagnetique(_particule.elemCourant()->champMagnetique(_particule.position()), dt)
 		_particule.bouger(dt);}
 	if((CollectionParticule.size()) < (nombre_particule/coef_simulation)) {
 		CollectionParticule.push_back(coef_simulation*reference);}
