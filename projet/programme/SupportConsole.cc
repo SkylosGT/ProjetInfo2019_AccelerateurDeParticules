@@ -33,15 +33,15 @@ void SupportConsole::dessine(Accelerateur const& _a){
 							cout << "L'accélérateur n'est constitué d'aucun élément."<<endl;
 						cout << endl;}
 	
-	if (_a.getCollectionParticule().size() > 0) { 
-		if (_a.getCollectionParticule().size() == 1) {
-			cout << "L'accélérateur contient la particule suivante : " << endl;
-					(*(_a.getCollectionParticule()[0])).dessine();
+	if (_a.getCollectionFaisceau().size() > 0) { 
+		if (_a.getCollectionFaisceau().size() == 1) {
+			cout << "L'accélérateur contient le faisceau suivant : " << endl;
+					(*(_a.getCollectionFaisceau()[0])).dessine();
 					cout << endl;
 				}else{
-					cout << "L'accélérateur contient les " <<_a.getCollectionParticule().size() <<" particules suivantes :"<<endl;
-					for (auto particule : _a.getCollectionParticule()) {
-						(*particule).dessine();
+					cout << "L'accélérateur contient les " <<_a.getCollectionFaisceau().size() <<" faisceaux suivants :"<<endl;
+					for (auto faisceau : _a.getCollectionFaisceau()) {
+						(*faisceau).dessine();
 						cout << endl;}}
 						}else{
 							cout << "L'accélérateur ne contient aucune particule."<< endl;
