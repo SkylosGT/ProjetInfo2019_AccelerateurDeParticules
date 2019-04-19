@@ -63,9 +63,9 @@ void Faisceau::calcul_ell_hori(){
 	double moy_position_vitesse(0);
 	
 	for (auto _particule : CollectionParticule) {
-		moy_position_carre += pow(((_particule->elemCourant())->u())^(_particule->position()),2);
-		moy_vitesse_carre += pow(((_particule->elemCourant())->u())^(_particule->vitesse()),2);
-		moy_position_vitesse += (((_particule->elemCourant())->u())^(_particule->position()))*(((_particule->elemCourant())->u())^(_particule->vitesse()));}
+		moy_position_carre += pow(((_particule->elemCourant())->u((*_particule)))*(_particule->position()),2);
+		moy_vitesse_carre += pow(((_particule->elemCourant())->u((*_particule)))*(_particule->vitesse()),2);
+		moy_position_vitesse += (((_particule->elemCourant())->u((*_particule)))*(_particule->position()))*(((_particule->elemCourant())->u((*_particule)))*(_particule->vitesse()));}
 		
 		moy_position_carre /= CollectionParticule.size();
 		moy_vitesse_carre /= CollectionParticule.size();

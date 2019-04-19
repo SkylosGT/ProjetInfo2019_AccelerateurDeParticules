@@ -21,7 +21,7 @@ class ElementDroit: public Element {
         //Définit si une particule heurte le bord de l'élément
         virtual bool heurte_bord(Particule const&) const override;
         
-        virtual Vecteur3D u() const override;
+        virtual Vecteur3D u(Particule const&) const override;
 };
 
 
