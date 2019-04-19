@@ -71,8 +71,9 @@ void Accelerateur::supprCollectionFaisceau() {
 	CollectionFaisceau.clear();}
 	
 void Accelerateur::evolue(double _dt) const{
-	for(Faisceau* faisceau: CollectionFaisceau){
+	for(Faisceau* faisceau : CollectionFaisceau){
 		faisceau->bouger(_dt);}
+		
 	for(auto particule : CollectionParticule)
 {
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);

@@ -44,7 +44,7 @@ void SupportConsole::dessine(Accelerateur const& _a){
 						(*faisceau).dessine();
 						cout << endl;}}
 						}else{
-							cout << "L'accélérateur ne contient aucune particule."<< endl;
+							cout << "L'accélérateur ne contient aucun faisceau."<< endl;
 							cout << endl;
 	}
 }

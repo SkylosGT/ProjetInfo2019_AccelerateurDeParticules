@@ -17,7 +17,7 @@ class Faisceau : public Dessinable {
 	Particule reference;
 	long int nombre_particule;
 	double coef_simulation;
-	std::vector<Particule*> CollectionParticule;
+	std::vector<Particule*> CollectionPart;
 	double energie_moy;
 	
 	double emit_verticale;
@@ -43,7 +43,7 @@ class Faisceau : public Dessinable {
     
     void bouger(double);
     
-    void calcul_ell_vert(); //VA CALCULER AUSSI LES COEF
+    void calcul_ell_vert(); 
     
     void calcul_ell_hori();
     
