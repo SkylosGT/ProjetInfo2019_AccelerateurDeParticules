@@ -1,6 +1,7 @@
 #include "Faisceau.h"
 #include "ConstantesPhysiques.h"
 #include <vector>
+#include <cmath>
 
 using namespace std;
 using namespace ConstantesPhysiques;
@@ -36,10 +37,24 @@ void Faisceau::bouger(double dt) {
 	(*this).calcul_ell_vert();}
 	
 void Faisceau::calcul_ell_vert() {
-/*	double moy_position_carre;
+	double moy_position_carre(0);
 	for(auto _particule : CollectionParticule){
-		moy_position_carre+=(_particule.position()).getz()*/
+		moy_position_carre+=pow((_particule.position()).getz(),2)}
+		moy_position_carre /= CollectionParticule.size();
+	double moy_vitesse_carre(0);
+	for(auto _particule : CollectionParticule) {
+		moy_vitesse_carre += pow((_particule.vitesse()).getz(),2)}
+		moy_vitesse_carre /= CollectionParticule.size();
+	double moy_position_vitesse(0);
+	for (auto _particule : CollectionParticule) {
+		moy_position_vitesse += ((_particule.position()).getz())*((_particule.vitesse()).getz());}
+		moy_position_vitesse /= CollectionParticule.size();
 		
+	emit_verticale = sqrt(moy_position_carre*moy_vitesse_carre - pow(moy_position_vitesse,2));
+	
+	coef_A22_vert = moy_position_carre / emit_verticale;
+	coef_A11_vert = moy_vitesse_carre / emit_verticale;
+	coef_A12_vert = (-moy_position_vitesse) / emit_verticale;	
 }
 
 void Faisceau::calcul_ell_hori(){

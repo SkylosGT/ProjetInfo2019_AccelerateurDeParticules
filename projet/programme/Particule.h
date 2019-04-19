@@ -33,7 +33,9 @@ class Particule : public Dessinable {
   public:
 
     //Getter, retourne la position de la particule
-    Vecteur3D position() const {return vec_r;};
+    Vecteur3D position() const {return vec_r;}
+    
+    Vecteur3D vitesse() const {return vec_v;}
 
     //Getter, retourne l'élément courant de la particule
     Element* elemCourant() const {return elem_courant;}

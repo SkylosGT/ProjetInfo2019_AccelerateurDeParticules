@@ -20,11 +20,15 @@ class Faisceau : public Dessinable {
 	std::vector<Particule*> CollectionParticule;
 	double energie_moy;
 	
-	double emit_vert;
-	std::vector<double> coef_elipse_vert;
+	double emit_verticale;
+	double coef_A11_vert;
+	double coef_A12_vert;
+	double coef_A22_vert;
 	
 	double emit_horizontale;
-	std::vector<double> coef_elipse_hori;
+	double coef_A11_hori;
+	double coef_A12_hori;
+	double coef_A22_hori;
 	
 	
 	public :
