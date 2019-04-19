@@ -41,6 +41,8 @@ class Element : public Dessinable{
 
         //Sera subsistuée pour afficher un élément
         virtual std::ostream& affiche(std::ostream&) const=0;
+        
+        virtual Vecteur3D u() const=0;
     
     /*Méthodes de l'interface de la classe Element*/
 

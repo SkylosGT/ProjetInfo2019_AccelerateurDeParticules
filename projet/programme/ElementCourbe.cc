@@ -22,4 +22,8 @@ bool ElementCourbe::heurte_bord(Particule const& _particule) const{
     Vecteur3D vec_u(~(vec_X-(vec_X.getz()*vec_e3)));
     if ((vec_X-(1/std::abs(scal_k))*vec_u).norme()>scal_Re) {return true;}
     else{return false;}}
+    
+Vecteur3D ElementCourbe::u() const {
+	return (~(vec_X-(vec_X.getz()*vec_e3)));	
+}
 
