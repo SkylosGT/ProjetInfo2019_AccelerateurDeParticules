@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Faisceau.h"
+
 #include "SupportConsole.h"
 #include "Particule.h"
 #include "Dipole.h"
@@ -10,15 +10,13 @@
 #include "Vecteur3D.h"
 #include "ElementDroit.h"
 #include "ElementCourbe.h"
+#include "Faisceau.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
 
 int main () {
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     //Support à dessin type console
     SupportConsole ecran(cout);
 
@@ -87,17 +85,10 @@ int main () {
 	_accelerateur.dessine();
 	
 	Faisceau faisceau(p, 10, 2, &ecran);
-
-
-
+	_accelerateur.ajoutFaisceau(&faisceau);
+	
+	_accelerateur.dessine();
+	
     return 0;
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
+
 }
