@@ -15,9 +15,9 @@ CXXFLAGS += -g                    # pour debugger
 
 all:  testParticule testVecteur exerciceP9 exerciceP10 exerciceP11
 
-#exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
-#exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
+exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 exerciceP10: exerciceP10.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
