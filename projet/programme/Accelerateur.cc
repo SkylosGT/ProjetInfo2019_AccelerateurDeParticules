@@ -63,15 +63,15 @@ void Accelerateur::supprCollectionFaisceau() {
 	CollectionFaisceau.clear();}
 	
 void Accelerateur::evolue(double _dt) const{
-	for(Faisceau* faisceau : CollectionFaisceau){
-		faisceau->bouger(_dt);}
-		
-	for(auto particule : CollectionParticule)
-{
+	if(CollectionFaisceau.size()>0){
+		for(Faisceau* faisceau : CollectionFaisceau){
+			faisceau->bouger(_dt);}}
+	if(CollectionParticule.size()>0){	
+		for(auto particule : CollectionParticule){
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
 		(*particule).bouger(_dt);
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){
-			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
+			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}}
 
 Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) const {
 	double distanceMinimum(const_c);
@@ -80,7 +80,8 @@ Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) co
 		for(auto element:CollectionElement){
 			if(element->distance_particule(particule)<distanceMinimum){
 				distanceMinimum=element->distance_particule(particule);
-				elementAvecDistanceMinimum=element;}}}}
+				elementAvecDistanceMinimum=element;}}}
+	return elementAvecDistanceMinimum;}
 	
 //OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){

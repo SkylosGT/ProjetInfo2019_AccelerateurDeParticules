@@ -15,9 +15,9 @@ CXXFLAGS += -g                    # pour debugger
 
 all:  testParticule testVecteur exerciceP9 exerciceP10 exerciceP11
 
-exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+#exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
-exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
+#exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 exerciceP10: exerciceP10.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
@@ -33,7 +33,7 @@ testParticule: testParticule.o Vecteur3D.o Particule.o
 
 testVecteur: testVecteur.o Vecteur3D.o
 
-#testAccel1: testAccel1.o Particule.o Vecteur3D.o Accelerateur.o Dipole.o Element.o ElementCourbe.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+testAccel1: testAccel1.o Particule.o Vecteur3D.o Accelerateur.o Dipole.o Element.o ElementCourbe.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
 Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h Faisceau.h
 
@@ -41,7 +41,7 @@ Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h C
 
 ElementCourbe.o: ElementCourbe.cc ElementCourbe.h Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
-#testAccel1.o: testAccel1.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h 
+testAccel1.o: testAccel1.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h 
 
 Element.o: Element.cc Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
@@ -53,7 +53,7 @@ Quadrupole.o: Quadrupole.cc Quadrupole.h ElementDroit.h Element.h Vecteur3D.h Pa
 
 SectionDroite.o: SectionDroite.cc SectionDroite.h ElementDroit.h Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
-#testAccel1.o: testAccel1.cc Accelerateur.h Element.h Vecteur3D.h Particule.h Dipole.h ElementCourbe.h Quadrupole.h ElementDroit.h SectionDroite.h ConstantesPhysiques.h
+testAccel1.o: testAccel1.cc Accelerateur.h Element.h Vecteur3D.h Particule.h Dipole.h ElementCourbe.h Quadrupole.h ElementDroit.h SectionDroite.h ConstantesPhysiques.h
 
 testParticule.o: testParticule.cc Particule.h Vecteur3D.h Element.h ConstantesPhysiques.h
 

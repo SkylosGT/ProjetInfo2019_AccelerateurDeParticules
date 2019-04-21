@@ -64,7 +64,7 @@ class Accelerateur: public Dessinable {
 
 	Element* trouveElementDeLaParticule(Particule const&) const;
 
-	std::ostream& affiche(ostream&) const;
+	std::ostream& affiche(std::ostream&) const;
 };
 
 //Permet l'affichage d'un accélérateur par surcharge
