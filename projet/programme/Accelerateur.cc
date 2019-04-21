@@ -11,9 +11,9 @@ using namespace ConstantesPhysiques;
 
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur(SupportADessin* _support) 
-	: Dessinable(_support), CollectionElement(), CollectionFaisceau() {}
+	: Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau() {}
 	
-/*ostream& Accelerateur::affiche(ostream& sortie) const {
+ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionElement.size() > 0) {
 		if (CollectionElement.size() == 1) {
 			sortie << "L'accélérateur est constitué de l'élément suivant : " << endl
@@ -25,7 +25,6 @@ Accelerateur::Accelerateur(SupportADessin* _support)
 						sortie << endl; } else {
 							sortie << "L'accélérateur n'est constitué d'aucun élément."<<endl;
 						sortie << endl;}
-	
 	if (CollectionParticule.size() > 0) { 
 		if (CollectionParticule.size() == 1) {
 			sortie << "L'accélérateur contient la particule suivante : " << endl
@@ -36,21 +35,14 @@ Accelerateur::Accelerateur(SupportADessin* _support)
 						sortie << *particule << endl; }}
 						}else{
 							sortie << "L'accélérateur ne contient aucune particule."<< endl;}
-	
-	return sortie; }*/
+	return sortie; }
 	
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
+	nouveau->
 	CollectionFaisceau.push_back(nouveau);}
 	
 void Accelerateur::ajoutParticule(Particule* nouveau) {
-	double distanceMinimum(const_c);
-	Element* elementAvecDistanceMinimum(nullptr);
-	if(CollectionElement.size()>0){
-		for(auto element:CollectionElement){
-			if(element->distance_particule(*nouveau)<distanceMinimum){
-				distanceMinimum=element->distance_particule(*nouveau);
-				elementAvecDistanceMinimum=element;}}}
-	nouveau->change_element(elementAvecDistanceMinimum);
+	nouveau->change_element(trouveElementDeLaParticule(*nouveau));
 	CollectionParticule.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
@@ -80,8 +72,17 @@ void Accelerateur::evolue(double _dt) const{
 		(*particule).bouger(_dt);
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){
 			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
+
+Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) const {
+	double distanceMinimum(const_c);
+	Element* elementAvecDistanceMinimum(nullptr);
+	if(CollectionElement.size()>0){
+		for(auto element:CollectionElement){
+			if(element->distance_particule(particule)<distanceMinimum){
+				distanceMinimum=element->distance_particule(particule);
+				elementAvecDistanceMinimum=element;}}}}
 	
-/*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
+//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
-	return a.dessine();}*/
+	return a.affiche(sortie);}
 	

@@ -12,7 +12,7 @@ class Particule;
 
 class Faisceau : public Dessinable {
 	
-	private : 
+	private: 
 	
 	Particule reference;
 	long int nombre_particule;

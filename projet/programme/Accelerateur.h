@@ -24,9 +24,6 @@ class Accelerateur: public Dessinable {
 		std::vector<Particule*> getCollectionParticule() const {return CollectionParticule;}
 
 		std::vector<Faisceau*> getCollectionFaisceau() const {return CollectionFaisceau;}
-		
-	//Un accesseur de la collection de particule pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
-		std::vector<Faisceau*> getCollectionFaisceau() const {return CollectionFaisceau;}
 
 	//Constructeur par défauts qui initialise l'accélérateur vide (aucun élément, aucune particule)
 		Accelerateur(SupportADessin* _support=nullptr);
@@ -55,7 +52,8 @@ class Accelerateur: public Dessinable {
 		
 	//Supprime toutes les particules de l'accélérateur
 		void supprCollectionParticule();
-		
+	
+	//Supprime tous les faisceau de l'accélérateur
 		void supprCollectionFaisceau();
 	
 	//Méthode qui fait évoluer le système avec un pas de temps
@@ -63,6 +61,10 @@ class Accelerateur: public Dessinable {
 	
 	virtual void dessine() override
     { support->dessine(*this); }
+
+	Element* trouveElementDeLaParticule(Particule const&) const;
+
+	std::ostream& affiche(ostream&) const;
 };
 
 //Permet l'affichage d'un accélérateur par surcharge
