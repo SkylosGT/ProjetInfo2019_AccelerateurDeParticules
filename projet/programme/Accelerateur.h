@@ -14,14 +14,16 @@ class Accelerateur: public Dessinable {
  
  	/*Attributs privés de l'accélérateur*/
  		std::vector <Element*> CollectionElement;//Un tableau d'éléments (contenant la collection d'éléments)
- 		std::vector <Particule*> CollectionParticule;
-		std::vector <Faisceau*> CollectionFaisceau;//Un tableau de particule (contenant collection de particule)
+ 		std::vector <Particule*> CollectionParticule;//Un tableau de particule (contenant collection de particule)
+		std::vector <Faisceau*> CollectionFaisceau;//Un tableau de faisceau (contenant collection de faisceau)
 		
 	public:
 	//Un accesseur de la collection d'élément pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
 		std::vector<Element*> getCollectionElement() const {return CollectionElement;}
 		
 		std::vector<Particule*> getCollectionParticule() const {return CollectionParticule;}
+
+		std::vector<Faisceau*> getCollectionFaisceau() const {return CollectionFaisceau;}
 		
 	//Un accesseur de la collection de particule pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
 		std::vector<Faisceau*> getCollectionFaisceau() const {return CollectionFaisceau;}
