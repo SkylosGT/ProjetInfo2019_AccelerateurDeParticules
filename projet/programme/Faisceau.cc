@@ -77,5 +77,8 @@ void Faisceau::calcul_ell_hori(){
 	coef_A11_hori = moy_vitesse_carre / emit_verticale;
 	coef_A12_hori = (-moy_position_vitesse) / emit_verticale;		
 }
+
+void Faisceau::changerElementDeLaParticuleDeReference(Element* element){
+	reference.change_element(element);}
 		
 	

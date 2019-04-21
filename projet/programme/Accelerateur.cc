@@ -38,7 +38,7 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 	return sortie; }
 	
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
-	nouveau->
+	nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
 	CollectionFaisceau.push_back(nouveau);}
 	
 void Accelerateur::ajoutParticule(Particule* nouveau) {
