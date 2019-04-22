@@ -19,6 +19,7 @@ int main () {
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //Support à dessin type console
     SupportConsole ecran(cout);
 
@@ -93,6 +94,9 @@ int main () {
 	
     return 0;
 
+=======
+	return 0;
+>>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
 =======
 	return 0;
 >>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
