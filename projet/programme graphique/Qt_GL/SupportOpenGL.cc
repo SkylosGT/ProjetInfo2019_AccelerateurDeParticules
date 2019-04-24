@@ -137,6 +137,34 @@ void SupportOpenGL::rotate(double angle, double dir_x, double dir_y, double dir_
 }
 
 // ======================================================================
+void SupportOpenGL::dessineAxes(QMatrix4x4 const& point_de_vue, bool en_couleur){
+    prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
+
+    glBegin(GL_LINES);
+
+    // axe X
+    if(en_couleur){
+        prog.setAttributeValue(CouleurId, 1.0, 0.0, 0.0); // rouge
+    }else {
+        prog.setAttributeValue(CouleurId, 1.0, 1.0, 1.0); // blanc
+    }
+    prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
+    prog.setAttributeValue(SommetId, 1.0,0.0,0.0);
+
+    // axe Y
+    if(en_couleur) prog.setAttributeValue(CouleurId, 0.0, 1.0, 0.0); // vert
+    prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
+    prog.setAttributeValue(SommetId, 0.0,1.0,0.0);
+
+    // axe Z
+    if(en_couleur) prog.setAttributeValue(CouleurId, 0.0, 0.0, 1.0); // vert
+    prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
+    prog.setAttributeValue(SommetId, 0.0,0.0,1.0);
+
+    glEnd();
+}
+
+// ======================================================================
 void SupportOpenGL::dessineCube (QMatrix4x4 const& point_de_vue)
 {
   prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
