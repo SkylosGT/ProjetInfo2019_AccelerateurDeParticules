@@ -48,6 +48,7 @@ void Accelerateur::ajoutParticule(Particule* nouveau) {
 				distanceMinimum=element->distance_particule(*nouveau);
 				elementAvecDistanceMinimum=element;}}}
 	nouveau->change_element(elementAvecDistanceMinimum);
+    nouveau->change_support(support);
 	CollectionParticule.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
@@ -56,6 +57,7 @@ void Accelerateur::ajoutElement(Element* nouveau) {
 			element->attache_element_suivant(nouveau);}
 		for(auto element : CollectionElement){
 			nouveau->attache_element_suivant(element);}}
+    nouveau->change_support(support);
 	CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionParticule() {

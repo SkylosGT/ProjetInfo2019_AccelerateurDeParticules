@@ -13,12 +13,8 @@ class GLWidget : public QOpenGLWidget
 {
 public:
   GLWidget(QWidget* parent = nullptr)
-    : QOpenGLWidget(parent), a(&vue)
-    {}
+    : QOpenGLWidget(parent), a(&vue){}
   virtual ~GLWidget() {}
-
-  //Construction acclerateur test
-  void construireAccelerateur();
 
   private:
   // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter
@@ -43,6 +39,7 @@ public:
 
   // objets à dessiner, faire évoluer
   Accelerateur a;
+
 };
 
 #endif // GLWIDGET_H

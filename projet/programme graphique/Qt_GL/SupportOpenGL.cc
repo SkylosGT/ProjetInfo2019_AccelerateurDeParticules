@@ -5,7 +5,7 @@
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 {
-/* // Dessine le 1er cube (à l'origine)
+  // Dessine le 1er cube (à l'origine)
   dessineCube();
 
   QMatrix4x4 matrice;
@@ -26,20 +26,15 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
  // matrice.rotate(a_dessiner.infos(), 1.0, 0.0, 0.0);
   matrice.translate(0.0, 2.3, 0.0);
   matrice.scale(0.2);
-  dessineCube(matrice);*/
-  for (auto particule : a_dessiner.getCollectionParticule()) {
-        particule->dessine();}
+  dessineCube(matrice);
+  /*for (auto particule : a_dessiner.getCollectionParticule()) {
+        particule->dessine();}*/
 }
 
 // =======================================================================
 
 void SupportOpenGL::dessine(Particule const& a_dessiner){
-    QMatrix4x4 matrice;
-    matrice.setToIdentity();
-    matrice.translate(0.0, 0.0, 1.5);
-    matrice.scale(0.25);
-    matrice.rotate(45.0, 0.0, 1.0, 0.0);
-    dessineCube(matrice);
+    dessineCube();
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){}
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){}

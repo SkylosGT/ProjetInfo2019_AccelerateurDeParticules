@@ -35,79 +35,79 @@ SUBTARGETS    =  \
 
 sub-general-qmake_all:  FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro"
+	cd general/ && $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro"
 	cd general/ && $(MAKE) -f Makefile qmake_all
 sub-general: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile
 sub-general-make_first: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile 
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile 
 sub-general-all: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile all
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile all
 sub-general-clean: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile clean
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile clean
 sub-general-distclean: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile distclean
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile distclean
 sub-general-install_subtargets: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile install
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile install
 sub-general-uninstall_subtargets: FORCE
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile uninstall
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile uninstall
 sub-Qt_GL-qmake_all:  FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro"
+	cd Qt_GL/ && $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro"
 	cd Qt_GL/ && $(MAKE) -f Makefile qmake_all
 sub-Qt_GL: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile
 sub-Qt_GL-make_first: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile 
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile 
 sub-Qt_GL-all: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile all
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile all
 sub-Qt_GL-clean: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile clean
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile clean
 sub-Qt_GL-distclean: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile distclean
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile distclean
 sub-Qt_GL-install_subtargets: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile install
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile install
 sub-Qt_GL-uninstall_subtargets: FORCE
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile uninstall
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile uninstall
 sub-text-qmake_all:  FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro"
+	cd text/ && $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro"
 	cd text/ && $(MAKE) -f Makefile qmake_all
 sub-text: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile
 sub-text-make_first: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile 
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile 
 sub-text-all: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile all
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile all
 sub-text-clean: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile clean
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile clean
 sub-text-distclean: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile distclean
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile distclean
 sub-text-install_subtargets: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile install
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile install
 sub-text-uninstall_subtargets: FORCE
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile uninstall
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile uninstall
 
 Makefile: programme.pro C:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++/qmake.conf C:/Qt/5.12.1/mingw73_64/mkspecs/features/spec_pre.prf \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/qdevice.pri \
@@ -254,6 +254,7 @@ Makefile: programme.pro C:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++/qmake.conf C:/
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/qt_config.prf \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/toolchain.prf \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/default_pre.prf \
@@ -417,6 +418,7 @@ C:/Qt/5.12.1/mingw73_64/mkspecs/features/qt_functions.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/qt_config.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++/qmake.conf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/exclusive_builds.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/toolchain.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/default_pre.prf:
@@ -450,46 +452,46 @@ uninstall_subtargets: sub-general-uninstall_subtargets sub-Qt_GL-uninstall_subta
 
 sub-general-debug:
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile debug
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile debug
 sub-Qt_GL-debug:
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile debug
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile debug
 sub-text-debug:
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile debug
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile debug
 debug: sub-general-debug sub-Qt_GL-debug sub-text-debug
 
 sub-general-release:
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile release
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile release
 sub-Qt_GL-release:
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile release
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile release
 sub-text-release:
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile release
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile release
 release: sub-general-release sub-Qt_GL-release sub-text-release
 
 sub-general-check:
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile check
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile check
 sub-Qt_GL-check:
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile check
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile check
 sub-text-check:
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile check
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile check
 check: sub-general-check sub-Qt_GL-check sub-text-check
 
 sub-general-benchmark:
 	@test -d general/ || mkdir -p general/
-	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/general/general.pro" ) && $(MAKE) -f Makefile benchmark
+	cd general/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/general/general.pro" ) && $(MAKE) -f Makefile benchmark
 sub-Qt_GL-benchmark:
 	@test -d Qt_GL/ || mkdir -p Qt_GL/
-	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile benchmark
+	cd Qt_GL/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/Qt_GL/Qt_GL.pro" ) && $(MAKE) -f Makefile benchmark
 sub-text-benchmark:
 	@test -d text/ || mkdir -p text/
-	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/OneDrive/Documents/Physique, 2018-2019, Bachelor semestre 2/Programmation orientée objet/Exercices/Projet/Programme Graphique/text/text.pro" ) && $(MAKE) -f Makefile benchmark
+	cd text/ && ( test -e Makefile || $(QMAKE) -o Makefile "C:/Users/Adrien Dürst/Documents/GitHub/ProjetInfo2019_AccelerateurDeParticules/projet/programme graphique/text/text.pro" ) && $(MAKE) -f Makefile benchmark
 benchmark: sub-general-benchmark sub-Qt_GL-benchmark sub-text-benchmark
 install:install_subtargets  FORCE
 

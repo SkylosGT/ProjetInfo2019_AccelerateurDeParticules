@@ -9,6 +9,7 @@ class Dessinable {
   {}
   virtual ~Dessinable() {}
   virtual void dessine() = 0;
+  void change_support(SupportADessin* nouveau) {support=nouveau;}
 
  protected:
   SupportADessin* support;
