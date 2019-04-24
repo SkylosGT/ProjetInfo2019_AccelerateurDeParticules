@@ -28,8 +28,9 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
   matrice.scale(0.2);
   dessineCube(matrice);*/
     for (auto particule : a_dessiner.getCollectionParticule()) {
-        particule->dessine();
-    }
+        particule->dessine();}
+    for (auto element : a_dessiner.getCollectionElement()) {
+        element->dessine();}
 }
 
 // =======================================================================
@@ -39,7 +40,13 @@ void SupportOpenGL::dessine(Particule const& a_dessiner){
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){}
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){}
-void SupportOpenGL::dessine(SectionDroite const& a_dessiner){}
+void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
+    QMatrix4x4 matrice;
+    // Dessine le 2e cube
+    matrice.translate(0.0, 1.5, 0.0);
+    matrice.scale(0.25);
+    dessineCube(matrice);
+}
 
 // ======================================================================
 void SupportOpenGL::init()

@@ -14,13 +14,11 @@ class GLWidget : public QOpenGLWidget
 {
 public:
   GLWidget(QWidget* parent = nullptr)
-    : QOpenGLWidget(parent), a(&vue), p((*new Vecteur3D(0.5)), (*new Vecteur3D), 1, 1), s((*new Vecteur3D), (*new Vecteur3D(1)), 1)
-  {
-
-    a.ajoutElement(&s);
-    a.ajoutParticule(&p);
-  }
+    : QOpenGLWidget(parent), a(&vue) {}
   virtual ~GLWidget() {}
+
+  void ajoutParticule(Particule* nouveau){a.ajoutParticule(nouveau);}
+  void ajoutElement(Element* nouveau) {a.ajoutElement(nouveau);}
 
   private:
   // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter
@@ -45,8 +43,6 @@ public:
 
   // objets à dessiner, faire évoluer
   Accelerateur a;
-  Particule p;
-  SectionDroite s;
 
 };
 
