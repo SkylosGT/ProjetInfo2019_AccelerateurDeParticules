@@ -6,7 +6,7 @@
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 {
   // Dessine le 1er cube (à l'origine)
-  dessineCube();
+  /*dessineCube();
 
   QMatrix4x4 matrice;
   // Dessine le 2e cube
@@ -26,9 +26,10 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
  // matrice.rotate(a_dessiner.infos(), 1.0, 0.0, 0.0);
   matrice.translate(0.0, 2.3, 0.0);
   matrice.scale(0.2);
-  dessineCube(matrice);
-  /*for (auto particule : a_dessiner.getCollectionParticule()) {
-        particule->dessine();}*/
+  dessineCube(matrice);*/
+    for (auto particule : a_dessiner.getCollectionParticule()) {
+        particule->dessine();
+    }
 }
 
 // =======================================================================

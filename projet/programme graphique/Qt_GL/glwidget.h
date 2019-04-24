@@ -5,6 +5,7 @@
 #include <QTime>            // Classe pour gérer le temps
 #include "SupportOpenGL.h"
 #include "Accelerateur.h"
+#include "SectionDroite.h"
 
 class GLWidget : public QOpenGLWidget
 /* La fenêtre hérite de QOpenGLWidget ;
@@ -13,7 +14,12 @@ class GLWidget : public QOpenGLWidget
 {
 public:
   GLWidget(QWidget* parent = nullptr)
-    : QOpenGLWidget(parent), a(&vue){}
+    : QOpenGLWidget(parent), a(&vue), p((*new Vecteur3D(0.5)), (*new Vecteur3D), 1, 1), s((*new Vecteur3D), (*new Vecteur3D(1)), 1)
+  {
+
+    a.ajoutElement(&s);
+    a.ajoutParticule(&p);
+  }
   virtual ~GLWidget() {}
 
   private:
@@ -39,6 +45,8 @@ public:
 
   // objets à dessiner, faire évoluer
   Accelerateur a;
+  Particule p;
+  SectionDroite s;
 
 };
 
