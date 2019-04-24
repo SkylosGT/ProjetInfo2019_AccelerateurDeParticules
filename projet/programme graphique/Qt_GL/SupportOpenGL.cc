@@ -38,15 +38,12 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 void SupportOpenGL::dessine(Particule const& a_dessiner){
     QMatrix4x4 matrice;
     matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    matrice.scale(0.25);
-    dessineSphere(matrice);
+    matrice.scale(0.15);
+    dessineCube(matrice);
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){}
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){}
-void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
-    QMatrix4x4 matrice;
-    dessineAxes();
-}
+void SupportOpenGL::dessine(SectionDroite const& a_dessiner){}
 
 // ======================================================================
 void SupportOpenGL::init()
@@ -111,9 +108,10 @@ void SupportOpenGL::initializePosition()
 {
   // position initiale
   matrice_vue.setToIdentity();
-  matrice_vue.translate(0.0, 0.0, -4.0);
+  matrice_vue.translate(0.0, 0.0, -10.0);
   //matrice_vue.rotate(60.0, 0.0, 1.0, 0.0);
   //matrice_vue.rotate(45.0, 0.0, 0.0, 1.0);
+  dessineAxes();
 }
 
 // ======================================================================

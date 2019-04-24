@@ -116,7 +116,7 @@ void GLWidget::timerEvent(QTimerEvent* event)
 {
   Q_UNUSED(event);
 
-  double dt = chronometre.restart() / 1000.0;
+  double dt = 1e-10;//chronometre.restart() / 500000000000.0;
 
   a.evolue(dt);
   update();
