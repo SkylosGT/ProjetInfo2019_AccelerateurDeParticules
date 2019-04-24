@@ -1,7 +1,7 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QOpenGLWidget>        // Classe pour faire une fenêtre OpenGL
+#include <QOpenGLWidget>    // Classe pour faire une fenêtre OpenGL
 #include <QTime>            // Classe pour gérer le temps
 #include "SupportOpenGL.h"
 #include "Accelerateur.h"
@@ -13,12 +13,14 @@ class GLWidget : public QOpenGLWidget
 {
 public:
   GLWidget(QWidget* parent = nullptr)
-    : QOpenGLWidget(parent)
-    , a(&vue)
-  {}
+    : QOpenGLWidget(parent), a(&vue)
+    {}
   virtual ~GLWidget() {}
 
-private:
+  //Construction acclerateur test
+  void construireAccelerateur();
+
+  private:
   // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter
   virtual void initializeGL()                  override;
   virtual void resizeGL(int width, int height) override;
