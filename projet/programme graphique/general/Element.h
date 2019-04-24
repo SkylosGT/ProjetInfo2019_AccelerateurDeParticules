@@ -24,6 +24,7 @@ class Element : public Dessinable{
 
         //Getter, retourne l'élément suivant l'élément courant
         Element* elemSuivant() {return elem_suivant;}
+        Vecteur3D position() const{return vec_re;}
     
         //Constructeur d'un élément qui ne pointe par défault vers aucun élément suivant
         Element(Vecteur3D, Vecteur3D, double, SupportADessin*, Element* _suivant=nullptr);
