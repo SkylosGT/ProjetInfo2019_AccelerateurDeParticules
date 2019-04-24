@@ -1,9 +1,10 @@
-#ifndef VUEOPENGL_H
-#define VUEOPENGL_H
+#ifndef SUPPORTOPENGL_H
+#define SUPPORTOPENGL_H
 
 #include <QOpenGLShaderProgram> // Classe qui regroupe les fonctions OpenGL liées aux shaders
 #include <QMatrix4x4>
 #include "SupportAdessin.h"
+#include "glsphere.h"
 
 class SupportOpenGL : public SupportADessin {
  public:
@@ -34,6 +35,7 @@ class SupportOpenGL : public SupportADessin {
  private:
   // Un shader OpenGL encapsulé dans une classe Qt
   QOpenGLShaderProgram prog;
+  GLSphere sphere;
 
   // Caméra
   QMatrix4x4 matrice_vue;

@@ -14,12 +14,14 @@ INCLUDEPATH = ../general
 SOURCES += \
     main_qt_gl.cc \
     glwidget.cc \
+    glsphere.cc\
     SupportOpenGL.cc
 
 HEADERS += \
     glwidget.h \
     vertex_shader.h \
     SupportOpenGL.h \
+    glsphere.h\
     ../general/Accelerateur.h \
     ../general/ConstantesPhysiques.h \
     ../general/Dessinable.h \

@@ -36,16 +36,16 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 // =======================================================================
 
 void SupportOpenGL::dessine(Particule const& a_dessiner){
-    dessineCube();
+    QMatrix4x4 matrice;
+    matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
+    matrice.scale(0.25);
+    dessineSphere(matrice);
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){}
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){}
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
     QMatrix4x4 matrice;
-    // Dessine le 2e cube
-    matrice.translate(0.0, 1.5, 0.0);
-    matrice.scale(0.25);
-    dessineCube(matrice);
+    dessineAxes();
 }
 
 // ======================================================================
@@ -102,6 +102,7 @@ void SupportOpenGL::init()
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
 
+  sphere.initialize();
   initializePosition();
 }
 
@@ -111,8 +112,8 @@ void SupportOpenGL::initializePosition()
   // position initiale
   matrice_vue.setToIdentity();
   matrice_vue.translate(0.0, 0.0, -4.0);
-  matrice_vue.rotate(60.0, 0.0, 1.0, 0.0);
-  matrice_vue.rotate(45.0, 0.0, 0.0, 1.0);
+  //matrice_vue.rotate(60.0, 0.0, 1.0, 0.0);
+  //matrice_vue.rotate(45.0, 0.0, 0.0, 1.0);
 }
 
 // ======================================================================
@@ -157,7 +158,7 @@ void SupportOpenGL::dessineAxes(QMatrix4x4 const& point_de_vue, bool en_couleur)
     prog.setAttributeValue(SommetId, 0.0,1.0,0.0);
 
     // axe Z
-    if(en_couleur) prog.setAttributeValue(CouleurId, 0.0, 0.0, 1.0); // vert
+    if(en_couleur) prog.setAttributeValue(CouleurId, 0.0, 0.0, 1.0); // bleu
     prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
     prog.setAttributeValue(SommetId, 0.0,0.0,1.0);
 
@@ -213,4 +214,10 @@ void SupportOpenGL::dessineCube (QMatrix4x4 const& point_de_vue)
   prog.setAttributeValue(SommetId, +1.0, -1.0, -1.0);
 
   glEnd();
+}
+
+void SupportOpenGL::dessineSphere(const QMatrix4x4 &point_de_vue, double rouge, double vert, double bleu){
+    prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
+    prog.setAttributeValue(CouleurId, rouge, vert, bleu);
+    sphere.draw(prog, SommetId);
 }
