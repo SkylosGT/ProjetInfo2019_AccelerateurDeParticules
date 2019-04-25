@@ -45,7 +45,7 @@ int main()
     Quadrupole Q1((*new Vecteur3D(3,0,0)), (*new Vecteur3D(3,-1,0)), Re, -b, &ecran), Q2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(1,-3,0)), Re, b, &ecran),
                 Q3((*new Vecteur3D(0,-3,0)), (*new Vecteur3D(-1,-3,0)), Re, -b, &ecran), Q4((*new Vecteur3D(-3,-2,0)), (*new Vecteur3D(-3,-1,0)), Re, b, &ecran),
                 Q5((*new Vecteur3D(-3,0,0)), (*new Vecteur3D(-3,1,0)), Re, -b, &ecran), Q6((*new Vecteur3D(-2,3,0)), (*new Vecteur3D(-1,3,0)), Re, b, &ecran),
-                Q7((*new Vecteur3D(0,3,0)), (*new Vecteur3D(-1,3,0)), Re, -b, &ecran), Q8((*new Vecteur3D(3,2,0)), (*new Vecteur3D(3,1,0)), Re, b, &ecran);
+                Q7((*new Vecteur3D(0,3,0)), (*new Vecteur3D(1,3,0)), Re, -b, &ecran), Q8((*new Vecteur3D(3,2,0)), (*new Vecteur3D(3,1,0)), Re, b, &ecran);
     
     //Ajouts des sections drotes
     SectionDroite S1((*new Vecteur3D(3,-1,0)), (*new Vecteur3D(3,-2,0)), Re, &ecran), S2((*new Vecteur3D(1,-3,0)), (*new Vecteur3D(0,-3,0)), Re, &ecran),
@@ -84,7 +84,7 @@ int main()
     _accelerateur.ajoutParticule(&p2);
     
     //Test de l'évolution du système
-    for(size_t i = 0; i < 1000; i++){
+    for(size_t i = 0; i < 10000; i++){
         _accelerateur.evolue(1e-11);}
     
     //Dessin de l'accélérateur
