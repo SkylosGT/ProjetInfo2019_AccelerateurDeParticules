@@ -31,11 +31,14 @@ double Particule::FacteurGamma() const
 {return 1/sqrt(1-(vec_v.norme2()/(const_c*const_c)));}
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
-    vec_f=(scal_q*vec_v)^_B;
-    cout<<"     avant rotation corrective :"<<vec_f<<endl;
-    vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
-    cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
-    cout<<"     après rotation corrective :"<<vec_f<<endl;}  
+    if(_B==(*new Vecteur3D)){
+        vec_f=(*new Vecteur3D);}
+    else{
+        vec_f=(scal_q*vec_v)^_B;
+        cout<<"     avant rotation corrective :"<<vec_f<<endl;
+        vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
+        cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
+        cout<<"     après rotation corrective :"<<vec_f<<endl;}} 
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
@@ -52,8 +55,8 @@ ostream& Particule::affiche(ostream& sortie) const{
     "   charge :"<<scal_q<<endl<<
     "   force :"<<vec_f<<endl;}
 
-void Particule::change_element(Element* _suivant){
-   elem_courant=_suivant;
+void Particule::change_element(Element* nouveau){
+   elem_courant=nouveau;
 }
 
 //OPERATEURS EXTERNES A LA CLASSE PARTICULE UTILISANT LES METHODES DE LA CLASSE

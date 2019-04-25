@@ -70,7 +70,7 @@ void Accelerateur::evolue(double _dt) const{
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
 		(*particule).bouger(_dt);
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){
-			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
+			(*particule).change_element(particule->elemCourant()->elemSuivant());}}}
 	
 //OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){

@@ -4,32 +4,13 @@
 #include "SectionDroite.h"
 #include "Quadrupole.h"
 #include "Dipole.h"
+#include <iostream>
+
+using namespace std;
 
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 {
-  // Dessine le 1er cube (à l'origine)
-  /*dessineCube();
-
-  QMatrix4x4 matrice;
-  // Dessine le 2e cube
-  matrice.translate(0.0, 1.5, 0.0);
-  matrice.scale(0.25);
-  dessineCube(matrice);
-
-  // Dessine le 3e cube
-  matrice.setToIdentity();
-  matrice.translate(0.0, 0.0, 1.5);
-  matrice.scale(0.25);
-  matrice.rotate(45.0, 0.0, 1.0, 0.0);
-  dessineCube(matrice);
-
-  // Dessine le 4e cube
-  matrice.setToIdentity();
- // matrice.rotate(a_dessiner.infos(), 1.0, 0.0, 0.0);
-  matrice.translate(0.0, 2.3, 0.0);
-  matrice.scale(0.2);
-  dessineCube(matrice);*/
     for (auto particule : a_dessiner.getCollectionParticule()) {
         particule->dessine();}
     for (auto element : a_dessiner.getCollectionElement()) {
@@ -40,16 +21,16 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 
 void SupportOpenGL::dessine(Particule const& a_dessiner){
     QMatrix4x4 matrice;
-    matrice.scale(1);
     matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    dessineCube(matrice);
+    dessineSphere(matrice);
+    cout<<a_dessiner.position()<<endl;
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){
     QMatrix4x4 matrice;
-
+    matrice.scale(0.5);
     matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
 
-    dessineSphere(matrice);
+    dessineCube(matrice);
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
     QMatrix4x4 matrice;
