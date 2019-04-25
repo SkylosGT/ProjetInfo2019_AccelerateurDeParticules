@@ -31,11 +31,14 @@ double Particule::FacteurGamma() const
 {return 1/sqrt(1-(vec_v.norme2()/(const_c*const_c)));}
 
 void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
-    vec_f=(scal_q*vec_v)^_B;
-    cout<<"     avant rotation corrective :"<<vec_f<<endl;
-    vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
-    cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
-    cout<<"     après rotation corrective :"<<vec_f<<endl;}
+    if(_B==(*new Vecteur3D)){
+        vec_f=(*new Vecteur3D);}
+    else{
+        vec_f=(scal_q*vec_v)^_B;
+        cout<<"     avant rotation corrective :"<<vec_f<<endl;
+        vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
+        cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
+        cout<<"     après rotation corrective :"<<vec_f<<endl;}}
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
