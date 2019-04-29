@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "Faisceau.h"
 #include "SupportConsole.h"
 #include "Particule.h"
 #include "Dipole.h"
@@ -7,20 +7,13 @@
 #include "ConstantesPhysiques.h"
 #include "Quadrupole.h"
 #include "SectionDroite.h"
-#include "Vecteur3D.h"
-#include "ElementDroit.h"
-#include "ElementCourbe.h"
 #include "Faisceau.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
 
-int main () {
-	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+int main()
+{
     //Support à dessin type console
     SupportConsole ecran(cout);
 
@@ -30,10 +23,11 @@ int main () {
 	/*Attributs physiques de deux particules P1 et P2*/
 
 	//Positions de P1 et P2
-    Vecteur3D _r(3.01, 0, 0);
+    Vecteur3D _r1(3.01, 0, 0), _r2(2.99, 0, 0);
 
     //Vitesses de P1 et P2
-    Vecteur3D _v(0, -2.64754e+8, 0);
+    Vecteur3D _v1(0, -2.64754e+8, 0), _v2(0, -2.64754e+8, 0);
+
     //Energie de P1 et P2
     double _E(2);
 
@@ -42,6 +36,9 @@ int main () {
 
     //Charge de P1 et P2
     double _q(const_e);
+
+    /*Deux particules P1 et P2*/
+    Particule p1(_r1, _v1, _E, _m, _q, &ecran), p2(_r2,_v2,_E,_m,_q, &ecran);
 
     /*Attributs physiques des Elements Q, S, D*/
     double Re(0.1), b(1.2), Rc(1), Bz(5.89158);
@@ -83,28 +80,17 @@ int main () {
     _accelerateur.ajoutElement(&S5);
     _accelerateur.ajoutElement(&D3);
     _accelerateur.ajoutElement(&Q6);
-	
-	Particule p(_r, _v, _E, _m, _q);
-	
-	_accelerateur.dessine();
-	
-	Faisceau faisceau(p, 10, 2, &ecran);
-	_accelerateur.ajoutFaisceau(&faisceau);
-	
-	_accelerateur.dessine();
-	
-    return 0;
 
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
-=======
-	return 0;
->>>>>>> parent of f5a22ff... Dessine de l'accélérateur avec les faisceau
+    //Ajout des deux particules dans l'accélérateur
+    _accelerateur.ajoutParticule(&p1);
+    _accelerateur.ajoutParticule(&p2);
+    
+    //Test de l'évolution du système
+    for(size_t i = 0; i < 20; i++){
+        _accelerateur.evolue(1e-11);}
+    
+    //Dessin de l'accélérateur
+    _accelerateur.dessine();
+
+    return 0;
 }
