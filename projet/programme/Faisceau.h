@@ -12,7 +12,7 @@ class Particule;
 
 class Faisceau : public Dessinable {
 	
-	private : 
+	private: 
 	
 	Particule reference;
 	long int nombre_particule;
@@ -31,8 +31,10 @@ class Faisceau : public Dessinable {
 	double coef_A22_hori;
 	
 	
-	public :
+	public:
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
+
+	Particule particuleDeReference() const {return reference;}
 	
 	void energie_moyenne();
 	
@@ -46,6 +48,7 @@ class Faisceau : public Dessinable {
     void calcul_ell_vert(); 
     
     void calcul_ell_hori();
-    
+
+	void changerElementDeLaParticuleDeReference(Element*);
 	
 };

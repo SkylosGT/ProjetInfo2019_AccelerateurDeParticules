@@ -12,8 +12,8 @@
 using namespace std;
 using namespace ConstantesPhysiques;
 
-int main()
-{
+int main () {
+	
     //Support à dessin type console
     SupportConsole ecran(cout);
 
@@ -93,4 +93,5 @@ int main()
     _accelerateur.dessine();
 
     return 0;
+
 }
