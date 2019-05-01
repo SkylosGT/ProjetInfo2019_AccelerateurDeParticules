@@ -4,6 +4,7 @@
 #include "Accelerateur.h"
 #include "ConstantesPhysiques.h"
 
+
 //DEFINITION DES METHODES DE LA CLASSE ACCELERATEUR ET SURCHARGE DE SES OPERATEUR
 
 using namespace std;
@@ -65,7 +66,7 @@ void Accelerateur::supprCollectionFaisceau() {
 void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
-			faisceau->bouger(_dt);}}
+			(*faisceau).bouger(_dt);}}
 	if(CollectionParticule.size()>0){	
 		for(auto particule : CollectionParticule){
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);

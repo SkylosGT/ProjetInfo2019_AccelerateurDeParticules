@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cmath>
+#include <vector>
 #include "Faisceau.h"
 #include "SupportConsole.h"
 #include "Particule.h"
@@ -7,7 +9,11 @@
 #include "ConstantesPhysiques.h"
 #include "Quadrupole.h"
 #include "SectionDroite.h"
-#include "Faisceau.h"
+#include "ElementDroit.h"
+#include "ElementCourbe.h"
+#include "Element.h"
+#include "Vecteur3D.h"
+
 
 using namespace std;
 using namespace ConstantesPhysiques;
@@ -36,9 +42,6 @@ int main () {
 
     //Charge de P1 et P2
     double _q(const_e);
-
-    /*Deux particules P1 et P2*/
-    Particule p1(_r1, _v1, _E, _m, _q, &ecran), p2(_r2,_v2,_E,_m,_q, &ecran);
 
     /*Attributs physiques des Elements Q, S, D*/
     double Re(0.1), b(1.2), Rc(1), Bz(5.89158);
@@ -81,16 +84,34 @@ int main () {
     _accelerateur.ajoutElement(&D3);
     _accelerateur.ajoutElement(&Q6);
 
-    //Ajout des deux particules dans l'accélérateur
-    _accelerateur.ajoutParticule(&p1);
-    _accelerateur.ajoutParticule(&p2);
+	cout << "AVANT AJOUT DE FAISCEAU"<< endl;
+	_accelerateur.dessine();
+	
+	/*Deux particules P1 et P2*/
+    Particule p1(_r1, _v1, _E, _m, _q, &ecran), p2(_r2,_v2,_E,_m,_q, &ecran);
+
+	Faisceau f1(p1, 6,2, &ecran);
+	
+	Faisceau f2(p2, 8,4, &ecran);
+	
+	cout <<"APRES AJOUT DE FAISCEAU"<< endl;
+	
+	_accelerateur.ajoutFaisceau(&f1);
+	
+	_accelerateur.dessine(); 
+	
+	/*cout << "APRES AJOUT DE DEUXIEME FAISCEAU"<< endl;
+	
+	_accelerateur.ajoutFaisceau(&f2);
+	
+	_accelerateur.dessine();*/
+	
     
-    //Test de l'évolution du système
-    for(size_t i = 0; i < 20; i++){
-        _accelerateur.evolue(1e-11);}
     
-    //Dessin de l'accélérateur
-    _accelerateur.dessine();
+   //Test de l'évolution du système
+  /* for(size_t i = 0; i < 20; i++){
+        _accelerateur.evolue(1e-11);}*/
+    
 
     return 0;
 

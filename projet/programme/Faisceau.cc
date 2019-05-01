@@ -1,12 +1,24 @@
 #include "Faisceau.h"
 #include "ConstantesPhysiques.h"
+#include "Element.h"
 #include "ElementDroit.h"
 #include "ElementCourbe.h"
+#include "Vecteur3D.h"
 #include <vector>
 #include <cmath>
+#include "Dipole.h"
+#include "Quadrupole.h"
+#include "SectionDroite.h"
+#include "Particule.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
+
+class ElementCourbe;
+class ElementDroit;
+class Dipole;
+class Quadrupole;
+class SectionDroite;
 
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
 : Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {	
@@ -35,8 +47,8 @@ void Faisceau::bouger(double dt) {
 	if((CollectionPart.size()) < (nombre_particule/coef_simulation)) {
 		CollectionPart.push_back(new Particule(reference*=coef_simulation));}
 	(*this).energie_moyenne();
-	(*this).calcul_ell_vert();
-	(*this).calcul_ell_vert();}
+	/*(*this).calcul_ell_vert();
+	(*this).calcul_ell_vert();*/}
 	
 void Faisceau::calcul_ell_vert() {
 	double moy_position_carre(0);

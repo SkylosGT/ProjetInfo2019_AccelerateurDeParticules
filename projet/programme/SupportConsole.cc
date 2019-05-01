@@ -43,9 +43,9 @@ void SupportConsole::dessine(Accelerateur const& _a){
 					for (auto particule : _a.getCollectionParticule()) {
 						(*particule).dessine();
 						cout << endl;}}
-						}else{
+						/*}else{
 							cout << "L'accélérateur ne contient aucune particule."<< endl;
-							cout << endl;
+							cout << endl;*/
 	}
 
 	if (_a.getCollectionFaisceau().size() > 0) { 
