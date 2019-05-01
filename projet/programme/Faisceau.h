@@ -1,11 +1,12 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
 #include "Dessinable.h"
 #include "SupportADessin.h"
 
 #include "Vecteur3D.h"
-
+#include "Element.h"
 #include "Particule.h"
 
 class Particule;

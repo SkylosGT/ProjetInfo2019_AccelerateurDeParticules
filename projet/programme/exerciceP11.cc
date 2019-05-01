@@ -1,18 +1,17 @@
 #include <iostream>
-#include <cmath>
-#include <vector>
-#include "Faisceau.h"
-#include "SupportConsole.h"
-#include "Particule.h"
-#include "Dipole.h"
-#include "Accelerateur.h"
+
 #include "ConstantesPhysiques.h"
-#include "Quadrupole.h"
+
+#include "Dipole.h"
 #include "SectionDroite.h"
-#include "ElementDroit.h"
-#include "ElementCourbe.h"
-#include "Element.h"
-#include "Vecteur3D.h"
+#include "Quadrupole.h"
+
+#include "Faisceau.h"
+
+#include "Accelerateur.h"
+
+#include "SupportConsole.h"
+#include "Dessinable.h"
 
 
 using namespace std;
@@ -100,17 +99,21 @@ int main () {
 	
 	_accelerateur.dessine(); 
 	
-	/*cout << "APRES AJOUT DE DEUXIEME FAISCEAU"<< endl;
+	cout << "APRES AJOUT DE DEUXIEME FAISCEAU"<< endl;
 	
 	_accelerateur.ajoutFaisceau(&f2);
 	
-	_accelerateur.dessine();*/
+	_accelerateur.dessine();
 	
     
     
    //Test de l'évolution du système
-  /* for(size_t i = 0; i < 20; i++){
-        _accelerateur.evolue(1e-11);}*/
+   for(size_t i = 0; i < 20; i++){
+        _accelerateur.evolue(1);}
+        
+    cout << "APRES EVOLUTION" << endl;
+    
+    _accelerateur.dessine();
     
 
     return 0;
