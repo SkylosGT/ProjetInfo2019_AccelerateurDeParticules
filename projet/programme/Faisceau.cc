@@ -1,5 +1,7 @@
 #include "Faisceau.h"
 #include "ConstantesPhysiques.h"
+#include "ElementDroit.h"
+#include "ElementCourbe.h"
 #include <vector>
 #include <cmath>
 
