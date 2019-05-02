@@ -1,18 +1,10 @@
-#include <iostream>
+#include "Faisceau.h"
+#include "ConstantesPhysiques.h"
 #include <vector>
 #include <cmath>
 
-#include "Faisceau.h"
-#include "ConstantesPhysiques.h"
-
 using namespace std;
 using namespace ConstantesPhysiques;
-
-class ElementCourbe;
-class ElementDroit;
-class Dipole;
-class Quadrupole;
-class SectionDroite;
 
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
 : Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {	
@@ -36,13 +28,13 @@ ostream& Faisceau::affiche(ostream& sortie) const{
 	
 void Faisceau::bouger(double dt) {
 	for (auto _particule : CollectionPart) {
-		/*(*_particule).ajouteForceMagnetique((*_particule).elemCourant()->champMagnetique((*_particule).position()),dt);*/
+		_particule->ajouteForceMagnetique(_particule->elemCourant()->champMagnetique(_particule->position()), dt);
 		_particule->bouger(dt);}
 	if((CollectionPart.size()) < (nombre_particule/coef_simulation)) {
 		CollectionPart.push_back(new Particule(reference*=coef_simulation));}
 	(*this).energie_moyenne();
-	/*(*this).calcul_ell_vert();
-	(*this).calcul_ell_vert();*/}
+	(*this).calcul_ell_vert();
+	(*this).calcul_ell_vert();}
 	
 void Faisceau::calcul_ell_vert() {
 	double moy_position_carre(0);

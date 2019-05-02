@@ -1,18 +1,16 @@
 #include <iostream>
 
-#include "ConstantesPhysiques.h"
-
-#include "Dipole.h"
-#include "SectionDroite.h"
-#include "Quadrupole.h"
-
-#include "Faisceau.h"
-
-#include "Accelerateur.h"
-
 #include "SupportConsole.h"
-#include "Dessinable.h"
-
+#include "Particule.h"
+#include "Dipole.h"
+#include "Accelerateur.h"
+#include "ConstantesPhysiques.h"
+#include "Quadrupole.h"
+#include "SectionDroite.h"
+#include "Vecteur3D.h"
+#include "ElementDroit.h"
+#include "ElementCourbe.h"
+#include "Faisceau.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
@@ -28,11 +26,10 @@ int main () {
 	/*Attributs physiques de deux particules P1 et P2*/
 
 	//Positions de P1 et P2
-    Vecteur3D _r1(3.01, 0, 0), _r2(2.99, 0, 0);
+    Vecteur3D _r(3.01, 0, 0);
 
     //Vitesses de P1 et P2
-    Vecteur3D _v1(0, -2.64754e+8, 0), _v2(0, -2.64754e+8, 0);
-
+    Vecteur3D _v(0, -2.64754e+8, 0);
     //Energie de P1 et P2
     double _E(2);
 
@@ -82,40 +79,16 @@ int main () {
     _accelerateur.ajoutElement(&S5);
     _accelerateur.ajoutElement(&D3);
     _accelerateur.ajoutElement(&Q6);
-
-	cout << "AVANT AJOUT DE FAISCEAU"<< endl;
-	_accelerateur.dessine();
 	
-	/*Deux particules P1 et P2*/
-    Particule p1(_r1, _v1, _E, _m, _q, &ecran), p2(_r2,_v2,_E,_m,_q, &ecran);
-
-	Faisceau f1(p1, 6,2, &ecran);
-	
-	Faisceau f2(p2, 8,4, &ecran);
-	
-	cout <<"APRES AJOUT DE FAISCEAU"<< endl;
-	
-	_accelerateur.ajoutFaisceau(&f1);
-	
-	_accelerateur.dessine(); 
-	
-	cout << "APRES AJOUT DE DEUXIEME FAISCEAU"<< endl;
-	
-	_accelerateur.ajoutFaisceau(&f2);
+	Particule p(_r, _v, _E, _m, _q);
 	
 	_accelerateur.dessine();
 	
-    
-    
-   //Test de l'évolution du système
-   for(size_t i = 0; i < 20; i++){
-        _accelerateur.evolue(1);}
-        
-    cout << "APRES EVOLUTION" << endl;
-    
-    _accelerateur.dessine();
-    
-
+	Faisceau faisceau(p, 10, 2, &ecran);
+	_accelerateur.ajoutFaisceau(&faisceau);
+	
+	_accelerateur.dessine();
+	
     return 0;
 
 }
