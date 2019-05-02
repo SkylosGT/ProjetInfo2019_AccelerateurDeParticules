@@ -86,7 +86,11 @@ int main () {
 	
 	Faisceau faisceau(p, 10, 2, &ecran);
 	_accelerateur.ajoutFaisceau(&faisceau);
-	
+	for(size_t i = 0; i < 20; i++)
+    {
+        _accelerateur.evolue(1e-11);
+    }
+    
 	_accelerateur.dessine();
 	
     return 0;
