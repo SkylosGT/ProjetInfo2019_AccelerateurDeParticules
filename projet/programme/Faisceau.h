@@ -33,6 +33,8 @@ class Faisceau : public Dessinable {
 	
 	public:
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
+	
+	std::vector<Particule*> getCollectionPart() const {return CollectionPart;}
 
 	Particule particuleDeReference() const {return reference;}
 	
