@@ -30,10 +30,10 @@ void SupportOpenGL::dessine(Dipole const& a_dessiner){
     //dessineCube(matrice);
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
-    //QMatrix4x4 matrice;
-    //matrice.scale(0.5);
-    //matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    //dessineCube(matrice);
+    QMatrix4x4 matrice;
+    matrice.scale(0.5);
+    matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
+    dessineCube(matrice);
 
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){

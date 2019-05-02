@@ -84,7 +84,7 @@ int main()
     _accelerateur.ajoutParticule(&p2);
     
     //Test de l'évolution du système
-    for(size_t i = 0; i < 10000; i++){
+    for(size_t i = 0; i < 5000; i++){
         _accelerateur.evolue(1e-11);}
     
     //Dessin de l'accélérateur
