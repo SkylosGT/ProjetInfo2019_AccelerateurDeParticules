@@ -1,4 +1,7 @@
 #include "ElementDroit.h"
+#include "ConstantesPhysiques.h"
+
+using namespace ConstantesPhysiques;
 
 //DEFINITION DES METHODES DE LA CLASSE ELEMENT DROIT ET SURCHARGE DE SES OPERATEURS
 
@@ -13,3 +16,6 @@ bool ElementDroit::heurte_bord(Particule const& _p) const{
     Vecteur3D vec_d(~(vec_rs-vec_re));
     if ((vec_X-(vec_X*vec_d)*vec_d).norme()>scal_Re) {return true;}
     else{return false;}}
+    
+Vecteur3D ElementDroit::u(Particule const&) const {
+	return vec_e3^(~(vec_rs-vec_re));	}
