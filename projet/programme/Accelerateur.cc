@@ -67,10 +67,10 @@ void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
 			(*faisceau).bouger(_dt);}
-			/*for(Faisceau* faisceau :CollectionFaisceau) {
+			for(Faisceau* faisceau :CollectionFaisceau) {
 				for(auto particule : faisceau->getCollectionPart()){
 					if((*particule).elemCourant()->passe_au_suivant((*particule))){
-					(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}*/
+					(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
 				}
 
 	if(CollectionParticule.size()>0){	

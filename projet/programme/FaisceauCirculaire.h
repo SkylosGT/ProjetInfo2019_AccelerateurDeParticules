@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Faisceau.h"
+#include "Particule.h"
+#include "SupportADessin.h"
+#include "Dessinable.h"
 
 class FaisceauCirculaire : public Faisceau {
 	
@@ -10,7 +13,7 @@ class FaisceauCirculaire : public Faisceau {
 	
 	virtual void bouger(double) override;
 	
-	std::ostream& affiche(std::ostream&) const;
+	virtual std::ostream& affiche(std::ostream&) const override;
 	
 	virtual void dessine() override
     { support->dessine(*this); }

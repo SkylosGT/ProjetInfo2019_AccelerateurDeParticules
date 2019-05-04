@@ -39,6 +39,8 @@ class Faisceau : public Dessinable {
 	Particule particuleDeReference() const {return reference;}
 	
 	void energie_moyenne();
+	
+	virtual std::ostream& affiche(std::ostream&) const =0;
     
     virtual void bouger(double) = 0;
     
