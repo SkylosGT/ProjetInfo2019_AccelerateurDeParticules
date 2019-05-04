@@ -62,3 +62,5 @@ testVecteur.o: testVecteur.cc Vecteur3D.h
 Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
 
 Faisceau.o: Faisceau.cc Faisceau.h Dessinable.h SupportADessin.h Vecteur3D.h Particule.h Element.h ConstantesPhysiques.h
+
+FaisceauCirculaire.o: FaisceauCirculaire.cc FaisceauCirculaire.h Faisceau.h Vecteur3D.h Particule.h Element.h ConstantesPhysiques.h

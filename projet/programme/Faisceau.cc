@@ -7,42 +7,17 @@
 #include "ElementDroit.h"
 #include "ElementCourbe.h"
 
-
-using namespace std;
 using namespace ConstantesPhysiques;
 
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
-: Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {	
-	CollectionPart.push_back(new Particule(reference*=coef_simulation));
-	energie_moy = (reference*=coef_simulation).Energie();
-	//(*this).calcul_ell_vert();
-	//(*this).calcul_ell_hori();
-}
+: Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {}
 
 void Faisceau::energie_moyenne(){
 	double _energie(0);
 	for(auto _particule : CollectionPart) {
 		_energie += _particule->Energie();}
 	energie_moy = (_energie/CollectionPart.size());}
-
-ostream& Faisceau::affiche(ostream& sortie) const{
-	sortie << "Un Faisceau contenant les " << CollectionPart.size() << " particules suivantes:"<< endl;
-	for(auto _particule : CollectionPart){
-		_particule->affiche(sortie);}
-	return sortie;}
-	
-void Faisceau::bouger(double dt) {
-	for (auto _particule : CollectionPart) {
-		_particule->ajouteForceMagnetique(_particule->elemCourant()->champMagnetique(_particule->position()), dt);
-		_particule->bouger(dt);}
-	if((CollectionPart.size()) < (nombre_particule/coef_simulation)) {
-		CollectionPart.push_back(new Particule(reference*=coef_simulation));}
-	(*this).energie_moyenne();
-	(*this).calcul_ell_vert();
-	(*this).calcul_ell_vert();}
-
-
-	
+		
 void Faisceau::calcul_ell_vert() {
 	double moy_position_carre(0);
 	double moy_vitesse_carre(0);

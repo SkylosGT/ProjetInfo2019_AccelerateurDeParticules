@@ -12,7 +12,7 @@ class Particule;
 
 class Faisceau : public Dessinable {
 	
-	private: 
+	protected : 
 	
 	Particule reference;
 	long int nombre_particule;
@@ -39,13 +39,8 @@ class Faisceau : public Dessinable {
 	Particule particuleDeReference() const {return reference;}
 	
 	void energie_moyenne();
-	
-    std::ostream& affiche(std::ostream&) const;
-
-	virtual void dessine() override
-    { support->dessine(*this); }
     
-    void bouger(double);
+    virtual void bouger(double) = 0;
     
     void calcul_ell_vert(); 
     
