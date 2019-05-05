@@ -76,13 +76,9 @@ Log Joséphine:
 ## Semaine 7 :
 Log Joséphine:
 -Grâce à Adrien qui a résolu le problème d’architecture, création du fichier exerciceP9 qui dessine un accélérateur (et qui fonctionne)
--
-
-
-
-
-
--MAIS segmentation fault lors du Make de exerciceP11?
+-Implémentation de la classe Faisceau avec ses attributs (particule de référence, nombre de particule, collection de particules, coefficient des macro-particules simulées, énergie et émittances), ainsi que ses méthodes publiques (constructeur, calcul de l'énergie et de émittances, bouger, dessiner, affiche)
+-Implémentation de la méthode dessine dans SupportConsole pouvant dessiner un faisceau à l'aide de la méthode affiche de faisceau
+-Surcharge de l'opérateur *= (double n *=particule p) dans particule pour injecter des particules de masse et charge n fois plus grand que la particule de référence dans les faisceaux
 
 --------------------------------------------------
 ## Semaine 8 :
@@ -92,12 +88,16 @@ Log Joséphine:
 --------------------------------------------------
 ## Semaine 9 :
 Log Joséphine:
-
+-Update du Makefile avec Adrien
+-Création de exerciceP11 reprenant les caractéristiques de exerciceP10
+-MAIS segmentation fault lors du Make de exerciceP11?
 
 
 --------------------------------------------------
 ## Semaine 10 :
 Log Joséphine:
+-Résolution du problème de segmentation fault avec Adrien
+-Finition de exerciceP11 (fonctionne)
 -Changement de l'implémentation des faisceaux afin de créé une sous-classe Faisceau Circulaire (fonction bouger et dessine en virtuelle pure dans Faisceau et redéfini dans Faisceau Circulaire)
 -Test dans exerciceP11 de cette nouvelle sous-classe (fonctionne)
 -Prise de connaissance des derniers exerciceP13 et P14 ainsi que du complément mathématiques en lien avec 
