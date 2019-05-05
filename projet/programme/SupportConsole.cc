@@ -9,6 +9,8 @@
 
 using namespace std;
 
+//DEFINITION DES METHODES DE SUPPORTCONSOLE
+
 void SupportConsole::dessine(Particule const& _p){_p.affiche(flot);}
 
 void SupportConsole::dessine(Dipole const& _d){_d.affiche(flot);}
@@ -19,6 +21,7 @@ void SupportConsole::dessine(SectionDroite const& _s){_s.affiche(flot);}
 
 void SupportConsole::dessine(FaisceauCirculaire const& _fc) {_fc.affiche(flot);}
 
+//Le dessin de l'accélérateur n'utilise que les dessins de ses élements et faisceaux qui le compose au lieu d'une fonction affiche
 void SupportConsole::dessine(Accelerateur const& _a){
 	if (_a.getCollectionElement().size() > 0) {
 		if (_a.getCollectionElement().size() == 1) {
