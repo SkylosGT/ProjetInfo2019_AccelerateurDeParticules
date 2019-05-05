@@ -76,20 +76,32 @@ Log Joséphine:
 ## Semaine 7 :
 Log Joséphine:
 -Grâce à Adrien qui a résolu le problème d’architecture, création du fichier exerciceP9 qui dessine un accélérateur (et qui fonctionne)
+-
 
+
+
+
+
+-MAIS segmentation fault lors du Make de exerciceP11?
 
 --------------------------------------------------
 ## Semaine 8 :
-
-
+Log Joséphine:
+-PAS DE PROJET : révisions pour la série notée 2
 
 --------------------------------------------------
 ## Semaine 9 :
+Log Joséphine:
 
 
 
 --------------------------------------------------
 ## Semaine 10 :
+Log Joséphine:
+-Changement de l'implémentation des faisceaux afin de créé une sous-classe Faisceau Circulaire (fonction bouger et dessine en virtuelle pure dans Faisceau et redéfini dans Faisceau Circulaire)
+-Test dans exerciceP11 de cette nouvelle sous-classe (fonctionne)
+-Prise de connaissance des derniers exerciceP13 et P14 ainsi que du complément mathématiques en lien avec 
+
 
 
 
