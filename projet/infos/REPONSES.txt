@@ -11,3 +11,11 @@ un vecteur est lié dans sa représentation à une base de coordonnée dans lequ
 
 QUESTION P4.3
 Nous avons introduit une surcharge de l'opérateur de sortie << afin de remplacer la fonction affichage ainsi qu'une surcharge de l'opérateur de comparaison == à la place de la fonction de comparaison.
+
+QUESTION P7.1
+QUESTION P7.2
+QUESTION P9.1
+QUESTION P9.2
+QUESTION P9.3
+QUESTION P11.1
+
