@@ -54,7 +54,8 @@ ostream& Particule::affiche(ostream& sortie) const{
 
 void Particule::change_element(Element* _suivant){
    elem_courant=_suivant;}
-   
+
+//OPERATEUR INTERNE DE LA CLASSE PARTICULE   
 Particule& Particule::operator*=(double coef) {
 	scal_m*=coef;
 	scal_q*=coef;

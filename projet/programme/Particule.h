@@ -35,6 +35,7 @@ class Particule : public Dessinable {
     //Getter, retourne la position de la particule
     Vecteur3D position() const {return vec_r;}
     
+    //Getter, retourne la vitesse de la particule
     Vecteur3D vitesse() const {return vec_v;}
 
     //Getter, retourne l'élément courant de la particule
@@ -66,9 +67,11 @@ class Particule : public Dessinable {
     //La particule change d'élément
     void change_element(Element*);
 
+	//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine une particule sur un support choisi
     virtual void dessine() override
     { support->dessine(*this); }
     
+    //Surcharge de l'opérateur *= qui multiplie la masse et la charge d'une particule par l'argument
     Particule& operator*=(double);
 };
 
