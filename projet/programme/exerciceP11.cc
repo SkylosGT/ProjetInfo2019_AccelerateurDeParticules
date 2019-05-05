@@ -11,6 +11,7 @@
 #include "ElementDroit.h"
 #include "ElementCourbe.h"
 #include "Faisceau.h"
+#include "FaisceauCirculaire.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
@@ -84,8 +85,12 @@ int main () {
 	
 	_accelerateur.dessine();
 	
-	Faisceau faisceau(p, 10, 2, &ecran);
+	FaisceauCirculaire faisceau(p, 10, 2, &ecran);
+	
 	_accelerateur.ajoutFaisceau(&faisceau);
+	
+	_accelerateur.dessine();
+	
 	for(size_t i = 0; i < 20; i++)
     {
         _accelerateur.evolue(1e-11);

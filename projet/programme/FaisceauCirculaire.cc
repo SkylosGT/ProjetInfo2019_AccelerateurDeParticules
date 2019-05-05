@@ -6,8 +6,6 @@ FaisceauCirculaire::FaisceauCirculaire(Particule _ref,long int _nb, double _coef
 : Faisceau(_ref,_nb, _coef, _support)
 {	CollectionPart.push_back(new Particule(reference*=coef_simulation));
 	energie_moy = (reference*=coef_simulation).Energie();
-	(*this).calcul_ell_vert();
-	(*this).calcul_ell_hori();
 }
 
 void FaisceauCirculaire::bouger(double dt) {
@@ -19,7 +17,6 @@ void FaisceauCirculaire::bouger(double dt) {
 	(*this).energie_moyenne();
 	(*this).calcul_ell_vert();
 	(*this).calcul_ell_vert();}
-}
 
 ostream& FaisceauCirculaire::affiche(ostream& sortie) const{
 	sortie << "Un Faisceau Circulaire contenant les " << CollectionPart.size() << " particules suivantes:"<< endl;

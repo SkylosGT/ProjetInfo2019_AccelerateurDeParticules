@@ -2,8 +2,6 @@
 
 #include "Faisceau.h"
 #include "Particule.h"
-#include "SupportADessin.h"
-#include "Dessinable.h"
 
 class FaisceauCirculaire : public Faisceau {
 	
