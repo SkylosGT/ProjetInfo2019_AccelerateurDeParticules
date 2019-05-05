@@ -47,7 +47,7 @@ class Faisceau : public Dessinable {
 	//Méthode qui calcul l'énergie du faisceau dans son attribut energie_moy
 	void energie_moyenne();
 	
-	//Méthode qui affiche un faisceau (utilisé pour dessiner un faisceau sur une console)
+	//Méthode virtuelle pure qui affiche un faisceau (utilisé pour dessiner un faisceau sur une console)
 	virtual std::ostream& affiche(std::ostream&) const =0;
     
     //Méthode virtuelle pure qui fait bouger l'ensemble des particules d'un faisceau en fonction du type de faisceau

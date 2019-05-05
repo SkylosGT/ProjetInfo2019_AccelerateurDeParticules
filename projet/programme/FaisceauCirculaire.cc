@@ -2,6 +2,8 @@
 
 using namespace std;
 
+//DEFINITION DES METHODES DE LA SOUS CLASSE FAISCEAUCIRUCLAIRE
+
 FaisceauCirculaire::FaisceauCirculaire(Particule _ref,long int _nb, double _coef, SupportADessin* _support) 
 : Faisceau(_ref,_nb, _coef, _support)
 {	CollectionPart.push_back(new Particule(reference*=coef_simulation));
