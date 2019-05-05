@@ -98,7 +98,7 @@ int main () {
 	_accelerateur.ajoutFaisceau(&faisceau2);
 	
 	//Test de l'ajout des faisceaux dans l'accélérateur
-	cout << "AVANT EVOLUTION DU SYSTEME"<< endl;
+	cout << "AVANT EVOLUTION DU SYSTEME ET APRES AJOUT DE FAISCEAU"<< endl;
 	_accelerateur.dessine();
 	
 	//Test de l'évolution du système
@@ -108,6 +108,7 @@ int main () {
     }
     
     //Dessin de l'accélérateur après évolution du système
+    cout << "APRES EVOLUTION DU SYSTEME"<< endl;
 	_accelerateur.dessine();
 	
     return 0;

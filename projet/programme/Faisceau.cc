@@ -9,6 +9,8 @@
 
 using namespace ConstantesPhysiques;
 
+//DEFINTION DES METHODES DE LA SUPER CLASSE FAISCEAU
+
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
 : Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {}
 
