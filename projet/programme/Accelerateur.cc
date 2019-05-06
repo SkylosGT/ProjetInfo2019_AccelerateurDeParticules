@@ -13,7 +13,7 @@ using namespace ConstantesPhysiques;
 Accelerateur::Accelerateur(SupportADessin* _support) 
 	: Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau() {}
 	
-ostream& Accelerateur::affiche(ostream& sortie) const {
+/*ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionElement.size() > 0) {
 		if (CollectionElement.size() == 1) {
 			sortie << "L'accélérateur est constitué de l'élément suivant : " << endl
@@ -35,7 +35,7 @@ ostream& Accelerateur::affiche(ostream& sortie) const {
 						sortie << *particule << endl; }}
 						}else{
 							sortie << "L'accélérateur ne contient aucune particule."<< endl;}
-	return sortie; }
+	return sortie; }*/
 	
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
 	nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
@@ -67,10 +67,10 @@ void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
 			(*faisceau).bouger(_dt);}
-			/*for(Faisceau* faisceau :CollectionFaisceau) {
+			for(Faisceau* faisceau :CollectionFaisceau) {
 				for(auto particule : faisceau->getCollectionPart()){
 					if((*particule).elemCourant()->passe_au_suivant((*particule))){
-					(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}*/
+					(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
 				}
 
 	if(CollectionParticule.size()>0){	
@@ -90,7 +90,7 @@ Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) co
 				elementAvecDistanceMinimum=element;}}}
 	return elementAvecDistanceMinimum;}
 	
-//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
+/*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
-	return a.affiche(sortie);}
+	return a.affiche(sortie);}*/
 	

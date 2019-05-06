@@ -23,6 +23,7 @@ class SectionDroite : public ElementDroit {
         //Affiche une Section Droite
         virtual std::ostream& affiche(std::ostream&) const override;
 
+		//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine une section droite sur un support choisi
         virtual void dessine() override
         { support->dessine(*this); }
 };

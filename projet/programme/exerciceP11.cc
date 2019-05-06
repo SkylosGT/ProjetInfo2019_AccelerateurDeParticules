@@ -11,6 +11,7 @@
 #include "ElementDroit.h"
 #include "ElementCourbe.h"
 #include "Faisceau.h"
+#include "FaisceauCirculaire.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
@@ -26,10 +27,11 @@ int main () {
 	/*Attributs physiques de deux particules P1 et P2*/
 
 	//Positions de P1 et P2
-    Vecteur3D _r(3.01, 0, 0);
+    Vecteur3D _r1(3.01, 0, 0), _r2(2.99, 0, 0);
 
     //Vitesses de P1 et P2
-    Vecteur3D _v(0, -2.64754e+8, 0);
+    Vecteur3D _v1(0, -2.64754e+8, 0), _v2(0, -2.64754e+8, 0);
+
     //Energie de P1 et P2
     double _E(2);
 
@@ -79,18 +81,34 @@ int main () {
     _accelerateur.ajoutElement(&S5);
     _accelerateur.ajoutElement(&D3);
     _accelerateur.ajoutElement(&Q6);
-	
-	Particule p(_r, _v, _E, _m, _q);
-	
+    
+	//Test des ajouts d'élements dans l'accélérateur avant ajout de faisceau
+	cout <<"AVANT AJOUT DE FAISCEAUX"<< endl;
 	_accelerateur.dessine();
 	
-	Faisceau faisceau(p, 10, 2, &ecran);
-	_accelerateur.ajoutFaisceau(&faisceau);
+	//Deux particules P1 et P2
+    Particule p1(_r1, _v1, _E, _m, _q, &ecran), p2(_r2,_v2,_E,_m,_q, &ecran);
+    
+    //Deux faisceaux circulaires avec comme particules de référence p1 et p2
+	FaisceauCirculaire faisceau1(p1, 10, 2, &ecran);
+	FaisceauCirculaire faisceau2(p2, 6, 3, &ecran);
+	
+	//Ajout des faisceaux dans l'accélérateur
+	_accelerateur.ajoutFaisceau(&faisceau1);
+	_accelerateur.ajoutFaisceau(&faisceau2);
+	
+	//Test de l'ajout des faisceaux dans l'accélérateur
+	cout << "AVANT EVOLUTION DU SYSTEME ET APRES AJOUT DE FAISCEAU"<< endl;
+	_accelerateur.dessine();
+	
+	//Test de l'évolution du système
 	for(size_t i = 0; i < 20; i++)
     {
         _accelerateur.evolue(1e-11);
     }
     
+    //Dessin de l'accélérateur après évolution du système
+    cout << "APRES EVOLUTION DU SYSTEME"<< endl;
 	_accelerateur.dessine();
 	
     return 0;

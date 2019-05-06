@@ -42,6 +42,7 @@ class Element : public Dessinable{
         //Sera subsistuée pour afficher un élément
         virtual std::ostream& affiche(std::ostream&) const=0;
         
+        //Sera substitué afin de calculer en fonction de l'élément courant d'une particule un vecteur3D u utile aux calculs d'émittance d'un faisceau
         virtual Vecteur3D u(Particule const&) const=0;
     
     /*Méthodes de l'interface de la classe Element*/

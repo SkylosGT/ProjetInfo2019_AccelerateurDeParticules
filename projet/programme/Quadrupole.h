@@ -28,6 +28,7 @@ class Quadrupole : public ElementDroit {
         //Affiche un Quadrupole
         virtual std::ostream& affiche(std::ostream&) const override;
 
+		//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine un quadrupole sur un support choisi
         virtual void dessine() override
         { support->dessine(*this); }
 };

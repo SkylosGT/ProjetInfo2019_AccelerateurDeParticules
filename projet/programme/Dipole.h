@@ -28,6 +28,7 @@ class Dipole : public ElementCourbe {
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;
 
+		//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine un dipôle sur un support choisi
         virtual void dessine() override
         { support->dessine(*this); }
 };

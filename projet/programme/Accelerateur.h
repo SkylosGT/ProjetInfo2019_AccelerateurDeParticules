@@ -18,7 +18,7 @@ class Accelerateur: public Dessinable {
 		std::vector <Faisceau*> CollectionFaisceau;//Un tableau de faisceau (contenant collection de faisceau)
 		
 	public:
-	//Un accesseur de la collection d'élément pour que la fonction dessine puisse dessiner chaque élément de l'accélérateur
+	//Des accesseurs des collections pour que la fonction dessine puisse dessiner chaque élément, faisceau (et particule) de l'accélérateur
 		std::vector<Element*> getCollectionElement() const {return CollectionElement;}
 		
 		std::vector<Particule*> getCollectionParticule() const {return CollectionParticule;}
@@ -36,9 +36,7 @@ class Accelerateur: public Dessinable {
 	
  /*Méthodes de l'interface de la classe Accélérateur*/
 	
-/*	//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
-		std::ostream& affiche(std::ostream&) const;*/
-		
+	//Ajoute un faisceau dans l'accélérateur (dans sa collection de faisceaux)
 		void ajoutFaisceau(Faisceau*);
 		
 	//Ajoute une particule dans l'accélérateur (dans sa collection de particules)
@@ -53,19 +51,22 @@ class Accelerateur: public Dessinable {
 	//Supprime toutes les particules de l'accélérateur
 		void supprCollectionParticule();
 	
-	//Supprime tous les faisceau de l'accélérateur
+	//Supprime tous les faisceaux de l'accélérateur
 		void supprCollectionFaisceau();
 	
 	//Méthode qui fait évoluer le système avec un pas de temps
 		void evolue(double _dt) const;
 	
-	virtual void dessine() override
-    { support->dessine(*this); }
+	//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine l'accélérateur sur un support choisi
+		virtual void dessine() override
+		{ support->dessine(*this); }
 
-	Element* trouveElementDeLaParticule(Particule const&) const;
-
-	std::ostream& affiche(std::ostream&) const;
+	//Méthode qui trouve l'élément courant dans lequel se trouve une certaine particule
+		Element* trouveElementDeLaParticule(Particule const&) const;
+	
+	/*//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
+		std::ostream& affiche(std::ostream&) const;*/
 };
 
-//Permet l'affichage d'un accélérateur par surcharge
-std::ostream& operator<<(std::ostream&, Accelerateur const&);
+/*//Permet l'affichage d'un accélérateur par surcharge
+std::ostream& operator<<(std::ostream&, Accelerateur const&);*/
