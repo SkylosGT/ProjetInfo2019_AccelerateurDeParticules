@@ -19,7 +19,7 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 void SupportOpenGL::dessine(Particule const& a_dessiner){
     QMatrix4x4 matrice;
     matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    matrice.scale(0.25);
+    matrice.scale(0.1);
     dessineSphere(matrice);
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){
