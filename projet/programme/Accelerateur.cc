@@ -40,10 +40,12 @@ Accelerateur::Accelerateur(SupportADessin* _support)
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
 	nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
 	nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
+	nouveau->change_support(support);
 	CollectionFaisceau.push_back(nouveau);}
 	
 void Accelerateur::ajoutParticule(Particule* nouveau) {
 	nouveau->change_element(trouveElementDeLaParticule(*nouveau));
+	nouveau->change_support(support);
 	CollectionParticule.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
@@ -52,6 +54,7 @@ void Accelerateur::ajoutElement(Element* nouveau) {
 			element->attache_element_suivant(nouveau);}
 		for(auto element : CollectionElement){
 			nouveau->attache_element_suivant(element);}}
+	nouveau->change_support(support);
 	CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionParticule() {

@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "Vecteur3D.h"
 #include "Particule.h"
 
 #include "Dessinable.h"

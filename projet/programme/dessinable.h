@@ -17,6 +17,8 @@ class Dessinable {
   //Une méthode virtuelle dessine qui sera redéfini dans les sous classes de Dessinable
   virtual void dessine() = 0;
 
+  virtual void change_support(SupportADessin* nouveau){support=nouveau;}
+
  protected:
  //Un pointeur sur un support a dessin comme attribut uniquement accessible pour ses sous classes
   SupportADessin* support;

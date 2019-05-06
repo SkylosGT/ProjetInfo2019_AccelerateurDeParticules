@@ -64,5 +64,11 @@ void Faisceau::calcul_ell_hori(){
 
 void Faisceau::changerElementDeLaParticuleDeReference(Element* element){
 	reference.change_element(element);}
+
+void Faisceau::change_support(SupportADessin* nouveau){
+	support=nouveau;
+	reference.change_support(nouveau);
+	for(auto particule : CollectionPart)
+	{particule->change_support(nouveau);}}
 		
 	

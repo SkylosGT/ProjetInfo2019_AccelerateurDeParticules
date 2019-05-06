@@ -8,8 +8,6 @@
 
 #include "Particule.h"
 
-class Particule;
-
 //En tête de la sous classe Faisceau de Dessinable avec descriptions de ses méthodes. Corps dans "Faisceau.h"
 class Faisceau : public Dessinable {
 /*Attributs protégés d'un faisceau (uniquement accessible par ses sous classes)*/	
@@ -60,5 +58,7 @@ class Faisceau : public Dessinable {
     void calcul_ell_hori();
 
 	void changerElementDeLaParticuleDeReference(Element*);
+
+	virtual void change_support(SupportADessin*) override;
 	
 };
