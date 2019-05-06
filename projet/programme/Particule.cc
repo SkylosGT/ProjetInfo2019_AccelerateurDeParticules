@@ -55,6 +55,9 @@ ostream& Particule::affiche(ostream& sortie) const{
     "   charge :"<<scal_q<<endl<<
     "   force :"<<vec_f<<endl;}
 
+void Particule::change_element(Element* suivant){
+    elem_courant=suivant;}
+
 //OPERATEUR INTERNE DE LA CLASSE PARTICULE   
 Particule& Particule::operator*=(double coef) {
 	scal_m*=coef;

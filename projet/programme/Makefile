@@ -19,13 +19,13 @@ exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o Ele
 
 exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
 
-#exerciceP10: exerciceP10.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+exerciceP10: exerciceP10.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
-#exerciceP10.o: exerciceP10.cc SupportConsole.h SupportADessin.h Dessinable.h
+exerciceP10.o: exerciceP10.cc SupportConsole.h SupportADessin.h Dessinable.h
 
-#exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
 
-#exerciceP9.o: exerciceP9.cc SupportConsole.h SupportADessin.h Dessinable.h
+exerciceP9.o: exerciceP9.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Dessinable.h
 
