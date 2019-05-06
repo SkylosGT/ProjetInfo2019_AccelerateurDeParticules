@@ -8,6 +8,8 @@ SOURCES += \
     Element.cc \
     ElementCourbe.cc \
     ElementDroit.cc \
+    Faisceau.cc\
+    FaisceauCirculaire.cc\
     Particule.cc \
     Quadrupole.cc \
     SectionDroite.cc \
@@ -21,6 +23,8 @@ HEADERS += \
     Element.h \
     ElementCourbe.h \
     ElementDroit.h \
+    Faisceau.h\
+    FaisceauCirculaire.h\
     Particule.h \
     Quadrupole.h \
     SectionDroite.h \

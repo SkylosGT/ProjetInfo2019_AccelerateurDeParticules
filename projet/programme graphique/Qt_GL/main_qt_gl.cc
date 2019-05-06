@@ -5,6 +5,7 @@
 #include "Quadrupole.h"
 #include "SectionDroite.h"
 #include "ConstantesPhysiques.h"
+#include "FaisceauCirculaire.h"
 
 using namespace ConstantesPhysiques;
 
@@ -74,8 +75,13 @@ int main(int argc, char* argv[])
   w.ajoutElement(&Q6);
 
   //Ajout des deux particules dans l'accélérateur
-  w.ajoutParticule(&p1);
-  w.ajoutParticule(&p2);
+  //Deux faisceaux circulaires avec comme particules de référence p1 et p2
+  FaisceauCirculaire faisceau1(p1, 10, 2);
+  FaisceauCirculaire faisceau2(p2, 100, 3);
+
+  //Ajout des faisceaux dans l'accélérateur
+  //w.ajoutFaisceau(&faisceau1);
+  w.ajoutFaisceau(&faisceau2);
 
   w.show();
 

@@ -1,6 +1,6 @@
 CONFIG += c++11
 
-TARGET = exerciceP10
+TARGET = exerciceP11
 
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a
@@ -9,7 +9,7 @@ INCLUDEPATH = ../general
 
 SOURCES += \
     SupportConsole.cc \
-    exerciceP10.cc
+    exerciceP11.cc
 
 
 HEADERS += \
@@ -21,6 +21,8 @@ HEADERS += \
     ../general/Element.h \
     ../general/ElementCourbe.h \
     ../general/ElementDroit.h \
+    ../general/Faisceau.h\
+    ../general/FaisceauCirculaire.h\
     ../general/Particule.h \
     ../general/Quadrupole.h \
     ../general/SectionDroite.h \

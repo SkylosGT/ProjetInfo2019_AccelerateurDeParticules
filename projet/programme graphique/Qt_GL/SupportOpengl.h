@@ -10,6 +10,7 @@ class SupportOpenGL : public SupportADessin {
  public:
   // méthode(s) de dessin (héritée(s) de SupportADessin)
   virtual void dessine(Accelerateur const& a_dessiner) override;
+  virtual void dessine(FaisceauCirculaire const& a_dessiner) override;
   virtual void dessine(Particule const& a_dessiner) override;
   virtual void dessine(Dipole const& a_dessiner) override;
   virtual void dessine(Quadrupole const& a_dessiner) override;

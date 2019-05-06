@@ -4,6 +4,7 @@
 #include "SectionDroite.h"
 #include "Quadrupole.h"
 #include "Dipole.h"
+#include "FaisceauCirculaire.h"
 
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
@@ -12,8 +13,16 @@ void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
         particule->dessine();}
     for (auto element : a_dessiner.getCollectionElement()) {
         element->dessine();}
+    for (auto faisceau :a_dessiner.getCollectionFaisceau()) {
+        faisceau->dessine();
+    }
 }
 
+void SupportOpenGL::dessine(FaisceauCirculaire const& a_dessiner){
+    for (auto particule : a_dessiner.getCollectionPart()) {
+        particule->dessine();
+    }
+}
 // =======================================================================
 
 void SupportOpenGL::dessine(Particule const& a_dessiner){
@@ -30,10 +39,6 @@ void SupportOpenGL::dessine(Dipole const& a_dessiner){
     //dessineCube(matrice);
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
-    QMatrix4x4 matrice;
-    matrice.scale(0.5);
-    matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    dessineCube(matrice);
 
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
