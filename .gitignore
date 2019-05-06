@@ -75,3 +75,7 @@
 
 *.json
 
+*.stash
+*.user
+*.Debug
+*.Release
