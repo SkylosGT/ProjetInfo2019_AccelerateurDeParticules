@@ -5,6 +5,8 @@
 #include "Quadrupole.h"
 #include "Dipole.h"
 #include "FaisceauCirculaire.h"
+#include <math.h>
+#include <GL/gl.h>
 
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
@@ -39,7 +41,8 @@ void SupportOpenGL::dessine(Dipole const& a_dessiner){
     //dessineCube(matrice);
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
-
+    glBegin(GL_LINE)
+    prog.setAttributeValue(SommetId,)
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
     //QMatrix4x4 matrice;
@@ -221,3 +224,4 @@ void SupportOpenGL::dessineSphere(const QMatrix4x4 &point_de_vue, double rouge, 
     prog.setAttributeValue(CouleurId, rouge, vert, bleu);
     sphere.draw(prog, SommetId);
 }
+
