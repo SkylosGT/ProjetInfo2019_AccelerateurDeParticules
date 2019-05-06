@@ -16,10 +16,13 @@ class ElementDroit: public Element {
         //Destructeur de l'élément droit
         ~ElementDroit();
 
-    /*Méthodes de l'interface Element Droit*/
+    /*Méthodes de l'interface Element Droit (redéfinition de méthode héritées de Element)*/
 
         //Définit si une particule heurte le bord de l'élément
         virtual bool heurte_bord(Particule const&) const override;
+        
+        //Calcul un vecteur3D spécifique aux éléments droits nécesaire aux calculs d'émittances d'un faisceau
+        virtual Vecteur3D u(Particule const&) const override;
 };
 
 
