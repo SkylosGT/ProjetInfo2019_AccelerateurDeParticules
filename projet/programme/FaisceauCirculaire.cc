@@ -13,6 +13,9 @@ FaisceauCirculaire::FaisceauCirculaire(Particule _ref,long int _nb, double _coef
 void FaisceauCirculaire::bouger(double dt) {
 	for (auto _particule : CollectionPart) {
 		_particule->ajouteForceMagnetique(_particule->elemCourant()->champMagnetique(_particule->position()), dt);
+		for(auto _part : CollectionPart) {
+			if(_part!=_particule){
+				_particule->ajouteInteractionParticule(*_part);}}
 		_particule->bouger(dt);}
 	if((CollectionPart.size()) < (nombre_particule/coef_simulation)) {
 		CollectionPart.push_back(new Particule(reference*=coef_simulation));}
