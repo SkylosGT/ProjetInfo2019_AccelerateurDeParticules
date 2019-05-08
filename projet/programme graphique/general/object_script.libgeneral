@@ -1,0 +1,13 @@
+CREATE libgeneral.a
+ADDMOD Accelerateur.o
+ADDMOD Dipole.o
+ADDMOD Element.o
+ADDMOD ElementCourbe.o
+ADDMOD ElementDroit.o
+ADDMOD Faisceau.o
+ADDMOD FaisceauCirculaire.o
+ADDMOD Particule.o
+ADDMOD Quadrupole.o
+ADDMOD SectionDroite.o
+ADDMOD Vecteur3D.o
+SAVE

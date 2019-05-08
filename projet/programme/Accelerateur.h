@@ -3,9 +3,9 @@
 #include <iostream>
 #include <vector>
 
-#include "Element.h"
+//#include "Element.h"
 #include "Faisceau.h"
-#include "Dessinable.h"
+
 
 //En tête de la classe Accelerateur avec descriptions de ses méthodes. Corps dans "Accelerateur.h"
 class Accelerateur: public Dessinable {

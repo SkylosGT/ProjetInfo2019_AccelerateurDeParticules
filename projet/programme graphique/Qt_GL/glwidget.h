@@ -19,6 +19,7 @@ public:
 
   void ajoutParticule(Particule* nouveau){a.ajoutParticule(nouveau);}
   void ajoutElement(Element* nouveau) {a.ajoutElement(nouveau);}
+  void ajoutFaisceau(Faisceau* nouveau){a.ajoutFaisceau(nouveau);}
 
   private:
   // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter

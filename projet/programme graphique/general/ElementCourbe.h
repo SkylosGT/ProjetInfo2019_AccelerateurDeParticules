@@ -22,13 +22,17 @@ class ElementCourbe : public Element {
 
         //Constructeur de l'élément Courbe qui ne peut pas avoir d'élément suivant attaché à lui
         ElementCourbe(Vecteur3D, Vecteur3D, double, double, SupportADessin*);
+        double rayonDeCourbure() const {return scal_k;}
 
         //Destructeur d'un élément Courbe
         ~ElementCourbe();
 
-    /*Méthodes de l'interface Element Courbe*/
+    /*Méthodes de l'interface Element Courbe (redéfinition de méthodes héritées de Element)*/
 
         //Définit si une particule heurte le bord de l'élément
         virtual bool heurte_bord(Particule const&) const override;
+        
+        //Calcul un vecteur3D spécifique aux éléments courbes nécesaire aux calculs d'émittances d'un faisceau
+        virtual Vecteur3D u(Particule const&) const override;
 };
 

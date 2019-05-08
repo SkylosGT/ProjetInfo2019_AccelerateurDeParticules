@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "Vecteur3D.h"
 #include "Particule.h"
 
 #include "Dessinable.h"
@@ -23,8 +22,10 @@ class Element : public Dessinable{
     public:
 
         //Getter, retourne l'élément suivant l'élément courant
-        Element* elemSuivant() {return elem_suivant;}
-        Vecteur3D position() const{return vec_re;}
+        Element* elemSuivant() const{return elem_suivant;}
+        Vecteur3D entree() const{return vec_re;}
+        Vecteur3D sortie() const{return vec_rs;}
+        double rayonDeLaChambre() const {return scal_Re;}
     
         //Constructeur d'un élément qui ne pointe par défault vers aucun élément suivant
         Element(Vecteur3D, Vecteur3D, double, SupportADessin*, Element* _suivant=nullptr);
@@ -42,6 +43,9 @@ class Element : public Dessinable{
 
         //Sera subsistuée pour afficher un élément
         virtual std::ostream& affiche(std::ostream&) const=0;
+        
+        //Sera substitué afin de calculer en fonction de l'élément courant d'une particule un vecteur3D u utile aux calculs d'émittance d'un faisceau
+        virtual Vecteur3D u(Particule const&) const=0;
     
     /*Méthodes de l'interface de la classe Element*/
 

@@ -29,6 +29,8 @@ HEADERS += \
     ../general/Element.h \
     ../general/ElementCourbe.h \
     ../general/ElementDroit.h \
+    ../general/Faisceau.h\
+    ../general/FaisceauCirculaire.h\
     ../general/Particule.h \
     ../general/Quadrupole.h \
     ../general/SectionDroite.h \
