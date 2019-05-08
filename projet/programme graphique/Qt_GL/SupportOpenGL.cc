@@ -50,7 +50,7 @@ void SupportOpenGL::dessine(Dipole const& a_dessiner){
         }else {
         matrice.rotate(90,0,0,1);}
     }
-    dessinCylindreIncurve(matrice, 1, 1);
+    dessinCylindreIncurve(matrice, 1, 0.1);
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
 
@@ -63,7 +63,7 @@ void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
     else {
         if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
         else {matrice.rotate(0,0,0,1);}}
-    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 1);
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 0.1);
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
 
@@ -76,7 +76,7 @@ void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
     else {
         if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
         else {matrice.rotate(0,0,0,1);}}
-    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 1);
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 0.1);
 }
 
 // ======================================================================
@@ -298,14 +298,14 @@ void SupportOpenGL::dessinCylindreIncurve(const QMatrix4x4 &point_de_vue, double
      double rayonLigne=rayonDeCourbure+rayon*sin(j*angleCylindre);
      glBegin(GL_LINE_STRIP);
      for (size_t i(0);i<=precision;i++) {
-         prog.setAttributeValue(SommetId, rayon-rayonLigne*cos(i*angleLigne),rayonLigne*sin(i*angleLigne), rayon*cos(j*angleCylindre));
+         prog.setAttributeValue(SommetId, rayonDeCourbure-rayonLigne*cos(i*angleLigne),rayonLigne*sin(i*angleLigne), rayon*cos(j*angleCylindre));
      }
      glEnd();}
  matrice.translate(rayonDeCourbure,rayonDeCourbure,0);
  matrice.rotate(90, 0, 0,1);
  dessineCercle(matrice, precision, rayon);
  matrice=point_de_vue;
- matrice.translate(rayon-rayon*cos(M_PI/4),rayon*sin(M_PI/4),0);
+ matrice.translate(rayonDeCourbure-rayonDeCourbure*cos(M_PI/4),rayonDeCourbure*sin(M_PI/4),0);
  matrice.rotate(-45,0,0,1);
 
  dessineCercle(matrice, precision, rayon);
