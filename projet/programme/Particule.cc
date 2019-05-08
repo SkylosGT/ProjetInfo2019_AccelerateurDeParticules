@@ -1,6 +1,5 @@
 #include "Particule.h"
 #include "ConstantesPhysiques.h"
-#include <cmath>
 
 using  namespace ConstantesPhysiques;
 using namespace std;
@@ -43,7 +42,7 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
         
 void Particule::ajouteInteractionParticule(Particule const& autre) {	
 	Vecteur3D distance(vec_r-autre.vec_r);
-	vec_f+=(pow(scal_q,2)/(4*M_PI*const_e0*pow(distance.norme(),3)))*pow(autre.FacteurGamma(),-2)*distance; }
+	vec_f+=(pow(scal_q,2)/(4*M_PI*const_e0*pow(distance.norme(),3)))*pow(autre.FacteurGamma(),-2)*distance;}
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
