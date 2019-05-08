@@ -60,5 +60,7 @@ class Faisceau : public Dessinable {
 	void changerElementDeLaParticuleDeReference(Element*);
 
 	virtual void change_support(SupportADessin*) override;
+
+    virtual void lanceParticule(double)=0;
 	
 };

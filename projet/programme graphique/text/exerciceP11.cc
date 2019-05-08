@@ -102,7 +102,7 @@ int main () {
 	_accelerateur.dessine();
 	
 	//Test de l'évolution du système
-	for(size_t i = 0; i < 20; i++)
+    for(size_t i = 0; i < 2000; i++)
     {
         _accelerateur.evolue(1e-11);
     }

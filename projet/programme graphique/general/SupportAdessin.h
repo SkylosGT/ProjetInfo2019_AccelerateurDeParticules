@@ -23,6 +23,7 @@ class SupportADessin
   virtual void dessine(Quadrupole const& a_dessiner)=0;
   virtual void dessine(SectionDroite const& a_dessiner)=0;
 
+
 };
 
 

@@ -5,8 +5,10 @@
 #include "Quadrupole.h"
 #include "Dipole.h"
 #include "FaisceauCirculaire.h"
+#include "Element.h"
 #include <math.h>
-#include <GL/gl.h>
+
+#define _USE_MATH_DEFINES
 
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
@@ -34,21 +36,47 @@ void SupportOpenGL::dessine(Particule const& a_dessiner){
     dessineSphere(matrice);
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){
-   // QMatrix4x4 matrice;
-    //matrice.scale(0.5);
-    //matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
+    QMatrix4x4 matrice;
 
-    //dessineCube(matrice);
+    matrice.translate(a_dessiner.entree().getx(),a_dessiner.entree().gety(),a_dessiner.entree().getz());
+    if(a_dessiner.entree().getx()>0){
+        if(a_dessiner.entree().gety()>0){
+            matrice.rotate(270,0,0,1);
+        }else {
+        matrice.rotate(180,0,0,1);}
+    }else{
+        if(a_dessiner.entree().gety()>0){
+            matrice.rotate(0,0,0,1);
+        }else {
+        matrice.rotate(90,0,0,1);}
+    }
+    dessinCylindreIncurve(matrice, 1, 1);
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
-    glBegin(GL_LINE)
-    prog.setAttributeValue(SommetId,)
+
+    QMatrix4x4 matrice;
+
+    matrice.translate(a_dessiner.entree().getx(), a_dessiner.entree().gety(), a_dessiner.entree().getz());
+    if((a_dessiner.entree()-a_dessiner.sortie()).gety()==0){
+        if(a_dessiner.entree().gety()>0){matrice.rotate(270,0,0,1);}
+        else {matrice.rotate(90,0,0,1);}}
+    else {
+        if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
+        else {matrice.rotate(0,0,0,1);}}
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 1);
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
-    //QMatrix4x4 matrice;
-    //matrice.scale(0.5);
-    //matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    //dessineCube(matrice);
+
+    QMatrix4x4 matrice;
+
+    matrice.translate(a_dessiner.entree().getx(), a_dessiner.entree().gety(), a_dessiner.entree().getz());
+    if((a_dessiner.entree()-a_dessiner.sortie()).gety()==0){
+        if(a_dessiner.entree().gety()>0){matrice.rotate(270,0,0,1);}
+        else {matrice.rotate(90,0,0,1);}}
+    else {
+        if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
+        else {matrice.rotate(0,0,0,1);}}
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 1);
 }
 
 // ======================================================================
@@ -147,21 +175,20 @@ void SupportOpenGL::dessineAxes(QMatrix4x4 const& point_de_vue, bool en_couleur)
     glBegin(GL_LINES);
 
     // axe X
-    if(en_couleur){
-        prog.setAttributeValue(CouleurId, 1.0, 0.0, 0.0); // rouge
-    }else {
-        prog.setAttributeValue(CouleurId, 1.0, 1.0, 1.0); // blanc
-    }
+    if(en_couleur){prog.setAttributeValue(CouleurId, 1.0, 0.0, 0.0);} // rouge
+    else {prog.setAttributeValue(CouleurId, 1.0, 1.0, 1.0);} // blanc
     prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
     prog.setAttributeValue(SommetId, 1.0,0.0,0.0);
 
     // axe Y
-    if(en_couleur) prog.setAttributeValue(CouleurId, 0.0, 1.0, 0.0); // vert
+    if(en_couleur) {prog.setAttributeValue(CouleurId, 0.0, 1.0, 0.0);} // vert
+    else {prog.setAttributeValue(CouleurId, 1.0, 1.0, 1.0);} // blanc
     prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
     prog.setAttributeValue(SommetId, 0.0,1.0,0.0);
 
     // axe Z
-    if(en_couleur) prog.setAttributeValue(CouleurId, 0.0, 0.0, 1.0); // bleu
+    if(en_couleur) {prog.setAttributeValue(CouleurId, 0.0, 0.0, 1.0);} // bleu
+    else {prog.setAttributeValue(CouleurId, 1.0, 1.0, 1.0);} // blanc
     prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
     prog.setAttributeValue(SommetId, 0.0,0.0,1.0);
 
@@ -224,4 +251,64 @@ void SupportOpenGL::dessineSphere(const QMatrix4x4 &point_de_vue, double rouge, 
     prog.setAttributeValue(CouleurId, rouge, vert, bleu);
     sphere.draw(prog, SommetId);
 }
+
+void SupportOpenGL::dessinePoint( QMatrix4x4 const& point_de_vue, double taille){
+    prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
+    glPointSize(taille);
+    glBegin(GL_POINTS);
+    prog.setAttributeValue(SommetId, 0.0,0.0,0.0);
+    glEnd();
+}
+
+void SupportOpenGL::dessineCercle(QMatrix4x4 const& point_de_vue, double precision, double rayon){
+    prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
+    double theta=2*M_PI/precision;
+    glBegin(GL_LINE_STRIP);
+    for (size_t i(0);i<=precision;i++) {
+       prog.setAttributeValue(SommetId, rayon*cos(i*theta),0.0,rayon*sin(i*theta));
+    }
+    glEnd();
+}
+
+void SupportOpenGL::dessineCylindre(QMatrix4x4 const& point_de_vue, double longueur, double rayon){
+    prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
+    double precision=36;
+    int lineAmount=8;
+    double theta=2*M_PI/lineAmount;
+    dessineCercle(point_de_vue, precision, rayon);
+    glBegin(GL_LINES);
+    for (size_t i(0);i<lineAmount;i++) {
+       prog.setAttributeValue(SommetId, rayon*cos(i*theta), 0, rayon*sin(i*theta));
+       prog.setAttributeValue(SommetId, rayon*cos(i*theta), longueur, rayon*sin(i*theta));
+    }
+    glEnd();
+    QMatrix4x4 matrice=point_de_vue;
+    matrice.translate(0.0, longueur, 0.0);
+    dessineCercle(matrice, precision, rayon);
+}
+
+void SupportOpenGL::dessinCylindreIncurve(const QMatrix4x4 &point_de_vue, double rayonDeCourbure, double rayon){
+ double precision=36;
+ int lineAmount=8;
+ double angleCylindre=2*M_PI/(lineAmount);
+ double angleLigne=M_PI/(2*precision);
+ dessineCercle(point_de_vue, precision, rayon);
+ QMatrix4x4 matrice=point_de_vue;
+ for (size_t j(0);j<lineAmount;j++) {
+     double rayonLigne=rayonDeCourbure+rayon*sin(j*angleCylindre);
+     glBegin(GL_LINE_STRIP);
+     for (size_t i(0);i<=precision;i++) {
+         prog.setAttributeValue(SommetId, rayon-rayonLigne*cos(i*angleLigne),rayonLigne*sin(i*angleLigne), rayon*cos(j*angleCylindre));
+     }
+     glEnd();}
+ matrice.translate(rayonDeCourbure,rayonDeCourbure,0);
+ matrice.rotate(90, 0, 0,1);
+ dessineCercle(matrice, precision, rayon);
+ matrice=point_de_vue;
+ matrice.translate(rayon-rayon*cos(M_PI/4),rayon*sin(M_PI/4),0);
+ matrice.rotate(-45,0,0,1);
+
+ dessineCercle(matrice, precision, rayon);
+}
+
 
