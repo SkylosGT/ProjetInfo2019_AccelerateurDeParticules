@@ -57,6 +57,9 @@ class Particule : public Dessinable {
 
     //Ajoute une force s'appliquant sur la particule et effectue une rotation sur celle la
     void ajouteForceMagnetique(Vecteur3D, double);
+    
+    //Ajoute une force du à l'intéraction éléctromagnétique avec une autre particule
+    void ajouteInteractionParticule(Particule const&);
 
     //Déplace la particule et modifie sa vitesse en fonction des attributs de l'instance courante et du pas de temps définit
     void bouger(double);
