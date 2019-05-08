@@ -25,6 +25,7 @@ class Element : public Dessinable{
         Element* elemSuivant() const{return elem_suivant;}
         Vecteur3D entree() const{return vec_re;}
         Vecteur3D sortie() const{return vec_rs;}
+        double rayonDeLaChambre() const {return scal_Re;}
     
         //Constructeur d'un élément qui ne pointe par défault vers aucun élément suivant
         Element(Vecteur3D, Vecteur3D, double, SupportADessin*, Element* _suivant=nullptr);

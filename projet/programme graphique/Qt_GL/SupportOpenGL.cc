@@ -32,8 +32,8 @@ void SupportOpenGL::dessine(FaisceauCirculaire const& a_dessiner){
 void SupportOpenGL::dessine(Particule const& a_dessiner){
     QMatrix4x4 matrice;
     matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    matrice.scale(0.1);
-    dessineSphere(matrice);
+    matrice.scale(0.05);
+    dessineSphere(matrice,(*new Vecteur3D(1,0,0)));
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){
     QMatrix4x4 matrice;
@@ -50,7 +50,7 @@ void SupportOpenGL::dessine(Dipole const& a_dessiner){
         }else {
         matrice.rotate(90,0,0,1);}
     }
-    dessinCylindreIncurve(matrice, 1, 0.1);
+    dessinCylindreIncurve(matrice, a_dessiner.rayonDeCourbure(), a_dessiner.rayonDeLaChambre());
 }
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
 
@@ -63,7 +63,7 @@ void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
     else {
         if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
         else {matrice.rotate(0,0,0,1);}}
-    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 0.1);
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), a_dessiner.rayonDeLaChambre());
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
 
@@ -76,7 +76,7 @@ void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
     else {
         if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
         else {matrice.rotate(0,0,0,1);}}
-    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), 0.1);
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), a_dessiner.rayonDeLaChambre());
 }
 
 // ======================================================================
@@ -246,9 +246,9 @@ void SupportOpenGL::dessineCube (QMatrix4x4 const& point_de_vue)
   glEnd();
 }
 
-void SupportOpenGL::dessineSphere(const QMatrix4x4 &point_de_vue, double rouge, double vert, double bleu){
+void SupportOpenGL::dessineSphere(const QMatrix4x4 &point_de_vue, Vecteur3D couleur){
     prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
-    prog.setAttributeValue(CouleurId, rouge, vert, bleu);
+    prog.setAttributeValue(CouleurId, couleur.getx(), couleur.gety(), couleur.getz());
     sphere.draw(prog, SommetId);
 }
 
@@ -260,55 +260,58 @@ void SupportOpenGL::dessinePoint( QMatrix4x4 const& point_de_vue, double taille)
     glEnd();
 }
 
-void SupportOpenGL::dessineCercle(QMatrix4x4 const& point_de_vue, double precision, double rayon){
+void SupportOpenGL::dessineCercle(QMatrix4x4 const& point_de_vue, double precision, double rayon, Vecteur3D couleur){
     prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
     double theta=2*M_PI/precision;
     glBegin(GL_LINE_STRIP);
     for (size_t i(0);i<=precision;i++) {
+       prog.setAttributeValue(CouleurId, couleur.getx(), couleur.gety(), couleur.getz());
        prog.setAttributeValue(SommetId, rayon*cos(i*theta),0.0,rayon*sin(i*theta));
     }
     glEnd();
 }
 
-void SupportOpenGL::dessineCylindre(QMatrix4x4 const& point_de_vue, double longueur, double rayon){
+void SupportOpenGL::dessineCylindre(QMatrix4x4 const& point_de_vue, double longueur, double rayon, Vecteur3D couleur){
     prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
     double precision=36;
     int lineAmount=8;
     double theta=2*M_PI/lineAmount;
-    dessineCercle(point_de_vue, precision, rayon);
+    dessineCercle(point_de_vue, precision, rayon, couleur);
     glBegin(GL_LINES);
     for (size_t i(0);i<lineAmount;i++) {
+       prog.setAttributeValue(CouleurId, couleur.getx(), couleur.gety(), couleur.getz());
        prog.setAttributeValue(SommetId, rayon*cos(i*theta), 0, rayon*sin(i*theta));
        prog.setAttributeValue(SommetId, rayon*cos(i*theta), longueur, rayon*sin(i*theta));
     }
     glEnd();
     QMatrix4x4 matrice=point_de_vue;
     matrice.translate(0.0, longueur, 0.0);
-    dessineCercle(matrice, precision, rayon);
+    dessineCercle(matrice, precision, rayon, couleur);
 }
 
-void SupportOpenGL::dessinCylindreIncurve(const QMatrix4x4 &point_de_vue, double rayonDeCourbure, double rayon){
+void SupportOpenGL::dessinCylindreIncurve(const QMatrix4x4 &point_de_vue, double rayonDeCourbure, double rayon, Vecteur3D couleur){
  double precision=36;
  int lineAmount=8;
  double angleCylindre=2*M_PI/(lineAmount);
  double angleLigne=M_PI/(2*precision);
- dessineCercle(point_de_vue, precision, rayon);
+ dessineCercle(point_de_vue, precision, rayon, couleur);
  QMatrix4x4 matrice=point_de_vue;
  for (size_t j(0);j<lineAmount;j++) {
      double rayonLigne=rayonDeCourbure+rayon*sin(j*angleCylindre);
      glBegin(GL_LINE_STRIP);
      for (size_t i(0);i<=precision;i++) {
+         prog.setAttributeValue(CouleurId, couleur.getx(), couleur.gety(), couleur.getz());
          prog.setAttributeValue(SommetId, rayonDeCourbure-rayonLigne*cos(i*angleLigne),rayonLigne*sin(i*angleLigne), rayon*cos(j*angleCylindre));
      }
      glEnd();}
  matrice.translate(rayonDeCourbure,rayonDeCourbure,0);
  matrice.rotate(90, 0, 0,1);
- dessineCercle(matrice, precision, rayon);
+ dessineCercle(matrice, precision, rayon, couleur);
  matrice=point_de_vue;
  matrice.translate(rayonDeCourbure-rayonDeCourbure*cos(M_PI/4),rayonDeCourbure*sin(M_PI/4),0);
  matrice.rotate(-45,0,0,1);
 
- dessineCercle(matrice, precision, rayon);
+ dessineCercle(matrice, precision, rayon, couleur);
 }
 
 
