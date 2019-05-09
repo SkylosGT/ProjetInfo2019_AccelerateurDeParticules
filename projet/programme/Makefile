@@ -13,7 +13,7 @@ CXXFLAGS += -g                    # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 
-all:  testParticule testVecteur exerciceP11
+all:  testParticule testVecteur exerciceP11 
 
 exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o FaisceauCirculaire.o
 
