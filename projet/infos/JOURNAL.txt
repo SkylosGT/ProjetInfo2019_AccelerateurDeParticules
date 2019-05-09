@@ -107,7 +107,9 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 11 :
-
+Log Joséphine:
+-Exercice P13 : implémentation de la méthode qui ajoute une force éléctromagnétique à une particule dû à l'interaction de celle-ci avec une autre particule
+-Changement dans la méthode bouger des Faisceaux Ciruclaire afin de prendre en compte ces nouvelles forces 
 
 
 --------------------------------------------------
