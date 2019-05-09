@@ -76,6 +76,9 @@ class Particule : public Dessinable {
     
     //Surcharge de l'opérateur *= qui multiplie la masse et la charge d'une particule par l'argument
     Particule& operator*=(double);
+    
+    //Surcharge de l'opérateur != qui compare la charge, la masse, la vitesse, et la position de deux particules
+    bool operator!=(Particule const&) const;
 };
 
 /*OPERATEURS EXTERNES*/

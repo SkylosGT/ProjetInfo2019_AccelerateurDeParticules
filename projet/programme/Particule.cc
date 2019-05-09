@@ -67,6 +67,12 @@ Particule& Particule::operator*=(double coef) {
 	scal_m*=coef;
 	scal_q*=coef;
 	return *this;}
+	
+bool Particule::operator!=(Particule const& autre) const {
+	if((scal_m!=autre.scal_m) or (scal_q!=autre.scal_q) or (vec_r!=autre.vec_r) or (vec_v!=autre.vec_v)){
+		return true;
+	}else{
+		return false;}}
 
 //OPERATEURS EXTERNES A LA CLASSE PARTICULE UTILISANT LES METHODES DE LA CLASSE
 ostream& operator<<(ostream& sortie, Particule const& P){
