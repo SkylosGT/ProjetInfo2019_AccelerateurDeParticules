@@ -78,7 +78,7 @@ class Particule : public Dessinable {
     Particule& operator*=(double);
     
     //Surcharge de l'opérateur != qui compare la charge, la masse, la vitesse, et la position de deux particules
-    bool operator!=(Particule const&) const;
+    bool operator==(Particule const&) const;
 };
 
 /*OPERATEURS EXTERNES*/

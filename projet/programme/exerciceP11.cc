@@ -90,19 +90,19 @@ int main () {
     Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
     
     //Deux faisceaux circulaires avec comme particules de référence p1 et p2
-	FaisceauCirculaire faisceau1(p1, 10, 2);
-	FaisceauCirculaire faisceau2(p2, 6, 3);
+	FaisceauCirculaire faisceau1(p1, 1000, 200);
+	/*FaisceauCirculaire faisceau2(p2, 6, 3);*/
 	
 	//Ajout des faisceaux dans l'accélérateur
 	_accelerateur.ajoutFaisceau(&faisceau1);
-	_accelerateur.ajoutFaisceau(&faisceau2);
+	/*_accelerateur.ajoutFaisceau(&faisceau2);*/
 	
 	//Test de l'ajout des faisceaux dans l'accélérateur
 	cout << "AVANT EVOLUTION DU SYSTEME ET APRES AJOUT DE FAISCEAU"<< endl;
 	_accelerateur.dessine();
 	
 	//Test de l'évolution du système
-	for(size_t i = 0; i < 20; i++)
+	for(size_t i = 0; i < 25; i++)
     {
         _accelerateur.evolue(1e-11);
     }

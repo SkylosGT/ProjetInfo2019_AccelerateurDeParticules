@@ -42,7 +42,10 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
         
 void Particule::ajouteInteractionParticule(Particule const& autre) {	
 	Vecteur3D distance(vec_r-autre.vec_r);
-	vec_f+=(pow(scal_q,2)/(4*M_PI*const_e0*pow(distance.norme(),3)))*pow(autre.FacteurGamma(),-2)*distance;}
+	Vecteur3D diff_vitesse(vec_v-autre.vec_v);
+	double _gamma(1/sqrt(1-(diff_vitesse.norme2()/(const_c*const_c))));
+	cout <<((scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme()*pow(_gamma,2)))*distance<<endl;
+	vec_f+=((scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme()*pow(_gamma,2)))*distance;}
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
@@ -68,8 +71,8 @@ Particule& Particule::operator*=(double coef) {
 	scal_q*=coef;
 	return *this;}
 	
-bool Particule::operator!=(Particule const& autre) const {
-	if((scal_m!=autre.scal_m) or (scal_q!=autre.scal_q) or (vec_r!=autre.vec_r) or (vec_v!=autre.vec_v)){
+bool Particule::operator==(Particule const& autre) const {
+	if((scal_m==autre.scal_m) and (scal_q==autre.scal_q) and (vec_r==autre.vec_r) and (vec_v==autre.vec_v)){
 		return true;
 	}else{
 		return false;}}
