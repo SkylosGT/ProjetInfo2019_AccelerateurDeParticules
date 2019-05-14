@@ -1,5 +1,9 @@
+#define _USE_MATH_DEFINES
+
+#include <math.h>
 #include "Particule.h"
 #include "ConstantesPhysiques.h"
+
 
 using  namespace ConstantesPhysiques;
 using namespace std;
