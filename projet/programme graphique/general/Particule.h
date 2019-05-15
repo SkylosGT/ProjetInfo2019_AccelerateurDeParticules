@@ -58,6 +58,8 @@ class Particule : public Dessinable {
     //Ajoute une force s'appliquant sur la particule et effectue une rotation sur celle la
     void ajouteForceMagnetique(Vecteur3D, double);
 
+    void ajouteInteractionParticule(Particule const&);
+
     //Déplace la particule et modifie sa vitesse en fonction des attributs de l'instance courante et du pas de temps définit
     void bouger(double);
 
@@ -73,6 +75,8 @@ class Particule : public Dessinable {
     
     //Surcharge de l'opérateur *= qui multiplie la masse et la charge d'une particule par l'argument
     Particule& operator*=(double);
+
+    bool operator==(Particule const&) const;
 };
 
 /*OPERATEURS EXTERNES*/
