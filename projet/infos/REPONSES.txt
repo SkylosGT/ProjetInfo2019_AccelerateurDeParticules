@@ -31,6 +31,11 @@ QUESTION P6.4
 NSM JE TE LA LAISSE EHEH
 
 QUESTION P7.1
+La classe Accélérateur doit pour l'instant simuler le système physique qu'est l'accélérateur de particule. Cette classe a donc besoin d'une collection de particules et d'une collection d'éléments (courbe, droit, dipôles..) comme attributs privés afin de part la suite simuler des interactions entre elle les particules ainsi que l'évolution de celles-ci dans les éléments de l'accélérateur. Ces collections seront contenues dans un tableau dynamique de type vector.
+Afin de pouvoir visualiser l'évolution de cet accélérateur, une interphase texte est requise pour l'instant (interphase graphique pour plus tard). La façon  la plus pratique d'implémenter cette simulation est de créer une méthode affiche publique dans l'accélérateur. Cette méthode affiche fait donc une itération sur chaque éléments et particules qu'elle contient et affiche leur attributs pertinents. 
+Cette fonction affiche (pour une meilleure visibilité et logique du code) utilise les fonctions affiche des éléments et des particules implémentée dans leurs propres classes.
+Enfin, il est nécéssaire que la collection d'élément soit un tableau de pointeurs sur des éléments afin d'utiliser le polymorphisme pour afficher soit un dipôle, soit un quadruple, soit une section droite.
+Nous avons décidé d'utiliser aussi un tableau de pointeurs sur des particules pour la collection de particules. Il est en effet plus rigoureux de l'implémenter comme ça au vu de possibles sous-classes de particules (dans un projet plus poussé par exemple).
 
 QUESTION P7.2
 QUESTION P9.1
