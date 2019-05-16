@@ -25,6 +25,8 @@ Les champs magnétiques sont propres à chaque élément d'un accélérateur. Il
 De plus, le choix d'utilisé une méthode plutôt qu'un attribut est un choix évident (il serait même beaucoup trop compliqué de l'implémenter en attributs)  puisque chaque champs magnétiques d'un élément est calculé différemment d'un autre et l'implémentation logique est donc la redéfinition d'une méthode virtuelle prenant la position d'une particule en argument et retournant le champ magnétique B que subit la particule à cette position.
 
 QUESTION P6.3
+Oui nous avons représenté le centre de courbure d'un élément droit au travers d'une méthode protégée ne prenant aucun argument (le calcule n'utilise que les attributs d'un élément courbe : position d'entrée, position de sortie, rayon de courbure ainsi que le troisième vecteur de la base cartésienne orthonormée), qui ne modifie pas les attributs de l'instance courante (const) et qui retourne un vecteur3D indiquant la position du centre de courbure.
+
 QUESTION P6.4
 QUESTION P7.1
 QUESTION P7.2
