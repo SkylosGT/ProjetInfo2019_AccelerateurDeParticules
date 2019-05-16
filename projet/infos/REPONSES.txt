@@ -38,6 +38,32 @@ Enfin, il est nécéssaire que la collection d'élément soit un tableau de poin
 Nous avons décidé d'utiliser aussi un tableau de pointeurs sur des particules pour la collection de particules. Il est en effet plus rigoureux de l'implémenter comme ça au vu de possibles sous-classes de particules (dans un projet plus poussé par exemple).
 
 QUESTION P7.2
+On ne souhaite pas pouvoir copier un accélérateur dans un autre soit pas affectation = soit par copie. Pourquoi? Tout d'abord dans notre projet nous ne programmons qu'un accélérateur de particules et non plusieurs. Nous n'avons pas besoin d'un autre accélérateur et en aucun cas il est utile d'avoir deux accélérateurs exactement pareil. De plus, une instance accélérateur dans lequel on a ajouté des éléments et des particules occupe beaucoup trop de mémoire.
+Il est donc nécéssaire d'empêcher qu'une telle copie soit faites dans le code de ce projet.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 QUESTION P9.1
 QUESTION P9.2
 QUESTION P9.3
