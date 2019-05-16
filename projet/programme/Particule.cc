@@ -39,17 +39,18 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
         vec_f=(*new Vecteur3D);}
     else{
         vec_f=(scal_q*vec_v)^_B;
-        cout<<"     avant rotation corrective :"<<vec_f<<endl;
+        //cout<<"     avant rotation corrective :"<<vec_f<<endl;
         vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));
-        cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
-        cout<<"     après rotation corrective :"<<vec_f<<endl;}} 
+        //cout<<"     Angle de correction : "<<calculateDeviationAngle(_dt)<<endl;
+        //cout<<"     après rotation corrective :"<<vec_f<<endl;
+        }} 
         
 void Particule::ajouteInteractionParticule(Particule const& autre) {	
 	Vecteur3D distance(vec_r-autre.vec_r);
-	Vecteur3D diff_vitesse(vec_v-autre.vec_v);
-	double _gamma(1/sqrt(1-(diff_vitesse.norme2()/(const_c*const_c))));
-	cout <<((scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme()*pow(_gamma,2)))*distance<<endl;
-	vec_f+=((scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme()*pow(_gamma,2)))*distance;}
+    Vecteur3D vec_F=(scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme())*pow(FacteurGamma(),-2)*distance;
+    cout<<"F"<<vec_F<<endl;
+    vec_f+=vec_F;
+    cout<<"f"<<vec_f<<endl;}
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;

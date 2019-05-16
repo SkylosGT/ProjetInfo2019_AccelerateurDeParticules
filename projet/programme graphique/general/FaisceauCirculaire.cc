@@ -16,7 +16,7 @@ void FaisceauCirculaire::bouger(double dt) {
 		_particule->ajouteForceMagnetique(_particule->elemCourant()->champMagnetique(_particule->position()), dt);
 		for(auto part : CollectionPart){
 			if(not((*part)==(*_particule))){
-				_particule->ajouteInteractionParticule(*(part));}}
+                _particule->ajouteInteractionParticule(*part);}}
 		_particule->bouger(dt);}
     lanceParticule(dt);
 	(*this).energie_moyenne();
@@ -31,7 +31,6 @@ ostream& FaisceauCirculaire::affiche(ostream& sortie) const{
 	
 void FaisceauCirculaire::lanceParticule(double dt){
     if(tmp>=dt_lancement){
-        std::cout<<"debug";
     if((CollectionPart.size()) < (nombre_particule/coef_simulation)) {
         CollectionPart.push_back(new Particule(reference*=coef_simulation));
     tmp=0;}}
