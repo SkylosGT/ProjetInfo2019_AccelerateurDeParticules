@@ -19,9 +19,10 @@ De plus, si nous avions choisi d'implémenter gamma et énergie en attributs, le
 QUESTION P6.1
 Il parait assez évident qu'il est nécessaire avant de créer des classes élément courbe et droit, de créer une super-classe Element dont elles hériteront. En effet, les éléments droits et courbes différent déjà juste par leur géométrie, mais elles restent des éléments ayant des attributs et des méthodes en commun.
 Dans la super-classe Element, on définit, comme l'indique l'énoncé de l'exercice, les attributs suivants qui seront hérités dans chaque sous-classe d'élément: un vecteur3D représentant la position d'entrée de l'élément, au autre pour sa position de sortie, un scalaire représentant le rayon de la chambre à vide, et enfin un pointeur à la C (plus de liberté mais il faudra faire attention à ne pas utiliser un pointeur ne pointant sur rien "segmentation fault") sur l'élément suivant.
- 
 
 QUESTION P6.2
+Les champ magnétiques doivent être implémentés comme méthode virtuelle dans la super classe Élement : en effet, elles seront redéfinis plus tard dans les sous-classe des éléments droit et élément courbe, ce qui fait des sous classe élément, élément courbe et élément droit des classes virtuelles qui ne peuvent donc pas être instanciées (ce qui est logique, ce ne sont pas de "vrais" élément d'un accélérateur mais seulement des "types" ou "catégorie" auxquels les réels élément appartiendront. 
+
 QUESTION P6.3
 QUESTION P6.4
 QUESTION P7.1
