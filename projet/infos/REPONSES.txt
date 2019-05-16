@@ -1,5 +1,5 @@
 QUESTIONS P1.1
-J'ai représenté les vecteurs3D comme une classe ayant comme attributs privés ces trois coordonnées de types double. Les méthodes publiques utiles sont les getters (pour accéder aux coordonnes), les setters, pour initialiser un vecteur (mais pas très bien car risque d'oublie et mauvaise initialisation possible, que se passe t'il sans initialisation?). D'autres méthodes utiles sont l'affichage et la comparaison de deux vecteurs mise en publique afin de pouvoir y accéder.
+On a représenté les vecteurs3D comme une classe ayant comme attributs privés ces trois coordonnées de types double. Les méthodes publiques utiles sont les getters (pour accéder aux coordonnes), les setters, pour initialiser un vecteur (mais pas très bien car risque d'oublie et mauvaise initialisation possible, que se passe t'il sans initialisation?). D'autres méthodes utiles sont l'affichage et la comparaison de deux vecteurs mise en publique afin de pouvoir y accéder.
 
 QUESTION P4.1
 Le constructeur de copie par défaut offert par C++ fait une copie de surface : il recopie la valeur des attributs dans le nouvel objet. Dans notre classe Vecteur3D, ce constructeur de copie est donc nettement suffisant. On n'a en effet besoin que de la copie des coordonnées du vecteur. Il est donc (pour l'instant en tout cas) inutile de créer une version plus avancée qui implique notamment la redéfinition du destructeur et de l'opérateur d'affectation.
@@ -13,9 +13,17 @@ QUESTION P4.3
 Nous avons introduit une surcharge de l'opérateur de sortie << afin de remplacer la fonction affichage ainsi qu'une surcharge de l'opérateur de comparaison == à la place de la fonction de comparaison.
 
 QUESTION P5.1
-Nous avons implémenter la fonction gamma et l'énergie comme fonctions ne modifiant aucun attribut et retournant un double. Le facteur gamma ainsi que l'énergie se calculent en tout temps respectivement en fonction de la vitesse instantanée de la particule et de la vitesse et masse de la particule. Ces choix d'implémentation reflète seulement notre vision de la conception : il nous paraît plus correct physiquement parlant de séparer les attributs "de base" d'une particule tels que sa vitesse, sa position, sa charge et sa masse, de ses fonctions gamma et énergie plus complexes à calculer, propre à nos particules (l'énergie ne se calcule pas aussi facilement pour tout objet subissant des forces) et utilisant les attributs de base. 
+Nous avons implémenter la fonction gamma et l'énergie comme méthodes ne modifiant aucun attribut et retournant un double. Le facteur gamma ainsi que l'énergie se calculent en tout temps respectivement en fonction de la vitesse instantanée de la particule et de la vitesse et masse de la particule. Ces choix d'implémentation reflète seulement notre vision de la conception : il nous paraît plus correct physiquement parlant de séparer les attributs "de base" d'une particule tels que sa vitesse, sa position, sa charge et sa masse, de ses méthodes gamma et énergie plus complexes à calculer, propre à nos particules (l'énergie ne se calcule pas aussi facilement pour tout objet subissant des forces) et utilisant les attributs de base. 
 De plus, si nous avions choisi d'implémenter gamma et énergie en attributs, les calculs de ceux-ci devrait se réitérer en tout temps voulu (ils prennent différentes valeur à chaque fois que la particule bouge) d'une façon ou d'une autre dans un bout du code pour après stocker le résultat dans l'attribut. Cela ne fait qu'augmenter le codage inutile et l'ambiguïté de notre classe.
 
+QUESTION P6.1
+Il parait assez évident qu'il est nécessaire avant de créer des classes élément courbe et droit, de créer une super-classe Element dont elles hériteront. En effet, les éléments droits et courbes différent déjà juste par leur géométrie, mais elles restent des éléments ayant des attributs et des méthodes en commun.
+Dans la super-classe Element, on définit, comme l'indique l'énoncé de l'exercice, les attributs suivants qui seront hérités dans chaque sous-classe d'élément: un vecteur3D représentant la position d'entrée de l'élément, au autre pour sa position de sortie, un scalaire représentant le rayon de la chambre à vide, et enfin un pointeur à la C (plus de liberté mais il faudra faire attention à ne pas utiliser un pointeur ne pointant sur rien "segmentation fault") sur l'élément suivant.
+ 
+
+QUESTION P6.2
+QUESTION P6.3
+QUESTION P6.4
 QUESTION P7.1
 QUESTION P7.2
 QUESTION P9.1
