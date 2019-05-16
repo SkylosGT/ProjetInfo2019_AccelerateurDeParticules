@@ -288,6 +288,7 @@ release/main_qt_gl.o: main_qt_gl.cc C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QA
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qgenericmatrix.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/QMatrix4x4 \
 		../general/SupportAdessin.h \
+		../general/Vecteur3D.h \
 		glsphere.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtOpenGL/QGLBuffer \
 		C:/Qt/5.12.2/mingw73_32/include/QtOpenGL/qglbuffer.h \
@@ -302,7 +303,6 @@ release/main_qt_gl.o: main_qt_gl.cc C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QA
 		../general/Faisceau.h \
 		../general/Dessinable.h \
 		../general/SupportADessin.h \
-		../general/Vecteur3D.h \
 		../general/Particule.h \
 		../general/Element.h \
 		../general/SectionDroite.h \
@@ -310,7 +310,8 @@ release/main_qt_gl.o: main_qt_gl.cc C:/Qt/5.12.2/mingw73_32/include/QtWidgets/QA
 		../general/Dipole.h \
 		../general/ElementCourbe.h \
 		../general/Quadrupole.h \
-		../general/ConstantesPhysiques.h
+		../general/ConstantesPhysiques.h \
+		../general/FaisceauCirculaire.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main_qt_gl.o main_qt_gl.cc
 
 release/glwidget.o: glwidget.cc C:/Qt/5.12.2/mingw73_32/include/QtGui/QKeyEvent \
@@ -444,6 +445,7 @@ release/glwidget.o: glwidget.cc C:/Qt/5.12.2/mingw73_32/include/QtGui/QKeyEvent 
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/QOpenGLShaderProgram \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/qopenglshaderprogram.h \
 		../general/SupportAdessin.h \
+		../general/Vecteur3D.h \
 		glsphere.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtOpenGL/QGLBuffer \
 		C:/Qt/5.12.2/mingw73_32/include/QtOpenGL/qglbuffer.h \
@@ -458,7 +460,6 @@ release/glwidget.o: glwidget.cc C:/Qt/5.12.2/mingw73_32/include/QtGui/QKeyEvent 
 		../general/Faisceau.h \
 		../general/Dessinable.h \
 		../general/SupportADessin.h \
-		../general/Vecteur3D.h \
 		../general/Particule.h \
 		../general/Element.h \
 		../general/SectionDroite.h \
@@ -686,6 +687,7 @@ release/SupportOpenGL.o: SupportOpenGL.cc SupportOpenGL.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtCore/qsize.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtGui/QMatrix4x4 \
 		../general/SupportAdessin.h \
+		../general/Vecteur3D.h \
 		glsphere.h \
 		C:/Qt/5.12.2/mingw73_32/include/QtOpenGL/QGLBuffer \
 		C:/Qt/5.12.2/mingw73_32/include/QtOpenGL/qglbuffer.h \
@@ -735,14 +737,14 @@ release/SupportOpenGL.o: SupportOpenGL.cc SupportOpenGL.h \
 		../general/Faisceau.h \
 		../general/Dessinable.h \
 		../general/SupportADessin.h \
-		../general/Vecteur3D.h \
 		../general/Particule.h \
 		../general/Element.h \
 		../general/SectionDroite.h \
 		../general/ElementDroit.h \
 		../general/Quadrupole.h \
 		../general/Dipole.h \
-		../general/ElementCourbe.h
+		../general/ElementCourbe.h \
+		../general/FaisceauCirculaire.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\SupportOpenGL.o SupportOpenGL.cc
 
 release/qrc_resource.o: release/qrc_resource.cpp 

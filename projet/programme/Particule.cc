@@ -47,10 +47,7 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
         
 void Particule::ajouteInteractionParticule(Particule const& autre) {	
 	Vecteur3D distance(vec_r-autre.vec_r);
-    Vecteur3D vec_F=(scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme())*pow(FacteurGamma(),-2)*distance;
-    cout<<"F"<<vec_F<<endl;
-    vec_f+=vec_F;
-    cout<<"f"<<vec_f<<endl;}
+    vec_f+=(scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme())*pow(FacteurGamma(),-2)*distance;}
     
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
