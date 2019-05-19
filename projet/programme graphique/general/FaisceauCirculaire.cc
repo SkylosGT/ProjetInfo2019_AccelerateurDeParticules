@@ -14,9 +14,9 @@ FaisceauCirculaire::FaisceauCirculaire(Particule _ref,long int _nb, double _coef
 void FaisceauCirculaire::bouger(double dt) {
 	for (auto _particule : CollectionPart) {
 		_particule->ajouteForceMagnetique(_particule->elemCourant()->champMagnetique(_particule->position()), dt);
-        //for(auto part : CollectionPart){
-            //if(not((*part)==(*_particule))){
-                //_particule->ajouteInteractionParticule(*part);}}
+        for(auto part : CollectionPart){
+            if(not((*part)==(*_particule))){
+                _particule->ajouteInteractionParticule(*part);}}
 		_particule->bouger(dt);}
     lanceParticule(dt);
 	(*this).energie_moyenne();
