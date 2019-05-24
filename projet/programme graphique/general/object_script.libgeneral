@@ -10,4 +10,5 @@ ADDMOD Particule.o
 ADDMOD Quadrupole.o
 ADDMOD SectionDroite.o
 ADDMOD Vecteur3D.o
+ADDMOD maillefodo.o
 SAVE

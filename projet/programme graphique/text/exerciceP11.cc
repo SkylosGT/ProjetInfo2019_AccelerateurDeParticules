@@ -12,6 +12,7 @@
 #include "ElementCourbe.h"
 #include "Faisceau.h"
 #include "FaisceauCirculaire.h"
+#include "maillefodo.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
@@ -45,7 +46,7 @@ int main () {
     double Re(0.1), b(1.2), Rc(1), Bz(5.89158);
     
     //Ajout des quadrupoles
-    Quadrupole Q1((*new Vecteur3D(3,0,0)), (*new Vecteur3D(3,-1,0)), Re, -b), Q2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(1,-3,0)), Re, b),
+    /*Quadrupole Q1((*new Vecteur3D(3,0,0)), (*new Vecteur3D(3,-1,0)), Re, -b), Q2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(1,-3,0)), Re, b),
                 Q3((*new Vecteur3D(0,-3,0)), (*new Vecteur3D(-1,-3,0)), Re, -b), Q4((*new Vecteur3D(-3,-2,0)), (*new Vecteur3D(-3,-1,0)), Re, b),
                 Q5((*new Vecteur3D(-3,0,0)), (*new Vecteur3D(-3,1,0)), Re, -b), Q6((*new Vecteur3D(-2,3,0)), (*new Vecteur3D(-1,3,0)), Re, b),
                 Q7((*new Vecteur3D(0,3,0)), (*new Vecteur3D(-1,3,0)), Re, -b), Q8((*new Vecteur3D(3,2,0)), (*new Vecteur3D(3,1,0)), Re, b);
@@ -55,38 +56,30 @@ int main () {
                 S3((*new Vecteur3D(-1,-3,0)), (*new Vecteur3D(-2,-3,0)), Re), S4((*new Vecteur3D(-3,-1,0)), (*new Vecteur3D(-3,0,0)), Re),
                 S5((*new Vecteur3D(-3,1,0)), (*new Vecteur3D(-3,2,0)), Re), S6((*new Vecteur3D(-1,3,0)), (*new Vecteur3D(0,3,0)), Re),
                 S7((*new Vecteur3D(1,3,0)), (*new Vecteur3D(2,3,0)), Re), S8((*new Vecteur3D(3,1,0)), (*new Vecteur3D(3,0,0)), Re);
-    
+    */
     //Ajout des Dipoles
-    Dipole D1((*new Vecteur3D(3,-2,0)), (*new Vecteur3D(2,-3,0)), Re, Rc, Bz),  D2((*new Vecteur3D(-2,-3,0)), (*new Vecteur3D(-3,-2,0)), Re, Rc, Bz),
+    /*Dipole D1((*new Vecteur3D(3,-2,0)), (*new Vecteur3D(2,-3,0)), Re, Rc, Bz),  D2((*new Vecteur3D(-2,-3,0)), (*new Vecteur3D(-3,-2,0)), Re, Rc, Bz),
              D3((*new Vecteur3D(-3,2,0)), (*new Vecteur3D(-2,3,0)), Re, Rc, Bz),  D4((*new Vecteur3D(2,3,0)), (*new Vecteur3D(3,2,0)), Re, Rc, Bz);
     
+    MailleFODO M1((*new Vecteur3D(3,2,0)), (*new Vecteur3D(3,-2,0)), Re, b, 1), M2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(-2,-3,0)), Re, b, 1),
+               M3((*new Vecteur3D(-3,-2,0)), (*new Vecteur3D(-3,2,0)), Re, b, 1), M4((*new Vecteur3D(-2,3,0)), (*new Vecteur3D(2,3,0)), Re, b, 1);
     //Ajout des éléments dans l'accélérateur
+
+    _accelerateur.ajoutElement(&M1);
     _accelerateur.ajoutElement(&D1);
-    _accelerateur.ajoutElement(&Q2);
-    _accelerateur.ajoutElement(&S2);
-    _accelerateur.ajoutElement(&Q3);
-    _accelerateur.ajoutElement(&Q1);
-    _accelerateur.ajoutElement(&S1);
-    _accelerateur.ajoutElement(&S3);
+    _accelerateur.ajoutElement(&M2);
     _accelerateur.ajoutElement(&D2);
-    _accelerateur.ajoutElement(&S6);
-    _accelerateur.ajoutElement(&Q7);
-    _accelerateur.ajoutElement(&S7);
-    _accelerateur.ajoutElement(&D4);
-    _accelerateur.ajoutElement(&S4);
-    _accelerateur.ajoutElement(&Q8);
-    _accelerateur.ajoutElement(&S8);
-    _accelerateur.ajoutElement(&Q5);
-    _accelerateur.ajoutElement(&Q4);
-    _accelerateur.ajoutElement(&S5);
+    _accelerateur.ajoutElement(&M3);
     _accelerateur.ajoutElement(&D3);
-    _accelerateur.ajoutElement(&Q6);
-    
+    _accelerateur.ajoutElement(&M4);
+    _accelerateur.ajoutElement(&D4);*/
 	//Test des ajouts d'élements dans l'accélérateur avant ajout de faisceau
+    _accelerateur.construireAccelerateur(1);
 	cout <<"AVANT AJOUT DE FAISCEAUX"<< endl;
 	_accelerateur.dessine();
 	
-	//Deux particules P1 et P2
+/*
+    //Deux particules P1 et P2
     Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
     
     //Deux faisceaux circulaires avec comme particules de référence p1 et p2
@@ -94,23 +87,23 @@ int main () {
     //FaisceauCirculaire faisceau2(p2, 6, 3);
 	
 	//Ajout des faisceaux dans l'accélérateur
-	_accelerateur.ajoutFaisceau(&faisceau1);
+    //_accelerateur.ajoutFaisceau(&faisceau1);
     //_accelerateur.ajoutFaisceau(&faisceau2);
-	
+    _accelerateur.ajoutFaisceau(&faisceau1);
 	//Test de l'ajout des faisceaux dans l'accélérateur
 	cout << "AVANT EVOLUTION DU SYSTEME ET APRES AJOUT DE FAISCEAU"<< endl;
 	_accelerateur.dessine();
-	
+
 	//Test de l'évolution du système
-    for(size_t i = 0; i < 10000; i++)
-    {
-        _accelerateur.evolue(1e-11);
-    }
+    //for(size_t i = 0; i < 2000; i++)
+    //{
+    //    _accelerateur.evolue(1e-11);
+    //}
     
     //Dessin de l'accélérateur après évolution du système
     cout << "APRES EVOLUTION DU SYSTEME"<< endl;
-	_accelerateur.dessine();
-	
+    //_accelerateur.dessine();
+*/
     return 0;
 
 }

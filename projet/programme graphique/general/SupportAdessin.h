@@ -6,6 +6,7 @@ class Quadrupole;
 class SectionDroite;
 class Accelerateur;
 class FaisceauCirculaire;
+class MailleFODO;
 
 //En tête de la classe SupportADessin avec descriptions de ses méthodes
 class SupportADessin
@@ -22,6 +23,7 @@ class SupportADessin
   virtual void dessine(Dipole const& a_dessiner)=0;
   virtual void dessine(Quadrupole const& a_dessiner)=0;
   virtual void dessine(SectionDroite const& a_dessiner)=0;
+  virtual void dessine(MailleFODO const& a_dessiner)=0;
 
 
 };

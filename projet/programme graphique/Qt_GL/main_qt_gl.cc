@@ -6,6 +6,7 @@
 #include "SectionDroite.h"
 #include "ConstantesPhysiques.h"
 #include "FaisceauCirculaire.h"
+#include "maillefodo.h"
 
 using namespace ConstantesPhysiques;
 
@@ -52,28 +53,33 @@ int main(int argc, char* argv[])
   Dipole D1((*new Vecteur3D(3,-2,0)), (*new Vecteur3D(2,-3,0)), Re, Rc, Bz),  D2((*new Vecteur3D(-2,-3,0)), (*new Vecteur3D(-3,-2,0)), Re, Rc, Bz),
            D3((*new Vecteur3D(-3,2,0)), (*new Vecteur3D(-2,3,0)), Re, Rc, Bz),  D4((*new Vecteur3D(2,3,0)), (*new Vecteur3D(3,2,0)), Re, Rc, Bz);
 
+  MailleFODO M1((*new Vecteur3D(3,2,0)), (*new Vecteur3D(3,-2,0)), Re, b, 1), M2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(-2,-3,0)), Re, b, 1),
+          M3((*new Vecteur3D(-3,-2,0)), (*new Vecteur3D(-3,2,0)), Re, b, 1), M4((*new Vecteur3D(-2,3,0)), (*new Vecteur3D(2,3,0)), Re, b, 1);
   //Ajout des éléments dans l'accélérateur
   w.ajoutElement(&D1);
-  w.ajoutElement(&Q2);
-  w.ajoutElement(&S2);
-  w.ajoutElement(&Q3);
-  w.ajoutElement(&Q1);
-  w.ajoutElement(&S1);
-  w.ajoutElement(&S3);
+  //w.ajoutElement(&Q2);
+  //w.ajoutElement(&S2);
+  //w.ajoutElement(&Q3);
+  //w.ajoutElement(&Q1);
+  //w.ajoutElement(&S1);
+  //w.ajoutElement(&S3);
   w.ajoutElement(&D2);
-  w.ajoutElement(&S6);
-  w.ajoutElement(&Q7);
-  w.ajoutElement(&S7);
+  //w.ajoutElement(&S6);
+  //w.ajoutElement(&Q7);
+  //w.ajoutElement(&S7);
   w.ajoutElement(&D4);
-  w.ajoutElement(&S4);
-  w.ajoutElement(&Q8);
-  w.ajoutElement(&S8);
-  w.ajoutElement(&Q5);
-  w.ajoutElement(&Q4);
-  w.ajoutElement(&S5);
+  //w.ajoutElement(&S4);
+  //w.ajoutElement(&Q8);
+  //w.ajoutElement(&S8);
+  //w.ajoutElement(&Q5);
+  //w.ajoutElement(&Q4);
+  //w.ajoutElement(&S5);
   w.ajoutElement(&D3);
-  w.ajoutElement(&Q6);
-
+  //w.ajoutElement(&Q6);
+  w.ajoutElement(&M1);
+  w.ajoutElement(&M2);
+  w.ajoutElement(&M3);
+  w.ajoutElement(&M4 );
   //Ajout des deux particules dans l'accélérateur
   //Deux faisceaux circulaires avec comme particules de référence p1 et p2
   FaisceauCirculaire faisceau1(p1, 200, 4);

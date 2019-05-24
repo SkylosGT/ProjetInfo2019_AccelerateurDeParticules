@@ -13,7 +13,8 @@ SOURCES += \
     Particule.cc \
     Quadrupole.cc \
     SectionDroite.cc \
-    Vecteur3D.cc
+    Vecteur3D.cc \
+    maillefodo.cc
 
 HEADERS += \
     Accelerateur.h \
@@ -29,7 +30,8 @@ HEADERS += \
     Quadrupole.h \
     SectionDroite.h \
     SupportAdessin.h \
-    Vecteur3D.h
+    Vecteur3D.h \
+    maillefodo.h
 
 
 

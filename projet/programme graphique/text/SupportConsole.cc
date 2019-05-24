@@ -6,6 +6,7 @@
 #include "SectionDroite.h"
 #include "Accelerateur.h"
 #include "FaisceauCirculaire.h"
+#include "maillefodo.h"
 
 using namespace std;
 
@@ -20,6 +21,8 @@ void SupportConsole::dessine(Quadrupole const& _q){_q.affiche(flot);}
 void SupportConsole::dessine(SectionDroite const& _s){_s.affiche(flot);}
 
 void SupportConsole::dessine(FaisceauCirculaire const& _fc) {_fc.affiche(flot);}
+
+void SupportConsole::dessine(MailleFODO const& _mf){_mf.affiche(flot);}
 
 //Le dessin de l'accélérateur n'utilise que les dessins de ses élements et faisceaux qui le compose au lieu d'une fonction affiche
 void SupportConsole::dessine(Accelerateur const& _a){

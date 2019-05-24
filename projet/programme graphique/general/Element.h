@@ -53,9 +53,9 @@ class Element : public Dessinable{
         bool passe_au_suivant(Particule const&) const;
 
         //Attache un élément suivant à l'instance courante
-        void attache_element_suivant(Element*);
+        void attacheElementSuivant(Element*);
 
-        double distance_particule(Particule const&) const;
+        bool element_particule(Vecteur3D const&) const;
 };
 
 /*OPERATEURS EXTERNES*/

@@ -64,7 +64,10 @@ class Accelerateur: public Dessinable {
 	//Méthode qui trouve l'élément courant dans lequel se trouve une certaine particule
 		Element* trouveElementDeLaParticule(Particule const&) const;
 	
-	/*//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
+        void attacheElements(Element*, Element*);
+
+        void construireAccelerateur(int);
+        /*//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
 		std::ostream& affiche(std::ostream&) const;*/
 };
 

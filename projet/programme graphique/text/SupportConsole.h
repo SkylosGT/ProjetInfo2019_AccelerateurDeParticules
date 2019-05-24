@@ -25,4 +25,5 @@ class SupportConsole : public SupportADessin {
   virtual void dessine(Dipole const& a_dessiner) override;
   virtual void dessine(Quadrupole const& a_dessiner) override;
   virtual void dessine(SectionDroite const& a_dessiner) override;
+  virtual void dessine(MailleFODO const& a_dessiner) override;
 };
