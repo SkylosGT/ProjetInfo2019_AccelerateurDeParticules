@@ -14,6 +14,7 @@ SOURCES += \
     Quadrupole.cc \
     SectionDroite.cc \
     Vecteur3D.cc \
+    case.cc \
     maillefodo.cc
 
 HEADERS += \

@@ -17,7 +17,9 @@ class Accelerateur: public Dessinable {
  		std::vector <Element*> CollectionElement;//Un tableau d'éléments (contenant la collection d'éléments)
  		std::vector <Particule*> CollectionParticule;//Un tableau de particule (contenant collection de particule)
 		std::vector <Faisceau*> CollectionFaisceau;//Un tableau de faisceau (contenant collection de faisceau)
-        std::vector <Case*> cases;
+        std::vector <Case*> CollectionCases;
+
+        double angle_case;
 		
 	public:
 	//Des accesseurs des collections pour que la fonction dessine puisse dessiner chaque élément, faisceau (et particule) de l'accélérateur

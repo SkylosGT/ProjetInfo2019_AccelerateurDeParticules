@@ -14,7 +14,7 @@ using namespace ConstantesPhysiques;
 
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur(SupportADessin* _support) 
-	: Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau() {}
+    : Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau(), angle_case(0) {}
 	
 /*ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionElement.size() > 0) {
@@ -82,8 +82,6 @@ void Accelerateur::evolue(double _dt) const{
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
 		(*particule).bouger(_dt);
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){
-            cout<<"Debug suivant"<<endl;
-            //cout<<(*particule).elemCourant()->elemSuivant()<<endl;
 			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}}
 
 Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) const {
@@ -96,23 +94,19 @@ void Accelerateur::attacheElements(Element* element1, Element * element2){
     if(element2->sortie()==element1->entree()){element2->attacheElementSuivant(element1);}}
 
 void Accelerateur::construireAccelerateur(int taille){
-    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1);
+    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(10e-7);
     Vecteur3D vec_re(-2,3,0), vec_rs(2, 3, 0), re_d(-3,2,0), rs_d(-2,3,0);
-    double epsilon(10e-7);
-    int nbr(round(M_PI/atan(epsilon/3)));
-    segmenterEspace(nbr);
+    angle_case=M_PI/(round(M_PI/atan(epsilon/3)));
+    segmenterEspace(round(M_PI/atan(epsilon/3)));
     for (size_t i(0); i<4; i++) {
         cout<<i<<endl;
             ajoutElement(new Dipole(re_d.rotation(vec_e3, (M_PI/2)),rs_d.rotation(vec_e3, (M_PI/2)),Re,Rc,Bz));
-            ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L));
-    }
-}
+            ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L));}}
 
 void Accelerateur::segmenterEspace(int taille){
     for (size_t i(0);i<taille;i++) {
-        cases.push_back(new Case());}
-    cout<<cases.size();
-}
+        CollectionCases.push_back(new Case(i));}}
+
 /*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
 	return a.affiche(sortie);}*/

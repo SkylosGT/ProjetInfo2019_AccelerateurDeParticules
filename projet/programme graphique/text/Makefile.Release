@@ -145,6 +145,7 @@ release/SupportConsole.o: SupportConsole.cc SupportConsole.h \
 		../general/SectionDroite.h \
 		../general/Accelerateur.h \
 		../general/Faisceau.h \
+		../general/case.h \
 		../general/FaisceauCirculaire.h \
 		../general/maillefodo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\SupportConsole.o SupportConsole.cc
@@ -159,6 +160,7 @@ release/exerciceP11.o: exerciceP11.cc SupportConsole.h \
 		../general/ElementCourbe.h \
 		../general/Accelerateur.h \
 		../general/Faisceau.h \
+		../general/case.h \
 		../general/ConstantesPhysiques.h \
 		../general/Quadrupole.h \
 		../general/ElementDroit.h \

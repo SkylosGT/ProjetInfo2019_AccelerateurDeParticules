@@ -11,7 +11,6 @@ using namespace std;
 MailleFODO::MailleFODO(Vecteur3D _re, Vecteur3D _rs, double _Re, double _b, double _L, SupportADessin* _support)
     :ElementDroit (_re, _rs,_Re, _support),scal_L(_L), scal_b(_b), vec_d(~(vec_rs-vec_re)){
         Vecteur3D vec_position1(vec_re+longueurQuadrupole()*vec_d), vec_position2(vec_re+(longueurQuadrupole()+scal_L)*vec_d), vec_position3(vec_re+(2*longueurQuadrupole()+scal_L)*vec_d);
-        cout<<vec_position1.arrondis()<<vec_position2.arrondis()<<vec_position3.arrondis()<<endl;
         elements.push_back(new Quadrupole(vec_re, vec_position1.arrondis(), scal_Re, scal_b));
         elements.push_back(new SectionDroite(vec_position1.arrondis(), vec_position2.arrondis(), scal_Re));
         elements.push_back(new Quadrupole(vec_position2.arrondis(), vec_position3.arrondis(), scal_Re, -scal_b));
