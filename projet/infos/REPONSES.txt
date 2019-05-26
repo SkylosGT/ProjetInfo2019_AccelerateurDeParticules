@@ -51,6 +51,12 @@ QUESTION P9.1
 En terme de Programmation Orientée Objet, la méthode dessine est spécifique à chaque objet que l'on veut dessiner. En d'autre terme, c'est une méthode virtuelle redéfinie dans chaque classe que l'on souhaite dessiner : c'est à dire que les éléments dipôle, quadrupole, section droite, les particules, et l'accélérateur (notre but finale) vont hériter de cette méthode.
 
 QUESTION P9.2
+Il est assez complexe d'essayer d'expliquer les relations qui s'opèrent dans les sous-classe de Dessinable et de Support à Dessin mais je vais essayer de montrer ce que j'ai compris du mieux que je peux.
+En terme de Programmation Orientée Objet, il faut donc créer une super-classe Dessinable et une super-classe Support à Dessin. Dessinable doit avoir un pointeur sur un support à dessin comme attribut afin d'utiliser le polymorphisme car en fonction du support de dessin que l'on choisi (console ou graphique etc...) on ne pas va dessiner l'objet de la même manière. De plus, Dessinable doit avoir une méthode virtuelle pure (Dessinable est donc abstraite ce qui est logique) dessine() qui sera redéfini exactement de la même manière (comme l'indique l'énoncé) dans les sous-classes que l'on souhaite dessiner. 
+Chaque objet qui est dessinable hérite donc de la super classe dessinable (les éléments, les particules et l'accélérateurs sont des Dessinables).
+A chaque initialisation d'une instance dessinable, il faut donc y ajouter un pointeur sur le support a dessin choisi (nouveaux constructeurs). Ainsi dans la redéfinition de dessine() dans une particule par exemple qui a un support console comme support à dessin, support->dessine(*this), qui est la redéfinition de la méthode dessine() de Dessinable, appelera la méthode dessine du support console (polymorphisme + méthode virtuelle) et par surcharge (en fonction de l'argument passé *this qui est une particule ici), l'appel dessinera une particule sur la console. 
+Ainsi la super classe support à dessin comporte autant de méthode dessine (virtuelle pure) que d'objet que l'on souhaite dessiner et ces méthodes seront redéfini dans les sous-classe support console et ensuite support graphique.
+ 
 QUESTION P9.3
 QUESTION P11.1
 QUESTION P13.1
