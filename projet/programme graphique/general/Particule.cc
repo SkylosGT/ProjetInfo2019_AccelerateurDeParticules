@@ -21,12 +21,14 @@ double Particule::calculateDeviationAngle(double _dt){
 Particule::Particule(Vecteur3D _r, Vecteur3D _p, double _m, double _q, SupportADessin* _support,Element* _courant)
 :Dessinable(_support), vec_r(_r), scal_m(_m), scal_q(_q), elem_courant(_courant) {
     vec_v=_p*(const_c/sqrt((_m*_m)+_p.norme2()));
-    vec_f=*new Vecteur3D();}
+    vec_f=*new Vecteur3D();
+    caseDeLaParticule=0;}
 
 Particule::Particule(Vecteur3D _r, Vecteur3D _vitessedirective, double _energie, double _m, double _q, SupportADessin* _support,Element* _courant )
 :Dessinable(_support), vec_r(_r), scal_m(_m), scal_q(_q), elem_courant(_courant) {
     vec_v=(~_vitessedirective)*(const_c*sqrt(1-(scal_m*scal_m)/(_energie*_energie)));
-    vec_f=*new Vecteur3D();}
+    vec_f=*new Vecteur3D();
+    caseDeLaParticule=0;}
 
 double Particule::Energie() const
 {return FacteurGamma()*scal_m;}
@@ -62,7 +64,7 @@ ostream& Particule::affiche(ostream& sortie) const{
     "   enregie (GeV) :"<<Energie()<<endl<<
     "   masse (Gev)/c^2 :"<<scal_m<<endl<<
     "   charge :"<<scal_q<<endl<<
-    "   force :"<<vec_f<<endl;}
+    "   force :"<<vec_f<<endl<<"Case :"<<caseDeLaParticule<<endl;}
 
 void Particule::change_element(Element* suivant){
     elem_courant=suivant;}

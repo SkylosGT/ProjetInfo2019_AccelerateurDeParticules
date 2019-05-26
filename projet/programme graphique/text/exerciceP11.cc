@@ -94,14 +94,14 @@ int main () {
 	_accelerateur.dessine();
 
 	//Test de l'évolution du système
-    //for(size_t i = 0; i < 2000; i++)
-    //{
-    //    _accelerateur.evolue(1e-11);
-    //}
+    for(size_t i = 0; i < 1; i++)
+    {
+        _accelerateur.evolue(1e-11);
+    }
     
     //Dessin de l'accélérateur après évolution du système
     cout << "APRES EVOLUTION DU SYSTEME"<< endl;
-    //_accelerateur.dessine();
+    _accelerateur.dessine();
 
     return 0;
 

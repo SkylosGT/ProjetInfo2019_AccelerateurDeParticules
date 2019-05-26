@@ -5,11 +5,14 @@ class Case {
 private:
     int positionDeLaCase;
     std::vector<Particule*> particules;
+    double rayon;
+    double angle;
 
 public:
-    Case(int);
-    Vecteur3D& entreeDeLaCase(double);
-    Vecteur3D& sortieDeLaCase(double);
+    Case(int, double, double);
+    Vecteur3D& entreeDeLaCase();
+    Vecteur3D& sortieDeLaCase();
+    bool ParticuleEstSortie(Particule const&);
 
 };
 

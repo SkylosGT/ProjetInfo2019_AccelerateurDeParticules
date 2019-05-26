@@ -21,6 +21,7 @@ class Particule : public Dessinable {
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
     Element* elem_courant; //Elément courant dans lequel se trouve la particule
+    int caseDeLaParticule;
 
   /*Méthodes pour faciliter les calculs des attributs de l'instance*/
 
@@ -40,6 +41,8 @@ class Particule : public Dessinable {
 
     //Getter, retourne l'élément courant de la particule
     Element* elemCourant() const {return elem_courant;}
+
+    int caseParticule() const {return caseDeLaParticule;}
 
     //Constructeur par vecteur quantité de mouvement en GeV
     Particule(Vecteur3D, Vecteur3D, double, double,SupportADessin* _support=nullptr,Element* _courant=nullptr);
@@ -68,6 +71,8 @@ class Particule : public Dessinable {
 
     //La particule change d'élément
     void change_element(Element*);
+
+    void change_case(int c){caseDeLaParticule=c;}
 
 	//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine une particule sur un support choisi
     virtual void dessine() override
