@@ -58,13 +58,13 @@ int main () {
                 S7((*new Vecteur3D(1,3,0)), (*new Vecteur3D(2,3,0)), Re), S8((*new Vecteur3D(3,1,0)), (*new Vecteur3D(3,0,0)), Re);
     */
     //Ajout des Dipoles
-    /*Dipole D1((*new Vecteur3D(3,-2,0)), (*new Vecteur3D(2,-3,0)), Re, Rc, Bz),  D2((*new Vecteur3D(-2,-3,0)), (*new Vecteur3D(-3,-2,0)), Re, Rc, Bz),
+    Dipole D1((*new Vecteur3D(3,-2,0)), (*new Vecteur3D(2,-3,0)), Re, Rc, Bz),  D2((*new Vecteur3D(-2,-3,0)), (*new Vecteur3D(-3,-2,0)), Re, Rc, Bz),
              D3((*new Vecteur3D(-3,2,0)), (*new Vecteur3D(-2,3,0)), Re, Rc, Bz),  D4((*new Vecteur3D(2,3,0)), (*new Vecteur3D(3,2,0)), Re, Rc, Bz);
     
     MailleFODO M1((*new Vecteur3D(3,2,0)), (*new Vecteur3D(3,-2,0)), Re, b, 1), M2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(-2,-3,0)), Re, b, 1),
                M3((*new Vecteur3D(-3,-2,0)), (*new Vecteur3D(-3,2,0)), Re, b, 1), M4((*new Vecteur3D(-2,3,0)), (*new Vecteur3D(2,3,0)), Re, b, 1);
     //Ajout des éléments dans l'accélérateur
-
+/*
     _accelerateur.ajoutElement(&M1);
     _accelerateur.ajoutElement(&D1);
     _accelerateur.ajoutElement(&M2);
@@ -77,8 +77,7 @@ int main () {
     _accelerateur.construireAccelerateur(1);
 	cout <<"AVANT AJOUT DE FAISCEAUX"<< endl;
 	_accelerateur.dessine();
-	
-/*
+
     //Deux particules P1 et P2
     Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
     
@@ -103,7 +102,7 @@ int main () {
     //Dessin de l'accélérateur après évolution du système
     cout << "APRES EVOLUTION DU SYSTEME"<< endl;
     //_accelerateur.dessine();
-*/
+
     return 0;
 
 }

@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 
   /*Attributs physiques des Elements Q, S, D*/
   double Re(0.1), b(1.2), Rc(1), Bz(5.89158);
-
+/*
   //Ajout des quadrupoles
   Quadrupole Q1((*new Vecteur3D(3,0,0)), (*new Vecteur3D(3,-1,0)), Re, -b), Q2((*new Vecteur3D(2,-3,0)), (*new Vecteur3D(1,-3,0)), Re, b),
               Q3((*new Vecteur3D(0,-3,0)), (*new Vecteur3D(-1,-3,0)), Re, -b), Q4((*new Vecteur3D(-3,-2,0)), (*new Vecteur3D(-3,-1,0)), Re, b),
@@ -79,13 +79,14 @@ int main(int argc, char* argv[])
   w.ajoutElement(&M1);
   w.ajoutElement(&M2);
   w.ajoutElement(&M3);
-  w.ajoutElement(&M4 );
+  w.ajoutElement(&M4 );*/
+  w.construireAccelerateur();
   //Ajout des deux particules dans l'accélérateur
   //Deux faisceaux circulaires avec comme particules de référence p1 et p2
   FaisceauCirculaire faisceau1(p1, 200, 4);
-
+  w.ajoutParticule(&p1);
   //Ajout des faisceaux dans l'accélérateur
-  w.ajoutFaisceau(&faisceau1);
+  //w.ajoutFaisceau(&faisceau1);
 
 
   w.show();

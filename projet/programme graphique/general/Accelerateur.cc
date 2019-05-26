@@ -43,8 +43,7 @@ void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
 	nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
 	nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
 	nouveau->change_support(support);
-    CollectionFaisceau.push_back(nouveau);
-    cout<<nouveau->particuleDeReference().elemCourant()<<endl;}
+    CollectionFaisceau.push_back(nouveau);}
 	
 void Accelerateur::ajoutParticule(Particule* nouveau) {
 	nouveau->change_element(trouveElementDeLaParticule(*nouveau));
@@ -97,17 +96,11 @@ void Accelerateur::attacheElements(Element* element1, Element * element2){
 
 void Accelerateur::construireAccelerateur(int taille){
     double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1);
-    for (int i(0);i<taille;i++) {
-        Vecteur3D vec_re((2*taille)+Rc, 2*taille-4*i, 0), vec_rs((2*taille)+Rc, 2*taille-(4*i)-4, 0);
-        for (size_t j(0);j<4;j++) {
-           ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, j*90), vec_rs, Re, b, L));
-        }
-        ajoutElement(new Dipole(Vecteur3D(), Vecteur3D(), Re, Rc, Bz));
-        ajoutElement(new MailleFODO(vec_re, vec_rs, Re, b, L));
-        ajoutElement(new MailleFODO(Vecteur3D(2*taille-4*i, -((2*taille)+Rc), 0), Vecteur3D(2*taille-(4*i)-4, -((2*taille)+Rc), 0), Re, b, L));
-        ajoutElement(new MailleFODO(Vecteur3D(-((2*taille)+Rc), -(2*taille-4*i), 0), Vecteur3D(-((2*taille)+Rc), -(2*taille-(4*i)-4), 0), Re, b, L));
-        ajoutElement(new MailleFODO(Vecteur3D(-(2*taille-4*i), (2*taille)+Rc, 0), Vecteur3D(-(2*taille-(4*i)-4), (2*taille)+Rc, 0), Re, b, L));}
-
+    Vecteur3D vec_re(-2,3,0), vec_rs(2, 3, 0), re_d(-3,2,0), rs_d(-2,3,0);
+    for (size_t i(0); i<4; i++) {
+            ajoutElement(new Dipole(re_d.rotation(vec_e3, (M_PI/2)),rs_d.rotation(vec_e3, (M_PI/2)),Re,Rc,Bz));
+            ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L));
+    }
 }
 /*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){

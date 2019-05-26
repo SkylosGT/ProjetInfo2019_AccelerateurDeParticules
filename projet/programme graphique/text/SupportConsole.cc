@@ -34,7 +34,8 @@ void SupportConsole::dessine(Accelerateur const& _a){
 				}else{
 					cout << "L'accélérateur est constitué des " <<_a.getCollectionElement().size() <<" éléments suivantes :"<<endl;
 					for (auto element : _a.getCollectionElement()) {
-						element->dessine();}}
+                        element->dessine();
+                        cout<<element->elemSuivant()<<endl;}}
 						cout << endl; } else {
 							cout << "L'accélérateur n'est constitué d'aucun élément."<<endl;
 						cout << endl;}
