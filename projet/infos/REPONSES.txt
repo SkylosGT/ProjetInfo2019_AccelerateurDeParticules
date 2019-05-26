@@ -59,6 +59,8 @@ A chaque initialisation d'une instance dessinable, il faut donc y ajouter un poi
 Ainsi la super classe support à dessin comporte autant de méthode dessine (virtuelle pure) que d'objet que l'on souhaite dessiner et ces méthodes seront redéfini dans les sous-classe support console et ensuite support graphique.
  
 QUESTION P9.3
+Pour les classes contenant des pointeurs il faut faire attention à ce que l'appel 
+
 QUESTION P11.1
 QUESTION P13.1
 

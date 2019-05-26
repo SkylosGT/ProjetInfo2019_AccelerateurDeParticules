@@ -18,6 +18,10 @@ class SupportADessin
   virtual void dessine(Dipole const& a_dessiner)=0;
   virtual void dessine(Quadrupole const& a_dessiner)=0;
   virtual void dessine(SectionDroite const& a_dessiner)=0;
+  
+  private:
+    SupportADessin(SupportADessin const&) = deleted;
+    SupportADessin& operator=(SupportADessin const&) = deleted;
 
 };
 
