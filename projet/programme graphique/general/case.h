@@ -1,12 +1,9 @@
-#include <vector>
-#include "Particule.h"
-
-
-class Case{
-
+#ifndef CASE_H
+#define CASE_H
+class Case {
 private:
-    double positionCurviligne;
-    double
-    std::vector <Particule*> CollectionElement;
+    int case_position;
 
 };
+
+#endif // CASE_H

@@ -75,7 +75,11 @@ Vecteur3D& Vecteur3D::rotation(Vecteur3D const& a, double t) {
 	*this=((cos(t)*(*this))+(1-cos(t))*((*this)*(~a))*(~a)+sin(t)*((~a)^(*this)));
 	return *this;}
 
-
+Vecteur3D& Vecteur3D::arrondis(){
+    roundl(scal_x);
+    roundl(scal_y);
+    roundl(scal_z);
+    return  *this;}
 	
 //OPERATEURS EXTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE
 ostream& operator<<(ostream& sortie, Vecteur3D const& V){
@@ -98,10 +102,3 @@ double operator*(Vecteur3D V1, Vecteur3D const& V2){
 	
 const Vecteur3D operator^(Vecteur3D V1, Vecteur3D const& V2) {
 	return V1^=V2;}
-
-Vecteur3D const& arrondis(Vecteur3D& a){
-    round(a.getx());
-    round(a.gety());
-    round(a.getz());
-    return a;
- }

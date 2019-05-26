@@ -31,6 +31,7 @@ HEADERS += \
     SectionDroite.h \
     SupportAdessin.h \
     Vecteur3D.h \
+    case.h \
     maillefodo.h
 
 

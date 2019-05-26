@@ -98,6 +98,7 @@ void Accelerateur::construireAccelerateur(int taille){
     double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1);
     Vecteur3D vec_re(-2,3,0), vec_rs(2, 3, 0), re_d(-3,2,0), rs_d(-2,3,0);
     for (size_t i(0); i<4; i++) {
+        cout<<i<<endl;
             ajoutElement(new Dipole(re_d.rotation(vec_e3, (M_PI/2)),rs_d.rotation(vec_e3, (M_PI/2)),Re,Rc,Bz));
             ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L));
     }
