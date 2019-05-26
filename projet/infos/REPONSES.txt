@@ -48,6 +48,8 @@ QUESTION P8.2
 Cette conception de la méthode heurte_bord implique que la super classe Element est une super classe virtuelle, abstraite et donc ininstanciable. En effet, comme elle comprend la méthode virtuelle pure heurte_bord qui n'est pas défini pour un élément en général mais est redéfinie et utilisée pour les éléments courbes et élément droits, on ne peut donc pas créer d'instance Element, ce qui est logique dans notre conception.
 
 QUESTION P9.1
+En terme de Programmation Orientée Objet, la méthode dessine est spécifique à chaque objet que l'on veut dessiner. En d'autre terme, c'est une méthode virtuelle redéfinie dans chaque classe que l'on souhaite dessiner : c'est à dire que les éléments dipôle, quadrupole, section droite, les particules, et l'accélérateur (notre but finale) vont hériter de cette méthode.
+
 QUESTION P9.2
 QUESTION P9.3
 QUESTION P11.1
