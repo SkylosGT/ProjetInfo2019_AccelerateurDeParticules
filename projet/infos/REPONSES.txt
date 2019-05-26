@@ -28,7 +28,7 @@ QUESTION P6.3
 Oui nous avons représenté le centre de courbure d'un élément droit au travers d'une méthode protégée ne prenant aucun argument (le calcule n'utilise que les attributs d'un élément courbe : position d'entrée, position de sortie, rayon de courbure ainsi que le troisième vecteur de la base cartésienne orthonormée), qui ne modifie pas les attributs de l'instance courante (const) et qui retourne un vecteur3D indiquant la position du centre de courbure.
 
 QUESTION P6.4
-NSM JE TE LA LAISSE EHEH
+Je sais pas.
 
 QUESTION P7.1
 La classe Accélérateur doit pour l'instant simuler le système physique qu'est l'accélérateur de particule. Cette classe a donc besoin d'une collection de particules et d'une collection d'éléments (courbe, droit, dipôles..) comme attributs privés afin de part la suite simuler des interactions entre elle les particules ainsi que l'évolution de celles-ci dans les éléments de l'accélérateur. Ces collections seront contenues dans un tableau dynamique de type vector.
@@ -45,11 +45,14 @@ QUESTION P8.1
 La méthode heurte_bord() est une méthode utilisée par les deux sous-classes élément courbe et élément droit de élément. Cette méthode est donc définie virtuelle dans la super-classe élément et redéfini dans les sous-classes élément droit et élément courbe selon les formules du complément mathématique. Elle prend une particule comme argument, ne change pas l'instance courante (const) et retourne un booléen (vrai ou faux).
 
 QUESTION P8.2
+Cette conception de la méthode heurte_bord implique que la super classe Element est une super classe virtuelle, abstraite et donc ininstanciable. En effet, comme elle comprend la méthode virtuelle pure heurte_bord qui n'est pas défini pour un élément en général mais est redéfinie et utilisée pour les éléments courbes et élément droits, on ne peut donc pas créer d'instance Element, ce qui est logique dans notre conception.
+
 QUESTION P9.1
 QUESTION P9.2
 QUESTION P9.3
 QUESTION P11.1
 QUESTION P13.1
+
 QUESTION P14.1
 QUESTION P14.2
 
