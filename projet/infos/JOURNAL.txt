@@ -126,3 +126,8 @@ Log Joséphine :
 -Révision de l'examen de programmation
 -Finition du fichier conception
 
+--------------------------------------------------
+## Semaine 14 :
+Log Joséphine : 
+-Dernière retouche du projet (relécture, test des codes, organisation du rendu...)
+
