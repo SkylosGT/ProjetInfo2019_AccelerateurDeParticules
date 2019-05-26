@@ -15,7 +15,6 @@ SOURCES += \
 HEADERS += \
     SupportConsole.h \
     ../general/Accelerateur.h \
-    ../general/case.h
     ../general/ConstantesPhysiques.h \
     ../general/Dessinable.h \
     ../general/Dipole.h \
