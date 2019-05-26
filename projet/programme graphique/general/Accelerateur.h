@@ -5,6 +5,7 @@
 
 //#include "Element.h"
 #include "Faisceau.h"
+#include "case.h"
 
 
 //En tête de la classe Accelerateur avec descriptions de ses méthodes. Corps dans "Accelerateur.h"
@@ -16,6 +17,7 @@ class Accelerateur: public Dessinable {
  		std::vector <Element*> CollectionElement;//Un tableau d'éléments (contenant la collection d'éléments)
  		std::vector <Particule*> CollectionParticule;//Un tableau de particule (contenant collection de particule)
 		std::vector <Faisceau*> CollectionFaisceau;//Un tableau de faisceau (contenant collection de faisceau)
+        std::vector <Case*> cases;
 		
 	public:
 	//Des accesseurs des collections pour que la fonction dessine puisse dessiner chaque élément, faisceau (et particule) de l'accélérateur
@@ -63,10 +65,12 @@ class Accelerateur: public Dessinable {
 
 	//Méthode qui trouve l'élément courant dans lequel se trouve une certaine particule
 		Element* trouveElementDeLaParticule(Particule const&) const;
-	
+
         void attacheElements(Element*, Element*);
 
         void construireAccelerateur(int);
+
+        void segmenterEspace(int);
         /*//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
 		std::ostream& affiche(std::ostream&) const;*/
 };

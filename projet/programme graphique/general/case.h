@@ -1,9 +1,9 @@
-#ifndef CASE_H
-#define CASE_H
+#include "Particule.h"
+#include <vector>
+
 class Case {
 private:
-    int case_position;
+    std::vector<Particule*> particules;
 
 };
 
-#endif // CASE_H

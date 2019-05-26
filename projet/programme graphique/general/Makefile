@@ -85,6 +85,7 @@ DIST          =  Accelerateur.h \
 		SectionDroite.h \
 		SupportAdessin.h \
 		Vecteur3D.h \
+		case.h \
 		maillefodo.h Accelerateur.cc \
 		Dipole.cc \
 		Element.cc \
@@ -445,6 +446,7 @@ Accelerateur.o: Accelerateur.cc Accelerateur.h \
 		Vecteur3D.h \
 		Particule.h \
 		Element.h \
+		case.h \
 		ConstantesPhysiques.h \
 		Dipole.h \
 		ElementCourbe.h \
