@@ -76,9 +76,9 @@ Vecteur3D& Vecteur3D::rotation(Vecteur3D const& a, double t) {
 	return *this;}
 
 Vecteur3D& Vecteur3D::arrondis(){
-    roundl(scal_x);
-    roundl(scal_y);
-    roundl(scal_z);
+    round(scal_x);
+    round(scal_y);
+    round(scal_z);
     return  *this;}
 	
 //OPERATEURS EXTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE

@@ -74,7 +74,11 @@ void Accelerateur::evolue(double _dt) const{
 		for(Faisceau* faisceau : CollectionFaisceau){
             (*faisceau).bouger(_dt);
             faisceau->passeAuSuivant();
-            }}
+            for (auto particule:faisceau->getCollectionPart()) {
+                if(!CollectionCases[particule->caseParticule()]->particuleCollider(*particule)){
+                    CollectionCases[particule->caseParticule()]->enleveParticule(*particule);
+                    CollectionCases[particule->caseParticule()+1]->ajouteParticule(particule);
+                    particule->change_case(particule->caseParticule()+1);}}}}
 
     /*if(CollectionParticule.size()>0){
 		for(auto particule : CollectionParticule){
@@ -110,7 +114,8 @@ void Accelerateur::construireAccelerateur(int taille){
 
 void Accelerateur::segmenterEspace(int taille){
     for (size_t i(0);i<taille;i++) {
-        CollectionCases.push_back(new Case(i, angleDeSegmentation, rayon));}}
+        CollectionCases.push_back(new Case(i, angleDeSegmentation, rayon));}
+cout<<CollectionCases[1000]->entreeDeLaCase()<<CollectionCases[498]->entreeDeLaCase()<<endl;}
 
 /*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){

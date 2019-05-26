@@ -17,3 +17,7 @@ bool Case::particuleCollider(const Particule& particule){
 
 void Case::ajouteParticule(Particule* particule){
   particules.push_back(particule);}
+
+void Case::enleveParticule(const Particule& part){
+    //DeletePart
+}
