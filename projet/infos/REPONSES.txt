@@ -28,7 +28,8 @@ QUESTION P6.3
 Oui nous avons représenté le centre de courbure d'un élément droit au travers d'une méthode protégée ne prenant aucun argument (le calcule n'utilise que les attributs d'un élément courbe : position d'entrée, position de sortie, rayon de courbure ainsi que le troisième vecteur de la base cartésienne orthonormée), qui ne modifie pas les attributs de l'instance courante (const) et qui retourne un vecteur3D indiquant la position du centre de courbure.
 
 QUESTION P6.4
-Je sais pas.
+Afin de représenter la dernière contrainte que chaque particule ne puisse être que dans un élément, on ajoute un pointeur sur un élément (qu'on a appelé elem_courant) dans les attributs d'une particule qui ne pointra donc que sur un seul élément à la fois. Il faut donc aussi changer les constructeur des particules afin de pouvoir indiquer l'élément courant dans lequel la particule se trouve lors de son initialisation. On définira que l'élément courant d'une particule ne pointe sur rien par défaut.
+On ajoute de plus une méthode change_element qui ne retourne rien et prend un pointeur sur un élément en argument. Cette méthode change l'attribut elem_courant de cette particule : il pointe désormais sur l'élément passé en argument.
 
 QUESTION P7.1
 La classe Accélérateur doit pour l'instant simuler le système physique qu'est l'accélérateur de particule. Cette classe a donc besoin d'une collection de particules et d'une collection d'éléments (courbe, droit, dipôles..) comme attributs privés afin de part la suite simuler des interactions entre elle les particules ainsi que l'évolution de celles-ci dans les éléments de l'accélérateur. Ces collections seront contenues dans un tableau dynamique de type vector.
