@@ -12,7 +12,8 @@ public:
     Case(int, double, double);
     Vecteur3D& entreeDeLaCase();
     Vecteur3D& sortieDeLaCase();
-    bool ParticuleEstSortie(Particule const&);
+    bool particuleCollider(Particule const&);
+    void ajouteParticule(Particule*);
 
 };
 

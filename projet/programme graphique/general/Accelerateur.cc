@@ -14,7 +14,7 @@ using namespace ConstantesPhysiques;
 
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur(SupportADessin* _support) 
-    : Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau(), angle_case(0) {}
+    : Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau(), angleDeSegmentation(0), rayon(0) {}
 	
 /*ostream& Accelerateur::affiche(ostream& sortie) const {
 	if (CollectionElement.size() > 0) {
@@ -41,12 +41,10 @@ Accelerateur::Accelerateur(SupportADessin* _support)
 	return sortie; }*/
 	
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
-	nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
-	nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
-    for (size_t i(0); i<CollectionCases.size();i++) {
-        if(((nouveau->particuleDeReference().position())^(CollectionCases[i]->entreeDeLaCase())).getz()>=0 && ((nouveau->particuleDeReference().position())^(CollectionCases[i]->sortieDeLaCase())).getz()<=0){
-            nouveau->particuleDeReference().change_case(i);}
-    }
+    nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
+    nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
+    int i(0); while(!CollectionCases[i]->particuleCollider(nouveau->particuleDeReference())){i++;}
+    nouveau->changerCaseDeLaParticuleDeReference(i);
 	nouveau->change_support(support);
     CollectionFaisceau.push_back(nouveau);}
 	
@@ -74,22 +72,17 @@ void Accelerateur::supprCollectionFaisceau() {
 void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
-			(*faisceau).bouger(_dt);}
-			for(Faisceau* faisceau :CollectionFaisceau) {
-				for(auto particule : faisceau->getCollectionPart()){
-					if((*particule).elemCourant()->passe_au_suivant((*particule))){
-                    (*particule).change_element((*particule).elemCourant()->elemSuivant());}
-                    if(CollectionCases[particule->caseParticule()]->ParticuleEstSortie(*particule)){
+            (*faisceau).bouger(_dt);
+            faisceau->passeAuSuivant();
+            }}
 
-                        particule->change_case(particule->caseParticule()+1);}}}}
-
-	if(CollectionParticule.size()>0){	
+    /*if(CollectionParticule.size()>0){
 		for(auto particule : CollectionParticule){
         cout<<*((*particule).elemCourant())<<endl;
 		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
 		(*particule).bouger(_dt);
 		if((*particule).elemCourant()->passe_au_suivant((*particule))){
-			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}}
+            (*particule).change_element((*particule).elemCourant()->elemSuivant());}}}*/}
 
 Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) const {
 	if(CollectionElement.size()>0){
@@ -101,10 +94,15 @@ void Accelerateur::attacheElements(Element* element1, Element * element2){
     if(element2->sortie()==element1->entree()){element2->attacheElementSuivant(element1);}}
 
 void Accelerateur::construireAccelerateur(int taille){
+
     double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(10e-5);
     Vecteur3D vec_re(-2,3,0), vec_rs(2, 3, 0), re_d(-3,2,0), rs_d(-2,3,0);
-    angle_case=(2*M_PI)/(round(2*M_PI/atan(epsilon/3)));
+
+    rayon=taille*2+1;
+    angleDeSegmentation=(2*M_PI)/(round(2*M_PI/atan(epsilon/3)));
+
     segmenterEspace(round(2*M_PI/atan(epsilon/3)));
+
     for (size_t i(0); i<4; i++) {
         cout<<i<<endl;
             ajoutElement(new Dipole(re_d.rotation(vec_e3, (M_PI/2)),rs_d.rotation(vec_e3, (M_PI/2)),Re,Rc,Bz));
@@ -112,13 +110,7 @@ void Accelerateur::construireAccelerateur(int taille){
 
 void Accelerateur::segmenterEspace(int taille){
     for (size_t i(0);i<taille;i++) {
-        CollectionCases.push_back(new Case(i, angle_case, 3));}
-    for (int i(0);i<1000;i++) {
-        cout<<"Entrée :"<<CollectionCases[i]->entreeDeLaCase()<<endl<<"Sortie :"<<CollectionCases[i]->sortieDeLaCase()<<endl;
-    }
-    cout<<"Entrée :"<<CollectionCases[180000]->entreeDeLaCase()<<endl<<"Sortie :"<<CollectionCases[180000]->sortieDeLaCase()<<endl;
-    cout<<CollectionCases.size()<<endl;
-}
+        CollectionCases.push_back(new Case(i, angleDeSegmentation, rayon));}}
 
 /*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){

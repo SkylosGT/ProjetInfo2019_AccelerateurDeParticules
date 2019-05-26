@@ -40,7 +40,7 @@ class Faisceau : public Dessinable {
 	std::vector<Particule*> getCollectionPart() const {return CollectionPart;}
 
 	//Getter, retourne la particule de référence du faisceau
-	Particule particuleDeReference() const {return reference;}
+    Particule particuleDeReference() const {return reference;}
 	
 	//Méthode qui calcul l'énergie du faisceau dans son attribut energie_moy
 	void energie_moyenne();
@@ -58,6 +58,10 @@ class Faisceau : public Dessinable {
     void calcul_ell_hori();
 
 	void changerElementDeLaParticuleDeReference(Element*);
+
+    void changerCaseDeLaParticuleDeReference(int);
+
+    void passeAuSuivant();
 
 	virtual void change_support(SupportADessin*) override;
 

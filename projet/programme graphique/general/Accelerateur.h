@@ -19,7 +19,8 @@ class Accelerateur: public Dessinable {
 		std::vector <Faisceau*> CollectionFaisceau;//Un tableau de faisceau (contenant collection de faisceau)
         std::vector <Case*> CollectionCases;
 
-        double angle_case;
+        double angleDeSegmentation;
+        double rayon;
 		
 	public:
 	//Des accesseurs des collections pour que la fonction dessine puisse dessiner chaque élément, faisceau (et particule) de l'accélérateur
@@ -73,6 +74,7 @@ class Accelerateur: public Dessinable {
         void construireAccelerateur(int);
 
         void segmenterEspace(int);
+
         /*//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
 		std::ostream& affiche(std::ostream&) const;*/
 };

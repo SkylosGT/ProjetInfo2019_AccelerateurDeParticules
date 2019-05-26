@@ -10,10 +10,10 @@ Vecteur3D& Case::entreeDeLaCase(){
 Vecteur3D& Case::sortieDeLaCase(){
     return (*new Vecteur3D(rayon*cos(positionDeLaCase*angle+angle), -(rayon*sin(positionDeLaCase*angle+angle)), 0));}
 
-bool Case::ParticuleEstSortie(const Particule& particule){
-    if((particule.position()^sortieDeLaCase()).getz()>0){
-        return true;
-    }else {
-        return false;
-}
-}
+bool Case::particuleCollider(const Particule& particule){
+    if((particule.position()^entreeDeLaCase()).getz()>=0 && (particule.position()^sortieDeLaCase()).getz()<=0){
+        return true;}
+    else {return false;}}
+
+void Case::ajouteParticule(Particule* particule){
+  particules.push_back(particule);}
