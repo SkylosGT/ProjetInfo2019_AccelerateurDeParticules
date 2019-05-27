@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
   Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
 
   //Un faisceau circulaire avec comme particules de référence p1
-  FaisceauCirculaire faisceau1(p1, 25, 1);
+  FaisceauCirculaire faisceau1(p1, 250, 10);
 
   //Ajout du faisceau dans l'accélérateur
   w.ajoutFaisceau(&faisceau1);

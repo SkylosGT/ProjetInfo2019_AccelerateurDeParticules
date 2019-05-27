@@ -37,9 +37,9 @@ void Particule::ajouteForceMagnetique(Vecteur3D _B, double _dt){
         vec_f=(scal_q*vec_v)^_B;
         vec_f.rotation((vec_v^vec_f), calculateDeviationAngle(_dt));}}
     
-void Particule::ajouteInteractionParticule(Particule const& autre) {	
+void Particule::ajouteInteractionParticule(Particule const& autre) {
 	Vecteur3D distance(vec_r-autre.vec_r);
-    vec_f+=(scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme())*distance;}
+    vec_f+=(scal_q*scal_q)/(4*M_PI*const_e0*distance.norme2()*distance.norme())*pow(FacteurGamma(), -2)*distance;}
 
 void Particule::bouger(double _dt){
     vec_v+=_dt*(1/(FacteurGamma()*transformMassGeVToKg()))*vec_f;
@@ -54,7 +54,7 @@ ostream& Particule::affiche(ostream& sortie) const{
     "   enregie (GeV) :"<<Energie()<<endl<<
     "   masse (Gev)/c^2 :"<<scal_m<<endl<<
     "   charge :"<<scal_q<<endl<<
-    "   force :"<<vec_f<<endl<<caseDeLaParticule<<endl;}
+    "   force :"<<vec_f<<endl;}
 
 void Particule::change_element(Element* suivant){
     elem_courant=suivant;}

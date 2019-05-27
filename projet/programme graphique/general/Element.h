@@ -32,9 +32,6 @@ class Element : public Dessinable{
         //Constructeur d'un élément qui ne pointe par défault vers aucun élément suivant
         Element(Vecteur3D, Vecteur3D, double, SupportADessin*, Element* _suivant=nullptr);
 
-        //Déstructeur de l'élément
-        virtual ~Element();
-
     /*Méthodes virtuelles pures de la classe Element*/
 
         //Sera substituée pour calculer le champs magnétique de l'élément

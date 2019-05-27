@@ -12,9 +12,6 @@ class SectionDroite : public ElementDroit {
         //Constructeur de la section droite qui ne peut pas avoir d'élément suivant attaché à lui
         SectionDroite(Vecteur3D, Vecteur3D, double, SupportADessin* _support=nullptr);
 
-        //Destructeur de la section droite
-        ~SectionDroite();
-
     /*Méthodes de l'interface de la classe SectionDroite*/
 
         //Calcule le champ magnétique de l'élément

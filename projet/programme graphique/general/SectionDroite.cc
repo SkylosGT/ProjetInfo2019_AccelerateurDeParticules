@@ -10,8 +10,6 @@ using namespace ConstantesPhysiques;
 SectionDroite::SectionDroite(Vecteur3D _re, Vecteur3D _rs, double _Re, SupportADessin* _support)
 :ElementDroit(_re, _rs, _Re, _support) {}
 
-SectionDroite::~SectionDroite() {}
-
 Vecteur3D SectionDroite::champMagnetique(Vecteur3D const& _B=vec_e3) const{
     return Vecteur3D();}
 

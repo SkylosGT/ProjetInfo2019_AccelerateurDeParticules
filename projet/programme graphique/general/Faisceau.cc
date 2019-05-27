@@ -13,6 +13,10 @@ using namespace ConstantesPhysiques;
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
 : Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {}
 
+Faisceau::~Faisceau(){
+    for (auto particule: CollectionPart) {
+        delete particule;}}
+
 void Faisceau::energie_moyenne(){
 	double _energie(0);
 	for(auto _particule : CollectionPart) {

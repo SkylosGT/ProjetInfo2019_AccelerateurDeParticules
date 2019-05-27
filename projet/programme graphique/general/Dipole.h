@@ -18,9 +18,6 @@ class Dipole : public ElementCourbe {
         //Constructeur du Dipole qui ne peut pas avoir d'élément suivant attaché à lui
         Dipole(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr);
 
-        //Destructeur du Dipole
-        ~Dipole();
-
     /*Méthodes de l'interface de la classe Dipole*/
 
         //Calcule le champ magnétique de l'élément

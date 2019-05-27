@@ -29,7 +29,10 @@ class Accelerateur: public Dessinable {
 
 	//Constructeur par défauts qui initialise l'accélérateur vide (aucun élément, aucune particule)
 		Accelerateur(SupportADessin* _support=nullptr);
-		
+
+    //Destructeur de l'accelerateur
+        ~Accelerateur();
+
 	//Suppression du constructeur de copie 
 		Accelerateur(Accelerateur const&) = delete;
 		
@@ -49,6 +52,9 @@ class Accelerateur: public Dessinable {
 	
 	//Supprime tous les faisceaux de l'accélérateur
 		void supprCollectionFaisceau();
+
+    //Supprime toutes les cases de l'accélérateur
+        void supprCollectionCases();
 
     //Méthode qui construit un accelerateur circulaire d'un certain rayon
         void construireAccelerateur(int);

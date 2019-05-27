@@ -16,6 +16,11 @@ using namespace ConstantesPhysiques;
 Accelerateur::Accelerateur(SupportADessin* _support) 
     : Dessinable(_support), CollectionElement() ,CollectionFaisceau(), angleDeSegmentation(0), rayon(0) {}
 	
+Accelerateur::~Accelerateur(){
+    supprCollectionFaisceau();
+    supprCollectionElement();
+    supprCollectionCases();}
+
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
     nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
     nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
@@ -32,15 +37,22 @@ void Accelerateur::ajoutElement(Element* nouveau) {
     CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionElement() {
+    for (auto element: CollectionElement) {
+        delete element;}
 	CollectionElement.clear();}
 	
 void Accelerateur::supprCollectionFaisceau() {
 	CollectionFaisceau.clear();}
+
+void Accelerateur::supprCollectionCases(){
+    for (auto c:CollectionCases) {
+        delete c;}
+    CollectionCases.clear();}
 	
 void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
-            interactionParticules(faisceau);
+            //interactionParticules(faisceau);
             (*faisceau).bouger(_dt);
             faisceau->passeAuSuivant();
             passeCaseSuivante(faisceau);}}}
@@ -55,7 +67,7 @@ void Accelerateur::attacheElements(Element* element1, Element * element2) const{
     if(element2->sortie()==element1->entree()){element2->attacheElementSuivant(element1);}}
 
 void Accelerateur::construireAccelerateur(int taille){
-    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(1e-4);
+    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(10e-3);
     rayon=taille*2+1;
     angleDeSegmentation=(2*M_PI)/(round(2*M_PI/atan(epsilon/3)));
     segmenterEspace(round(2*M_PI/atan(epsilon/3)));

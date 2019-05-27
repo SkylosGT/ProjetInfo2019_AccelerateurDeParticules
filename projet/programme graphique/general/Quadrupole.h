@@ -18,9 +18,6 @@ class Quadrupole : public ElementDroit {
         //Constructeur du Quadrupole qui ne peut pas avoir d'élément suivant attaché à lui
         Quadrupole(Vecteur3D, Vecteur3D, double, double, SupportADessin* _support=nullptr);
 
-        //Destructeur du quadrupole
-        ~Quadrupole();
-
     /*Méthodes de l'interface de la classe SectionDroite*/
 
         //Calcule le champ magnétique de l'élément

@@ -23,6 +23,9 @@ class MailleFODO:public ElementDroit{
         //Constructeur d'une maille fodo qui initialise par défaut le support comme pointant sur rien
         MailleFODO(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr);
 
+        //Destructeur de la maille fodo
+        ~MailleFODO();
+
 /*Méthodes publiques de l'interface de la classe Faisceau circulaire*/
 
         //Trouve l'element dans lequel la particule se situe

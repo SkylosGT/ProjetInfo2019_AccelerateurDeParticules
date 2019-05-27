@@ -16,6 +16,10 @@ MailleFODO::MailleFODO(Vecteur3D _re, Vecteur3D _rs, double _Re, double _b, doub
         elements.push_back(new Quadrupole(vec_re+(scal_l+scal_L)*vec_d, vec_re+(2*scal_l+scal_L)*vec_d, scal_Re, -scal_b));
         elements.push_back(new SectionDroite(vec_re+(2*scal_l+scal_L)*vec_d, vec_rs, scal_Re));}
 
+MailleFODO::~MailleFODO(){
+    for (auto element: elements) {
+        delete element;}}
+
 Vecteur3D MailleFODO::champMagnetique(const Vecteur3D& position) const{
     return trouveElementDeLaMaille(position)->champMagnetique(position);}
 

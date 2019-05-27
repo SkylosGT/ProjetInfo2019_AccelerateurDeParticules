@@ -13,9 +13,6 @@ class ElementDroit: public Element {
         //Constructeur de l'élément droit qui ne peut pas avoir d'élément suivant attaché à lui
         ElementDroit(Vecteur3D, Vecteur3D, double, SupportADessin*);
 
-        //Destructeur de l'élément droit
-        ~ElementDroit();
-
     /*Méthodes de l'interface Element Droit (redéfinition de méthode héritées de Element)*/
 
         //Définit si une particule heurte le bord de l'élément

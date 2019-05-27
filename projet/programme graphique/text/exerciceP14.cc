@@ -52,7 +52,7 @@ int main () {
     Particule p1(_r1, _v1, _E, _m, _q), p2(_r2,_v2,_E,_m,_q);
     
     //Deux faisceaux circulaires avec comme particules de référence p1 et p2
-    FaisceauCirculaire faisceau1(p1, 10, 5), faisceau2(p2, 20, 2);
+    FaisceauCirculaire faisceau1(p1, 10, 1), faisceau2(p2, 20, 1);
 
     _accelerateur.ajoutFaisceau(&faisceau1);
     _accelerateur.ajoutFaisceau(&faisceau2);
@@ -61,7 +61,7 @@ int main () {
 	cout << "AVANT EVOLUTION DU SYSTEME ET APRES AJOUT DE FAISCEAU"<< endl;
 	_accelerateur.dessine();
 
-    int pas(10000);
+    int pas(2);
 
     //Le système evolue
     for(size_t i = 0; i < pas; i++)

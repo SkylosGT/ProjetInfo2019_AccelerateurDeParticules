@@ -38,7 +38,10 @@ class Faisceau : public Dessinable {
 
 	//Constructeur d'un faisceau qui initialise par défaut le support comme pointant sur rien
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
-	
+
+    //Destructeur du faisceau
+    ~Faisceau();
+
 	//Getter, retourne la colllection de particule du faisceau
 	std::vector<Particule*> getCollectionPart() const {return CollectionPart;}
 
