@@ -33,5 +33,4 @@ std::vector<Particule*> Case::paticulesQuiInteragissent(Case* avant, Case* apres
     particulesQuiInteragissent.insert(particulesQuiInteragissent.end(), avant->particules.begin(), avant->particules.end());
     particulesQuiInteragissent.insert(particulesQuiInteragissent.end(), particules.begin(), particules.end());
     particulesQuiInteragissent.insert(particulesQuiInteragissent.end(), apres->particules.begin(), apres->particules.end());
-    return particulesQuiInteragissent;
-}
+    return particulesQuiInteragissent;}
