@@ -12,9 +12,10 @@ public:
     Case(int, double, double);
     Vecteur3D& entreeDeLaCase();
     Vecteur3D& sortieDeLaCase();
-    void enleveParticule(Particule const&);
+    void enleveParticule(Particule*);
     bool particuleCollider(Particule const&);
     void ajouteParticule(Particule*);
+    std::vector<Particule*> paticulesQuiInteragissent(Case*, Case*);
 
 };
 

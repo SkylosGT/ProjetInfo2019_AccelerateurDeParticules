@@ -75,6 +75,7 @@ class Accelerateur: public Dessinable {
 
         void segmenterEspace(int);
 
+        int changeIndiceCase(int) const;
         /*//Affiche chaque éléments et particules de l'instance sur la console de manière ergonomique
 		std::ostream& affiche(std::ostream&) const;*/
 };

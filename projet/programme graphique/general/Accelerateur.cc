@@ -76,9 +76,9 @@ void Accelerateur::evolue(double _dt) const{
             faisceau->passeAuSuivant();
             for (auto particule:faisceau->getCollectionPart()) {
                 if(!CollectionCases[particule->caseParticule()]->particuleCollider(*particule)){
-                    CollectionCases[particule->caseParticule()]->enleveParticule(*particule);
-                    CollectionCases[particule->caseParticule()+1]->ajouteParticule(particule);
-                    particule->change_case(particule->caseParticule()+1);}}}}
+                    CollectionCases[particule->caseParticule()]->enleveParticule(particule);
+                    CollectionCases[changeIndiceCase(particule->caseParticule())]->ajouteParticule(particule);
+                    particule->change_case(changeIndiceCase(particule->caseParticule()));}}}}
 
     /*if(CollectionParticule.size()>0){
 		for(auto particule : CollectionParticule){
@@ -99,7 +99,7 @@ void Accelerateur::attacheElements(Element* element1, Element * element2){
 
 void Accelerateur::construireAccelerateur(int taille){
 
-    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(10e-5);
+    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(10e-3);
     Vecteur3D vec_re(-2,3,0), vec_rs(2, 3, 0), re_d(-3,2,0), rs_d(-2,3,0);
 
     rayon=taille*2+1;
@@ -115,7 +115,11 @@ void Accelerateur::construireAccelerateur(int taille){
 void Accelerateur::segmenterEspace(int taille){
     for (size_t i(0);i<taille;i++) {
         CollectionCases.push_back(new Case(i, angleDeSegmentation, rayon));}
-cout<<CollectionCases[1000]->entreeDeLaCase()<<CollectionCases[498]->entreeDeLaCase()<<endl;}
+}
+
+int Accelerateur::changeIndiceCase(int i) const{
+    if(i<CollectionCases.size()-1){return i+1;}
+    else {return 0;}}
 
 /*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
 ostream& operator<<(ostream& sortie, Accelerateur const& a){
