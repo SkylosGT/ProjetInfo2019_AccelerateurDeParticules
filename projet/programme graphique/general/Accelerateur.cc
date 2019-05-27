@@ -40,6 +40,7 @@ void Accelerateur::supprCollectionFaisceau() {
 void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
+            interactionParticules(faisceau);
             (*faisceau).bouger(_dt);
             faisceau->passeAuSuivant();
             passeCaseSuivante(faisceau);}}}
@@ -54,7 +55,7 @@ void Accelerateur::attacheElements(Element* element1, Element * element2) const{
     if(element2->sortie()==element1->entree()){element2->attacheElementSuivant(element1);}}
 
 void Accelerateur::construireAccelerateur(int taille){
-    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(10e-3);
+    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(1e-4);
     rayon=taille*2+1;
     angleDeSegmentation=(2*M_PI)/(round(2*M_PI/atan(epsilon/3)));
     segmenterEspace(round(2*M_PI/atan(epsilon/3)));
@@ -72,9 +73,19 @@ int Accelerateur::caseSuivante(int i) const{
     if(i<CollectionCases.size()-1){return i+1;}
     else {return 0;}}
 
+int Accelerateur::casePrecedente(int i) const{
+    if(i>0){return i-1;}
+    else{return CollectionCases.size()-1;}}
+
 void Accelerateur::passeCaseSuivante(Faisceau* faisceau) const{
     for (auto particule:faisceau->getCollectionPart()) {
         if(!CollectionCases[particule->caseParticule()]->particuleCollider(*particule)){
             CollectionCases[particule->caseParticule()]->enleveParticule(particule);
             CollectionCases[caseSuivante(particule->caseParticule())]->ajouteParticule(particule);
             particule->change_case(caseSuivante(particule->caseParticule()));}}}
+
+void Accelerateur::interactionParticules(Faisceau* faisceau) const{
+    for (auto particule: faisceau->getCollectionPart()) {
+        for(auto _particule: CollectionCases[particule->caseParticule()]->paticulesQuiInteragissent(CollectionCases[caseSuivante(particule->caseParticule())], CollectionCases[casePrecedente(particule->caseParticule())])){
+            if(not((*particule)==(*_particule))){
+                _particule->ajouteInteractionParticule(*particule);}}}}
