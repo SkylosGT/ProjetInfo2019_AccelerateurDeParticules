@@ -72,8 +72,8 @@ class Vecteur3D {
 		// Méthode qui fait la rotation de l'instance courante autour d'un axe (vecteur unitaire passé en argument) d'un angle en radiant passé aussi en argument
         Vecteur3D& rotation(Vecteur3D const&, double);
 
+        //Arrondis un vecteur
         Vecteur3D& arrondis();
-
 };
 
 /*OPERATEURS EXTERNES*/

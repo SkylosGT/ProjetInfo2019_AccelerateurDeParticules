@@ -1,27 +1,28 @@
+/*Hérite : Dessinable.h*/
+
 #pragma once
 
 #include "Vecteur3D.h"
 #include "Element.h"
-
 #include "Dessinable.h"
 #include "SupportADessin.h"
 
 class Element;
 
 //En tête de la classe Particule avec descriptions de ses méthodes. Corps dans "Particule.cc"
-
 class Particule : public Dessinable {
   
   private:
   
-  //Attributs physiques d'une particule
+  /*Attributs physiques d'une particule*/
+
     Vecteur3D vec_r; //Position de la particule 
     Vecteur3D vec_v; //Vitesse de la particule
     double scal_m; //Masse de la particule
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
     Element* elem_courant; //Elément courant dans lequel se trouve la particule
-    int caseDeLaParticule;
+    int caseDeLaParticule;//Case dans laquelle se trouve la particule
 
   /*Méthodes pour faciliter les calculs des attributs de l'instance*/
 
@@ -61,6 +62,7 @@ class Particule : public Dessinable {
     //Ajoute une force s'appliquant sur la particule et effectue une rotation sur celle la
     void ajouteForceMagnetique(Vecteur3D, double);
 
+    //Ajoute une force d'interaction entre cette particule et celle donnée en paramètre
     void ajouteInteractionParticule(Particule const&);
 
     //Déplace la particule et modifie sa vitesse en fonction des attributs de l'instance courante et du pas de temps définit
@@ -72,15 +74,19 @@ class Particule : public Dessinable {
     //La particule change d'élément
     void change_element(Element*);
 
+    //La particule change d'élément
     void change_case(int c){caseDeLaParticule=c;}
 
 	//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine une particule sur un support choisi
     virtual void dessine() override
     { support->dessine(*this); }
     
+/*OPERATEURS INTERNES*/
+
     //Surcharge de l'opérateur *= qui multiplie la masse et la charge d'une particule par l'argument
     Particule& operator*=(double);
 
+    //Surcharge de l'opérateur == qui vérifie si deux particules sont égales
     bool operator==(Particule const&) const;
 };
 
@@ -88,7 +94,3 @@ class Particule : public Dessinable {
 
 //Permet l'affichage d'une Particule par surcharge
 std::ostream& operator<<(std::ostream&, Particule const&);
-
-//const Particule operator*(double, Particule const&);
-
-//const Particule operator*(Particule const&, double);
