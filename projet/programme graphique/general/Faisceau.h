@@ -11,7 +11,7 @@
 
 #include "Particule.h"
 
-//En tête de la sous classe Faisceau de Dessinable avec descriptions de ses méthodes. Corps dans "Faisceau.cc"
+//En tête de la sous classe Faisceau de Dessinable avec descriptions de ses méthodes. Corps dans "Faisceau.h"
 class Faisceau : public Dessinable {
 
     protected :

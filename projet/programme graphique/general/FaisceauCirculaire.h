@@ -5,7 +5,7 @@
 #include "Faisceau.h"
 #include "Particule.h"
 
-//En tête de la sous classe FaisceauCirculaire de Faisceau avec descriptions de ses méthodes. Corps dans "FaisceauCiruclaire.cc"
+//En tête de la sous classe FaisceauCirculaire de Faisceau avec descriptions de ses méthodes. Corps dans "FaisceauCiruclaire.h"
 class FaisceauCirculaire : public Faisceau {
 
     private:

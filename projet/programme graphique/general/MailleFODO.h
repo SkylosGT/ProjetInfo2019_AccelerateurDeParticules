@@ -1,11 +1,8 @@
-/*Hérite : Dessinable.h*/
-
-#pragma once
-
+#ifndef MAILLEFODO_H
+#define MAILLEFODO_H
 #include "ElementDroit.h"
 #include <vector>
 
-//En tête de la sous classe MaileFODO avec descriptions de ses méthodes. Corps dans "MailleFODO.cc"
 class MailleFODO:public ElementDroit{
 
     private:
@@ -45,3 +42,4 @@ class MailleFODO:public ElementDroit{
         { support->dessine(*this); }
 };
 
+#endif // MAILLEFODO_H
