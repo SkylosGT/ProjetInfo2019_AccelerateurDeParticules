@@ -34,6 +34,8 @@ class SupportOpenGL : public SupportADessin {
   void dessineAxes(QMatrix4x4 const& point_de_vue=QMatrix4x4(), bool en_couleur=true);
   void dessineCube(QMatrix4x4 const& point_de_vue = QMatrix4x4() );
   void dessineSphere(QMatrix4x4 const& point_de_vue, Vecteur3D couleur=(*new Vecteur3D(1,1,1)));
+
+  //méthode utilitaires
   void dessinePoint(QMatrix4x4 const& point_de_vue, double taille);
   void dessineCercle(QMatrix4x4 const& point_de_vue, double, double, Vecteur3D couleur=(*new Vecteur3D(1,1,1)));
   void dessineCylindre(QMatrix4x4 const& point_de_vue, double, double, Vecteur3D couleur=(*new Vecteur3D(1,1,1)));

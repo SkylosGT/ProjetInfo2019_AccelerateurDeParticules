@@ -71,4 +71,7 @@ class Accelerateur: public Dessinable {
 
     //Rend la case suivante dans le sens horaire
         int caseSuivante(int) const;
+
+    //La particule passe à la case suivante
+        void passeCaseSuivante(Faisceau*) const;
 };

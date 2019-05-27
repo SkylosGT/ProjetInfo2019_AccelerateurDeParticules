@@ -26,8 +26,7 @@ Element* MailleFODO::trouveElementDeLaMaille(const Vecteur3D& position) const{
 
 ostream& MailleFODO::affiche(ostream& sortie) const {
     for (auto element : elements) {
-        element->affiche(sortie);}
-    cout<<elem_suivant<<endl;}
+        element->affiche(sortie);}}
 
 void MailleFODO::change_support(SupportADessin *nouveau){
     support=nouveau;

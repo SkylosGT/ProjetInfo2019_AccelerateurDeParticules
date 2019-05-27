@@ -42,11 +42,7 @@ void Accelerateur::evolue(double _dt) const{
 		for(Faisceau* faisceau : CollectionFaisceau){
             (*faisceau).bouger(_dt);
             faisceau->passeAuSuivant();
-            for (auto particule:faisceau->getCollectionPart()) {
-                if(!CollectionCases[particule->caseParticule()]->particuleCollider(*particule)){
-                    CollectionCases[particule->caseParticule()]->enleveParticule(particule);
-                    CollectionCases[caseSuivante(particule->caseParticule())]->ajouteParticule(particule);
-                    particule->change_case(caseSuivante(particule->caseParticule()));}}}}}
+            passeCaseSuivante(faisceau);}}}
 
 Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) const {
 	if(CollectionElement.size()>0){
@@ -75,3 +71,10 @@ void Accelerateur::segmenterEspace(int taille){
 int Accelerateur::caseSuivante(int i) const{
     if(i<CollectionCases.size()-1){return i+1;}
     else {return 0;}}
+
+void Accelerateur::passeCaseSuivante(Faisceau* faisceau) const{
+    for (auto particule:faisceau->getCollectionPart()) {
+        if(!CollectionCases[particule->caseParticule()]->particuleCollider(*particule)){
+            CollectionCases[particule->caseParticule()]->enleveParticule(particule);
+            CollectionCases[caseSuivante(particule->caseParticule())]->ajouteParticule(particule);
+            particule->change_case(caseSuivante(particule->caseParticule()));}}}

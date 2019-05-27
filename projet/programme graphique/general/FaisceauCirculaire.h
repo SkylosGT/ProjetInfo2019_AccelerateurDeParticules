@@ -33,6 +33,7 @@ class FaisceauCirculaire : public Faisceau {
         { support->dessine(*this); }
 
     //Redéfinition de la methode qui lance une particule
-        virtual void lanceParticule() override;
+        virtual void lanceParticule(double) override;
+
 };
 

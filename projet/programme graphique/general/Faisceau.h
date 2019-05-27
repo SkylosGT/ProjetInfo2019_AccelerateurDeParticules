@@ -75,5 +75,5 @@ class Faisceau : public Dessinable {
 	virtual void change_support(SupportADessin*) override;
 
     //Lance des particules
-    virtual void lanceParticule()=0;
+    virtual void lanceParticule(double)=0;
 };

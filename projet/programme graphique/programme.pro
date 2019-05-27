@@ -3,4 +3,7 @@ TEMPLATE = subdirs
 SUBDIRS += \
    general \
    Qt_GL \
-   text
+    test/testAccel1 \
+   test/testParticule \
+   test/testVecteur\
+   text \

@@ -1,15 +1,19 @@
+/*Hérite : SupportADessin.h*/
+
 #include <iostream>
+
 #include "SupportADessin.h"
 
-
-//En tête de la classe SupportConsole avec descriptions de ses méthodes. Corps dans "SupportConsole.h"
+//En tête de la classe SupportConsole avec descriptions de ses méthodes. Corps dans "SupportConsole.cc"
 class SupportConsole : public SupportADessin {
 	
  private:
+
  //Un ostream en attribut privé qui permet de dessiner sur la console
   std::ostream& flot;
  
  public:
+
  //Un constructeur
  SupportConsole(std::ostream& flot)
     : flot(flot)

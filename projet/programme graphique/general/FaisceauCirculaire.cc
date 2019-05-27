@@ -18,7 +18,7 @@ void FaisceauCirculaire::bouger(double dt) {
             if(not((*part)==(*_particule))){
                 _particule->ajouteInteractionParticule(*part);}}
 		_particule->bouger(dt);}
-    lanceParticule();
+    lanceParticule(dt);
 	(*this).energie_moyenne();
 	(*this).calcul_ell_vert();
 	(*this).calcul_ell_vert();}
@@ -29,12 +29,13 @@ ostream& FaisceauCirculaire::affiche(ostream& sortie) const{
 		_particule->affiche(sortie);}
 	return sortie;}
 	
-void FaisceauCirculaire::lanceParticule(){
+void FaisceauCirculaire::lanceParticule(double dt){
     if(chronometre>=dt_lancement){
     if((CollectionPart.size()) < (nombre_particule/coef_simulation)) {
         CollectionPart.push_back(new Particule(reference*=coef_simulation));
     chronometre=0;}}
     else {
-        chronometre+=dt_lancement;
-    }
+        chronometre+=dt;
+    } 
 }
+

@@ -4,6 +4,8 @@
 #include <QGLBuffer>
 #include <QOpenGLShaderProgram>
 
+//Classe Sphère récupérée de ExerciceP12
+
 class GLSphere
 {
 public:

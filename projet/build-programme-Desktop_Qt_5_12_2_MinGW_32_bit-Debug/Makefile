@@ -30,6 +30,9 @@ MOVE          = move
 SUBTARGETS    =  \
 		sub-general \
 		sub-Qt_GL \
+		sub-test-testAccel1 \
+		sub-test-testParticule \
+		sub-test-testVecteur \
 		sub-text
 
 
@@ -83,6 +86,81 @@ sub-Qt_GL-install_subtargets: FORCE
 sub-Qt_GL-uninstall_subtargets: FORCE
 	@if not exist Qt_GL\ mkdir Qt_GL\ & if not exist Qt_GL\ exit 1
 	cd Qt_GL\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\Qt_GL\Qt_GL.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile uninstall
+sub-test-testAccel1-qmake_all:  FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
+	cd test\testAccel1\ && $(MAKE) -f Makefile qmake_all
+sub-test-testAccel1: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile
+sub-test-testAccel1-make_first: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile 
+sub-test-testAccel1-all: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile all
+sub-test-testAccel1-clean: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile clean
+sub-test-testAccel1-distclean: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile distclean
+sub-test-testAccel1-install_subtargets: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile install
+sub-test-testAccel1-uninstall_subtargets: FORCE
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile uninstall
+sub-test-testParticule-qmake_all:  FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
+	cd test\testParticule\ && $(MAKE) -f Makefile qmake_all
+sub-test-testParticule: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile
+sub-test-testParticule-make_first: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile 
+sub-test-testParticule-all: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile all
+sub-test-testParticule-clean: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile clean
+sub-test-testParticule-distclean: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile distclean
+sub-test-testParticule-install_subtargets: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile install
+sub-test-testParticule-uninstall_subtargets: FORCE
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile uninstall
+sub-test-testVecteur-qmake_all:  FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
+	cd test\testVecteur\ && $(MAKE) -f Makefile qmake_all
+sub-test-testVecteur: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile
+sub-test-testVecteur-make_first: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile 
+sub-test-testVecteur-all: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile all
+sub-test-testVecteur-clean: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile clean
+sub-test-testVecteur-distclean: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile distclean
+sub-test-testVecteur-install_subtargets: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile install
+sub-test-testVecteur-uninstall_subtargets: FORCE
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile uninstall
 sub-text-qmake_all:  FORCE
 	@if not exist text\ mkdir text\ & if not exist text\ exit 1
 	cd text\ && $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\text\text.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -437,16 +515,16 @@ C:/Qt/5.12.2/mingw73_32/mkspecs/features/lex.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile "..\programme graphique\programme.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 
-qmake_all: sub-general-qmake_all sub-Qt_GL-qmake_all sub-text-qmake_all FORCE
+qmake_all: sub-general-qmake_all sub-Qt_GL-qmake_all sub-test-testAccel1-qmake_all sub-test-testParticule-qmake_all sub-test-testVecteur-qmake_all sub-text-qmake_all FORCE
 
-make_first: sub-general-make_first sub-Qt_GL-make_first sub-text-make_first  FORCE
-all: sub-general-all sub-Qt_GL-all sub-text-all  FORCE
-clean: sub-general-clean sub-Qt_GL-clean sub-text-clean  FORCE
-distclean: sub-general-distclean sub-Qt_GL-distclean sub-text-distclean  FORCE
+make_first: sub-general-make_first sub-Qt_GL-make_first sub-test-testAccel1-make_first sub-test-testParticule-make_first sub-test-testVecteur-make_first sub-text-make_first  FORCE
+all: sub-general-all sub-Qt_GL-all sub-test-testAccel1-all sub-test-testParticule-all sub-test-testVecteur-all sub-text-all  FORCE
+clean: sub-general-clean sub-Qt_GL-clean sub-test-testAccel1-clean sub-test-testParticule-clean sub-test-testVecteur-clean sub-text-clean  FORCE
+distclean: sub-general-distclean sub-Qt_GL-distclean sub-test-testAccel1-distclean sub-test-testParticule-distclean sub-test-testVecteur-distclean sub-text-distclean  FORCE
 	-$(DEL_FILE) Makefile
 	-$(DEL_FILE) .qmake.stash
-install_subtargets: sub-general-install_subtargets sub-Qt_GL-install_subtargets sub-text-install_subtargets FORCE
-uninstall_subtargets: sub-general-uninstall_subtargets sub-Qt_GL-uninstall_subtargets sub-text-uninstall_subtargets FORCE
+install_subtargets: sub-general-install_subtargets sub-Qt_GL-install_subtargets sub-test-testAccel1-install_subtargets sub-test-testParticule-install_subtargets sub-test-testVecteur-install_subtargets sub-text-install_subtargets FORCE
+uninstall_subtargets: sub-general-uninstall_subtargets sub-Qt_GL-uninstall_subtargets sub-test-testAccel1-uninstall_subtargets sub-test-testParticule-uninstall_subtargets sub-test-testVecteur-uninstall_subtargets sub-text-uninstall_subtargets FORCE
 
 sub-general-debug:
 	@if not exist general\ mkdir general\ & if not exist general\ exit 1
@@ -454,10 +532,19 @@ sub-general-debug:
 sub-Qt_GL-debug:
 	@if not exist Qt_GL\ mkdir Qt_GL\ & if not exist Qt_GL\ exit 1
 	cd Qt_GL\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\Qt_GL\Qt_GL.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile debug
+sub-test-testAccel1-debug:
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile debug
+sub-test-testParticule-debug:
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile debug
+sub-test-testVecteur-debug:
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile debug
 sub-text-debug:
 	@if not exist text\ mkdir text\ & if not exist text\ exit 1
 	cd text\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\text\text.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile debug
-debug: sub-general-debug sub-Qt_GL-debug sub-text-debug
+debug: sub-general-debug sub-Qt_GL-debug sub-test-testAccel1-debug sub-test-testParticule-debug sub-test-testVecteur-debug sub-text-debug
 
 sub-general-release:
 	@if not exist general\ mkdir general\ & if not exist general\ exit 1
@@ -465,10 +552,19 @@ sub-general-release:
 sub-Qt_GL-release:
 	@if not exist Qt_GL\ mkdir Qt_GL\ & if not exist Qt_GL\ exit 1
 	cd Qt_GL\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\Qt_GL\Qt_GL.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile release
+sub-test-testAccel1-release:
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile release
+sub-test-testParticule-release:
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile release
+sub-test-testVecteur-release:
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile release
 sub-text-release:
 	@if not exist text\ mkdir text\ & if not exist text\ exit 1
 	cd text\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\text\text.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile release
-release: sub-general-release sub-Qt_GL-release sub-text-release
+release: sub-general-release sub-Qt_GL-release sub-test-testAccel1-release sub-test-testParticule-release sub-test-testVecteur-release sub-text-release
 
 sub-general-check:
 	@if not exist general\ mkdir general\ & if not exist general\ exit 1
@@ -476,10 +572,19 @@ sub-general-check:
 sub-Qt_GL-check:
 	@if not exist Qt_GL\ mkdir Qt_GL\ & if not exist Qt_GL\ exit 1
 	cd Qt_GL\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\Qt_GL\Qt_GL.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile check
+sub-test-testAccel1-check:
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile check
+sub-test-testParticule-check:
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile check
+sub-test-testVecteur-check:
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile check
 sub-text-check:
 	@if not exist text\ mkdir text\ & if not exist text\ exit 1
 	cd text\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\text\text.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile check
-check: sub-general-check sub-Qt_GL-check sub-text-check
+check: sub-general-check sub-Qt_GL-check sub-test-testAccel1-check sub-test-testParticule-check sub-test-testVecteur-check sub-text-check
 
 sub-general-benchmark:
 	@if not exist general\ mkdir general\ & if not exist general\ exit 1
@@ -487,10 +592,19 @@ sub-general-benchmark:
 sub-Qt_GL-benchmark:
 	@if not exist Qt_GL\ mkdir Qt_GL\ & if not exist Qt_GL\ exit 1
 	cd Qt_GL\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\Qt_GL\Qt_GL.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile benchmark
+sub-test-testAccel1-benchmark:
+	@if not exist test\testAccel1\ mkdir test\testAccel1\ & if not exist test\testAccel1\ exit 1
+	cd test\testAccel1\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testAccel1\testAccel1.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile benchmark
+sub-test-testParticule-benchmark:
+	@if not exist test\testParticule\ mkdir test\testParticule\ & if not exist test\testParticule\ exit 1
+	cd test\testParticule\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testParticule\testParticule.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile benchmark
+sub-test-testVecteur-benchmark:
+	@if not exist test\testVecteur\ mkdir test\testVecteur\ & if not exist test\testVecteur\ exit 1
+	cd test\testVecteur\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\test\testVecteur\testVecteur.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile benchmark
 sub-text-benchmark:
 	@if not exist text\ mkdir text\ & if not exist text\ exit 1
 	cd text\ && ( if not exist Makefile $(QMAKE) -o Makefile "C:\Users\adrie\Documents\GitHub\ProjetInfo2019_AccelerateurDeParticules\projet\programme graphique\text\text.pro" -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug" ) && $(MAKE) -f Makefile benchmark
-benchmark: sub-general-benchmark sub-Qt_GL-benchmark sub-text-benchmark
+benchmark: sub-general-benchmark sub-Qt_GL-benchmark sub-test-testAccel1-benchmark sub-test-testParticule-benchmark sub-test-testVecteur-benchmark sub-text-benchmark
 install:install_subtargets  FORCE
 
 uninstall: uninstall_subtargets FORCE

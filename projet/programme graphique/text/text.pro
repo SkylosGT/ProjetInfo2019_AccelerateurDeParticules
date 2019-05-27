@@ -1,6 +1,6 @@
 CONFIG += c++11
 
-TARGET = exerciceP11
+TARGET = exerciceP14
 
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a
@@ -9,8 +9,7 @@ INCLUDEPATH = ../general
 
 SOURCES += \
     SupportConsole.cc \
-    exerciceP11.cc
-
+    exerciceP14.cc \
 
 HEADERS += \
     SupportConsole.h \
