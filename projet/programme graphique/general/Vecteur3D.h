@@ -70,7 +70,7 @@ class Vecteur3D {
 		double norme2() const;
 		
 		// Méthode qui fait la rotation de l'instance courante autour d'un axe (vecteur unitaire passé en argument) d'un angle en radiant passé aussi en argument
-		Vecteur3D& rotation(Vecteur3D const&, double); 
+        Vecteur3D& rotation(Vecteur3D const&, double);
 };
 
 /*OPERATEURS EXTERNES*/
@@ -95,5 +95,3 @@ double operator*(Vecteur3D, Vecteur3D const&);
 
 //Fait le produit vectoriel de deux vecteurs 3D
 const Vecteur3D operator^(Vecteur3D, Vecteur3D const&); 
-
-

@@ -17,9 +17,8 @@ public:
     : QOpenGLWidget(parent), a(&vue) {}
   virtual ~GLWidget() {}
 
-  void ajoutParticule(Particule* nouveau){a.ajoutParticule(nouveau);}
-  void ajoutElement(Element* nouveau) {a.ajoutElement(nouveau);}
   void ajoutFaisceau(Faisceau* nouveau){a.ajoutFaisceau(nouveau);}
+  void construireAccelerateur(int i){a.construireAccelerateur(i);}
 
   private:
   // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter
@@ -42,7 +41,7 @@ public:
   // pour faire évoluer les objets avec le bon "dt"
   QTime chronometre;
 
-  // objets à dessiner, faire évoluer
+  // Accelerateur à dessiner, faire évoluer
   Accelerateur a;
 
 };

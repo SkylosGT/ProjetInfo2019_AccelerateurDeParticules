@@ -1,4 +1,5 @@
 /*Classe abstraite*/
+/*Hérite : Dessinable.h*/
 
 #pragma once
 
@@ -13,7 +14,8 @@ class Particule;
 class Element : public Dessinable{
     protected:
     
-    //Attributs d'un élément de l'accélérateur
+    /*Attributs d'un élément de l'accélérateur*/
+
         Vecteur3D vec_re;//Position d'entrée de l'élément
         Vecteur3D vec_rs;//Position de sortie de l'élément
         double scal_Re;//Rayon de la chambre à vide        
@@ -21,7 +23,7 @@ class Element : public Dessinable{
 
     public:
 
-        //Getter, retourne l'élément suivant l'élément courant
+        //Getter, retourne l'élément suivant l'élément courant, sa position d'entrée, de sortie et le rayon de la chambre
         Element* elemSuivant() const{return elem_suivant;}
         Vecteur3D entree() const{return vec_re;}
         Vecteur3D sortie() const{return vec_rs;}
@@ -53,9 +55,10 @@ class Element : public Dessinable{
         bool passe_au_suivant(Particule const&) const;
 
         //Attache un élément suivant à l'instance courante
-        void attache_element_suivant(Element*);
+        void attacheElementSuivant(Element*);
 
-        double distance_particule(Particule const&) const;
+        //Vérifie si une particule est dans l'élément courant
+        bool particuleCollider(Vecteur3D const&) const;
 };
 
 /*OPERATEURS EXTERNES*/

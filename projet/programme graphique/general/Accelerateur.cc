@@ -1,64 +1,35 @@
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 #include "Accelerateur.h"
 #include "ConstantesPhysiques.h"
-
-//DEFINITION DES METHODES DE LA CLASSE ACCELERATEUR ET SURCHARGE DE SES OPERATEUR
+#include "Dipole.h"
+#include "MailleFODO.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;
 
+//DEFINITION DES METHODES DE LA CLASSE ACCELERATEUR ET SURCHARGE DE SES OPERATEUR
+
 //DEFINTION DES MÉTHODES PUBLIQUES DE LA CLASSE ACCELERATEUR
 Accelerateur::Accelerateur(SupportADessin* _support) 
-	: Dessinable(_support), CollectionElement(), CollectionParticule() ,CollectionFaisceau() {}
-	
-/*ostream& Accelerateur::affiche(ostream& sortie) const {
-	if (CollectionElement.size() > 0) {
-		if (CollectionElement.size() == 1) {
-			sortie << "L'accélérateur est constitué de l'élément suivant : " << endl
-					<<*(CollectionElement[0])<< endl; 
-				}else{
-					sortie << "L'accélérateur est constitué des " <<CollectionElement.size() <<" éléments suivantes :"<<endl;
-					for (auto element : CollectionElement) {
-						sortie << *element<< endl; }}
-						sortie << endl; } else {
-							sortie << "L'accélérateur n'est constitué d'aucun élément."<<endl;
-						sortie << endl;}
-	if (CollectionParticule.size() > 0) { 
-		if (CollectionParticule.size() == 1) {
-			sortie << "L'accélérateur contient la particule suivante : " << endl
-					<<*CollectionParticule[0]<<endl;
-				}else{
-					sortie << "L'accélérateur contient les " <<CollectionParticule.size() <<" particules suivantes :"<<endl;
-					for (auto particule : CollectionParticule) {
-						sortie << *particule << endl; }}
-						}else{
-							sortie << "L'accélérateur ne contient aucune particule."<< endl;}
-	return sortie; }*/
+    : Dessinable(_support), CollectionElement() ,CollectionFaisceau(), angleDeSegmentation(0), rayon(0) {}
 	
 void Accelerateur::ajoutFaisceau(Faisceau* nouveau) {
-	nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
-	nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
+    nouveau->changerElementDeLaParticuleDeReference(trouveElementDeLaParticule(nouveau->particuleDeReference()));
+    nouveau->getCollectionPart()[0]->change_element(trouveElementDeLaParticule(nouveau->particuleDeReference()));
+    int i(0); while(!CollectionCases[i]->particuleCollider(nouveau->particuleDeReference())){i++;}
+    nouveau->changerCaseDeLaParticuleDeReference(i);
 	nouveau->change_support(support);
-	CollectionFaisceau.push_back(nouveau);}
-	
-void Accelerateur::ajoutParticule(Particule* nouveau) {
-	nouveau->change_element(trouveElementDeLaParticule(*nouveau));
-	nouveau->change_support(support);
-	CollectionParticule.push_back(nouveau);}
+    CollectionFaisceau.push_back(nouveau);}
 	
 void Accelerateur::ajoutElement(Element* nouveau) {
-	if(CollectionElement.size()>0){
-		for(auto element : CollectionElement){
-			element->attache_element_suivant(nouveau);}
-		for(auto element : CollectionElement){
-			nouveau->attache_element_suivant(element);}}
+    if(CollectionElement.size()>0){
+        for (auto element : CollectionElement) {
+            attacheElements(element, nouveau);}}
 	nouveau->change_support(support);
-	CollectionElement.push_back(nouveau);}
-	
-void Accelerateur::supprCollectionParticule() {
-	CollectionParticule.clear();}
+    CollectionElement.push_back(nouveau);}
 	
 void Accelerateur::supprCollectionElement() {
 	CollectionElement.clear();}
@@ -69,30 +40,52 @@ void Accelerateur::supprCollectionFaisceau() {
 void Accelerateur::evolue(double _dt) const{
 	if(CollectionFaisceau.size()>0){
 		for(Faisceau* faisceau : CollectionFaisceau){
-			(*faisceau).bouger(_dt);}
-			for(Faisceau* faisceau :CollectionFaisceau) {
-				for(auto particule : faisceau->getCollectionPart()){
-					if((*particule).elemCourant()->passe_au_suivant((*particule))){
-					(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}}
-
-	if(CollectionParticule.size()>0){	
-		for(auto particule : CollectionParticule){
-		(*particule).ajouteForceMagnetique((*particule).elemCourant()->champMagnetique((*particule).position()), _dt);
-		(*particule).bouger(_dt);
-		if((*particule).elemCourant()->passe_au_suivant((*particule))){
-			(*particule).change_element((*particule).elemCourant()->elemSuivant());}}}}
+            interactionParticules(faisceau);
+            (*faisceau).bouger(_dt);
+            faisceau->passeAuSuivant();
+            passeCaseSuivante(faisceau);}}}
 
 Element* Accelerateur::trouveElementDeLaParticule(Particule const& particule) const {
-	double distanceMinimum(const_c);
-	Element* elementAvecDistanceMinimum(nullptr);
 	if(CollectionElement.size()>0){
-		for(auto element:CollectionElement){
-			if(element->distance_particule(particule)<distanceMinimum){
-				distanceMinimum=element->distance_particule(particule);
-				elementAvecDistanceMinimum=element;}}}
-	return elementAvecDistanceMinimum;}
-	
-/*//OPERATEUR EXTERNE A LA CLASSE PARTICULE UTILISANT UNE METHODE DE LA CLASSE
-ostream& operator<<(ostream& sortie, Accelerateur const& a){
-	return a.affiche(sortie);}*/
-	
+        for (auto element : CollectionElement) {
+            if(element->particuleCollider(particule.position())){return element;}}}}
+
+void Accelerateur::attacheElements(Element* element1, Element * element2) const{
+    if(element1->sortie()==element2->entree()){element1->attacheElementSuivant(element2);}
+    if(element2->sortie()==element1->entree()){element2->attacheElementSuivant(element1);}}
+
+void Accelerateur::construireAccelerateur(int taille){
+    double Re(0.1), b(1.2), Rc(1), Bz(5.89158), L(1), epsilon(1e-4);
+    rayon=taille*2+1;
+    angleDeSegmentation=(2*M_PI)/(round(2*M_PI/atan(epsilon/3)));
+    segmenterEspace(round(2*M_PI/atan(epsilon/3)));
+    Vecteur3D vec_re(-2,3,0), vec_rs(2, 3, 0), re_d(-3,2,0), rs_d(-2,3,0);
+
+    for (size_t i(0); i<4; i++) {
+        ajoutElement(new Dipole(re_d.rotation(vec_e3, (M_PI/2)),rs_d.rotation(vec_e3, (M_PI/2)),Re,Rc,Bz));
+        ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L));}}
+
+void Accelerateur::segmenterEspace(int taille){
+    for (size_t i(0);i<taille;i++) {
+        CollectionCases.push_back(new Case(i, angleDeSegmentation, rayon));}}
+
+int Accelerateur::caseSuivante(int i) const{
+    if(i<CollectionCases.size()-1){return i+1;}
+    else {return 0;}}
+
+int Accelerateur::casePrecedente(int i) const{
+    if(i>0){return i-1;}
+    else{return CollectionCases.size()-1;}}
+
+void Accelerateur::passeCaseSuivante(Faisceau* faisceau) const{
+    for (auto particule:faisceau->getCollectionPart()) {
+        if(!CollectionCases[particule->caseParticule()]->particuleCollider(*particule)){
+            CollectionCases[particule->caseParticule()]->enleveParticule(particule);
+            CollectionCases[caseSuivante(particule->caseParticule())]->ajouteParticule(particule);
+            particule->change_case(caseSuivante(particule->caseParticule()));}}}
+
+void Accelerateur::interactionParticules(Faisceau* faisceau) const{
+    for (auto particule: faisceau->getCollectionPart()) {
+        for(auto _particule: CollectionCases[particule->caseParticule()]->paticulesQuiInteragissent(CollectionCases[caseSuivante(particule->caseParticule())], CollectionCases[casePrecedente(particule->caseParticule())])){
+            if(not((*particule)==(*_particule))){
+                _particule->ajouteInteractionParticule(*particule);}}}}

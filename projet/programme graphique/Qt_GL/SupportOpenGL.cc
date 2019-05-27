@@ -6,6 +6,7 @@
 #include "Dipole.h"
 #include "FaisceauCirculaire.h"
 #include "Element.h"
+#include "MailleFODO.h"
 #include <math.h>
 
 #define _USE_MATH_DEFINES
@@ -13,12 +14,16 @@
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 {
-    for (auto particule : a_dessiner.getCollectionParticule()) {
-        particule->dessine();}
     for (auto element : a_dessiner.getCollectionElement()) {
         element->dessine();}
     for (auto faisceau :a_dessiner.getCollectionFaisceau()) {
         faisceau->dessine();
+    }
+}
+
+void SupportOpenGL::dessine(const MailleFODO &a_dessiner){
+    for (auto element : a_dessiner.getElements()) {
+        element->dessine();
     }
 }
 
@@ -37,7 +42,6 @@ void SupportOpenGL::dessine(Particule const& a_dessiner){
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){
     QMatrix4x4 matrice;
-
     matrice.translate(a_dessiner.entree().getx(),a_dessiner.entree().gety(),a_dessiner.entree().getz());
     if(a_dessiner.entree().getx()>0){
         if(a_dessiner.entree().gety()>0){
@@ -52,6 +56,7 @@ void SupportOpenGL::dessine(Dipole const& a_dessiner){
     }
     dessinCylindreIncurve(matrice, a_dessiner.rayonDeCourbure(), a_dessiner.rayonDeLaChambre());
 }
+
 void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
 
     QMatrix4x4 matrice;
@@ -142,7 +147,7 @@ void SupportOpenGL::initializePosition()
 {
   // position initiale
   matrice_vue.setToIdentity();
-  matrice_vue.translate(0.0, 0.0, -6.0);
+  matrice_vue.translate(0.0, 0.0, -5.0);
   //matrice_vue.rotate(60.0, 0.0, 1.0, 0.0);
   //matrice_vue.rotate(45.0, 0.0, 0.0, 1.0);
 }
@@ -252,6 +257,7 @@ void SupportOpenGL::dessineSphere(const QMatrix4x4 &point_de_vue, Vecteur3D coul
     sphere.draw(prog, SommetId);
 }
 
+//Dessine un point
 void SupportOpenGL::dessinePoint( QMatrix4x4 const& point_de_vue, double taille){
     prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
     glPointSize(taille);
@@ -260,6 +266,7 @@ void SupportOpenGL::dessinePoint( QMatrix4x4 const& point_de_vue, double taille)
     glEnd();
 }
 
+//Dessin un cercle
 void SupportOpenGL::dessineCercle(QMatrix4x4 const& point_de_vue, double precision, double rayon, Vecteur3D couleur){
     prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
     double theta=2*M_PI/precision;
@@ -271,6 +278,7 @@ void SupportOpenGL::dessineCercle(QMatrix4x4 const& point_de_vue, double precisi
     glEnd();
 }
 
+//Dessine un cylindre en fil de fer
 void SupportOpenGL::dessineCylindre(QMatrix4x4 const& point_de_vue, double longueur, double rayon, Vecteur3D couleur){
     prog.setUniformValue("vue_modele", matrice_vue*point_de_vue);
     double precision=36;
@@ -289,6 +297,7 @@ void SupportOpenGL::dessineCylindre(QMatrix4x4 const& point_de_vue, double longu
     dessineCercle(matrice, precision, rayon, couleur);
 }
 
+//Dessine un cylindre en fil de fer incurvé
 void SupportOpenGL::dessinCylindreIncurve(const QMatrix4x4 &point_de_vue, double rayonDeCourbure, double rayon, Vecteur3D couleur){
  double precision=36;
  int lineAmount=8;
@@ -313,5 +322,3 @@ void SupportOpenGL::dessinCylindreIncurve(const QMatrix4x4 &point_de_vue, double
 
  dessineCercle(matrice, precision, rayon, couleur);
 }
-
-

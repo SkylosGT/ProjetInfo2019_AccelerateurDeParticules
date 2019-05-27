@@ -4,12 +4,14 @@ CONFIG = staticlib c++11
 
 SOURCES += \
     Accelerateur.cc \
+    Case.cc \
     Dipole.cc \
     Element.cc \
     ElementCourbe.cc \
     ElementDroit.cc \
     Faisceau.cc\
     FaisceauCirculaire.cc\
+    MailleFODO.cc \
     Particule.cc \
     Quadrupole.cc \
     SectionDroite.cc \
@@ -17,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     Accelerateur.h \
+    Case.h \
     ConstantesPhysiques.h \
     Dessinable.h \
     Dipole.h \
@@ -25,6 +28,7 @@ HEADERS += \
     ElementDroit.h \
     Faisceau.h\
     FaisceauCirculaire.h\
+    MailleFODO.h \
     Particule.h \
     Quadrupole.h \
     SectionDroite.h \

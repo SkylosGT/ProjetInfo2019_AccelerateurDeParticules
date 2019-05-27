@@ -10,7 +10,6 @@
 using namespace ConstantesPhysiques;
 
 //DEFINTION DES METHODES DE LA SUPER CLASSE FAISCEAU
-
 Faisceau::Faisceau(Particule _ref, long int _nb, double _coef, SupportADessin* _support)
 : Dessinable(_support), reference(_ref), nombre_particule(_nb), coef_simulation(_coef) {}
 
@@ -38,8 +37,7 @@ void Faisceau::calcul_ell_vert() {
 	
 	coef_A22_vert = moy_position_carre / emit_verticale;
 	coef_A11_vert = moy_vitesse_carre / emit_verticale;
-	coef_A12_vert = (-moy_position_vitesse) / emit_verticale;	
-}
+    coef_A12_vert = (-moy_position_vitesse) / emit_verticale;}
 
 void Faisceau::calcul_ell_hori(){
 	double moy_position_carre(0);
@@ -59,16 +57,21 @@ void Faisceau::calcul_ell_hori(){
 	
 	coef_A22_hori = moy_position_carre / emit_verticale;
 	coef_A11_hori = moy_vitesse_carre / emit_verticale;
-	coef_A12_hori = (-moy_position_vitesse) / emit_verticale;		
-}
+    coef_A12_hori = (-moy_position_vitesse) / emit_verticale;}
 
 void Faisceau::changerElementDeLaParticuleDeReference(Element* element){
 	reference.change_element(element);}
+
+void Faisceau::changerCaseDeLaParticuleDeReference(int c){
+    reference.change_case(c);}
 
 void Faisceau::change_support(SupportADessin* nouveau){
 	support=nouveau;
 	reference.change_support(nouveau);
 	for(auto particule : CollectionPart)
 	{particule->change_support(nouveau);}}
-		
-	
+
+void Faisceau::passeAuSuivant(){
+    for(auto particule : CollectionPart){
+        if((*particule).elemCourant()->passe_au_suivant((*particule))){
+        (*particule).change_element((*particule).elemCourant()->elemSuivant());}}}
