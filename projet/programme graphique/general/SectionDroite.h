@@ -23,6 +23,7 @@ class SectionDroite : public ElementDroit {
         //Affiche une Section Droite
         virtual std::ostream& affiche(std::ostream&) const override;
 
+        //Dessine une section droite en fonction de son support
         virtual void dessine() override
         { support->dessine(*this); }
 };

@@ -10,9 +10,7 @@ using namespace std;
 bool Vecteur3D::compare(Vecteur3D const& Acomparer) const {
 	if ((scal_x == Acomparer.scal_x) and (scal_y ==  Acomparer.scal_y) and (scal_z == Acomparer.scal_z)) 
 		{return true;} 
-	else 
-		{return false;}
-	} 
+	else {return false;}} 
 
 //OPERATEURS INTERNES A LA CLASSE VECTEUR3D
 bool Vecteur3D::operator==(Vecteur3D const& Acomparer) const {
@@ -22,12 +20,10 @@ bool Vecteur3D::operator!=(Vecteur3D const& Acomparer) const {
 	return !((*this).compare(Acomparer));}
 		
 const Vecteur3D Vecteur3D::operator-() const {
-	return Vecteur3D (-scal_x,-scal_y,-scal_z);
-}
+	return Vecteur3D (-scal_x,-scal_y,-scal_z);}
 
 const Vecteur3D Vecteur3D::operator ~() const {
-	return Vecteur3D (scal_x/norme(), scal_y/norme(), scal_z/norme());
-}
+	return Vecteur3D (scal_x/norme(), scal_y/norme(), scal_z/norme());}
 	
 Vecteur3D& Vecteur3D::operator+=(Vecteur3D const& autre) {
 	scal_x += autre.scal_x;
@@ -74,16 +70,10 @@ double Vecteur3D::norme2() const{
 Vecteur3D& Vecteur3D::rotation(Vecteur3D const& a, double t) {
 	*this=((cos(t)*(*this))+(1-cos(t))*((*this)*(~a))*(~a)+sin(t)*((~a)^(*this)));
 	return *this;}
-
-Vecteur3D& Vecteur3D::arrondis(){
-    round(scal_x);
-    round(scal_y);
-    round(scal_z);
-    return  *this;}
 	
 //OPERATEURS EXTERNES A LA CLASSE VECTEUR3D UTILISANT LES METHODES DE LA CLASSE
 ostream& operator<<(ostream& sortie, Vecteur3D const& V){
-	return V.affiche(sortie); }
+    return V.affiche(sortie);}
 	
 const Vecteur3D operator+(Vecteur3D V1, Vecteur3D const& V2){
 	return V1+=V2;}

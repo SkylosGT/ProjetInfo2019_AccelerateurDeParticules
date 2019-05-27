@@ -4,12 +4,13 @@
 
 #include "ElementDroit.h"
 
-//En tête de la classe SectionDroite avec descriptions de ses méthodes. Corps dans "SectionDroite.cc"
+//En tête de la classe Quadrupole avec descriptions de ses méthodes. Corps dans "Quadrupole.cc"
 class Quadrupole : public ElementDroit {
     
     private:
     
-    //Attribut spécifique au quadrupole
+    /*Attribut spécifique au quadrupole*/
+
         double scal_b; //Intensité du champ magnétique
 
     public:
@@ -28,6 +29,7 @@ class Quadrupole : public ElementDroit {
         //Affiche un Quadrupole
         virtual std::ostream& affiche(std::ostream&) const override;
 
+        //Dessine un quadrupole en fonction de son support
         virtual void dessine() override
         { support->dessine(*this); }
 };

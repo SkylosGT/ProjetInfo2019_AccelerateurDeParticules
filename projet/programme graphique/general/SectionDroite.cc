@@ -13,7 +13,7 @@ SectionDroite::SectionDroite(Vecteur3D _re, Vecteur3D _rs, double _Re, SupportAD
 SectionDroite::~SectionDroite() {}
 
 Vecteur3D SectionDroite::champMagnetique(Vecteur3D const& _B=vec_e3) const{
-    return (*new Vecteur3D);}
+    return Vecteur3D();}
 
 ostream& SectionDroite::affiche(ostream& sortie) const {
     return sortie<<"Section Droite :"<<endl<<

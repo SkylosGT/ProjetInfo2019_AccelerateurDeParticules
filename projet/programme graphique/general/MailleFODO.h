@@ -15,6 +15,7 @@ class MailleFODO:public ElementDroit{
         std::vector<Element*> elements;//Elements contenu dans la maille
         Vecteur3D vec_d;//Vecteur unitaire de la direction de la maille
         double scal_L;//Longueur des sections droites
+        double scal_l;//Longueur des quadrupoles
         double scal_b;//Champ magnetique des quadrupoles
 
     public:
@@ -26,9 +27,6 @@ class MailleFODO:public ElementDroit{
         MailleFODO(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr);
 
 /*Méthodes publiques de l'interface de la classe Faisceau circulaire*/
-
-        //Calcule la longueur des quadrupoles
-        double longueurQuadrupole();
 
         //Trouve l'element dans lequel la particule se situe
         Element* trouveElementDeLaMaille(Vecteur3D const&) const;

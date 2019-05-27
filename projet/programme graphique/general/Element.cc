@@ -25,5 +25,7 @@ bool Element::particuleCollider(Vecteur3D const& position) const{
     }else {
     return false;}}
 
+//OPERATEURS EXTERNES A LA CLASSE ELEMENT UTILISANT LES METHODES DE LA CLASSE
+
 std::ostream& operator<<(std::ostream& sortie, Element const& E){
     return E.affiche(sortie);}

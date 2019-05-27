@@ -45,9 +45,6 @@ class Particule : public Dessinable {
 
     int caseParticule() const {return caseDeLaParticule;}
 
-    //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double,SupportADessin* _support=nullptr,Element* _courant=nullptr);
-
     //Constructeur par energie en GeV et direction vectorielle
     Particule(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr,Element* _courant=nullptr);
 

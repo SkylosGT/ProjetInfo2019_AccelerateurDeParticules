@@ -6,6 +6,9 @@
 
 using namespace std;
 
+//DEFINITION DES METHODES DE LA CLASSE CASE ET SURCHARGE DE SES OPERATEURS
+
+//METHODES PUBLIQUES DE LA CLASSE DIPOLE
 Case::Case(int position, double angle, double rayon) :positionDeLaCase(position), angle(angle), rayon(rayon){}
 
 Vecteur3D& Case::entreeDeLaCase(){
