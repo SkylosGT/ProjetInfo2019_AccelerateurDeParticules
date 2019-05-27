@@ -62,6 +62,20 @@ QUESTION P9.3
 Pour les classes contenant des pointeurs, il faut faire très attention à ce que, lors de l'appel de la méthode dessine d'un objet qui appelle elle même la méthode dessine du support à dessin de l'objet via le corps suivant : support->dessine(*this), si l'argument *this est pris par copie, alors, la méthode dessine pourra faire des dégâts irréparable concernant les zones pointées par les pointeur de l'objet passé par copie. Pour remédier à cela, on peut faire un passage par référence constante de l'objet comme argument de dessine (comme on le fait), soit redéfinir un constructeur de copie (copie profonde comme vu en cours), ou bien utiliser des unique_ptr qui assure l'interdiction que deux pointeurs ne pointe sur la même zone mémoire.
 
 QUESTION P11.1
+Nous avons implémenter les faisceaux comme une nouvelle classe héritant de Dessinable puisque nous voulons être capable de dessiner les faisceaux de particules dans l'accélérateur.
+Ainsi, dans la partie private, nous avons implémenter les attributs suivants à la classe Faisceau :
+-Un tableau dynamique de pointeur sur des particules pour représenter le fait qu'un faisceau est/contient une collection de particule de taille changeante. 
+-Une particule de référence qui ne changera pas une fois initialisée (donc const)
+-un long int ayant la valeur du vrai nombre de particule que l'on souhaite avoir dans le faisceau
+-un double représentant le facteur de macro-particules simulées
+-un double ayant comme valeur l'énergie moyenne
+-et enfin 8 double correspondant aux deux émittances verticale et horizontale, ainsi que leur 3 coefficients d'ellipses de phases chacune
+Enfin dans la partie publique nous avons implémenté les méthodes suivantes :
+-Un getteur de la collection de particule qui sera utile pour dessiner le faisceau
+-une méthode qui calcule l'énergie moyenne instantanée du faisceau et stocke la valeur trouvée dans l'attribut energie_moy (l'énergie change constamment, il est donc utile d'utiliser une méthode qui remet à jour l'attribut energie_moy)
+-Pour les mêmes raisons on a implémenter deux méthode qui calcule respectivement l'émittance verticale et ses 3 coefficients de phases pour les stocker dans les attributs correspondant, et l'émittance horizontale et ses 3 coefficients de phases pour les stocker dans les attributs correspondant
+-Enfin le constructeur qui prend en argument la particule de référence, le nombre de particule et le facteur lambda de macro-particules simulées et qui dans son corps injecte une particule dans le faisceau de position et vitesse égale à la particule de référence, mais de masse et de charge lambda fois plus haute que celles de la particule de référence. De plus, dans le corsp du constructeur, on calcule l'énergie moyenne du faisceau à une particule.
+
 QUESTION P13.1
 
 QUESTION P14.1
