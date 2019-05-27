@@ -1,4 +1,4 @@
-#include "maillefodo.h"
+#include "MailleFODO.h"
 #include "Quadrupole.h"
 #include "SectionDroite.h"
 #include "Vecteur3D.h"
@@ -24,7 +24,7 @@ Vecteur3D MailleFODO::champMagnetique(const Vecteur3D& position) const{
 
 Element* MailleFODO::trouveElementDeLaMaille(const Vecteur3D& position) const{
     for (auto element :elements) {
-        if(element_particule(position)){return element;}
+        if(particuleCollider(position)){return element;}
         else{return nullptr;}}}
 
 ostream& MailleFODO::affiche(ostream& sortie) const {

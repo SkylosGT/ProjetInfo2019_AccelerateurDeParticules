@@ -1,7 +1,7 @@
 #include <math.h>
 #include <vector>
 
-#include "case.h"
+#include "Case.h"
 #include "Particule.h"
 
 using namespace std;

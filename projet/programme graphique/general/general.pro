@@ -19,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     Accelerateur.h \
+    Case.h \
     ConstantesPhysiques.h \
     Dessinable.h \
     Dipole.h \
@@ -27,13 +28,12 @@ HEADERS += \
     ElementDroit.h \
     Faisceau.h\
     FaisceauCirculaire.h\
+    MailleFODO.h \
     Particule.h \
     Quadrupole.h \
     SectionDroite.h \
     SupportAdessin.h \
-    Vecteur3D.h \
-    case.h \
-    maillefodo.h
+    Vecteur3D.h
 
 
 

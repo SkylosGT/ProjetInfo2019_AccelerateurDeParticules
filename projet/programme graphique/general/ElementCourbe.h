@@ -10,7 +10,8 @@ class ElementCourbe : public Element {
 
     protected:
 
-    //Attribut spécifique aux éléments courbes
+    /*Attribut spécifique aux éléments courbes*/
+
         double scal_k;//Rayon de courbure de l'élément courbe
 
     /*Méthode pour faciliter les calculs dans l'instance*/
@@ -20,9 +21,11 @@ class ElementCourbe : public Element {
 
     public:
 
+        //Accesseur au rayon de courbure d'un element courbe
+        double rayonDeCourbure() const {return scal_k;}
+
         //Constructeur de l'élément Courbe qui ne peut pas avoir d'élément suivant attaché à lui
         ElementCourbe(Vecteur3D, Vecteur3D, double, double, SupportADessin*);
-        double rayonDeCourbure() const {return scal_k;}
 
         //Destructeur d'un élément Courbe
         ~ElementCourbe();

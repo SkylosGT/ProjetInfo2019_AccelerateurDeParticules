@@ -6,7 +6,7 @@
 #include "Dipole.h"
 #include "FaisceauCirculaire.h"
 #include "Element.h"
-#include "maillefodo.h"
+#include "MailleFODO.h"
 #include <math.h>
 
 #define _USE_MATH_DEFINES
@@ -14,8 +14,6 @@
 // ======================================================================
 void SupportOpenGL::dessine(Accelerateur const& a_dessiner)
 {
-    for (auto particule : a_dessiner.getCollectionParticule()) {
-        particule->dessine();}
     for (auto element : a_dessiner.getCollectionElement()) {
         element->dessine();}
     for (auto faisceau :a_dessiner.getCollectionFaisceau()) {

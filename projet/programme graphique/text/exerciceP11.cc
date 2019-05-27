@@ -12,7 +12,7 @@
 #include "ElementCourbe.h"
 #include "Faisceau.h"
 #include "FaisceauCirculaire.h"
-#include "maillefodo.h"
+#include "MailleFODO.h"
 
 using namespace std;
 using namespace ConstantesPhysiques;

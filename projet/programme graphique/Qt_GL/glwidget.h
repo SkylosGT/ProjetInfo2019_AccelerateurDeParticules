@@ -17,7 +17,6 @@ public:
     : QOpenGLWidget(parent), a(&vue) {}
   virtual ~GLWidget() {}
 
-  void ajoutParticule(Particule* nouveau){a.ajoutParticule(nouveau);}
   void ajoutElement(Element* nouveau) {a.ajoutElement(nouveau);}
   void ajoutFaisceau(Faisceau* nouveau){a.ajoutFaisceau(nouveau);}
   void construireAccelerateur(){a.construireAccelerateur(1);}

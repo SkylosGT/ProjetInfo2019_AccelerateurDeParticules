@@ -19,7 +19,7 @@ bool Element::passe_au_suivant(Particule const& _p) const{
 void Element::attacheElementSuivant(Element * suivant){
     elem_suivant=suivant;}
 
-bool Element::element_particule(const Vecteur3D& position) const{
+bool Element::particuleCollider(Vecteur3D const& position) const{
     if((position^vec_re).getz()>=0 and (position^vec_rs).getz()<=0){
         return true;
     }else {

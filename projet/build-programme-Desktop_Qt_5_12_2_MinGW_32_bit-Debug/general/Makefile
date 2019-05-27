@@ -74,6 +74,7 @@ OBJECTS       = Accelerateur.o \
 		maillefodo.o
 
 DIST          =  Accelerateur.h \
+		Case.h \
 		ConstantesPhysiques.h \
 		Dessinable.h \
 		Dipole.h \
@@ -82,13 +83,12 @@ DIST          =  Accelerateur.h \
 		ElementDroit.h \
 		Faisceau.h \
 		FaisceauCirculaire.h \
+		MailleFODO.h \
 		Particule.h \
 		Quadrupole.h \
 		SectionDroite.h \
 		SupportAdessin.h \
-		Vecteur3D.h \
-		case.h \
-		maillefodo.h "..\..\programme graphique\general\Accelerateur.cc" \
+		Vecteur3D.h "..\..\programme graphique\general\Accelerateur.cc" \
 		"..\..\programme graphique\general\Dipole.cc" \
 		"..\..\programme graphique\general\Element.cc" \
 		"..\..\programme graphique\general\ElementCourbe.cc" \
@@ -448,11 +448,11 @@ Accelerateur.o: ../../programme\ graphique/general/Accelerateur.cc ../../program
 		../../programme\ graphique/general/Vecteur3D.h \
 		../../programme\ graphique/general/Particule.h \
 		../../programme\ graphique/general/Element.h \
-		../../programme\ graphique/general/case.h \
+		../../programme\ graphique/general/Case.h \
 		../../programme\ graphique/general/ConstantesPhysiques.h \
 		../../programme\ graphique/general/Dipole.h \
 		../../programme\ graphique/general/ElementCourbe.h \
-		../../programme\ graphique/general/maillefodo.h \
+		../../programme\ graphique/general/MailleFODO.h \
 		../../programme\ graphique/general/ElementDroit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Accelerateur.o "..\..\programme graphique\general\Accelerateur.cc"
 
@@ -543,7 +543,7 @@ SectionDroite.o: ../../programme\ graphique/general/SectionDroite.cc ../../progr
 Vecteur3D.o: ../../programme\ graphique/general/Vecteur3D.cc ../../programme\ graphique/general/Vecteur3D.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Vecteur3D.o "..\..\programme graphique\general\Vecteur3D.cc"
 
-case.o: ../../programme\ graphique/general/case.cc ../../programme\ graphique/general/case.h \
+case.o: ../../programme\ graphique/general/case.cc ../../programme\ graphique/general/Case.h \
 		../../programme\ graphique/general/Particule.h \
 		../../programme\ graphique/general/Vecteur3D.h \
 		../../programme\ graphique/general/Element.h \
@@ -551,7 +551,7 @@ case.o: ../../programme\ graphique/general/case.cc ../../programme\ graphique/ge
 		../../programme\ graphique/general/SupportADessin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o case.o "..\..\programme graphique\general\case.cc"
 
-maillefodo.o: ../../programme\ graphique/general/maillefodo.cc ../../programme\ graphique/general/maillefodo.h \
+maillefodo.o: ../../programme\ graphique/general/maillefodo.cc ../../programme\ graphique/general/MailleFODO.h \
 		../../programme\ graphique/general/ElementDroit.h \
 		../../programme\ graphique/general/Element.h \
 		../../programme\ graphique/general/Particule.h \

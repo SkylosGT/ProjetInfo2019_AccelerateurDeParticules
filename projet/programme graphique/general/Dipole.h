@@ -10,6 +10,7 @@ class Dipole : public ElementCourbe {
     private:
     
     //Attribut spécifique aux Dipôles
+
         double scal_Bz;//Norme du champ magnétique
 
     public:
@@ -28,6 +29,7 @@ class Dipole : public ElementCourbe {
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;
 
+        //Méthode dessine en fonction du support du dessinable
         virtual void dessine() override
         { support->dessine(*this); }
 };

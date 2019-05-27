@@ -6,7 +6,7 @@
 #include "SectionDroite.h"
 #include "ConstantesPhysiques.h"
 #include "FaisceauCirculaire.h"
-#include "maillefodo.h"
+#include "MailleFODO.h"
 
 using namespace ConstantesPhysiques;
 
