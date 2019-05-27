@@ -36,8 +36,6 @@ class Faisceau : public Dessinable {
 	
 	public:
 
-/*Méthodes publiques de l'interface de la classe Faisceau*/
-	
 	//Constructeur d'un faisceau qui initialise par défaut le support comme pointant sur rien
 	Faisceau(Particule,long int, double, SupportADessin* _support=nullptr);
 	
@@ -47,6 +45,8 @@ class Faisceau : public Dessinable {
 	//Getter, retourne la particule de référence du faisceau
     Particule particuleDeReference() const {return reference;}
 	
+/*Méthodes publiques de l'interface de la classe Faisceau*/
+
 	//Méthode qui calcul l'énergie du faisceau dans son attribut energie_moy
 	void energie_moyenne();
 	
@@ -75,5 +75,5 @@ class Faisceau : public Dessinable {
 	virtual void change_support(SupportADessin*) override;
 
     //Lance des particules
-    virtual void lanceParticule(double)=0;
+    virtual void lanceParticule()=0;
 };
