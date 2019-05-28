@@ -61,7 +61,7 @@ int main () {
 	cout << "AVANT EVOLUTION DU SYSTEME ET APRES AJOUT DE FAISCEAU"<< endl;
 	_accelerateur.dessine();
 
-    int pas(2);
+    int pas(5);
 
     //Le système evolue
     for(size_t i = 0; i < pas; i++)
