@@ -23,7 +23,7 @@ exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o Eleme
 
 exerciceP9.o: exerciceP9.cc SupportConsole.h SupportADessin.h Dessinable.h
 
-SupportConsole.o: SupportConsole.cc SupportConsole.h SupporticADessin.h Dessinable.h
+SupportConsole.o: SupportConsole.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 
