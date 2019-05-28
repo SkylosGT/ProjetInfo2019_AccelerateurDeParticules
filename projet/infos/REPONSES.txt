@@ -86,3 +86,4 @@ Dans cet algorithme deux boucles sont imbriquées. La première est une itérati
 
 QUESTION P14.2
 
+
