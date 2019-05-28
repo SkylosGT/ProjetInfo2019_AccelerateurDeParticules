@@ -37,7 +37,7 @@ void SupportOpenGL::dessine(FaisceauCirculaire const& a_dessiner){
 void SupportOpenGL::dessine(Particule const& a_dessiner){
     QMatrix4x4 matrice;
     matrice.translate(a_dessiner.position().getx(),a_dessiner.position().gety(),a_dessiner.position().getz());
-    matrice.scale(0.05);
+    matrice.scale(0.03);
     dessineSphere(matrice,(*new Vecteur3D(0.33,100,0.8)));
 }
 void SupportOpenGL::dessine(Dipole const& a_dessiner){
@@ -68,7 +68,7 @@ void SupportOpenGL::dessine(Quadrupole const& a_dessiner){
     else {
         if(a_dessiner.entree().getx()>0){matrice.rotate(180,0,0,1);}
         else {matrice.rotate(0,0,0,1);}}
-    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), a_dessiner.rayonDeLaChambre(), (*new Vecteur3D(0.33,0.5,0.66)));
+    dessineCylindre(matrice, (a_dessiner.entree()-a_dessiner.sortie()).norme(), a_dessiner.rayonDeLaChambre(), (*new Vecteur3D(0.33,0.7,0.5)));
 }
 void SupportOpenGL::dessine(SectionDroite const& a_dessiner){
 

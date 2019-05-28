@@ -75,7 +75,7 @@ void Accelerateur::construireAccelerateur(int taille){
 
     for (size_t i(0); i<4; i++) {
         ajoutElement(new Dipole(re_d.rotation(vec_e3, (M_PI/2)),rs_d.rotation(vec_e3, (M_PI/2)),Re,Rc,Bz));
-        ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L));}}
+           ajoutElement(new MailleFODO(vec_re.rotation(vec_e3, (M_PI/2)), vec_rs.rotation(vec_e3, (M_PI/2)), Re, b, L)); }}
 
 void Accelerateur::segmenterEspace(int taille){
     for (size_t i(0);i<taille;i++) {
