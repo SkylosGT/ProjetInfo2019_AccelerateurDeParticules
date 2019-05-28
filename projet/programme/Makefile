@@ -13,29 +13,23 @@ CXXFLAGS += -g                    # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 
-all:  testParticule testVecteur exerciceP11 
+all: testParticule testVecteur exerciceP14 
 
-exerciceP11: exerciceP11.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o FaisceauCirculaire.o
-
-exerciceP11.o: exerciceP11.cc SupportConsole.h SupportADessin.h Dessinable.h
-
-exerciceP10: exerciceP10.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
-
-exerciceP10.o: exerciceP10.cc SupportConsole.h SupportADessin.h Dessinable.h
-
-exerciceP9: exerciceP9.o SupportConsole.o Particule.o Vecteur3D.o Dipole.o ElementCourbe.o Element.o Accelerateur.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
-
-exerciceP9.o: exerciceP9.cc SupportConsole.h SupportADessin.h Dessinable.h
-
-SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Dessinable.h
+testAccel1: testAccel1.o Particule.o Vecteur3D.o Accelerateur.o Dipole.o Element.o ElementCourbe.o Quadrupole.o SectionDroite.o Faisceau.o
 
 testParticule: testParticule.o Vecteur3D.o Particule.o
 
 testVecteur: testVecteur.o Vecteur3D.o
 
-testAccel1: testAccel1.o Particule.o Vecteur3D.o Accelerateur.o Dipole.o Element.o ElementCourbe.o ElementDroit.o Quadrupole.o SectionDroite.o Faisceau.o
+exerciceP14: exerciceP14.o Particule.o Faisceau.o Accelerateur.o Vecteur3D.o FaisceauCirculaire.o SupportConsole.o Element.o Case.o Dipole.o ElementCourbe.o MailleFODO.o ElementDroit.o Quadrupole.o SectionDroite.o
 
-Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h Faisceau.h
+exerciceP14.o:exerciceP14.cc SupportConsole.h Particule.h Dipole.h Accelerateur.h ConstantesPhysiques.h Quadrupole.h SectionDroite.h Vecteur3D.h ElementDroit.h ElementCourbe.h Faisceau.h FaisceauCirculaire.h MailleFODO.h
+
+SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Dessinable.h
+
+Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h Faisceau.h Case.h MailleFODO.h
+
+Case.o: Case.cc Case.h Particule.h Vecteur3D.h Element.h Dessinable.h SupportADessin.h
 
 Dipole.o: Dipole.cc Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h ConstantesPhysiques.h
 
@@ -64,3 +58,5 @@ Vecteur3D.o: Vecteur3D.cc Vecteur3D.h
 Faisceau.o: Faisceau.cc Faisceau.h Dessinable.h SupportADessin.h Vecteur3D.h Particule.h Element.h ConstantesPhysiques.h
 
 FaisceauCirculaire.o: FaisceauCirculaire.cc FaisceauCirculaire.h Faisceau.h Vecteur3D.h Particule.h Element.h ConstantesPhysiques.h 
+
+MailleFODO.o: MailleFODO.cc ElementDroit.h Element.h Particule.h Vecteur3D.h Dessinable.h SupportADessin.h Quadrupole.h SectionDroite.h
