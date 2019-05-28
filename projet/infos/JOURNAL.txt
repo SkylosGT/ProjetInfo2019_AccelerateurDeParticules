@@ -11,18 +11,14 @@ le dossier du projet.
 
 Log JosÈphine:
 -Remise à niveau des connaissances en programmation du premier semestre (aucun codage fait depuis 1 an à cause de la MAN)
-
 -Prise de connaissance du projet
-
--Apprentissage du fonctionnement de l’environnement de dèveloppement GIT
-
-
-Notes:
+-Apprentissage du fonctionnement de l’environnement de développement GIT
 
 --------------------------------------------------
 ## Semaine 2 :
 Log Joséphine:
 -Création de la classe Vecteur3D sur Geany dans un seul fichier Vecteur.cc
+-Implémentation de méthodes d’affichage, de comparaison et d’opérations multiples sur des vecteurs
 
 Log Adrien:
 -Installation de l'IDE Qt Creator
@@ -34,69 +30,141 @@ Log Adrien:
 -ImplÈmentation du makefile
 
 Log Joséphine:
--Implémentation d’un constructeur et destruction du setter dans le programme vecteur3D.cc 
+-Implémentation d’un constructeur dans le programme vecteur3D.cc
+-Destruction du setter dans le programme vecteur3D.cc 
 
 
 --------------------------------------------------
 ## Semaine 4 :
 Log Adrien:
 -ImplÈmentation de la classe Particule
+-crÈation des fichiers de test pour la particule
 
 Log Joséphine : 
 Sur la classe Vecteur3D : 
 -Rajout des commentaires et organisation du code (quelques fonctions sont passées en privés etc..)
 -Rajout de const et de passages par référence dans les fonctions pour éviter les copies
--Optimisation des anciennes fonctions en ayant des définitions à une seule ligne (un return)
+-Optimisation des anciennes fonctions en ayant des définitions à une seule ligne (un seul return)
 -Création de constructeurs
--Création des opérateurs internes de comparaison == et !=, opposé -, unitaire ~, +=, -=,*= (problème), ^=
+-Création des opérateurs internes de comparaison == et !=, opposé -, unitaire ~, +=, -=,*= (problème à régler), ^=
 -Création d’opérateurs externes d’affichage <<, d’addition +, de soustraction -, de multiplication par un scalaire à droite et à gauche *, de produit scalaire * et de produit vectoriel ^
 -Création d'un main qui test chaque opérateur (et qui fonctionne) 
 
 
 --------------------------------------------------
 ## Semaine 5 :
+Log Adrien:
+-CrÈation de la classe Element et de la sous classe Dipole
+
 Log Joséphine:
 -Lecture du complément mathématiques et meilleure prise de connaissance du projet dans sa globalité
--Relecture et compréhension des classes Particule, Element, ElementCourbe, ElementDroit et Dipole faites par Adrien
+-Relecture et compréhension des classes Particule, Element, ElementCourbe, ElementDroit et Dipôle faites par Adrien
 -Implémentation de la classe Accélérateur (ses attributs, méthodes et opérateurs, sa description) en utilisant les classes Element et Particule
--Il manque l’utilisation du polymorphisme afin que la collection d’élements utilisée puissent contenir non seulement des éléments mais aussi dipôle(sous-classe de Element)
+-Il manque l’utilisation du polymorphisme afin que la collection d’éléments utilisée puissent contenir non seulement des éléments mais aussi dipôle (sous-classe de Element)
 
 
 --------------------------------------------------
 ## Semaine 6 :
+Log Adrien:
+-Mise en place de l'affichage polymorphique ‡ la place de la surcharge d'opÈrateur <<
+-ProblËmes de pointeurs de support
 
+Log Joséphine:
+-Résolution dynamique des liens dans les collections d’éléments de l’accélérateur (tableau de pointeurs dans les collections de la classe Accélérateur)
+-Création du fichier testAcel1.cc qui test la classe Accélérateur (affichage d’éléments et de particules) qui fonctionne
+-Rajout de commentaire et nettoyage du code dans la classe Accélérateur
+-Création de la super-classe Dessinable qui permet de dessiner n’importe quelle instance de l’accélérateur sur un support à dessin (qui sont donc des sous-classes Dessinable)
+-Création de la super-classe SupportADessin nécessaire au dessin d’une instance dessinable
+-Création de la sous-classe SupportConsole de SupportADessin qui dessine l’accélérateur sur une console (version texte)
+-Update du Makefile avec Adrien
+-MAIS problème d’architecture lors du MAKE ? A résoudre
 
 
 --------------------------------------------------
 ## Semaine 7 :
+Log Adrien:
+-ExerciceP10 fonctionnel si l'on ajoute les ÈlÈments dans l'ordre
+-PremiËre simulation, donnÈes identiques au log
 
-
+Log Joséphine:
+-Grâce à Adrien qui a résolu le problème d’architecture, création du fichier exerciceP9 qui dessine un accélérateur (et qui fonctionne)
+-Implémentation de la classe Faisceau avec ses attributs (particule de référence, nombre de particule, collection de particules, coefficient des macro-particules simulées, énergie et émittances), ainsi que ses méthodes publiques (constructeur, calcul de l'énergie et de émittances, bouger, dessiner, affiche)
+-Implémentation de la méthode dessine dans SupportConsole pouvant dessiner un faisceau à l'aide de la méthode affiche de faisceau
+-Surcharge de l'opérateur *= (double n *=particule p) dans particule pour injecter des particules de masse et charge n fois plus grand que la particule de référence dans les faisceaux
 
 --------------------------------------------------
 ## Semaine 8 :
+Log Adrien:
+-PAS DE PROJET
 
-
+Log Joséphine:
+-PAS DE PROJET : révisions pour la série notée 2
 
 --------------------------------------------------
 ## Semaine 9 :
+-Modification de l'accÈlÈrateur pour ajouter les elements dans le dÈsordre
 
+
+Log Joséphine:
+-Update du Makefile avec Adrien
+-Création de exerciceP11 reprenant les caractéristiques de exerciceP10
+-MAIS segmentation fault lors du Make de exerciceP11?
 
 
 --------------------------------------------------
 ## Semaine 10 :
+Log Adrien:
+-DÈbut de l'interface graphique
+-Affichage des elements de maniËre simple
+-AmÈliration de l'accÈlÈrateur pour supporter les faisceaux 
+
+Log Joséphine:
+-Résolution du problème de segmentation fault avec Adrien
+-Finition de exerciceP11 (fonctionne)
+-Changement de l'implémentation des faisceaux afin de créé une sous-classe Faisceau Circulaire (fonction bouger et dessine en virtuelle pure dans Faisceau et redéfini dans Faisceau Circulaire)
+-Test dans exerciceP11 de cette nouvelle sous-classe (fonctionne)
+-Prise de connaissance des derniers exerciceP13 et P14 ainsi que du complément mathématiques en lien avec 
+
 
 
 
 --------------------------------------------------
 ## Semaine 11 :
+Log Adrien:
+-AmÈlioration de l'interface graphique Qt
+-MÈthodes cylindres et cylindres incurvÈs
 
+Log Joséphine:
+-Exercice P13 : implémentation de la méthode qui ajoute une force éléctromagnétique à une particule dû à l'interaction de celle-ci avec une autre particule
+-Changement dans la méthode bouger des Faisceaux Ciruclaire afin de prendre en compte ces nouvelles forces 
 
 
 --------------------------------------------------
 ## Semaine 12 :
+Log Adrien:
+-Pas travaillÈ sur la programmation cette semaine
+
+Log Joséphine :
+-Relecture du fichier réponses aux questions
+-Début de rédaction du fichier conception
 
 
 
 --------------------------------------------------
 ## Semaine 13 :
+Log Adrien:
+-RÈvision de l'examen
+-Classe Maille Fodo
+
+Log Joséphine :
+-Révision de l'examen de programmation
+-Finition du fichier conception
+
+--------------------------------------------------
+## Semaine 14 :
+Log Adrien
+-Retouche projet et ajout de la boucle de construction de l'accelerateur
+
+Log Joséphine : 
+-Dernière retouche du projet (relécture, test des codes, organisation du rendu...)
 
