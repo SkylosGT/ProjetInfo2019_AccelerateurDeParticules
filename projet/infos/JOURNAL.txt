@@ -38,6 +38,7 @@ Log Joséphine:
 ## Semaine 4 :
 Log Adrien:
 -ImplÈmentation de la classe Particule
+-crÈation des fichiers de test pour la particule
 
 Log Joséphine : 
 Sur la classe Vecteur3D : 
@@ -52,6 +53,9 @@ Sur la classe Vecteur3D :
 
 --------------------------------------------------
 ## Semaine 5 :
+Log Adrien:
+-CrÈation de la classe Element et de la sous classe Dipole
+
 Log Joséphine:
 -Lecture du complément mathématiques et meilleure prise de connaissance du projet dans sa globalité
 -Relecture et compréhension des classes Particule, Element, ElementCourbe, ElementDroit et Dipôle faites par Adrien
@@ -61,6 +65,10 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 6 :
+Log Adrien:
+-Mise en place de l'affichage polymorphique ‡ la place de la surcharge d'opÈrateur <<
+-ProblËmes de pointeurs de support
+
 Log Joséphine:
 -Résolution dynamique des liens dans les collections d’éléments de l’accélérateur (tableau de pointeurs dans les collections de la classe Accélérateur)
 -Création du fichier testAcel1.cc qui test la classe Accélérateur (affichage d’éléments et de particules) qui fonctionne
@@ -74,6 +82,10 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 7 :
+Log Adrien:
+-ExerciceP10 fonctionnel si l'on ajoute les ÈlÈments dans l'ordre
+-PremiËre simulation, donnÈes identiques au log
+
 Log Joséphine:
 -Grâce à Adrien qui a résolu le problème d’architecture, création du fichier exerciceP9 qui dessine un accélérateur (et qui fonctionne)
 -Implémentation de la classe Faisceau avec ses attributs (particule de référence, nombre de particule, collection de particules, coefficient des macro-particules simulées, énergie et émittances), ainsi que ses méthodes publiques (constructeur, calcul de l'énergie et de émittances, bouger, dessiner, affiche)
@@ -82,11 +94,17 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 8 :
+Log Adrien:
+-PAS DE PROJET
+
 Log Joséphine:
 -PAS DE PROJET : révisions pour la série notée 2
 
 --------------------------------------------------
 ## Semaine 9 :
+-Modification de l'accÈlÈrateur pour ajouter les elements dans le dÈsordre
+
+
 Log Joséphine:
 -Update du Makefile avec Adrien
 -Création de exerciceP11 reprenant les caractéristiques de exerciceP10
@@ -95,6 +113,11 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 10 :
+Log Adrien:
+-DÈbut de l'interface graphique
+-Affichage des elements de maniËre simple
+-AmÈliration de l'accÈlÈrateur pour supporter les faisceaux 
+
 Log Joséphine:
 -Résolution du problème de segmentation fault avec Adrien
 -Finition de exerciceP11 (fonctionne)
@@ -107,6 +130,10 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 11 :
+Log Adrien:
+-AmÈlioration de l'interface graphique Qt
+-MÈthodes cylindres et cylindres incurvÈs
+
 Log Joséphine:
 -Exercice P13 : implémentation de la méthode qui ajoute une force éléctromagnétique à une particule dû à l'interaction de celle-ci avec une autre particule
 -Changement dans la méthode bouger des Faisceaux Ciruclaire afin de prendre en compte ces nouvelles forces 
@@ -114,6 +141,9 @@ Log Joséphine:
 
 --------------------------------------------------
 ## Semaine 12 :
+Log Adrien:
+-Pas travaillÈ sur la programmation cette semaine
+
 Log Joséphine :
 -Relecture du fichier réponses aux questions
 -Début de rédaction du fichier conception
@@ -122,12 +152,19 @@ Log Joséphine :
 
 --------------------------------------------------
 ## Semaine 13 :
+Log Adrien:
+-RÈvision de l'examen
+-Classe Maille Fodo
+
 Log Joséphine :
 -Révision de l'examen de programmation
 -Finition du fichier conception
 
 --------------------------------------------------
 ## Semaine 14 :
+Log Adrien
+-Retouche projet et ajout de la boucle de construction de l'accelerateur
+
 Log Joséphine : 
 -Dernière retouche du projet (relécture, test des codes, organisation du rendu...)
 
