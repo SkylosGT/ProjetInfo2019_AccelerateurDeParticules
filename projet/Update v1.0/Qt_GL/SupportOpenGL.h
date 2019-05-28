@@ -3,7 +3,7 @@
 
 #include <QOpenGLShaderProgram> // Classe qui regroupe les fonctions OpenGL liées aux shaders
 #include <QMatrix4x4>
-#include "SupportAdessin.h"
+#include "SupportADessin.h"
 #include "Vecteur3D.h"
 #include "glsphere.h"
 

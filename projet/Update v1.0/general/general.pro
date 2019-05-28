@@ -32,7 +32,7 @@ HEADERS += \
     Particule.h \
     Quadrupole.h \
     SectionDroite.h \
-    SupportAdessin.h \
+    SupportADessin.h \
     Vecteur3D.h
 
 
