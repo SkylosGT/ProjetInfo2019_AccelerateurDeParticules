@@ -22,7 +22,7 @@ Le rendu est composé de 3 versions de l'accélérateur de particules, la version f
 		Obsolète: testAccel1 		
 
 	Version finale bis:
-	Update v1.1 -- Cette version du projet est la version finale du projet sans l'affichage graphique Qt et comporte
+	Update v1.0-bis -- Cette version du projet est la version finale du projet sans l'affichage graphique Qt et comporte
 		*Moteur de simulation final avec intéractions des particules
 		*Test des classes qui composent le projet
 
@@ -52,7 +52,7 @@ Build & Launch:
 			II. make all
 			III. launch l'executable désiré
  
-	Update v1.1 -- 
+	Update v1.0-bis -- 
 
 		Console:
 			I. make
