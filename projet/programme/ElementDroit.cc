@@ -9,8 +9,6 @@ using namespace ConstantesPhysiques;
 ElementDroit::ElementDroit(Vecteur3D _re, Vecteur3D _rs, double _Re, SupportADessin* _support)
 :Element(_re,_rs,_Re, _support) {}
 
-ElementDroit::~ElementDroit() {}
-
 bool ElementDroit::heurte_bord(Particule const& _p) const{
     Vecteur3D vec_X(_p.position()-vec_re);
     Vecteur3D vec_d(~(vec_rs-vec_re));

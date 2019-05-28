@@ -21,6 +21,7 @@ class Particule : public Dessinable {
     double scal_q; //Charge de la particule
     Vecteur3D vec_f; //Force appliquée sur la particule
     Element* elem_courant; //Elément courant dans lequel se trouve la particule
+    int caseDeLaParticule;
 
   /*Méthodes pour faciliter les calculs des attributs de l'instance*/
 
@@ -41,8 +42,7 @@ class Particule : public Dessinable {
     //Getter, retourne l'élément courant de la particule
     Element* elemCourant() const {return elem_courant;}
 
-    //Constructeur par vecteur quantité de mouvement en GeV
-    Particule(Vecteur3D, Vecteur3D, double, double,SupportADessin* _support=nullptr,Element* _courant=nullptr);
+    int caseParticule() const {return caseDeLaParticule;}
 
     //Constructeur par energie en GeV et direction vectorielle
     Particule(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr,Element* _courant=nullptr);
@@ -57,8 +57,7 @@ class Particule : public Dessinable {
 
     //Ajoute une force s'appliquant sur la particule et effectue une rotation sur celle la
     void ajouteForceMagnetique(Vecteur3D, double);
-    
-    //Ajoute une force du à l'intéraction éléctromagnétique avec une autre particule
+
     void ajouteInteractionParticule(Particule const&);
 
     //Déplace la particule et modifie sa vitesse en fonction des attributs de l'instance courante et du pas de temps définit
@@ -70,14 +69,15 @@ class Particule : public Dessinable {
     //La particule change d'élément
     void change_element(Element*);
 
+    void change_case(int c){caseDeLaParticule=c;}
+
 	//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine une particule sur un support choisi
     virtual void dessine() override
     { support->dessine(*this); }
     
     //Surcharge de l'opérateur *= qui multiplie la masse et la charge d'une particule par l'argument
     Particule& operator*=(double);
-    
-    //Surcharge de l'opérateur != qui compare la charge, la masse, la vitesse, et la position de deux particules
+
     bool operator==(Particule const&) const;
 };
 

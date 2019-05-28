@@ -15,8 +15,6 @@ Vecteur3D ElementCourbe::centreDeCourbure() const {
 ElementCourbe::ElementCourbe(Vecteur3D _re, Vecteur3D _rs, double _Re, double _k, SupportADessin* _support)
 :Element(_re,_rs,_Re, _support), scal_k(_k) {}
 
-ElementCourbe::~ElementCourbe() {}
-
 bool ElementCourbe::heurte_bord(Particule const& _particule) const{
     Vecteur3D vec_X(_particule.position()-centreDeCourbure());
     Vecteur3D vec_u(~(vec_X-(vec_X.getz()*vec_e3)));

@@ -1,0 +1,89 @@
+QUESTIONS P1.1
+On a représenté les vecteurs3D comme une classe ayant comme attributs privés ces trois coordonnées de types double. Les méthodes publiques utiles sont les getters (pour accéder aux coordonnes), les setters, pour initialiser un vecteur (mais pas très bien car risque d'oublie et mauvaise initialisation possible, que se passe t'il sans initialisation?). D'autres méthodes utiles sont l'affichage et la comparaison de deux vecteurs mise en publique afin de pouvoir y accéder.
+
+QUESTION P4.1
+Le constructeur de copie par défaut offert par C++ fait une copie de surface : il recopie la valeur des attributs dans le nouvel objet. Dans notre classe Vecteur3D, ce constructeur de copie est donc nettement suffisant. On n'a en effet besoin que de la copie des coordonnées du vecteur. Il est donc (pour l'instant en tout cas) inutile de créer une version plus avancée qui implique notamment la redéfinition du destructeur et de l'opérateur d'affectation.
+
+QUESTION P4.2
+Si on rajoutait un constructeur en coordonnée sphérique, il faudrait déjà différencier l'initialisation de celui-ci par rapport à une initialisation en coordonnées cartésiennes à l'aide par exemple un booléen passé en argument. Ce nouveau constructeur apporterait de l'ambiguïté dans notre classe puisque : 
+-les attributs n'aurait plus de réel signification puisqu'ils pourraient porté la valeur d'un vecteur en coordonnées sphériques ou cartésien 
+-un vecteur est lié dans sa représentation à une base de coordonnée dans lequel il est décrit et où l'on fait des opérations. Permettre l'ajout d'une nouvelle base dans notre classe serait très compliqué et rendrait l'implémentation et l'utilisation des opérateurs ambigüe et difficile.
+
+QUESTION P4.3
+Nous avons introduit une surcharge de l'opérateur de sortie << afin de remplacer la fonction affichage ainsi qu'une surcharge de l'opérateur de comparaison == à la place de la fonction de comparaison.
+
+QUESTION P5.1
+Nous avons implémenter la fonction gamma et l'énergie comme méthodes ne modifiant aucun attribut et retournant un double. Le facteur gamma ainsi que l'énergie se calculent en tout temps respectivement en fonction de la vitesse instantanée de la particule et de la vitesse et masse de la particule. Ces choix d'implémentation reflète seulement notre vision de la conception : il nous paraît plus correct physiquement parlant de séparer les attributs "de base" d'une particule tels que sa vitesse, sa position, sa charge et sa masse, de ses méthodes gamma et énergie plus complexes à calculer, propre à nos particules (l'énergie ne se calcule pas aussi facilement pour tout objet subissant des forces) et utilisant les attributs de base. 
+De plus, si nous avions choisi d'implémenter gamma et énergie en attributs, les calculs de ceux-ci devrait se réitérer en tout temps voulu (ils prennent différentes valeur à chaque fois que la particule bouge) d'une façon ou d'une autre dans un bout du code pour après stocker le résultat dans l'attribut. Cela ne fait qu'augmenter le codage inutile et l'ambiguïté de notre classe.
+
+QUESTION P6.1
+Il parait assez évident qu'il est nécessaire avant de créer des classes élément courbe et droit, de créer une super-classe Element dont elles hériteront. En effet, les éléments droits et courbes différent déjà juste par leur géométrie, mais elles restent des éléments ayant des attributs et des méthodes en commun.
+Dans la super-classe Element, on définit, comme l'indique l'énoncé de l'exercice, les attributs suivants qui seront hérités dans chaque sous-classe d'élément: un vecteur3D représentant la position d'entrée de l'élément, au autre pour sa position de sortie, un scalaire représentant le rayon de la chambre à vide, et enfin un pointeur à la C (plus de liberté mais il faudra faire attention à ne pas utiliser un pointeur ne pointant sur rien "segmentation fault") sur l'élément suivant.
+
+QUESTION P6.2
+Les champs magnétiques sont propres à chaque élément d'un accélérateur. Ils doivent donc être implémentés comme méthode virtuelle, qu'hériteront les sous-classe d'élément, dans la super classe Élement : en effet, elles seront redéfinis plus tard dans les sous-classe des éléments droits et élément courbes, ce qui fait des classes élément, élément courbe et élément droit des classes virtuelles qui ne peuvent donc pas être instanciées ce qui est logique : ce ne sont pas de "vrais" élément d'un accélérateur mais seulement des "types" ou "catégorie" auxquels les réels élément appartiendront.
+De plus, le choix d'utilisé une méthode plutôt qu'un attribut est un choix évident (il serait même beaucoup trop compliqué de l'implémenter en attributs)  puisque chaque champs magnétiques d'un élément est calculé différemment d'un autre et l'implémentation logique est donc la redéfinition d'une méthode virtuelle prenant la position d'une particule en argument et retournant le champ magnétique B que subit la particule à cette position.
+
+QUESTION P6.3
+Oui nous avons représenté le centre de courbure d'un élément droit au travers d'une méthode protégée ne prenant aucun argument (le calcule n'utilise que les attributs d'un élément courbe : position d'entrée, position de sortie, rayon de courbure ainsi que le troisième vecteur de la base cartésienne orthonormée), qui ne modifie pas les attributs de l'instance courante (const) et qui retourne un vecteur3D indiquant la position du centre de courbure.
+
+QUESTION P6.4
+Afin de représenter la dernière contrainte que chaque particule ne puisse être que dans un élément, on ajoute un pointeur sur un élément (qu'on a appelé elem_courant) dans les attributs d'une particule qui ne pointera donc que sur un seul élément à la fois. Il faut donc aussi changer les constructeur des particules afin de pouvoir indiquer l'élément courant dans lequel la particule se trouve lors de son initialisation. On définira que l'élément courant d'une particule ne pointe sur rien par défaut.
+On ajoute de plus une méthode change_element qui ne retourne rien et prend un pointeur sur un élément en argument. Cette méthode change l'attribut elem_courant de cette particule : il pointe désormais sur l'élément passé en argument.
+
+QUESTION P7.1
+La classe Accélérateur doit pour l'instant simuler le système physique qu'est l'accélérateur de particule. Cette classe a donc besoin d'une collection de particules et d'une collection d'éléments (courbe, droit, dipôles..) comme attributs privés afin de part la suite simuler des interactions entre elle les particules ainsi que l'évolution de celles-ci dans les éléments de l'accélérateur. Ces collections seront contenues dans un tableau dynamique de type vector.
+Afin de pouvoir visualiser l'évolution de cet accélérateur, une interphase texte est requise pour l'instant (interphase graphique pour plus tard). La façon  la plus pratique d'implémenter cette simulation est de créer une méthode affiche publique dans l'accélérateur. Cette méthode affiche fait donc une itération sur chaque éléments et particules qu'elle contient et affiche leur attributs pertinents. 
+Cette fonction affiche (pour une meilleure visibilité et logique du code) utilise les fonctions affiche des éléments et des particules implémentée dans leurs propres classes.
+Enfin, il est nécéssaire que la collection d'élément soit un tableau de pointeurs sur des éléments afin d'utiliser le polymorphisme pour afficher soit un dipôle, soit un quadruple, soit une section droite.
+Nous avons décidé d'utiliser aussi un tableau de pointeurs sur des particules pour la collection de particules. Il est en effet plus rigoureux de l'implémenter comme ça au vu de possibles sous-classes de particules (dans un projet plus poussé par exemple).
+
+QUESTION P7.2
+On ne souhaite pas pouvoir copier un accélérateur dans un autre soit pas affectation = soit par copie. Pourquoi? Tout d'abord dans notre projet nous ne programmons qu'un accélérateur de particules et non plusieurs. Nous n'avons pas besoin d'un autre accélérateur et en aucun cas il est utile d'avoir deux accélérateurs exactement pareil. De plus, une instance accélérateur dans lequel on a ajouté des éléments et des particules occupe beaucoup trop de mémoire.
+Il est donc nécéssaire d'empêcher qu'une telle copie soit faites dans le code de ce projet.
+
+QUESTION P8.1
+La méthode heurte_bord() est une méthode utilisée par les deux sous-classes élément courbe et élément droit de élément. Cette méthode est donc définie virtuelle dans la super-classe élément et redéfini dans les sous-classes élément droit et élément courbe selon les formules du complément mathématique. Elle prend une particule comme argument, ne change pas l'instance courante (const) et retourne un booléen (vrai ou faux).
+
+QUESTION P8.2
+Cette conception de la méthode heurte_bord implique que la super classe Element est une super classe virtuelle, abstraite et donc ininstanciable. En effet, comme elle comprend la méthode virtuelle pure heurte_bord qui n'est pas défini pour un élément en général mais est redéfinie et utilisée pour les éléments courbes et élément droits, on ne peut donc pas créer d'instance Element, ce qui est logique dans notre conception.
+
+QUESTION P9.1
+En terme de Programmation Orientée Objet, la méthode dessine est spécifique à chaque objet que l'on veut dessiner. En d'autre terme, c'est une méthode virtuelle redéfinie dans chaque classe que l'on souhaite dessiner : c'est à dire que les éléments dipôle, quadrupôle, section droite, les particules, et l'accélérateur (notre but finale) vont hériter de cette méthode.
+
+QUESTION P9.2
+Il est assez complexe d'essayer d'expliquer les relations qui s'opèrent dans les sous-classe de Dessinable et de Support à Dessin mais je vais essayer de montrer ce que j'ai compris du mieux que je peux.
+En terme de Programmation Orientée Objet, il faut donc créer une super-classe Dessinable et une super-classe Support à Dessin. Dessinable doit avoir un pointeur sur un support à dessin comme attribut afin d'utiliser le polymorphisme car en fonction du support de dessin que l'on choisi (console ou graphique etc...) on ne pas va dessiner l'objet de la même manière. De plus, Dessinable doit avoir une méthode virtuelle pure (Dessinable est donc abstraite ce qui est logique) dessine() qui sera redéfini exactement de la même manière (comme l'indique l'énoncé) dans les sous-classes que l'on souhaite dessiner. 
+Chaque objet qui est dessinable hérite donc de la super classe dessinable (les éléments, les particules et l'accélérateurs sont des Dessinables).
+A chaque initialisation d'une instance dessinable, il faut donc y ajouter un pointeur sur le support a dessin choisi (nouveaux constructeurs). Ainsi dans la redéfinition de dessine() dans une particule par exemple qui a un support console comme support à dessin, support->dessine(*this), qui est la redéfinition de la méthode dessine() de Dessinable, appellera la méthode dessine du support console (polymorphisme + méthode virtuelle) et par surcharge (en fonction de l'argument passé *this qui est une particule ici), l'appel dessinera une particule sur la console. 
+Ainsi la super classe support à dessin comporte autant de méthode dessine (virtuelle pure) que d'objet que l'on souhaite dessiner et ces méthodes seront redéfini dans les sous-classe support console et ensuite support graphique.
+ 
+QUESTION P9.3
+Pour les classes contenant des pointeurs, il faut faire très attention à ce que, lors de l'appel de la méthode dessine d'un objet qui appelle elle même la méthode dessine du support à dessin de l'objet via le corps suivant : support->dessine(*this), si l'argument *this est pris par copie, alors, la méthode dessine pourra faire des dégâts irréparable concernant les zones pointées par les pointeur de l'objet passé par copie. Pour remédier à cela, on peut faire un passage par référence constante de l'objet comme argument de dessine (comme on le fait), soit redéfinir un constructeur de copie (copie profonde comme vu en cours), ou bien utiliser des unique_ptr qui assure l'interdiction que deux pointeurs ne pointe sur la même zone mémoire.
+De plus, pour dessiner un accélérateur en mode texte, (ou graphique pour plus tard), l'appel à la méthode dessine de l'accélérateur appelle les méthodes dessine des éléments et particules qui le compose. Hors, cet appel se fait à l'aide du pointeur sur le support à dessin que possède chacun des objets. Il faut donc s'assurer que ces pointeurs font partie de la même sous classe de support à dessin (donc support console ou support graphique) et que aucun de ces pointeurs ne pointe sur rien ou n'est été détruit auparavant dans le programme. Pour être sûr que cela n'arrive pas, on construit tout les objets sans support (donc celui-ci sera initialisé par défaut à nullptr), puis ce sera l'accélérateur qui donnera son support à touts les objets qui le composent pour être certain qu'il s'agit du même support non nullptr.
+
+QUESTION P11.1
+Nous avons implémenter les faisceaux comme une nouvelle classe héritant de Dessinable puisque nous voulons être capable de dessiner les faisceaux de particules dans l'accélérateur.
+Ainsi, dans la partie private, nous avons implémenter les attributs suivants à la classe Faisceau :
+-Un tableau dynamique de pointeur sur des particules pour représenter le fait qu'un faisceau est/contient une collection de particule de taille changeante. 
+-Une particule de référence qui ne changera pas une fois initialisée (donc const)
+-un long int ayant la valeur du vrai nombre de particule que l'on souhaite avoir dans le faisceau
+-un double représentant le facteur de macro-particules simulées
+-un double ayant comme valeur l'énergie moyenne
+-et enfin 8 double correspondant aux deux émittances verticale et horizontale, ainsi que leur 3 coefficients d'ellipses de phases chacune
+Enfin dans la partie publique nous avons implémenté les méthodes suivantes :
+-Un getteur de la collection de particule qui sera utile pour dessiner le faisceau
+-une méthode qui calcule l'énergie moyenne instantanée du faisceau et stocke la valeur trouvée dans l'attribut energie_moy (l'énergie change constamment, il est donc utile d'utiliser une méthode qui remet à jour l'attribut energie_moy)
+-Pour les mêmes raisons on a implémenter deux méthode qui calcule respectivement l'émittance verticale et ses 3 coefficients de phases pour les stocker dans les attributs correspondant, et l'émittance horizontale et ses 3 coefficients de phases pour les stocker dans les attributs correspondant
+-Enfin le constructeur qui prend en argument la particule de référence, le nombre de particule et le facteur lambda de macro-particules simulées et qui dans son corps injecte une particule dans le faisceau de position et vitesse égale à la particule de référence, mais de masse et de charge lambda fois plus haute que celles de la particule de référence. De plus, dans le corps du constructeur, on calcule l'énergie moyenne du faisceau à une particule.
+
+QUESTION P13.1
+Dans le deuxième algorithme il faut faire une boucle sur toute les particules d’un faisceau imbriqué dans une autre boucle sur toute les particules d’un faisceau. C’est à dire que pour chacune des particules du faisceau, on calcule chacune des interactions qu’elle a avec les autres particules du faisceau (force inter-particules). Cet algorithme est donc de complexité O(n^2)
+Dans le premier algorithme, il s'agit aussi de deux boucles imbriquée : la première fait une itération sur les n-particules cependant la première itération se ferait au départ sur n particules, puis n-1, puis n-2 etc jusqu'a ce que la dernière particules n'est plus qu'un itération. Ainsi, la complexité algorithmique semble être O(n.log(n)).
+
+QUESTION P14.1
+Dans cet algorithme deux boucles sont imbriquées. La première est une itération sur toutes les particules des faisceaux de l'accélérateur (O(n)). Cette première boucles prends toutes les particules dans les faisceaux. Chacune de ces particules étant associées à une case, on prend les cases annexes pour obtenir toutes les particules voisines. Celles ci peuvent appliquer une force sur notre particule de départ. Cette deuxième boucle est de complexité approximative O(1) (comme on fait l'hypothèse que le nombre de particule par case est négligeable devant le nombre total de particules) ainsi la complexité totale de l'algorithme est de O(n).
+
+QUESTION P14.2
+Nous avons ajouté une classe case qui répertorie l'ensemble des particules dans celle ci. De plus chaque particule connait sa case. Nous avons subdivisé un cercle qui approxime l'accélérateur. Ainsi chaque case possède un arc de cercle de longueur epsilon suffisamment petit pour que le nombre de particules à l'intérieur soit négligeable mais suffisamment grand pour que le déplacement d'une particule soit faible par rapport à epsilon. Chaque case est représentée par un entier qui représente sa position dans le tableau dynamique des cases. Lorsque le système évolue, la méthode interactionParticule prend pour chaque particule dans un faisceau sa case, récupère un tableau dynamique de particules dans les cases courante et annexes de la particule sélectionnée puis applique une force d'intéraction entre celles-ci.   
+

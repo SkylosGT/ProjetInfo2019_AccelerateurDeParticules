@@ -10,15 +10,13 @@ class Dipole : public ElementCourbe {
     private:
     
     //Attribut spécifique aux Dipôles
+
         double scal_Bz;//Norme du champ magnétique
 
     public:
 
         //Constructeur du Dipole qui ne peut pas avoir d'élément suivant attaché à lui
         Dipole(Vecteur3D, Vecteur3D, double, double, double, SupportADessin* _support=nullptr);
-
-        //Destructeur du Dipole
-        ~Dipole();
 
     /*Méthodes de l'interface de la classe Dipole*/
 
@@ -28,7 +26,7 @@ class Dipole : public ElementCourbe {
         //Affiche un Dipole
         virtual std::ostream& affiche(std::ostream&) const override;
 
-		//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine un dipôle sur un support choisi
+        //Méthode dessine en fonction du support du dessinable
         virtual void dessine() override
         { support->dessine(*this); }
 };

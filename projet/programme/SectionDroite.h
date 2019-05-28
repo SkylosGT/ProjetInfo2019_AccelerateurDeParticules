@@ -12,9 +12,6 @@ class SectionDroite : public ElementDroit {
         //Constructeur de la section droite qui ne peut pas avoir d'élément suivant attaché à lui
         SectionDroite(Vecteur3D, Vecteur3D, double, SupportADessin* _support=nullptr);
 
-        //Destructeur de la section droite
-        ~SectionDroite();
-
     /*Méthodes de l'interface de la classe SectionDroite*/
 
         //Calcule le champ magnétique de l'élément
@@ -23,7 +20,7 @@ class SectionDroite : public ElementDroit {
         //Affiche une Section Droite
         virtual std::ostream& affiche(std::ostream&) const override;
 
-		//Redéfinition de la méthode dessine héritée de la super classe Dessinable qui dessine une section droite sur un support choisi
+        //Dessine une section droite en fonction de son support
         virtual void dessine() override
         { support->dessine(*this); }
 };
