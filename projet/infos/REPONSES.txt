@@ -78,8 +78,8 @@ Enfin dans la partie publique nous avons implémenté les méthodes suivantes :
 -Enfin le constructeur qui prend en argument la particule de référence, le nombre de particule et le facteur lambda de macro-particules simulées et qui dans son corps injecte une particule dans le faisceau de position et vitesse égale à la particule de référence, mais de masse et de charge lambda fois plus haute que celles de la particule de référence. De plus, dans le corsp du constructeur, on calcule l'énergie moyenne du faisceau à une particule.
 
 QUESTION P13.1
-Dans le première algorithme il faut faire une boucle sur toute les particules d’un faisceau imbriqué dans une autre boucle sur toute les particules d’un faisceau. C’est à dire que pour chacune des particules du faisceau, on calcule chacune des interactions qu’elle a avec les autres particules du faisceau (force inter-particules). Cet algorithme est donc de complexité O(n^2)
-Dans le deuxième algorithme propose de faire deux boucles distinctes pour calculer les forces qui s’exerce sur une particule. La complexité algorithmique est donc …?
+Dans le deuxième algorithme il faut faire une boucle sur toute les particules d’un faisceau imbriqué dans une autre boucle sur toute les particules d’un faisceau. C’est à dire que pour chacune des particules du faisceau, on calcule chacune des interactions qu’elle a avec les autres particules du faisceau (force inter-particules). Cet algorithme est donc de complexité O(n^2)
+Dans le premier algorithme, il s'agit aussi de deux boucles imbriquée : la première fait une itération sur les n-particules cependant la première itération se ferait au départ sur n particules, puis n-1, puis n-2 etc jusqu'a ce que la dernière particules n'est plus qu'un itération. Ainsi, la complexité algorithmique semble être O(n.log(n)).
 
 QUESTION P14.1
 QUESTION P14.2
