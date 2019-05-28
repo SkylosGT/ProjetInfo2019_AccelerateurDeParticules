@@ -25,7 +25,7 @@ exerciceP14: exerciceP14.o Particule.o Faisceau.o Accelerateur.o Vecteur3D.o Fai
 
 exerciceP14.o:exerciceP14.cc SupportConsole.h Particule.h Dipole.h Accelerateur.h ConstantesPhysiques.h Quadrupole.h SectionDroite.h Vecteur3D.h ElementDroit.h ElementCourbe.h Faisceau.h FaisceauCirculaire.h MailleFODO.h
 
-SupportConsole.o: SupportConsole.cc SupportConsole.h supportADessin.h Dessinable.h
+SupportConsole.o: SupportConsole.cc SupportConsole.h SupportADessin.h Dessinable.h
 
 Accelerateur.o: Accelerateur.cc Accelerateur.h Dipole.h ElementCourbe.h Element.h Vecteur3D.h Particule.h Faisceau.h Case.h MailleFODO.h
 
