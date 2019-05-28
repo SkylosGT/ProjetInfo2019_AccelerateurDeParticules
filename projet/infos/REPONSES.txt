@@ -82,5 +82,7 @@ Dans le deuxième algorithme il faut faire une boucle sur toute les particules d
 Dans le premier algorithme, il s'agit aussi de deux boucles imbriquée : la première fait une itération sur les n-particules cependant la première itération se ferait au départ sur n particules, puis n-1, puis n-2 etc jusqu'a ce que la dernière particules n'est plus qu'un itération. Ainsi, la complexité algorithmique semble être O(n.log(n)).
 
 QUESTION P14.1
+Dans cet algorithme deux boucles sont imbriquées. La première est une itération sur toutes les particules des faisceaux de l'accélérateur (O(n)). Cette première boucles prends toutes les particules dans les faisceaux. Chacune de ces particules étant associées à une case, on prend les cases annexes pour obtenir toutes les particules voisines. Celles ci peuvent appliquer une force sur notre particule de départ. Cette deuxième boucle est de complexité approximative O(1) (comme on fait l'hypothèse que le nombre de particule par case est négligeable devant le nombre total de particules) ainsi la complexité totale de l'algorithme est de O(n).
+
 QUESTION P14.2
 
